@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
 
 html, body {
   margin: 0;
@@ -11,7 +10,8 @@ html, body {
 .app-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   padding: 32px 48px;
   box-sizing: border-box;
 }
@@ -59,43 +59,70 @@ html, body {
 .cta-button {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 90px;
+  justify-content: center;
+  gap: 12px;
   height: 48px;
   border-radius: 40px;
   border: 1px solid #f3f4f6;
-  background-color: #fff;
-  padding: 0 20px;
+  padding: 0 24px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.015);
-  transition: box-shadow 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #111827;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: -2;
+}
+
+.cta-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #D2B48C; /* Marrom areia de praia */
+  z-index: -1;
+  transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 40px;
 }
 
 .cta-button:hover {
-  box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  color: #fff;
+  border-color: #D2B48C;
 }
 
-.cta-button .dot {
-  width: 8px;
-  height: 8px;
-  background-color: #10b981;
-  border-radius: 50%;
+.cta-button:hover::after {
+  width: 100%;
 }
 
 .cta-button .arrow-icon {
-  width: 14px;
-  height: 14px;
-  color: #333;
+  width: 16px;
+  height: 16px;
+  color: currentColor;
 }
 
 /* Hero Section */
 .main-content {
   padding: 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 0; /* allows flex children to shrink */
+  display: block;
+  width: 100%;
 }
 
 .hero {
@@ -103,9 +130,10 @@ html, body {
   background-image: url('/hero.avif'); 
   /* Fallback color/gradient */
   background-color: #0076a5; 
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center;
-  height: 100%;
+  height: calc(100vh - 120px);
+  min-height: 640px;
   max-height: 840px;
   border-radius: 32px;
   overflow: hidden;
@@ -113,31 +141,47 @@ html, body {
   align-items: center;
   padding: 0 72px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+  animation: windPan 20s ease-in-out infinite alternate;
+}
+
+@keyframes windPan {
+  0% {
+    background-size: 100% 100%;
+    background-position: left center;
+  }
+  100% {
+    background-size: 105% 105%;
+    background-position: right center;
+  }
 }
 
 .hero-text-container {
-  max-width: 650px;
+  max-width: 800px;
   position: relative;
   z-index: 2;
   margin-top: -60px;
 }
 
 .hero-title {
-  font-size: 3.8rem;
+  font-family: 'Avenir', sans-serif !important;
+  font-size: 80px;
   font-weight: 400;
-  line-height: 1.1;
-  color: #fff;
+  line-height: 80px;
+  color: #FFFFFF;
   margin: 0 0 24px 0;
-  letter-spacing: -0.01em;
+  letter-spacing: 0px;
+  white-space: nowrap;
 }
 
 .hero-subtitle {
-  font-size: 1.05rem;
-  color: #111827; /* Dark grayish-black */
-  line-height: 1.6;
+  font-family: 'Diodrum', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  line-height: 27px;
   margin: 0 0 32px 0;
-  max-width: 450px;
+  max-width: 650px;
   font-weight: 400;
+  letter-spacing: 0px;
 }
 
 .hero-cta {
@@ -208,11 +252,11 @@ html, body {
 }
 
 .avatars img {
-  width: 64px;
-  height: 64px;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
   border: 4px solid #fff;
-  margin-left: -20px;
+  margin-left: -24px;
   object-fit: cover;
   box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
@@ -225,14 +269,18 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  flex-shrink: 0;
+  width: max-content;
 }
 
 .card-info p {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #4b5563;
   line-height: 1.4;
-  font-weight: 500;
+  font-weight: 600;
+  white-space: pre-line;
+  word-break: keep-all;
 }
 
 .stars {
@@ -240,4 +288,139 @@ html, body {
   font-size: 1.15rem;
   letter-spacing: 3px;
   margin-top: 4px;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 16px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .nav-links {
+    display: none; /* Hide standard nav on mobile */
+  }
+
+  .hero {
+    padding: 40px 24px;
+    border-radius: 24px;
+    align-items: center; /* keep centered on mobile usually looks better */
+    background-size: cover; /* Prevent image squeezing on mobile */
+    background-position: center center;
+    min-height: 600px; /* Force minimum height so content fits */
+    animation: none; /* Disable panning on mobile to prevent weird shifts */
+  }
+
+  .hero-text-container {
+    margin-top: -80px; /* Shift text up a bit on mobile to make room for card */
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 52px;
+    line-height: 56px;
+    white-space: normal; /* Let it flow on small screens */
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 32px;
+  }
+
+  .floating-card {
+    border-radius: 0;
+    border-top-left-radius: 48px;
+    border-bottom-right-radius: 20px;
+    padding: 16px 20px;
+    gap: 12px;
+    width: auto;
+    max-width: 95%;
+    justify-content: flex-start;
+    bottom: 0px;
+    right: 0px;
+    transform: none;
+    background-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: -5px -5px 20px rgba(0,0,0,0.05);
+  }
+
+  .floating-card::before {
+    display: block;
+    left: -40px;
+    width: 40px;
+    height: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 20px 20px 0 20px rgba(255, 255, 255, 0.96);
+  }
+
+  .floating-card::after {
+    display: block;
+    top: -40px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 20px 20px 0 20px rgba(255, 255, 255, 0.96);
+  }
+
+  .avatars img {
+    width: 48px;
+    height: 48px;
+    margin-left: -12px;
+  }
+
+  .card-info {
+    width: auto;
+  }
+
+  .card-info p {
+    font-family: 'Avenir', sans-serif;
+    font-size: 1.05rem;
+    color: #111827;
+    white-space: pre-line;
+  }
+}
+
+
+/* Full Width Beach Banner */
+.beach-banner {
+  margin-top: 0px; 
+  margin-left: -48px;
+  margin-right: -48px;
+  margin-bottom: -32px; 
+  width: calc(100% + 96px);
+  height: 400px; /* Increased height so it's not squeezed */
+  background-image: url('/imgbeach.avif');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* Parallax effect */
+  display: block;
+}
+
+@media (max-width: 1023px) {
+  .beach-banner {
+    margin-left: -24px;
+    margin-right: -24px;
+    width: calc(100% + 48px);
+  }
+}
+
+@media (max-width: 768px) {
+  .beach-banner {
+    margin-top: 0px;
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-bottom: -16px;
+    width: calc(100% + 32px);
+    height: 250px; /* Slightly taller on mobile too */
+    background-attachment: scroll; /* Disable parallax on mobile to prevent jitter */
+  }
 }

@@ -1,4 +1,8 @@
 import './App.css'
+import Oportunidades from './components/Oportunidades'
+import ProjetosDestaque from './components/ProjetosDestaque'
+import Cidades from './components/Cidades'
+import EstudoVentos from './components/EstudoVentos'
 
 function App() {
   return (
@@ -18,9 +22,9 @@ function App() {
         </nav>
 
         <button className="cta-button" type="button">
-          <span className="dot"></span>
+          <span>Entre em contato</span>
           <svg className="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
       </header>
@@ -30,10 +34,10 @@ function App() {
         <section className="hero">
           <div className="hero-text-container">
             <h1 className="hero-title">
-              INVISTA COM O<br/>VENTO A FAVOR.
+              INVISTA COM O VENTO A FAVOR.
             </h1>
             <p className="hero-subtitle">
-              Terrenos, casas e projetos exclusivos com segurança jurídica,<br/>valorização real e suporte completo.
+              Terrenos, casas e projetos exclusivos com segurança jurídica,<br/><u>valorização real e suporte completo.</u>
             </p>
             <button className="hero-cta">Conhecer projetos</button>
           </div>
@@ -52,6 +56,16 @@ function App() {
             </div>
           </div>
         </section>
+
+        <Oportunidades />
+
+        <section className="beach-banner"></section>
+
+        <ProjetosDestaque />
+
+        <Cidades />
+
+        <EstudoVentos />
       </main>
     </div>
   )
