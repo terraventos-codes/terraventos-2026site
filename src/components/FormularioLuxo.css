@@ -1,0 +1,159 @@
+.formulario-luxo-section {
+  position: relative;
+  margin-left: -48px;
+  margin-right: -48px;
+  width: calc(100% + 96px);
+  min-height: 760px;
+  padding: 56px 48px 64px;
+  background-image: url('/coqueiros.avif');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: windPan 20s ease-in-out infinite alternate;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.formulario-luxo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 20, 38, 0.16) 0%, rgba(10, 20, 38, 0.22) 100%);
+  z-index: -1;
+}
+
+.formulario-luxo-content {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  color: #ffffff;
+  text-align: center;
+}
+
+.formulario-luxo-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background-color: rgba(210, 180, 140, 0.2);
+  color: #a37c56;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.formulario-luxo-title {
+  margin: 30px 0 0;
+  font-size: 43px;
+  line-height: 1.1;
+  font-family: 'Avenir', 'Manrope', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+}
+
+.formulario-luxo-subtitle {
+  max-width: 790px;
+  margin: 36px auto 0;
+  font-size: 31px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.formulario-luxo-card {
+  margin: 50px auto 0;
+  width: min(100%, 900px);
+  background: rgba(249, 249, 249, 0.95);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  box-shadow: 0 28px 56px rgba(11, 25, 45, 0.2);
+  padding: 30px 30px 28px;
+  backdrop-filter: blur(6px);
+}
+
+.formulario-luxo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 28px;
+}
+
+.formulario-luxo-card label {
+  display: block;
+}
+
+.formulario-luxo-card input,
+.formulario-luxo-card textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #b4b4b4;
+  background: transparent;
+  color: #4c4c4c;
+  font-size: 16px;
+  font-family: 'Manrope', sans-serif;
+  padding: 0 4px 10px;
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+
+.formulario-luxo-card input::placeholder,
+.formulario-luxo-card textarea::placeholder {
+  color: #bbbbbb;
+}
+
+.formulario-luxo-card input:focus,
+.formulario-luxo-card textarea:focus {
+  border-bottom-color: #89a9c8;
+}
+
+.formulario-luxo-message {
+  display: block;
+  margin-top: 22px;
+}
+
+.formulario-luxo-message textarea {
+  resize: none;
+  min-height: 72px;
+}
+
+@media (max-width: 1024px) {
+  .formulario-luxo-subtitle {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 860px) {
+  .formulario-luxo-section {
+    margin-left: -16px;
+    margin-right: -16px;
+    width: calc(100% + 32px);
+    min-height: 680px;
+    padding: 44px 16px 50px;
+    background-size: cover;
+    animation: none;
+  }
+
+  .formulario-luxo-title {
+    font-size: 34px;
+  }
+
+  .formulario-luxo-subtitle {
+    margin-top: 24px;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .formulario-luxo-card {
+    margin-top: 34px;
+    padding: 22px 18px;
+    border-radius: 22px;
+  }
+
+  .formulario-luxo-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .formulario-luxo-message {
+    margin-top: 20px;
+  }
+}

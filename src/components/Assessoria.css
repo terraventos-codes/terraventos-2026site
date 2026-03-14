@@ -1,0 +1,131 @@
+.assessoria-section {
+  padding: 100px 48px;
+  background-color: #f9f9f9;
+  font-family: 'Avenir', 'Manrope', sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+.assessoria-header {
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.assessoria-section.is-visible .assessoria-header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.assessoria-pill {
+  display: inline-block;
+  background-color: rgba(210, 180, 140, 0.2); /* Sand/Brown light tint */
+  color: #a37c56; /* Darker brown */
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.assessoria-title {
+  font-size: 2.2rem;
+  font-family: 'Avenir', sans-serif;
+  color: #111827;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.assessoria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.assessoria-card {
+  /* Substituindo o fundo verde foscopela paleta luxury de marrons em degrade sutil */
+  background: linear-gradient(135deg, #bca182 0%, #D2B48C 100%);
+  border-radius: 20px;
+  padding: 40px 32px;
+  text-align: left;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  
+  /* Initial state animate entry */
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
+              box-shadow 0.4s ease, filter 0.4s ease;
+}
+
+.assessoria-section.is-visible .assessoria-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.assessoria-icon {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #ffffff; /* Brancos para contraste elegante com marrom */
+}
+
+.assessoria-icon svg {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.4s ease;
+}
+
+.assessoria-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: inherit;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.assessoria-card-text {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Hover Effects Luxo */
+.assessoria-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 20px 40px rgba(163, 124, 86, 0.2);
+  filter: brightness(1.05); /* Leve iluminada no card */
+}
+
+.assessoria-card:hover .assessoria-icon svg {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1023px) {
+  .assessoria-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .assessoria-section {
+    padding: 64px 24px;
+  }
+  
+  .assessoria-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .assessoria-title {
+    font-size: 1.8rem;
+  }
+}

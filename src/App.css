@@ -125,6 +125,84 @@ html, body {
   width: 100%;
 }
 
+.main-content section.is-reveal {
+  opacity: 0;
+  transform: translateY(34px) scale(0.992);
+  filter: blur(6px);
+  transition:
+    opacity 980ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 980ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 980ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.main-content section.is-reveal[data-reveal='slide-left'] {
+  transform: translate3d(-34px, 20px, 0) scale(0.994);
+  filter: blur(6px);
+}
+
+.main-content section.is-reveal[data-reveal='slide-right'] {
+  transform: translate3d(34px, 20px, 0) scale(0.994);
+  filter: blur(6px);
+}
+
+.main-content section.is-reveal[data-reveal='soft-zoom'] {
+  transform: translateY(18px) scale(0.975);
+  filter: blur(8px);
+  transition-duration: 1120ms;
+}
+
+.main-content section.is-reveal[data-reveal='lift'] {
+  transform: translateY(42px) scale(0.996);
+  filter: blur(5px);
+}
+
+.main-content section.is-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.page-shell {
+  will-change: opacity, transform, filter;
+}
+
+.page-shell.page-enter {
+  animation: pageFadeIn 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.page-shell.page-exit {
+  animation: pageFadeOut 280ms ease-out both;
+  pointer-events: none;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.998);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes pageFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(6px) scale(0.999);
+    filter: blur(2px);
+  }
+}
+
 .hero {
   position: relative;
   background-image: url('/hero.avif'); 
@@ -386,6 +464,21 @@ html, body {
     font-size: 1.05rem;
     color: #111827;
     white-space: pre-line;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-shell.page-enter,
+  .page-shell.page-exit {
+    animation: none;
+  }
+
+  .main-content section.is-reveal,
+  .main-content section.is-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
   }
 }
 

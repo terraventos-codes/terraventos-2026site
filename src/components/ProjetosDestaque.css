@@ -1,8 +1,11 @@
 .pd-section {
   padding: 80px 48px;
+  margin-top: 28px;
   background-color: #fff;
   font-family: 'Avenir', 'Manrope', sans-serif;
   overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .pd-container {

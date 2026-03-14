@@ -48,6 +48,23 @@
   line-height: 1.2;
 }
 
+.ops-title-link {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ops-title-link .ops-title {
+  transition: color 0.25s ease;
+}
+
+.ops-title-link:hover .ops-title {
+  color: #8a6646;
+}
+
 .ops-subtitle {
   font-family: 'Diodrum', sans-serif;
   font-size: 1rem;

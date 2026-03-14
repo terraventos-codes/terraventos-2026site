@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import './Oportunidades.css';
+import { oportunidadesData, type OportunidadeDetalhe } from '../data/oportunidadesData';
 
-const oportunidadesData = [
-  { id: '01', title: 'IMÓVEIS', image: '/imoveis.avif' },
-  { id: '02', title: 'TERRENOS', image: '/terrenos.avif' },
-  { id: '03', title: 'PROJETOS', image: '/projetos.avif' },
-];
+type OportunidadesProps = {
+  onSelect: (item: OportunidadeDetalhe) => void;
+};
 
-export default function Oportunidades() {
-  const [activeIndex, setActiveIndex] = useState(2); // Start with '03' active
+export default function Oportunidades({ onSelect }: OportunidadesProps) {
+  const [activeIndex, setActiveIndex] = useState(2);
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev === 0 ? oportunidadesData.length - 1 : prev - 1));
@@ -21,16 +20,22 @@ export default function Oportunidades() {
   return (
     <section id="oportunidades" className="oportunidades-section">
       <div className="ops-container">
-        
-        {/* Left Information */}
         <div className="ops-info">
           <div className="ops-badge">Oportunidades exclusivas</div>
-          <h2 className="ops-title">
-            ENCONTRE SEU PRÓXIMO<br />
-            IMÓVEL NO LITORAL DO CEARÁ
-          </h2>
+          <button
+            type="button"
+            className="ops-title-link"
+            onClick={() => onSelect(oportunidadesData[activeIndex])}
+            aria-label="Abrir detalhes do imovel em destaque"
+          >
+            <h2 className="ops-title">
+              ENCONTRE SEU PROXIMO
+              <br />
+              IMOVEL NO LITORAL DO CEARA
+            </h2>
+          </button>
           <p className="ops-subtitle">
-            Ativos de alta liquidez e valorização exponencial no melhor vento do mundo.
+            Ativos de alta liquidez e valorizacao exponencial no melhor vento do mundo.
           </p>
           <div className="ops-icon">
             {activeIndex === 0 && (
@@ -47,24 +52,23 @@ export default function Oportunidades() {
             )}
             {activeIndex === 2 && (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <title>Árvore</title>
+                <title>Arvore</title>
                 <path d="M12 2L4 12H8L4 20H11V24H13V20H20L16 12H20L12 2Z" />
               </svg>
             )}
           </div>
         </div>
 
-        {/* Right Accordion & Controls */}
         <div className="ops-content">
           <div className="ops-controls">
-            <button className="ops-arrow" onClick={handlePrev}>
+            <button className="ops-arrow" onClick={handlePrev} type="button" aria-label="Anterior">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            <button className="ops-arrow" onClick={handleNext}>
+            <button className="ops-arrow" onClick={handleNext} type="button" aria-label="Proximo">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>
@@ -74,18 +78,20 @@ export default function Oportunidades() {
               const isActive = index === activeIndex;
 
               return (
-                <div 
-                  key={item.id} 
+                <div
+                  key={item.id}
                   className={`ops-card ${isActive ? 'active' : ''}`}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => {
+                    setActiveIndex(index);
+                  }}
                 >
                   {isActive ? (
                     <div className="ops-card-expanded">
                       <img src={item.image} alt={item.title} className="ops-card-image" />
                       <div className="ops-card-cutout">
                         <div className="ops-card-cutout-inner">
-                            <span className="ops-card-id">{item.id}</span>
-                            <span className="ops-card-label">{item.title}</span>
+                          <span className="ops-card-id">{item.id}</span>
+                          <span className="ops-card-label">{item.title}</span>
                         </div>
                       </div>
                     </div>

@@ -13,8 +13,8 @@
 
 .cidades-badge {
   display: inline-block;
-  background-color: #7efc8f; /* Green as requested in screenshot */
-  color: #fff;
+  background-color: rgba(210, 180, 140, 0.2);
+  color: #a37c56;
   padding: 4px 16px;
   border-radius: 20px;
   font-size: 0.85rem;

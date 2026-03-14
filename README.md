@@ -1,73 +1,45 @@
-# React + TypeScript + Vite
+# Terra Ventos 2026 Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site institucional e de captação de oportunidades imobiliárias da Terra Ventos, desenvolvido com React + TypeScript + Vite.
 
-Currently, two official plugins are available:
+## Principais funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Landing page com hero section, navegação por âncoras e CTA de contato.
+- Seção de oportunidades com seleção de item e visualização de página individual de detalhes.
+- Seção de projetos em destaque com interação para abrir detalhes.
+- Blocos de conteúdo sobre cidades/regiões, estudo dos ventos e mapa.
+- Seções de prova social: assessoria, depoimentos e formulário de contato.
+- Transições de página (`/` e `/pagina-individual`) com `history.pushState`.
+- Animações de entrada por scroll com `IntersectionObserver`.
+- Layout responsivo com componentes separados por seção.
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- TypeScript
+- Vite
+- ESLint
 
-## Expanding the ESLint configuration
+## Estrutura resumida
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `src/App.tsx`: composição da página principal, roteamento simples e transições.
+- `src/components/`: componentes das seções (oportunidades, projetos, mapa, formulário, etc.).
+- `src/data/oportunidadesData.ts`: dados das oportunidades exibidas no site.
+- `public/`: assets estáticos usados na interface.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Scripts
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Observação sobre arquivos grandes
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Para evitar erro de push por arquivo grande, o `.gitignore` foi configurado para bloquear:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `*.exe`
+- `*.gif`
+- `*.mp4`
