@@ -43,13 +43,13 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
             aria-label="Abrir detalhes do imovel em destaque"
           >
             <h2 className="ops-title reveal-title">
-              ENCONTRE SEU PROXIMO
+              ENCONTRE SEU PRÓXIMO
               <br />
-              IMOVEL NO LITORAL DO CEARA
+              IMÓVEL NO LITORAL DO CEARÁ
             </h2>
           </button>
           <p className="ops-subtitle">
-            Ativos de alta liquidez e valorizacao exponencial no melhor vento do mundo.
+            Ativos de alta liquidez e valorização exponencial no melhor vento do mundo.
           </p>
           <div className="ops-icon">
             {activeIndex === 0 && (

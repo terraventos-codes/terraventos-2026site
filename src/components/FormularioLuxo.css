@@ -1,7 +1,6 @@
 .formulario-luxo-section {
   position: relative;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
   width: 100vw;
   left: 50%;
   right: 50%;
@@ -16,6 +15,18 @@
   animation: windPan 20s ease-in-out infinite alternate;
   overflow: hidden;
   isolation: isolate;
+}
+
+@media (max-width: 768px) {
+  .formulario-luxo-section {
+    padding: 48px 16px 56px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    background-size: cover;
+  }
 }
 
 .formulario-luxo-overlay {

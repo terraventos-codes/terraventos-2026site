@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer-luxo-inner">
         <div className="footer-luxo-brand">
           <img src="/logo.avif" alt="Terra Ventos" className="footer-luxo-logo" />
-          <p className="footer-luxo-tagline">Curadoria imobiliaria de alto padrao no litoral cearense.</p>
+          <p className="footer-luxo-tagline">Curadoria imobiliária de alto padrão no litoral cearense.</p>
         </div>
 
         <div className="footer-luxo-info">
@@ -16,8 +16,8 @@ export default function Footer() {
           <p>
             <a href="mailto:info@terraventos.com.br">info@terraventos.com.br</a>
           </p>
-          <p>Fortaleza, Ceara - Rua Monsenhor Bruno, no 1153, sala 608, Aldeota, Fortaleza - CE, 60115-191</p>
-          <p>Prea, Cruz, Ceara - Rua Antonio Chagas, no 857 - Prea, Cruz - CE, 62595-000</p>
+          <p>Fortaleza, Ceará - Rua Monsenhor Bruno, nº 1153, sala 608, Aldeota, Fortaleza - CE, 60115-191</p>
+          <p>Preá, Cruz, Ceará - Rua Antônio Chagas, nº 857 - Preá, Cruz - CE, 62595-000</p>
         </div>
 
         <nav className="footer-luxo-social" aria-label="Redes sociais">

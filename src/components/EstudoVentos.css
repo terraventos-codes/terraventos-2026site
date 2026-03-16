@@ -4,8 +4,7 @@
   color: #fff;
   font-family: 'Avenir', 'Manrope', sans-serif;
   overflow: hidden;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
   width: 100vw;
   position: relative;
   left: 50%;
@@ -28,6 +27,17 @@
 .estudo-section.is-visible .estudo-container {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .estudo-section {
+    padding: 56px 16px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 @media (min-width: 1024px) {

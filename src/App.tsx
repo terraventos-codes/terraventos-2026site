@@ -246,9 +246,9 @@ function App() {
                     VENTO A FAVOR.
                   </h1>
                   <p className="hero-subtitle">
-                    Terrenos, casas e projetos exclusivos com seguranca juridica,
+                    Terrenos, casas e projetos exclusivos com segurança jurídica,
                     <br />
-                    <u>valorizacao real e suporte completo.</u>
+                    <u>valorização real e suporte completo.</u>
                   </p>
                   <button className="hero-cta">Conhecer projetos</button>
                 </div>
@@ -261,9 +261,9 @@ function App() {
                   </div>
                   <div className="card-info">
                     <p>
-                      10+ anos de experiencia
+                      10+ anos de experiência
                       <br />
-                      imobiliaria no Ceara
+                      imobiliária no Ceará
                     </p>
                     <div className="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                   </div>

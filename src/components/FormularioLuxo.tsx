@@ -12,8 +12,8 @@ export default function FormularioLuxo() {
           QUEM ESTA CONECTADO.
         </h2>
         <p className="formulario-luxo-subtitle">
-          Junte-se a nossa lista prioritaria e receba curadoria de terrenos early stage, dados de valorizacao
-          do litoral cearense e oportunidades que nao chegam ao mercado aberto.
+          Junte-se à nossa lista prioritária e receba curadoria de terrenos early stage, dados de valorização
+          do litoral cearense e oportunidades que não chegam ao mercado aberto.
         </p>
 
         <form className="formulario-luxo-card" onSubmit={(event) => event.preventDefault()}>
