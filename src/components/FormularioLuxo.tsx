@@ -6,7 +6,7 @@ export default function FormularioLuxo() {
       <div className="formulario-luxo-overlay" aria-hidden="true" />
       <div className="formulario-luxo-content">
         <span className="formulario-luxo-pill">Receba as novidades</span>
-        <h2 className="formulario-luxo-title">
+        <h2 className="formulario-luxo-title reveal-title">
           VENTO SOPRA PRIMEIRO PARA
           <br />
           QUEM ESTA CONECTADO.

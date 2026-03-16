@@ -50,7 +50,7 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
       <div className="pd-container">
         <div className="pd-header">
           <div className="pd-badge">Projetos em destaque</div>
-          <h2 className="pd-title">
+          <h2 className="pd-title reveal-title">
             PARA INVESTIR, MORAR OU VIVER
             <br />
             UMA TEMPORADA NO CEARA.

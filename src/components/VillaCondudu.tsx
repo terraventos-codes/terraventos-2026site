@@ -23,7 +23,7 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
         </div>
 
         <div className="condudu-content">
-          <h2 className="condudu-title">
+          <h2 className="condudu-title reveal-title">
             VILLA CONDUDU III
             <br />
             PARA ALUGAR NO PREA

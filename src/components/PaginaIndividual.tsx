@@ -16,7 +16,7 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
           <img src={item.gallery.sideBottom} alt={`Mapa e dados de ${item.propertyTitle}`} className="pi-image-side-bottom" />
         </div>
 
-        <h1 className="pi-title">{item.propertyTitle}</h1>
+        <h1 className="pi-title reveal-title">{item.propertyTitle}</h1>
         <p className="pi-meta">{item.location}</p>
         <div className="pi-rating" aria-label={`Avaliacao ${item.rating} de 5`}>
           {'?'.repeat(item.rating)}
@@ -25,7 +25,7 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
 
         <div className="pi-content-grid">
           <div className="pi-content-main">
-            <h2 className="pi-section-title">Sobre a propriedade</h2>
+            <h2 className="pi-section-title reveal-title">Sobre a propriedade</h2>
             {item.about.map((paragraph) => (
               <p key={paragraph} className="pi-text">
                 {paragraph}

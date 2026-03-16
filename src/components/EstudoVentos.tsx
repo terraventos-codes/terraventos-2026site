@@ -141,7 +141,7 @@ export default function EstudoVentos() {
 
         {/* Right Content Column */}
         <div className="estudo-content">
-          <h2 className="estudo-title">
+          <h2 className="estudo-title reveal-title">
             ESTUDO<br />DOS VENTOS
           </h2>
           

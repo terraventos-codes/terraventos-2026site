@@ -42,7 +42,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
             onClick={() => onSelect(oportunidadesData[activeIndex])}
             aria-label="Abrir detalhes do imovel em destaque"
           >
-            <h2 className="ops-title">
+            <h2 className="ops-title reveal-title">
               ENCONTRE SEU PROXIMO
               <br />
               IMOVEL NO LITORAL DO CEARA

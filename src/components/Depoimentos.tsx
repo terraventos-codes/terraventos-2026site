@@ -96,7 +96,7 @@ export default function Depoimentos() {
       <div className="depoimentos-shell">
         <div className="depoimentos-intro">
           <span className="depoimentos-pill">Depoimentos</span>
-          <h2 className="depoimentos-title">
+          <h2 className="depoimentos-title reveal-title">
             VOZES DA
             <br />
             COMUNIDADE

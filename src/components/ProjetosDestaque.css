@@ -128,7 +128,8 @@
 
 .pd-card-title {
   font-size: 1.4rem;
-  font-weight: 500;
+  font-family: 'Avenir', sans-serif;
+  font-weight: 400;
   color: #111;
   margin: 4px 0 12px 0;
 }

@@ -97,7 +97,7 @@ export default function Assessoria() {
     >
       <div className="assessoria-header">
         <span className="assessoria-pill">Diferenciais da Terra Ventos</span>
-        <h2 className="assessoria-title">
+        <h2 className="assessoria-title reveal-title">
           ASSESSORIA COMPLETA<br/>
           DO INICIO AO FIM
         </h2>

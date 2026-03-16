@@ -106,7 +106,7 @@
 
 .cidades-card-title {
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 400;
   color: #111;
   margin: 0;
   font-family: 'Avenir', sans-serif;
@@ -130,8 +130,22 @@
     font-size: 1.6rem;
   }
 
+  .cidades-slider-container {
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
   .cidades-slider-track {
-    animation-duration: 30s; /* slightly faster on mobile */
+    animation: none;
+    width: 100%;
+    flex-direction: column;
+    padding: 0 16px;
+    gap: 20px;
+  }
+
+  .cidades-card {
+    width: 100%;
   }
 
   .cidades-card-title {
