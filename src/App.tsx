@@ -193,6 +193,19 @@ function App() {
           <a href="#projetos" onClick={(event) => handleNavClick(event, 'projetos')}>Projetos</a>
           <a href="#estudo" onClick={(event) => handleNavClick(event, 'estudo')}>Estudo dos Ventos</a>
           <a href="#regioes" onClick={(event) => handleNavClick(event, 'regioes')}>Regioes</a>
+          <a
+            href="https://www.instagram.com/terraventos/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram Terra Ventos"
+          >
+            <svg className="nav-instagram-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M7 3C4.24 3 2 5.24 2 8v8c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V8c0-2.76-2.24-5-5-5H7zm0 2h10c1.66 0 3 1.34 3 3v8c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V8c0-1.66 1.34-3 3-3zm10.25 1.5a1.25 1.25 0 0 0-1.25 1.25c0 .69.56 1.25 1.25 1.25.69 0 1.25-.56 1.25-1.25 0-.69-.56-1.25-1.25-1.25zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"
+              />
+            </svg>
+          </a>
         </nav>
 
         <button className="cta-button" type="button">

@@ -1,7 +1,12 @@
 .mapa-section {
-  margin-left: -48px;
-  margin-right: -48px;
-  width: calc(100% + 96px);
+  margin-left: 0;
+  margin-right: 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   position: relative;
   display: flex;
   justify-content: center;
@@ -71,18 +76,22 @@
 /* Mobile Responsiveness */
 @media (max-width: 1023px) {
   .mapa-section {
-    margin-left: -24px;
-    margin-right: -24px;
-    width: calc(100% + 48px);
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     height: 50vh;
   }
 }
 
 @media (max-width: 768px) {
   .mapa-section {
-    margin-left: -16px;
-    margin-right: -16px;
-    width: calc(100% + 32px);
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     height: 45vh;
   }
 

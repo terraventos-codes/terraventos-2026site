@@ -167,8 +167,15 @@ export default function EstudoVentos() {
               <span className="stat-label">técnico e ambiental</span>
             </div>
           </div>
-          
-          <button className="estudo-btn">Fazer Download</button>
+
+          <a
+            className="estudo-btn"
+            href="https://www.canva.com/design/DAG1bAlUIp0/MphbQLRL9vMkqgnCqX7_0w/view?utm_content=DAG1bAlUIp0&utm_campaign=designshare&utm_medium=link&utm_source=viewer"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Ver o estudo completo
+          </a>
         </div>
         
       </div>

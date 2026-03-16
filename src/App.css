@@ -135,6 +135,11 @@ html, body {
   -webkit-tap-highlight-color: transparent;
 }
 
+.nav-instagram-icon {
+  width: 18px;
+  height: 18px;
+}
+
 .nav-links a:hover {
   color: #111827;
   opacity: 1;
@@ -332,13 +337,13 @@ html, body {
   /* Fallback color/gradient */
   background-color: #0076a5; 
   height: calc(100vh - 120px);
-  min-height: 640px;
-  max-height: 840px;
+  min-height: 420px;
+  max-height: 560px;
   border-radius: 32px;
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding: 0 72px;
+  padding: 0 56px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.04);
 }
 
@@ -391,10 +396,10 @@ html, body {
 }
 
 .hero-text-container {
-  max-width: 800px;
+  max-width: 720px;
   position: relative;
   z-index: 2;
-  margin-top: -60px;
+  margin-top: -40px;
 }
 
 .hero-text-container::before {
@@ -749,11 +754,14 @@ html, body {
 
 /* Full Width Beach Banner */
 .beach-banner {
-  margin-top: 0px; 
-  margin-left: -48px;
-  margin-right: -48px;
-  margin-bottom: -32px; 
-  width: calc(100% + 96px);
+  margin-top: 0;
+  margin-bottom: 0; 
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   height: 400px; /* Increased height so it's not squeezed */
   background-image: url('/imgbeach.avif');
   background-size: cover;
@@ -768,19 +776,23 @@ html, body {
 
 @media (max-width: 1023px) {
   .beach-banner {
-    margin-left: -24px;
-    margin-right: -24px;
-    width: calc(100% + 48px);
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
   }
 }
 
 @media (max-width: 768px) {
   .beach-banner {
-    margin-top: 0px;
-    margin-left: -16px;
-    margin-right: -16px;
+    margin-top: 0;
     margin-bottom: -16px;
-    width: calc(100% + 32px);
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     height: 250px; /* Slightly taller on mobile too */
     background-attachment: scroll; /* Disable parallax on mobile to prevent jitter */
   }

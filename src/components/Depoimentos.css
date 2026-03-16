@@ -2,9 +2,14 @@
   background: #f3f3f3;
   padding: 88px 0 76px;
   margin-top: 0;
-  margin-left: -48px;
-  margin-right: -48px;
-  width: calc(100% + 96px);
+  margin-left: 0;
+  margin-right: 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   position: relative;
   z-index: 0;
   display: block;
