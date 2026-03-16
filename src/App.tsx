@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Oportunidades from './components/Oportunidades';
 import ProjetosDestaque from './components/ProjetosDestaque';
+import VillaCondudu from './components/VillaCondudu';
 import Cidades from './components/Cidades';
 import EstudoVentos from './components/EstudoVentos';
 import Mapa from './components/Mapa';
@@ -173,6 +174,8 @@ function App() {
               <section className="beach-banner"></section>
 
               <ProjetosDestaque onSelect={handleSelectOpportunity} />
+
+              <VillaCondudu onSelect={handleSelectOpportunity} />
 
               <Cidades />
 

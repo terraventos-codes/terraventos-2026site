@@ -25,7 +25,8 @@
   padding: 8px 16px;
   border-radius: 30px;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-family: 'Diodrum', sans-serif;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 24px;
@@ -118,7 +119,7 @@
 
 @media (max-width: 768px) {
   .assessoria-section {
-    padding: 64px 24px;
+    padding: 48px 20px;
   }
   
   .assessoria-grid {
@@ -126,6 +127,10 @@
   }
   
   .assessoria-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+
+  .assessoria-card {
+    padding: 28px 22px;
   }
 }

@@ -35,14 +35,16 @@
   padding: 4px 16px;
   border-radius: 20px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-family: 'Diodrum', sans-serif;
+  font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 24px;
 }
 
 .ops-title {
   font-size: 2.2rem;
-  font-weight: 500;
+  font-family: 'Avenir', sans-serif;
+  font-weight: 400;
   color: #333;
   margin: 0 0 16px 0;
   line-height: 1.2;
@@ -116,7 +118,7 @@
 .ops-accordion {
   display: flex;
   flex-direction: row;
-  height: 400px; /* fixed height for cards to animate nicely */
+  height: 400px; /* desktop height */
   width: 100%;
   max-width: 800px;
   gap: 8px; /* small gap between collapsed cards */
@@ -136,7 +138,7 @@
 }
 
 .ops-card:not(.active) {
-  width: 60px; /* narrow width for collapsed state */
+  width: 60px; /* narrow width for collapsed state on desktop */
   background-color: transparent;
 }
 
@@ -258,19 +260,92 @@
 /* Mobile Responsiveness */
 @media (max-width: 1023px) {
   .oportunidades-section {
-    padding: 48px 24px;
+    padding: 40px 20px;
   }
-  
-  .ops-accordion {
-    height: 350px;
-    margin-top: 16px;
+
+  .ops-container {
+    gap: 24px;
+  }
+
+  .ops-content {
+    align-items: stretch;
   }
   
   .ops-title {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
   
   .ops-controls {
     display: none; /* Hide arrows on small screens, users just tap */
+  }
+}
+
+@media (max-width: 768px) {
+  .oportunidades-section {
+    padding: 32px 16px;
+  }
+
+  .ops-title {
+    font-size: 1.5rem;
+  }
+
+  .ops-subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* Mobile list layout */
+  .ops-list-mobile {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-top: 20px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ops-card-mobile {
+    flex: 0 0 260px;
+    border-radius: 20px;
+    border: none;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .ops-card-mobile-image-wrapper {
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .ops-card-mobile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ops-card-mobile-body {
+    padding: 10px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .ops-card-mobile-id {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #a37c56;
+    font-family: 'Diodrum', sans-serif;
+  }
+
+  .ops-card-mobile-title {
+    font-size: 1rem;
+    font-family: 'Avenir', sans-serif;
+    color: #333;
   }
 }

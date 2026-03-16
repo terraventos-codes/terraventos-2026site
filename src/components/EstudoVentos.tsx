@@ -44,7 +44,19 @@ export default function EstudoVentos() {
       }
     }
 
-    let intervalId: ReturnType<typeof setInterval>;
+    const DESIRED_QUALITY = 'hd1080';
+    let loopIntervalId: ReturnType<typeof setInterval> | undefined;
+    let qualityIntervalId: ReturnType<typeof setInterval> | undefined;
+
+    const enforceQuality = () => {
+      const player = playerRef.current;
+      if (!player || !player.setPlaybackQuality || !player.getPlaybackQuality) return;
+
+      const current = player.getPlaybackQuality();
+      if (current !== DESIRED_QUALITY) {
+        player.setPlaybackQuality(DESIRED_QUALITY);
+      }
+    };
 
     const initPlayer = () => {
       if (playerRef.current) return;
@@ -60,16 +72,17 @@ export default function EstudoVentos() {
           modestbranding: 1,
           rel: 0,
           showinfo: 0,
-          vq: 'hd1080',
+          vq: DESIRED_QUALITY,
           playsinline: 1,
         },
         events: {
           onReady: (event: any) => {
             event.target.playVideo();
-            event.target.setPlaybackQuality('hd1080'); // Força a qualidade novamente por segurança
+            event.target.setPlaybackQuality(DESIRED_QUALITY); // best-effort (YouTube may still downshift)
+            enforceQuality();
             
             // Verifica constantemente o tempo para recomeçar antes do blackout final do Youtube
-            intervalId = setInterval(() => {
+            loopIntervalId = setInterval(() => {
               if (playerRef.current && playerRef.current.getCurrentTime) {
                 const time = playerRef.current.getCurrentTime();
                 const duration = playerRef.current.getDuration();
@@ -79,6 +92,16 @@ export default function EstudoVentos() {
                 }
               }
             }, 100);
+
+            // Reforça 1080p periodicamente (YouTube pode reduzir por rede/dispositivo)
+            qualityIntervalId = setInterval(enforceQuality, 1500);
+          },
+          onStateChange: () => {
+            // quando o player muda de estado (buffer/play), revalida a qualidade
+            enforceQuality();
+          },
+          onPlaybackQualityChange: () => {
+            enforceQuality();
           },
         },
       });
@@ -91,7 +114,8 @@ export default function EstudoVentos() {
     }
 
     return () => {
-      if (intervalId) clearInterval(intervalId);
+      if (loopIntervalId) clearInterval(loopIntervalId);
+      if (qualityIntervalId) clearInterval(qualityIntervalId);
     };
   }, []);
 

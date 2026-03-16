@@ -12,7 +12,7 @@ html, body {
   flex-direction: column;
   min-height: 100vh;
   height: auto;
-  padding: 32px 48px;
+  padding: 24px 32px;
   box-sizing: border-box;
 }
 
@@ -127,40 +127,19 @@ html, body {
 
 .main-content section.is-reveal {
   opacity: 0;
-  transform: translateY(34px) scale(0.992);
-  filter: blur(6px);
+  transform: translateY(26px);
+  filter: blur(5px);
   transition:
-    opacity 980ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 980ms cubic-bezier(0.22, 1, 0.36, 1),
-    filter 980ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 820ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 820ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 820ms cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform, filter;
 }
 
-.main-content section.is-reveal[data-reveal='slide-left'] {
-  transform: translate3d(-34px, 20px, 0) scale(0.994);
-  filter: blur(6px);
-}
-
-.main-content section.is-reveal[data-reveal='slide-right'] {
-  transform: translate3d(34px, 20px, 0) scale(0.994);
-  filter: blur(6px);
-}
-
-.main-content section.is-reveal[data-reveal='soft-zoom'] {
-  transform: translateY(18px) scale(0.975);
-  filter: blur(8px);
-  transition-duration: 1120ms;
-}
-
-.main-content section.is-reveal[data-reveal='lift'] {
-  transform: translateY(42px) scale(0.996);
-  filter: blur(5px);
-}
-
 .main-content section.is-reveal.is-visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
   filter: blur(0);
 }
 
@@ -242,9 +221,9 @@ html, body {
 
 .hero-title {
   font-family: 'Avenir', sans-serif !important;
-  font-size: 80px;
+  font-size: clamp(40px, 6vw, 80px);
   font-weight: 400;
-  line-height: 80px;
+  line-height: 1.05;
   color: #FFFFFF;
   margin: 0 0 24px 0;
   letter-spacing: 0px;
@@ -307,6 +286,7 @@ html, body {
   border-bottom-right-radius: 64px;
   box-shadow: 32px 32px 0 32px #fff;
   pointer-events: none;
+  z-index: 0;
 }
 
 /* Inverted corner transition on the top right */
@@ -321,6 +301,13 @@ html, body {
   border-bottom-right-radius: 64px;
   box-shadow: 32px 32px 0 32px #fff;
   pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure avatars and text sit above decorative corners */
+.floating-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Avatars */
@@ -339,6 +326,35 @@ html, body {
   box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
+/* Tablet layout tweaks */
+@media (max-width: 1024px) {
+  .app-container {
+    padding: 20px 24px;
+  }
+
+  .header {
+    column-gap: 16px;
+  }
+
+  .brand-logo {
+    height: 64px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .hero {
+    padding: 56px 40px;
+    height: auto;
+    min-height: 540px;
+  }
+
+  .hero-text-container {
+    margin-top: -40px;
+  }
+}
+
 .avatars img:first-child {
   margin-left: 0;
 }
@@ -348,7 +364,8 @@ html, body {
   flex-direction: column;
   gap: 4px;
   flex-shrink: 0;
-  width: max-content;
+  width: auto;
+  max-width: 260px;
 }
 
 .card-info p {
@@ -358,7 +375,8 @@ html, body {
   line-height: 1.4;
   font-weight: 600;
   white-space: pre-line;
-  word-break: keep-all;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .stars {
@@ -381,7 +399,7 @@ html, body {
   }
 
   .hero {
-    padding: 40px 24px;
+    padding: 32px 20px;
     border-radius: 24px;
     align-items: center; /* keep centered on mobile usually looks better */
     background-size: cover; /* Prevent image squeezing on mobile */
@@ -400,15 +418,15 @@ html, body {
   }
 
   .hero-title {
-    font-size: 52px;
-    line-height: 56px;
+    font-size: clamp(30px, 8vw, 38px);
+    line-height: 1.07;
     white-space: normal; /* Let it flow on small screens */
     margin-bottom: 20px;
   }
 
   .hero-subtitle {
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 15px;
+    line-height: 1.45;
     margin-bottom: 32px;
   }
 
@@ -416,10 +434,10 @@ html, body {
     border-radius: 0;
     border-top-left-radius: 48px;
     border-bottom-right-radius: 20px;
-    padding: 16px 20px;
+    padding: 14px 18px;
     gap: 12px;
     width: auto;
-    max-width: 95%;
+    max-width: 96%;
     justify-content: flex-start;
     bottom: 0px;
     right: 0px;
@@ -457,6 +475,7 @@ html, body {
 
   .card-info {
     width: auto;
+    max-width: 220px;
   }
 
   .card-info p {
@@ -464,6 +483,8 @@ html, body {
     font-size: 1.05rem;
     color: #111827;
     white-space: pre-line;
+    word-break: normal;
+    overflow-wrap: break-word;
   }
 }
 

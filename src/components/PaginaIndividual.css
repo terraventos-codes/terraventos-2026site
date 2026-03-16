@@ -41,7 +41,8 @@
   background-color: rgba(210, 180, 140, 0.2);
   color: #a37c56;
   font-size: 10px;
-  font-weight: 600;
+  font-family: 'Diodrum', sans-serif;
+  font-weight: 500;
 }
 
 .pi-image-main,
@@ -68,7 +69,8 @@
   font-size: 29px;
   line-height: 1.2;
   color: #404040;
-  font-weight: 600;
+  font-family: 'Avenir', sans-serif;
+  font-weight: 400;
 }
 
 .pi-meta {
@@ -95,7 +97,8 @@
   margin: 0 0 10px;
   color: #5e5e5e;
   font-size: 18px;
-  font-weight: 600;
+  font-family: 'Avenir', sans-serif;
+  font-weight: 400;
 }
 
 .pi-section-subtitle {
@@ -250,6 +253,6 @@
   }
 
   .pi-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
