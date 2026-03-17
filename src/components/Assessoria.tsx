@@ -93,6 +93,7 @@ export default function Assessoria() {
     <section 
       id="assessoria" 
       ref={sectionRef} 
+      data-reveal-managed="true"
       className={`assessoria-section ${isVisible ? 'is-visible' : ''}`}
     >
       <div className="assessoria-header">

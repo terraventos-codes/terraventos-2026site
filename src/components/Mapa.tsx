@@ -11,7 +11,6 @@ export default function Mapa() {
         if (entry.isIntersecting) {
           setIsVisible(true);
         } else {
-          // Volta a esconder ao sair da tela, permitindo que a animação rode novamente toda vez que aparecer
           setIsVisible(false);
         }
       },
@@ -29,10 +28,13 @@ export default function Mapa() {
     <section 
       ref={sectionRef} 
       id="mapa" 
+      data-reveal-managed="true"
       className={`mapa-section ${isVisible ? 'is-visible' : ''}`}
     >
       <div className="mapa-parallax-bg"></div>
       <div className="mapa-overlay"></div>
+      {/* Conteúdo e marcadores removidos conforme solicitação */}
+
     </section>
   );
 }

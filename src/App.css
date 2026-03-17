@@ -1,20 +1,39 @@
-
-html, body {
+html {
   margin: 0;
   padding: 0;
-  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  background-color: #efe7db; /* Match footer bottom color exactly */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: #efe7db; /* Match footer bottom color exactly */
   font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   color: #111827;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  height: auto;
-  padding: 24px 32px;
+  padding: 0; /* Remove global padding to allow native full-width sections */
   box-sizing: border-box;
   max-width: 100%;
+  flex: 1;
 }
 
 .floating-support-button {
@@ -99,9 +118,9 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0 16px 0;
+  padding: 16px 32px; /* Side padding moved here */
   background-color: #fff;
-  z-index: 10;
+  z-index: 20;
   position: relative;
   flex-shrink: 0;
 }
@@ -256,8 +275,10 @@ html, body {
 /* Hero Section */
 .main-content {
   padding: 0;
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  flex: 1;
 }
 
 .main-content section.is-reveal {
@@ -269,7 +290,6 @@ html, body {
     transform 820ms cubic-bezier(0.22, 1, 0.36, 1),
     filter 820ms cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay, 0ms);
-  will-change: opacity, transform, filter;
 }
 
 .main-content section.is-reveal.is-visible {
@@ -295,7 +315,10 @@ html, body {
 }
 
 .page-shell {
-  will-change: opacity, transform, filter;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
 }
 
 .page-shell.page-enter {
@@ -340,12 +363,12 @@ html, body {
   height: calc(100vh - 120px);
   min-height: 420px;
   max-height: 560px;
-  border-radius: 32px;
+  border-radius: 0; /* Full bleed - no border radius at corners */
   overflow: hidden;
   display: flex;
   align-items: center;
   padding: 0 56px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+  box-shadow: none; /* No shadow for full-bleed section */
 }
 
 @keyframes windPan {
@@ -379,7 +402,7 @@ html, body {
 
 .hero-slide.hero-slide--bitupita {
   background-position: center 35%;
-  background-size: 115%;
+  background-size: cover;
 }
 
 .hero-slide.is-active {
@@ -539,7 +562,7 @@ html, body {
 /* Tablet layout tweaks */
 @media (max-width: 1024px) {
   .app-container {
-    padding: 20px 24px;
+    padding: 0; /* Remove side padding to match desktop and mobile */
   }
 
   .header {
@@ -558,6 +581,7 @@ html, body {
     padding: 56px 40px;
     height: auto;
     min-height: 540px;
+    border-radius: 0;
   }
 
   .hero-text-container {
@@ -599,9 +623,13 @@ html, body {
 /* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
   .app-container {
-    padding: 16px;
+    padding: 0;
     height: auto;
     min-height: 100vh;
+  }
+
+  .header {
+    padding: 12px 18px;
   }
 
   .nav-links {
@@ -610,7 +638,7 @@ html, body {
 
   .hero {
     padding: 32px 20px;
-    border-radius: 24px;
+    border-radius: 0;
     align-items: center; /* keep centered on mobile usually looks better */
     background-size: cover; /* Prevent image squeezing on mobile */
     background-position: center center;
@@ -763,17 +791,12 @@ html, body {
 .beach-banner {
   margin-top: 0;
   margin-bottom: 0; 
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  height: 400px; /* Increased height so it's not squeezed */
+  width: 100%;
+  height: 400px; 
   background-image: url('/imgbeach.avif');
   background-size: cover;
   background-position: center center;
-  background-attachment: fixed; /* Parallax effect */
+  background-attachment: fixed; 
   display: block;
 }
 
@@ -783,24 +806,16 @@ html, body {
 
 @media (max-width: 1023px) {
   .beach-banner {
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .beach-banner {
     margin-top: 0;
-    margin-bottom: -16px;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    height: 250px; /* Slightly taller on mobile too */
-    background-attachment: scroll; /* Disable parallax on mobile to prevent jitter */
+    margin-bottom: 0px; 
+    width: 100%;
+    height: 250px; 
+    background-attachment: scroll; 
   }
 }

@@ -57,7 +57,7 @@ const depoimentos: Testimonial[] = [
   },
   {
     quote:
-      '"Eu acompanho o mercado imobiliário e percebi que o litoral oeste do Ceará é o que o mercado chama de segredo mais bem guardado do mundo. Entrei como early adopter em Bitupitá através da Terra Ventos. O suporte bilíngue e a visão estratégica do Bernardo sobre onde a valorização vai bater primeiro foram os diferenciais para eu diversificar o meu portfólio aqui."',
+      '"O que me conquistou foi o Estudo dos Ventos. Como designer, valorizo projetos que respeitam o meio ambiente. Ver como a Terra Ventos utiliza a ciência do clima para orientar a implantação das casas, garantindo frescor natural e luz perfeita, é fascinante. Não é apenas um terreno, é a base para uma arquitetura de alto padrão que conversa com a natureza."',
     name: 'Ricardo T.',
     role: 'CTO de Tech e Kitesurfista',
     avatar:
@@ -91,6 +91,7 @@ export default function Depoimentos() {
     <section
       id="depoimentos"
       ref={sectionRef}
+      data-reveal-managed="true"
       className={`depoimentos-section ${isVisible ? 'is-visible' : ''}`}
     >
       <div className="depoimentos-shell">

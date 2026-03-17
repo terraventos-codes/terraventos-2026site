@@ -102,7 +102,7 @@ function App() {
   useEffect(() => {
     const sections = Array.from(
       document.querySelectorAll<HTMLElement>('.main-content section')
-    ).filter((section) => !section.classList.contains('hero'));
+    ).filter((section) => !section.classList.contains('hero') && section.dataset.revealManaged !== 'true');
 
     const resolveRevealType = (section: HTMLElement) => {
       if (section.classList.contains('beach-banner')) return 'soft-zoom';

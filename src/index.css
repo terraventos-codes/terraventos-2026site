@@ -1,16 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap');
 
-html,
-body {
-  width: 100%;
-}
+/* Global styles handled in App.css */
 
 :root {
   font-family: 'Manrope', system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #1f2a33;
-  background-color: #f5f7f9;
+  background-color: #efe7db; /* Match footer bottom color exactly */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,11 +18,6 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
 }
 
 a {
@@ -46,5 +38,5 @@ h5 {
 }
 
 #root {
-  min-height: 100vh;
+  width: 100%;
 }

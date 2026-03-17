@@ -1,11 +1,7 @@
 .formulario-luxo-section {
   position: relative;
   margin: 0;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: 100%;
   min-height: 760px;
   padding: 56px 48px 64px;
   background-image: url('/coqueiros.avif');
@@ -20,11 +16,7 @@
 @media (max-width: 768px) {
   .formulario-luxo-section {
     padding: 48px 16px 56px;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    width: 100%;
     background-size: cover;
   }
 }
@@ -139,11 +131,9 @@
 
 @media (max-width: 860px) {
   .formulario-luxo-section {
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    width: 100%;
+    left: auto;
+    right: auto;
     min-height: 680px;
     padding: 44px 16px 50px;
     background-size: cover;

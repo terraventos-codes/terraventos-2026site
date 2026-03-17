@@ -4,12 +4,7 @@
   font-family: 'Avenir', 'Manrope', sans-serif;
   text-align: center;
   overflow: hidden;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: 100%;
 }
 
 .assessoria-header {
@@ -126,6 +121,7 @@
 @media (max-width: 768px) {
   .assessoria-section {
     padding: 48px 20px;
+    width: 100%;
   }
   
   .assessoria-grid {
