@@ -9,7 +9,7 @@
   min-height: 760px;
   padding: 56px 48px 64px;
   background-image: url('/coqueiros.avif');
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   animation: windPan 20s ease-in-out infinite alternate;
@@ -20,11 +20,11 @@
 @media (max-width: 768px) {
   .formulario-luxo-section {
     padding: 48px 16px 56px;
-    width: 100%;
-    left: 0;
-    right: 0;
-    margin-left: 0;
-    margin-right: 0;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     background-size: cover;
   }
 }
@@ -139,9 +139,11 @@
 
 @media (max-width: 860px) {
   .formulario-luxo-section {
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     min-height: 680px;
     padding: 44px 16px 50px;
     background-size: cover;

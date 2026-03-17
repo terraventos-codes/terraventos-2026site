@@ -7,28 +7,22 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: #f7f7f7;
+  background-color: #000;
   
-  /* Altura reduzida como solitado */
   height: 60vh;
   max-height: 550px;
   min-height: 400px;
   
-  /* Estado inicial para animação moderna de entrada (fade-in & clip wipe) */
-  opacity: 0.3;
-  clip-path: inset(5% 0 5% 0);
-  transition: opacity 1.2s cubic-bezier(0.165, 0.84, 0.44, 1),
-              clip-path 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .mapa-section.is-visible {
   opacity: 1;
-  clip-path: inset(0 0 0 0);
 }
 
 .mapa-parallax-bg {
@@ -39,64 +33,53 @@
   height: 100%;
   background-image: url('/mapa.avif');
   background-position: center;
-  
-  /* Efeito Parallax - Fixa a imagem no fundo enquanto o scroll roda por cima */
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   
-  /* Escala inicial para um leve "bounce/zoom out" na entrada */
   transform: scale(1.1);
   transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Quando visível: remove scale do css de transição e ativa ciclo infinito */
 .mapa-section.is-visible .mapa-parallax-bg {
-  transform: scale(1);
-  animation: luxSlowPan 30s ease-in-out infinite alternate;
+  transform: scale(1.05); /* Mantém um leve zoom para garantir cobertura total */
+  animation: luxSlowPan 25s ease-in-out infinite alternate;
 }
 
 @keyframes luxSlowPan {
   0% {
-    background-size: 100%;
+    transform: scale(1.05) translateX(-2%);
   }
   100% {
-    background-size: 110%;
+    transform: scale(1.15) translateX(2%);
   }
 }
 
-/* Vinheta de luxo nas bordas do mapa (foco centralizado e bordas levemente sombreadas) */
 .mapa-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.4) 120%);
+  background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.2) 150%);
   pointer-events: none;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 1023px) {
   .mapa-section {
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    height: 50vh;
+    height: 55vh;
   }
 }
 
 @media (max-width: 768px) {
   .mapa-section {
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    height: 45vh;
+    height: 65vh; /* Aumentado para preencher melhor a tela mobile */
+    min-height: 450px;
   }
 
-  /* Desativa "Parallax Fixed" em celular para melhor compatibilidade e suavidade */
   .mapa-parallax-bg {
     background-attachment: scroll;
+  }
+  
+  .mapa-overlay {
+    background: none; /* Remove overlay no mobile se estiver atrapalhando */
   }
 }
