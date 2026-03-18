@@ -3,7 +3,7 @@ html {
   padding: 0;
   width: 100%;
   height: 100%;
-  background-color: #efe7db; /* Match footer bottom color exactly */
+  background-color: #efe7db;
 }
 
 body {
@@ -118,7 +118,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 32px; /* Side padding moved here */
+  padding: 16px clamp(32px, 5vw, 120px);
   background-color: #fff;
   z-index: 20;
   position: relative;
@@ -278,7 +278,6 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  flex: 1;
 }
 
 .main-content section.is-reveal {
@@ -317,7 +316,6 @@ body {
 .page-shell {
   display: flex;
   flex-direction: column;
-  flex: 1;
   width: 100%;
 }
 
@@ -358,17 +356,19 @@ body {
 
 .hero {
   position: relative;
-  /* Fallback color/gradient */
-  background-color: #0076a5; 
-  height: calc(100vh - 120px);
-  min-height: 420px;
-  max-height: 560px;
-  border-radius: 0; /* Full bleed - no border radius at corners */
+  background-color: #0076a5;
+  height: clamp(560px, 72vh, 780px);
+  min-height: 560px;
+  border-radius: 24px;
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding: 0 56px;
-  box-shadow: none; /* No shadow for full-bleed section */
+  justify-content: flex-start;
+  padding: 0 72px;
+  margin: 16px auto 0;
+  width: calc(100% - 16px);
+  max-width: 1520px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
 }
 
 @keyframes windPan {
@@ -421,6 +421,7 @@ body {
 
 .hero-text-container {
   max-width: 720px;
+  width: 100%;
   position: relative;
   z-index: 2;
   margin-top: -40px;
@@ -522,7 +523,7 @@ body {
   z-index: 0;
 }
 
-/* Inverted corner transition on the top right */
+/* Inverted corner on the top right — must match hero border-radius so the card corner aligns with the hero edge */
 .floating-card::after {
   content: '';
   position: absolute;
@@ -578,10 +579,13 @@ body {
   }
 
   .hero {
-    padding: 56px 40px;
-    height: auto;
-    min-height: 540px;
-    border-radius: 0;
+    padding: 40px 36px;
+    height: 480px;
+    min-height: 420px;
+    margin: 12px auto 0;
+    width: calc(100% - 40px);
+    border-radius: 20px;
+    justify-content: flex-start;
   }
 
   .hero-text-container {
@@ -638,12 +642,14 @@ body {
 
   .hero {
     padding: 32px 20px;
+    width: 100%;        /* Full bleed no mobile */
+    margin: 0;
     border-radius: 0;
-    align-items: center; /* keep centered on mobile usually looks better */
-    background-size: cover; /* Prevent image squeezing on mobile */
+    align-items: center;
+    background-size: cover;
     background-position: center center;
-    min-height: 600px; /* Force minimum height so content fits */
-    animation: none; /* Disable panning on mobile to prevent weird shifts */
+    min-height: 600px;
+    animation: none;
   }
 
   .hero-text-container {

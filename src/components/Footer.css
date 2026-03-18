@@ -1,6 +1,6 @@
 .footer-luxo {
-  margin-top: auto; /* Push to bottom of flex container */
-  margin-bottom: 0px; 
+  margin-top: 0;
+  margin-bottom: 0; 
   width: 100%;
   position: relative;
   background: linear-gradient(140deg, #f7f4ee 0%, #f4efe6 54%, #efe7db 100%);
