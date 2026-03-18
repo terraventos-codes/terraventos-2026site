@@ -51,14 +51,14 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
         <div className="pd-header">
           <div className="pd-badge">Projetos em destaque</div>
           <h2 className="pd-title reveal-title">
-            PARA INVESTIR, MORAR OU VIVER
+            PARA INVESTIR, MORAR OU VIVER UMA
             <br />
-            UMA TEMPORADA NO CEARA.
+            TEMPORADA NO CEARA
           </h2>
         </div>
 
         <div className="pd-grid">
-          {projetos.map((projeto) => (
+          {projetos.filter((p) => p.id !== 2).map((projeto) => (
             <div className="pd-card" key={projeto.id} onClick={() => onSelect(projeto.detail)}>
               <div className="pd-image-wrapper">
                 <img src={projeto.image} alt={projeto.title} className="pd-image" />

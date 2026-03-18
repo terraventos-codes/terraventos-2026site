@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer-luxo-inner">
         <div className="footer-luxo-brand">
           <img src="/logo.avif" alt="Terra Ventos" className="footer-luxo-logo" />
-          <p className="footer-luxo-tagline">Curadoria imobiliária de alto padrão no litoral cearense.</p>
+          <p className="footer-luxo-tagline">Assessoria imobiliária de alto padrão no litoral cearense.</p>
         </div>
 
         <div className="footer-luxo-info">

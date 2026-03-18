@@ -68,22 +68,6 @@ function App() {
     window.scrollTo({ top: targetY, behavior: 'smooth' });
   };
 
-  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    event.preventDefault();
-
-    if (!isPaginaIndividual) {
-      scrollToSection(targetId);
-      window.history.replaceState({}, '', `/#${targetId}`);
-      return;
-    }
-
-    runTransitionTo('/');
-
-    window.setTimeout(() => {
-      scrollToSection(targetId);
-      window.history.replaceState({}, '', `/#${targetId}`);
-    }, 950);
-  };
 
   const handleFloatingSupportClick = () => {
     if (!isPaginaIndividual) {
@@ -151,7 +135,6 @@ function App() {
     const intervalId = window.setInterval(() => {
       setHeroSlideIndex((prev) => (prev + 1) % heroSlides.length);
     }, 12000);
-
     return () => window.clearInterval(intervalId);
   }, []);
 
@@ -188,11 +171,11 @@ function App() {
         </a>
 
         <nav className="nav-links">
-          <a href="#inicio" onClick={(event) => handleNavClick(event, 'inicio')}>Inicio</a>
-          <a href="#oportunidades" onClick={(event) => handleNavClick(event, 'oportunidades')}>Oportunidades</a>
-          <a href="#projetos" onClick={(event) => handleNavClick(event, 'projetos')}>Projetos</a>
-          <a href="#estudo" onClick={(event) => handleNavClick(event, 'estudo')}>Estudo dos Ventos</a>
-          <a href="#regioes" onClick={(event) => handleNavClick(event, 'regioes')}>Regioes</a>
+          <a href="#inicio" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('inicio'); } else { runTransitionTo('/'); } }}>Inicio</a>
+          <a href="#oportunidades" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('oportunidades'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('oportunidades'), 950); } }}>Oportunidades</a>
+          <a href="#projetos" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('projetos'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('projetos'), 950); } }}>Projetos</a>
+          <a href="#estudo" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('estudo'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('estudo'), 950); } }}>Estudo dos Ventos</a>
+          <a href="#regioes" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('regioes'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('regioes'), 950); } }}>Regiões</a>
           <a
             href="https://www.instagram.com/terraventos/"
             target="_blank"
@@ -208,11 +191,19 @@ function App() {
           </a>
         </nav>
 
-        <button className="cta-button" type="button">
-          <span>Entre em contato</span>
-          <svg className="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+        <button
+          className="cta-button"
+          type="button"
+          onClick={() => {
+            if (!isPaginaIndividual) {
+              scrollToSection('oportunidades');
+            } else {
+              runTransitionTo('/');
+              window.setTimeout(() => scrollToSection('oportunidades'), 950);
+            }
+          }}
+        >
+          Conhecer Projetos
         </button>
       </header>
 
@@ -227,7 +218,6 @@ function App() {
                   {heroSlides.map((src, index) => {
                     const isActive = index === heroSlideIndex;
                     const isBitupita = src.toLowerCase().includes('bitupita');
-
                     return (
                       <div
                         key={src}
@@ -238,20 +228,6 @@ function App() {
                   })}
                 </div>
                 <div className="hero-overlay" aria-hidden="true" />
-
-                <div className="hero-text-container">
-                  <h1 className="hero-title">
-                    INVISTA COM O
-                    <br />
-                    VENTO A FAVOR.
-                  </h1>
-                  <p className="hero-subtitle">
-                    Terrenos, casas e projetos exclusivos com segurança jurídica,
-                    <br />
-                    <u>valorização real e suporte completo.</u>
-                  </p>
-                  <button className="hero-cta">Conhecer projetos</button>
-                </div>
 
                 <div className="floating-card">
                   <div className="avatars">

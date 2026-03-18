@@ -1,7 +1,7 @@
 .estudo-section {
-  background: linear-gradient(135deg, #a37c56 0%, #D2B48C 100%);
+  background: #cfc9be;
   padding: 80px 48px;
-  color: #fff;
+  color: #142431;
   font-family: 'Avenir', 'Manrope', sans-serif;
   overflow: hidden;
   margin: 0;
@@ -63,30 +63,60 @@
   z-index: 10;
 }
 
-.estudo-video-iframe,
-.estudo-video-iframe iframe {
-  position: absolute;
-  top: 58%;
-  left: 50%;
-  width: 220%;
-  height: 118%;
-  transform: translate(-50%, -50%);
-  border: none;
-  pointer-events: none;
-  display: block;
-}
-
-/* Transparent overlay to block all touch interactions with the iframe but allow scrolling */
-.estudo-video-touch-overlay {
+/* Thumbnail + player state */
+.estudo-video-thumb {
   position: absolute;
   inset: 0;
-  z-index: 15;
-  background: transparent;
-  cursor: default;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
 }
 
-.estudo-video-wrapper:hover .estudo-video-iframe {
-  transform: translate(-50%, -50%) scale(1.05); /* subtle zoom on hover */
+.estudo-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 15;
+  transition: transform 0.2s ease;
+}
+
+.estudo-play-btn:hover {
+  transform: scale(1.05);
+}
+
+.estudo-play-icon {
+  width: 72px;
+  height: 72px;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.25));
+}
+
+.estudo-play-label {
+  font-family: 'Diodrum', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.estudo-video-iframe-player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  border-radius: inherit;
+  z-index: 12;
 }
 
 .estudo-video-info {
@@ -127,15 +157,14 @@
   font-size: 2.8rem;
   font-family: 'Avenir', sans-serif;
   font-weight: 400;
-  color: #fff;
+  color: #142431;
   margin: 0 0 24px 0;
   line-height: 1.1;
-  font-family: 'Avenir', sans-serif;
 }
 
 .estudo-desc {
   font-size: 1rem;
-  color: #fff;
+  color: #142431;
   line-height: 1.6;
   margin: 0 0 40px 0;
   font-family: 'Diodrum', sans-serif;
@@ -144,6 +173,7 @@
 
 .estudo-desc strong {
   font-weight: 700;
+  color: #142431;
 }
 
 /* Stats 2x2 Grid */
@@ -162,13 +192,13 @@
 .stat-value {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #fff;
+  color: #142431;
   margin-bottom: 4px;
 }
 
 .stat-label {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(20, 36, 49, 0.75);
   font-family: 'Diodrum', sans-serif;
   font-weight: 400;
   letter-spacing: 0.5px;
@@ -177,23 +207,24 @@
 /* Download Button */
 .estudo-btn {
   align-self: flex-start;
-  background-color: #fff;
-  color: #a37c56; /* Button text matches darker brown of gradient */
+  background-color: #142431;
+  color: #cfc9be;
   border: none;
   border-radius: 30px;
   padding: 14px 34px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 16px rgba(20,36,49,0.18);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
   text-decoration: none;
   display: inline-block;
 }
 
 .estudo-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 24px rgba(20,36,49,0.24);
+  filter: brightness(1.08);
 }
 
 /* Mobile Responsiveness */

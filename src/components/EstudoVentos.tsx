@@ -1,137 +1,49 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import './EstudoVentos.css';
 
-// Declaração mínima para o tipo do player YT
-declare global {
-  interface Window {
-    YT: {
-      Player: new (
-        el: HTMLElement,
-        options: {
-          videoId: string;
-          playerVars?: Record<string, string | number>;
-          events?: {
-            onReady?: (e: { target: YTPlayer }) => void;
-            onStateChange?: (e: { data: number; target: YTPlayer }) => void;
-          };
-        }
-      ) => YTPlayer;
-      PlayerState: { PLAYING: number };
-    };
-    onYouTubeIframeAPIReady?: () => void;
-  }
-}
-
-interface YTPlayer {
-  playVideo(): void;
-  seekTo(seconds: number, allowSeekAhead: boolean): void;
-  getCurrentTime(): number;
-  getDuration(): number;
-  destroy(): void;
-}
-
 export default function EstudoVentos() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-  const playerContainerRef = useRef<HTMLDivElement>(null);
-  const playerRef = useRef<YTPlayer | null>(null);
-  const intervalRef = useRef<number | null>(null);
+  const [playing, setPlaying] = useState(false);
 
-  // Intersection Observer para reveal
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.15 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  // YouTube IFrame API: reinicia 1s antes do fim para evitar tela preta
-  useEffect(() => {
-    const VIDEO_ID = 'np2xeM0Xe6k';
-
-    const startWatchdog = (player: YTPlayer) => {
-      if (intervalRef.current) window.clearInterval(intervalRef.current);
-      intervalRef.current = window.setInterval(() => {
-        try {
-          const duration = player.getDuration();
-          const current = player.getCurrentTime();
-          if (duration > 0 && duration - current <= 1.2) {
-            player.seekTo(0, true);
-          }
-        } catch {
-          // player pode não estar pronto ainda
-        }
-      }, 500);
-    };
-
-    const initPlayer = () => {
-      if (!playerContainerRef.current) return;
-      playerRef.current = new window.YT.Player(playerContainerRef.current, {
-        videoId: VIDEO_ID,
-        playerVars: {
-          autoplay: 1,
-          mute: 1,
-          controls: 0,
-          modestbranding: 1,
-          rel: 0,
-          iv_load_policy: 3,
-          playsinline: 1,
-        },
-        events: {
-          onReady: (e) => {
-            e.target.playVideo();
-          },
-          onStateChange: (e) => {
-            // 1 = PLAYING
-            if (e.data === 1) {
-              startWatchdog(e.target);
-            }
-          },
-        },
-      });
-    };
-
-    if (window.YT && window.YT.Player) {
-      // API já carregada (ex: hot reload)
-      initPlayer();
-    } else {
-      // Injeta o script da API uma única vez
-      if (!document.getElementById('yt-api-script')) {
-        const tag = document.createElement('script');
-        tag.id = 'yt-api-script';
-        tag.src = 'https://www.youtube.com/iframe_api';
-        document.head.appendChild(tag);
-      }
-      window.onYouTubeIframeAPIReady = initPlayer;
-    }
-
-    return () => {
-      if (intervalRef.current) window.clearInterval(intervalRef.current);
-      try { playerRef.current?.destroy(); } catch { /* ignore */ }
-      playerRef.current = null;
-    };
-  }, []);
+  const VIDEO_ID = 'np2xeM0Xe6k';
 
   return (
     <section
-      ref={sectionRef}
       id="estudo"
-      data-reveal-managed="true"
-      className={`estudo-section is-reveal ${isVisible ? 'is-visible' : ''}`}
+      data-reveal-managed="false"
+      className="estudo-section"
     >
       <div className="estudo-container">
         <div className="estudo-media">
           <div className="estudo-video-wrapper">
-            {/* Container onde o YT Player vai injetar o iframe */}
-            <div ref={playerContainerRef} className="estudo-video-iframe" />
-            <div className="estudo-video-touch-overlay" />
+            {playing ? (
+              <iframe
+                className="estudo-video-iframe-player"
+                src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+                title="Estudo dos Ventos - Terra Ventos"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <>
+                <img
+                  src={`https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
+                  alt="Estudo dos Ventos - clique para assistir"
+                  className="estudo-video-thumb"
+                />
+                <button
+                  className="estudo-play-btn"
+                  type="button"
+                  aria-label="Reproduzir vídeo"
+                  onClick={() => setPlaying(true)}
+                >
+                  <svg viewBox="0 0 80 80" fill="none" className="estudo-play-icon">
+                    <circle cx="40" cy="40" r="39" stroke="white" strokeWidth="2" fill="rgba(0,0,0,0.35)" />
+                    <polygon points="32,24 60,40 32,56" fill="white" />
+                  </svg>
+                  <span className="estudo-play-label">Assistir no YouTube</span>
+                </button>
+              </>
+            )}
             <div className="estudo-video-info">
               <h4>Bernardo Carvalho Wertheim</h4>
               <p>Fundador e CEO Terra Ventos</p>

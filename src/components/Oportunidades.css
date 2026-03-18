@@ -48,6 +48,21 @@
   color: #333;
   margin: 0 0 16px 0;
   line-height: 1.2;
+  position: relative;
+  display: inline-block;
+}
+
+/* Sublinhado decorativo sutil e premium */
+.ops-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 60px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #C4B096, rgba(196,176,150,0));
+  opacity: 0.85;
 }
 
 .ops-title-link {
@@ -75,6 +90,16 @@
   line-height: 1.5;
 }
 
+/* Subtítulo dinâmico com fade ao trocar card */
+.ops-subtitle--dynamic {
+  animation: subtitleFadeIn 0.4s ease both;
+}
+
+@keyframes subtitleFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .ops-icon {
   margin-top: 60px;
   color: #000;
@@ -89,12 +114,27 @@
   align-items: flex-end; /* right align the content */
 }
 
-/* Controls */
+/* Controls - movidos para baixo do accordion */
 .ops-controls {
   display: flex;
   gap: 16px;
   align-self: flex-start;
-  margin-bottom: 8px;
+  margin-top: 16px;
+  align-items: center;
+}
+
+.ops-controls--bottom {
+  margin-top: 16px;
+  align-self: flex-start;
+}
+
+.ops-nav-indicator {
+  font-size: 0.85rem;
+  color: #999;
+  font-family: 'Diodrum', sans-serif;
+  letter-spacing: 1px;
+  min-width: 36px;
+  text-align: center;
 }
 
 .ops-arrow {
@@ -138,8 +178,15 @@
 }
 
 .ops-card:not(.active) {
-  width: 60px; /* narrow width for collapsed state on desktop */
-  background-color: transparent;
+  width: 60px;
+  background-color: rgba(196, 176, 150, 0.12);
+  border: 1.5px solid rgba(196, 176, 150, 0.35);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.ops-card:not(.active):hover {
+  background-color: rgba(196, 176, 150, 0.22);
+  border-color: rgba(196, 176, 150, 0.55);
 }
 
 .ops-card.active {
@@ -152,27 +199,32 @@
   height: 100%;
   width: 100%;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 24px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+  gap: 12px;
+}
+
+/* Meia-elipse decorativa no topo do card colapsado */
+.ops-collapsed-pip {
+  width: 28px;
+  height: 14px;
+  background: linear-gradient(180deg, #C4B096 0%, rgba(196,176,150,0.4) 100%);
+  border-radius: 28px 28px 0 0;
+  flex-shrink: 0;
 }
 
 .ops-collapsed-text {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-size: 1.2rem;
-  color: #D2B48C;
-  font-weight: 300;
+  font-size: 0.8rem;
+  color: #a37c56;
+  font-weight: 500;
   white-space: nowrap;
-  letter-spacing: 2px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.ops-collapsed-id {
-  font-weight: 600;
-  font-size: 1.5rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-family: 'Diodrum', sans-serif;
 }
 
 /* Expanded State */
@@ -203,26 +255,14 @@
   bottom: 0px;
   right: 0px;
   background-color: #fff;
-  border-top-left-radius: 24px; /* curve the inner corner */
   padding: 16px 24px;
   z-index: 2;
 }
 
 /* Curve smoothing on the top left of the cutout to match exactly like the hero */
-.ops-card-cutout::before {
-  content: '';
-  position: absolute;
-  bottom: 100%;
-  right: 0;
-  width: 24px;
-  height: 24px;
-  background: transparent;
-  border-bottom-right-radius: 24px;
-  box-shadow: 12px 12px 0 12px #fff;
-  pointer-events: none;
-}
 
-.ops-card-cutout::after {
+
+/* .ops-card-cutout::after {
   content: '';
   position: absolute;
   top: 0;
@@ -233,7 +273,7 @@
   border-bottom-right-radius: 24px;
   box-shadow: 12px 12px 0 12px #fff;
   pointer-events: none;
-}
+} */
 
 .ops-card-cutout-inner {
   display: flex;
@@ -243,11 +283,14 @@
   padding: 8px;
 }
 
-.ops-card-id {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #333;
-  line-height: 1;
+/* Meia-elipse decorativa no cutout do card ativo */ */
+.ops-card-pip {
+  width: 36px;
+  height: 18px;
+  background: linear-gradient(180deg, #C4B096 0%, rgba(196,176,150,0.35) 100%);
+  border-radius: 36px 36px 0 0;
+  margin-bottom: 6px;
+  flex-shrink: 0;
 }
 
 .ops-card-label {

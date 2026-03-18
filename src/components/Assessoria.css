@@ -50,13 +50,12 @@
 }
 
 .assessoria-card {
-  /* Substituindo o fundo verde foscopela paleta luxury de marrons em degrade sutil */
-  background: linear-gradient(135deg, #bca182 0%, #D2B48C 100%);
+  background: #cfc9be;
   border-radius: 20px;
   padding: 40px 32px;
   text-align: left;
-  color: #ffffff;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  color: #142431;
+  box-shadow: 0 10px 30px rgba(20,36,49,0.08);
   
   /* Initial state animate entry */
   opacity: 0;
@@ -76,7 +75,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  color: #ffffff; /* Brancos para contraste elegante com marrom */
+  color: #142431;
 }
 
 .assessoria-icon svg {
@@ -103,8 +102,8 @@
 /* Hover Effects Luxo */
 .assessoria-card:hover {
   transform: translateY(-8px) scale(1.02) !important;
-  box-shadow: 0 20px 40px rgba(163, 124, 86, 0.2);
-  filter: brightness(1.05); /* Leve iluminada no card */
+  box-shadow: 0 20px 40px rgba(20, 36, 49, 0.14);
+  filter: brightness(1.04);
 }
 
 .assessoria-card:hover .assessoria-icon svg {

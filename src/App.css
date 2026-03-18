@@ -2,7 +2,6 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
   background-color: #efe7db;
 }
 
@@ -10,14 +9,12 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
-  background-color: #efe7db; /* Match footer bottom color exactly */
+  background-color: #efe7db;
   font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   color: #111827;
   position: relative;
-  display: flex;
-  flex-direction: column;
 }
 
 #root {
@@ -120,9 +117,13 @@ body {
   justify-content: space-between;
   padding: 16px clamp(32px, 5vw, 120px);
   background-color: #fff;
-  z-index: 20;
-  position: relative;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   flex-shrink: 0;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
 }
 
 .brand {
@@ -217,53 +218,22 @@ body {
   gap: 12px;
   height: 48px;
   border-radius: 40px;
-  border: 1px solid #f3f4f6;
+  border: none;
   padding: 0 24px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
   font-family: inherit;
   font-weight: 600;
   font-size: 0.95rem;
-  color: #111827;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  background-color: transparent;
-}
-
-.cta-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  z-index: -2;
-}
-
-.cta-button::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #D2B48C; /* Marrom areia de praia */
-  z-index: -1;
-  transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  border-radius: 40px;
+  color: #fff;
+  background-color: #C4B096;
 }
 
 .cta-button:hover {
-  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-  color: #fff;
-  border-color: #D2B48C;
-}
-
-.cta-button:hover::after {
-  width: 100%;
+  background-color: #d4c4ac;
+  box-shadow: 0 6px 18px rgba(196,176,150,0.35);
+  filter: brightness(1.04);
 }
 
 .cta-button .arrow-icon {
@@ -274,7 +244,7 @@ body {
 
 /* Hero Section */
 .main-content {
-  padding: 0;
+  padding-top: 104px; /* Compensate for fixed header */
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -428,18 +398,7 @@ body {
 }
 
 .hero-text-container::before {
-  content: "";
-  position: absolute;
-  inset: -22px -32px -22px -26px;
-  border-radius: 28px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
-    radial-gradient(130% 170% at 0% 0%, rgba(255, 255, 255, 0.06), transparent 58%);
-  box-shadow:
-    0 14px 30px rgba(0, 0, 0, 0.16),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.07);
-  opacity: 0.68;
-  z-index: -1;
+  display: none;
 }
 
 .hero-title {
@@ -496,52 +455,17 @@ body {
 /* Floating Card for Avatars */
 .floating-card {
   position: absolute;
-  bottom: 0px;
-  right: 0px;
+  bottom: 0;
+  right: 0;
   background-color: #fff;
-  border-top-left-radius: 56px;
-  border-bottom-right-radius: 28px;
+  border-top-left-radius: 40px;
   padding: 18px 26px;
   display: flex;
   align-items: center;
   gap: 14px;
   z-index: 5;
-}
-
-/* S-curve transition on the left */
-.floating-card::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: -64px;
-  width: 64px;
-  height: 64px;
-  background-color: transparent;
-  border-bottom-right-radius: 64px;
-  box-shadow: 32px 32px 0 32px #fff;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Inverted corner on the top right — must match hero border-radius so the card corner aligns with the hero edge */
-.floating-card::after {
-  content: '';
-  position: absolute;
-  top: -64px;
-  right: 0;
-  width: 64px;
-  height: 64px;
-  background-color: transparent;
-  border-bottom-right-radius: 64px;
-  box-shadow: 32px 32px 0 32px #fff;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Ensure avatars and text sit above decorative corners */
-.floating-card > * {
-  position: relative;
-  z-index: 1;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  border-left: 1px solid rgba(0,0,0,0.06);
 }
 
 /* Avatars */
@@ -563,7 +487,7 @@ body {
 /* Tablet layout tweaks */
 @media (max-width: 1024px) {
   .app-container {
-    padding: 0; /* Remove side padding to match desktop and mobile */
+    padding: 0;
   }
 
   .header {
@@ -576,6 +500,10 @@ body {
 
   .nav-links {
     gap: 20px;
+  }
+
+  .main-content {
+    padding-top: 96px;
   }
 
   .hero {
@@ -640,9 +568,13 @@ body {
     display: none; /* Hide standard nav on mobile */
   }
 
+  .main-content {
+    padding-top: 80px;
+  }
+
   .hero {
     padding: 32px 20px;
-    width: 100%;        /* Full bleed no mobile */
+    width: 100%;
     margin: 0;
     border-radius: 0;
     align-items: center;
@@ -650,57 +582,6 @@ body {
     background-position: center center;
     min-height: 600px;
     animation: none;
-  }
-
-  .hero-text-container {
-    margin-top: -80px; /* Shift text up a bit on mobile to make room for card */
-    max-width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-text-container::before {
-    inset: -16px -10px -16px -10px;
-    border-radius: 22px;
-    background:
-      linear-gradient(150deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
-      radial-gradient(160% 190% at 50% 0%, rgba(255, 255, 255, 0.06), transparent 62%);
-    box-shadow:
-      0 12px 28px rgba(0, 0, 0, 0.16),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-    opacity: 0.72;
-  }
-
-  .hero-title {
-    font-size: clamp(28px, 7.2vw, 34px);
-    line-height: 1.07;
-    white-space: normal; /* Let it flow on small screens */
-    margin-bottom: 20px;
-    letter-spacing: 0.6px;
-    text-shadow:
-      0 2px 10px rgba(0, 0, 0, 0.22),
-      0 10px 32px rgba(0, 0, 0, 0.18);
-    position: relative;
-  }
-
-  .hero-title::after {
-    content: "";
-    display: block;
-    width: min(220px, 62vw);
-    height: 3px;
-    margin: 14px auto 0;
-    border-radius: 999px;
-    background: linear-gradient(90deg, rgba(210, 180, 140, 0), rgba(210, 180, 140, 0.95), rgba(210, 180, 140, 0));
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-    opacity: 0.95;
-  }
-
-  .hero-subtitle {
-    font-size: 15px;
-    line-height: 1.45;
-    margin-bottom: 32px;
   }
 
   .floating-card {
@@ -712,46 +593,26 @@ body {
     width: auto;
     max-width: 90%;
     justify-content: flex-start;
-    bottom: 0px;
-    right: 0px;
-    transform: none;
+    bottom: 0;
+    right: 0;
     background-color: rgba(255, 255, 255, 0.96);
     box-shadow: -5px -5px 20px rgba(0,0,0,0.05);
   }
 
-  .floating-card::before {
-    display: block;
-    left: -40px;
-    width: 40px;
-    height: 40px;
-    border-bottom-right-radius: 40px;
-    box-shadow: 20px 20px 0 20px rgba(255, 255, 255, 0.96);
-  }
-
-  .floating-card::after {
-    display: block;
-    top: -40px;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    border-bottom-right-radius: 40px;
-    box-shadow: 20px 20px 0 20px rgba(255, 255, 255, 0.96);
-  }
-
   .avatars img {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     margin-left: -12px;
   }
 
   .card-info {
     width: auto;
-    max-width: 220px;
+    max-width: 200px;
   }
 
   .card-info p {
     font-family: 'Avenir', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: #111827;
     white-space: pre-line;
     word-break: normal;

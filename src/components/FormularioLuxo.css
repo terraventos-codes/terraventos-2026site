@@ -40,19 +40,21 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 32px;
-  padding: 0 18px;
+  height: 28px;
+  padding: 0 14px;
   border-radius: 999px;
   background-color: rgba(210, 180, 140, 0.2);
   color: #a37c56;
-  font-size: 18px;
+  font-size: 0.75rem;
   font-family: 'Diodrum', sans-serif;
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .formulario-luxo-title {
-  margin: 30px 0 0;
-  font-size: 43px;
+  margin: 20px 0 0;
+  font-size: 2.4rem;
   line-height: 1.1;
   font-family: 'Avenir', 'Manrope', sans-serif;
   font-weight: 500;
@@ -62,10 +64,11 @@
 
 .formulario-luxo-subtitle {
   max-width: 790px;
-  margin: 36px auto 0;
-  font-size: 31px;
-  line-height: 1.35;
+  margin: 24px auto 0;
+  font-size: 1rem;
+  line-height: 1.55;
   color: rgba(255, 255, 255, 0.92);
+  font-family: 'Diodrum', sans-serif;
 }
 
 .formulario-luxo-card {
