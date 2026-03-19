@@ -1,17 +1,20 @@
 .footer-luxo {
-  margin-top: 0;
-  margin-bottom: 0; 
+  display: block;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
   width: 100%;
   position: relative;
   background: #cfc9be;
   color: #142431;
   border-top: 1px solid rgba(20, 36, 49, 0.12);
+  height: auto !important;
 }
 
 .footer-luxo-inner {
   max-width: 1260px;
   margin: 0 auto;
-  padding: 44px 48px 40px;
+  padding: 44px 48px 16px;
   display: grid;
   grid-template-columns: 1.1fr 2fr auto;
   gap: 34px;
@@ -120,6 +123,6 @@
   }
 
   .footer-luxo-inner {
-    padding: 40px 24px;
+    padding: 40px 24px 16px;
   }
 }

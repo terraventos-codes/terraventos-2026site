@@ -68,21 +68,6 @@ function App() {
     window.scrollTo({ top: targetY, behavior: 'smooth' });
   };
 
-
-  const handleFloatingSupportClick = () => {
-    if (!isPaginaIndividual) {
-      scrollToSection('contato');
-      window.history.replaceState({}, '', '/#contato');
-      return;
-    }
-
-    runTransitionTo('/');
-    window.setTimeout(() => {
-      scrollToSection('contato');
-      window.history.replaceState({}, '', '/#contato');
-    }, 950);
-  };
-
   useEffect(() => {
     const sections = Array.from(
       document.querySelectorAll<HTMLElement>('.main-content section')
@@ -146,25 +131,6 @@ function App() {
 
   return (
     <div className="app-container">
-      <button
-        type="button"
-        className="floating-support-button"
-        onClick={handleFloatingSupportClick}
-      >
-        <span className="floating-support-label">Quero atendimento</span>
-        <span className="floating-support-icon-wrap" aria-hidden="true">
-          <svg className="floating-support-icon" width="18" height="18" viewBox="0 0 32 32">
-            <path
-              fill="currentColor"
-              d="M19.11 17.17c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.61.14-.18.27-.7.89-.86 1.07-.16.18-.32.2-.59.07-.27-.14-1.16-.43-2.2-1.37-.81-.72-1.35-1.61-1.51-1.88-.16-.27-.02-.41.12-.55.13-.13.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.26 0 1.33.98 2.62 1.11 2.8.14.18 1.93 2.95 4.68 4.14.65.28 1.16.44 1.55.56.65.21 1.24.18 1.7.11.52-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32z"
-            />
-            <path
-              fill="currentColor"
-              d="M16.02 3.2c-6.97 0-12.64 5.52-12.64 12.31 0 2.16.57 4.28 1.66 6.15L3.2 28.8l7.42-1.92c1.8.96 3.84 1.46 5.93 1.46 6.97 0 12.64-5.52 12.64-12.31S22.99 3.2 16.02 3.2zm0 22.1c-1.93 0-3.81-.52-5.43-1.49l-.39-.23-4.4 1.14 1.17-4.16-.25-.41a10.03 10.03 0 0 1-1.56-5.14c0-5.12 4.49-9.28 10.01-9.28 5.52 0 10.01 4.16 10.01 9.28 0 5.12-4.49 9.28-10.01 9.28z"
-            />
-          </svg>
-        </span>
-      </button>
       <header className="header">
         <a href="/" className="brand">
           <img src="/logo.avif" alt="Terra Ventos" className="brand-logo" />
@@ -192,18 +158,23 @@ function App() {
         </nav>
 
         <button
-          className="cta-button"
+          className="header-contact-button"
           type="button"
           onClick={() => {
             if (!isPaginaIndividual) {
-              scrollToSection('oportunidades');
+              scrollToSection('contato');
             } else {
               runTransitionTo('/');
-              window.setTimeout(() => scrollToSection('oportunidades'), 950);
+              window.setTimeout(() => scrollToSection('contato'), 950);
             }
           }}
         >
-          Conhecer Projetos
+          <span className="contact-dot"></span>
+          Entrar em contato
+          <svg className="contact-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
         </button>
       </header>
 
@@ -213,7 +184,8 @@ function App() {
             <PaginaIndividual item={selectedOpportunity} />
           ) : (
             <>
-              <section className="hero" id="inicio">
+              <div className="hero-background">
+                <section className="hero" id="inicio">
                 <div className="hero-slides" aria-hidden="true">
                   {heroSlides.map((src, index) => {
                     const isActive = index === heroSlideIndex;
@@ -228,6 +200,24 @@ function App() {
                   })}
                 </div>
                 <div className="hero-overlay" aria-hidden="true" />
+
+                <div className="hero-text-container" style={{ display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center', zIndex: 10 }}>
+                  <button
+                    className="cta-button"
+                    type="button"
+                    onClick={() => {
+                      if (!isPaginaIndividual) {
+                        scrollToSection('oportunidades');
+                      } else {
+                        runTransitionTo('/');
+                        window.setTimeout(() => scrollToSection('oportunidades'), 950);
+                      }
+                    }}
+                    style={{ transform: 'scale(1.2)' }}
+                  >
+                    Conhecer Projetos
+                  </button>
+                </div>
 
                 <div className="floating-card">
                   <div className="avatars">
@@ -245,6 +235,7 @@ function App() {
                   </div>
                 </div>
               </section>
+              </div>
 
               <Oportunidades onSelect={handleSelectOpportunity} />
 
@@ -264,11 +255,9 @@ function App() {
 
               <section className="beach-banner beach-banner--dji"></section>
               <Depoimentos />
-
               <FormularioLuxo />
             </>
           )}
-
           <Footer />
         </div>
       </main>
