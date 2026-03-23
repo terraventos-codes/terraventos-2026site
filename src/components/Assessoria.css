@@ -9,28 +9,29 @@
 
 .assessoria-header {
   margin-bottom: 64px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.assessoria-section.is-visible .assessoria-header {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .assessoria-pill {
   display: inline-block;
-  background-color: rgba(210, 180, 140, 0.2); /* Sand/Brown light tint */
-  color: #a37c56; /* Darker brown */
-  padding: 8px 16px;
-  border-radius: 30px;
-  font-size: 0.8rem;
+  background-color: #C4B096;
+  color: #111827;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
   font-family: 'Diodrum', sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 24px;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.assessoria-pill:hover {
+  background-color: #111827;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.18);
 }
 
 .assessoria-title {

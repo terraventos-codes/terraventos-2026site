@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './EstudoVentos.css';
 
 export default function EstudoVentos() {
   const [playing, setPlaying] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  const VIDEO_ID = 'np2xeM0Xe6k';
+  const togglePlayPause = () => {
+    if (!iframeRef.current || !iframeRef.current.contentWindow) return;
+    const method = isPaused ? 'play' : 'pause';
+    iframeRef.current.contentWindow.postMessage(JSON.stringify({ method }), '*');
+    setIsPaused(!isPaused);
+  };
+
+  const VIDEO_ID = '1176298093';
 
   return (
     <section
@@ -16,17 +25,26 @@ export default function EstudoVentos() {
         <div className="estudo-media">
           <div className="estudo-video-wrapper">
             {playing ? (
-              <iframe
-                className="estudo-video-iframe-player"
-                src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&controls=0&showinfo=0&playsinline=1`}
-                title="Estudo dos Ventos - Terra Ventos"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-              />
+              <>
+                <iframe
+                  ref={iframeRef}
+                  className="estudo-video-iframe-player"
+                  src={`https://player.vimeo.com/video/${VIDEO_ID}?autoplay=1&title=0&byline=0&portrait=0&loop=1&controls=0&api=1`}
+                  title="Estudo dos Ventos - Terra Ventos"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
+                <div 
+                  className="estudo-click-overlay"
+                  onClick={togglePlayPause}
+                  aria-label="Pause/Play Video"
+                  role="button"
+                />
+              </>
             ) : (
               <>
                 <img
-                  src={`https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
+                  src={`https://vumbnail.com/${VIDEO_ID}.jpg`}
                   alt="Estudo dos Ventos - clique para assistir"
                   className="estudo-video-thumb"
                 />

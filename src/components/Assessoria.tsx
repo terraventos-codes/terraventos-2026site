@@ -97,8 +97,8 @@ export default function Assessoria() {
       className={`assessoria-section ${isVisible ? 'is-visible' : ''}`}
     >
       <div className="assessoria-header">
-        <span className="assessoria-pill">Diferenciais da Terra Ventos</span>
-        <h2 className="assessoria-title reveal-title">
+        <span className="assessoria-pill reveal-badge">Diferenciais da Terra Ventos</span>
+        <h2 className="assessoria-title reveal-heading">
           ASSESSORIA COMPLETA<br/>
           DO INICIO AO FIM
         </h2>

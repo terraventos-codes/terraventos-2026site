@@ -56,10 +56,17 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
             onClick={() => onSelect(oportunidadesData[activeIndex])}
             aria-label="Abrir detalhes do imovel em destaque"
           >
-            <h2 className="ops-title reveal-title">
-              ENCONTRE SEU PRÓXIMO
-              <br />
-              IMÓVEL NO LITORAL DO CEARÁ
+            <h2 className="ops-title">
+              <span className="ops-reveal-wrapper">
+                <span className="ops-reveal-line" style={{ transitionDelay: '0.1s' }}>
+                  ENCONTRE SEU PRÓXIMO
+                </span>
+              </span>
+              <span className="ops-reveal-wrapper">
+                <span className="ops-reveal-line" style={{ transitionDelay: '0.2s' }}>
+                  IMÓVEL NO LITORAL DO CEARÁ
+                </span>
+              </span>
             </h2>
           </button>
 

@@ -51,15 +51,7 @@
 }
 
 .depoimentos-intro {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
   padding-top: 2px;
-}
-
-.depoimentos-section.is-visible .depoimentos-intro {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
@@ -73,14 +65,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 16px 6px;
-  border-radius: 999px;
-  background-color: rgba(210, 180, 140, 0.2);
-  color: #a37c56;
-  font-size: 15px;
+  background-color: #C4B096;
+  color: #111827;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
   font-family: 'Diodrum', sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.2px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.depoimentos-pill:hover {
+  background-color: #111827;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.18);
 }
 
 .depoimentos-title {

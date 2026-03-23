@@ -72,8 +72,8 @@ export default function Cidades() {
   return (
     <section id="regioes" className="cidades-section">
       <div className="cidades-header">
-        <div className="cidades-badge">Litoral Cearense</div>
-        <h2 className="cidades-title reveal-title">
+        <div className="cidades-badge reveal-badge">Litoral Cearense</div>
+        <h2 className="cidades-title reveal-heading">
           CIDADES ONDE<br />
           ESTAMOS PRESENTES
         </h2>

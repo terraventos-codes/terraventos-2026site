@@ -15,20 +15,37 @@
 
 .condudu-media {
   position: relative;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s;
+}
+
+.condudu-section.is-visible .condudu-media {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .condudu-pill {
   display: inline-block;
   padding: 4px 16px;
   border-radius: 20px;
-  background-color: rgba(210, 180, 140, 0.2);
-  color: #a37c56;
+  background-color: #C4B096;
+  color: #111827;
   font-size: 0.85rem;
   font-family: 'Diodrum', sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 16px;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.condudu-pill:hover {
+  background-color: #111827;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.18);
 }
 
 .condudu-image-wrapper {
@@ -52,6 +69,14 @@
 
 .condudu-content {
   max-width: 520px;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
+}
+
+.condudu-section.is-visible .condudu-content {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .condudu-title {

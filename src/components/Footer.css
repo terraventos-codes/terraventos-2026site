@@ -1,43 +1,49 @@
 .footer-luxo {
-  display: block;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  position: relative;
-  background: #cfc9be;
-  color: #142431;
-  border-top: 1px solid rgba(20, 36, 49, 0.12);
-  height: auto !important;
+  background-color: #111827;
+  color: #e5e7eb;
+  padding: 80px 0 100px;
+  border-top: none;
+  font-family: 'Avenir', 'Manrope', sans-serif;
+  margin: 0 !important;
 }
 
-.footer-luxo-inner {
-  max-width: 1260px;
-  margin: 0 auto;
-  padding: 44px 48px 16px;
-  display: grid;
-  grid-template-columns: 1.1fr 2fr auto;
-  gap: 34px;
-  align-items: start;
+.footer-luxo-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
 }
 
 .footer-luxo-logo {
-  width: 170px;
+  width: 280px;
   height: auto;
   object-fit: contain;
+  /* Converte o logo preto para branco puro: */
+  filter: invert(1) brightness(2);
 }
 
-.footer-luxo-tagline {
-  margin: 14px 0 0;
-  color: rgba(20, 36, 49, 0.75);
-  line-height: 1.5;
-  max-width: 280px;
+.footer-luxo-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .footer-luxo-info p {
-  margin: 0 0 12px;
-  line-height: 1.5;
-  color: rgba(20, 36, 49, 0.85);
+  margin: 0 0 16px;
+  font-size: 0.95rem;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+.footer-luxo-info p:nth-child(2) {
+  margin-bottom: 24px;
 }
 
 .footer-luxo-info p:last-child {
@@ -45,84 +51,83 @@
 }
 
 .footer-luxo-info a {
-  color: #142431;
+  color: #d1d5db;
   text-decoration: none;
   transition: color 0.25s ease;
-  font-weight: 600;
 }
 
 .footer-luxo-info a:hover {
-  color: rgba(20, 36, 49, 0.65);
+  color: #ffffff;
+}
+
+.footer-luxo-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
 }
 
 .footer-luxo-social {
   display: flex;
-  gap: 12px;
+  gap: 16px;
 }
 
 .footer-luxo-social a {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  display: inline-flex;
+  background-color: #C4B096;
+  color: #111827;
+  display: flex;
   align-items: center;
   justify-content: center;
-  color: #142431;
-  border: 1px solid rgba(20, 36, 49, 0.2);
-  background: rgba(20, 36, 49, 0.06);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(20, 36, 49, 0.08);
-  transition: transform 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 
 .footer-luxo-social a:hover {
-  transform: translateY(-2px);
-  color: rgba(20, 36, 49, 0.6);
-  border-color: rgba(20, 36, 49, 0.35);
+  transform: translateY(-3px);
+  filter: brightness(1.1);
 }
 
-.footer-luxo-social svg {
+.footer-luxo-social a svg {
   width: 20px;
   height: 20px;
+  fill: currentColor;
 }
 
-@media (max-width: 960px) {
-  .footer-luxo-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-  }
+.footer-copyright {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
 
-  .footer-luxo-brand, .footer-luxo-info, .footer-luxo-social {
-    display: flex;
+@media (max-width: 1024px) {
+  .footer-luxo-content {
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    gap: 56px;
   }
 
-  .footer-luxo-logo {
-    margin: 0 auto;
-  }
-
-  .footer-luxo-tagline {
-    margin: 14px auto 0;
-    max-width: 100%;
-  }
-
-  .footer-luxo-social {
-    flex-direction: row;
-    justify-content: center;
+  .footer-luxo-right {
+    align-items: center;
   }
 }
 
 @media (max-width: 768px) {
   .footer-luxo {
-    margin-top: 0;
-    margin-bottom: 0px; 
-    width: 100%;
-    left: auto;
-    right: auto;
+    padding: 60px 0 80px;
+  }
+  
+  .footer-luxo-content {
+    padding: 0 24px;
   }
 
-  .footer-luxo-inner {
-    padding: 40px 24px 16px;
+  .footer-luxo-logo {
+    width: 200px;
+  }
+  
+  .footer-luxo-logo-container {
+    margin-bottom: 50px;
   }
 }

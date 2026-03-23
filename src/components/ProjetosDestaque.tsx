@@ -49,8 +49,8 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
     <section id="projetos" className="pd-section">
       <div className="pd-container">
         <div className="pd-header">
-          <div className="pd-badge">Projetos em destaque</div>
-          <h2 className="pd-title reveal-title">
+          <div className="pd-badge reveal-badge">Projetos em destaque</div>
+          <h2 className="pd-title reveal-heading">
             PARA INVESTIR, MORAR OU VIVER UMA
             <br />
             TEMPORADA NO CEARA

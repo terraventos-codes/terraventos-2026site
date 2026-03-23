@@ -1,7 +1,7 @@
 html {
   margin: 0;
   padding: 0;
-  background-color: #efe7db;
+  background-color: #ffffff;
   overscroll-behavior: none;
   height: auto;
 }
@@ -12,7 +12,7 @@ body {
   width: 100%;
   height: auto;
   overflow-x: hidden;
-  background-color: #efe7db;
+  background-color: #ffffff;
   overscroll-behavior: none;
   font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   color: #111827;
@@ -33,7 +33,7 @@ body {
   margin: 0 !important;
   box-sizing: border-box;
   max-width: 100%;
-  background-color: #efe7db;
+  background-color: #ffffff;
   height: auto;
 }
 
@@ -308,20 +308,88 @@ body {
 
 .main-content section.is-reveal {
   opacity: 0;
-  transform: translateY(26px);
-  filter: blur(5px);
+  filter: blur(8px);
   transition:
-    opacity 820ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 820ms cubic-bezier(0.22, 1, 0.36, 1),
-    filter 820ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 1000ms cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 1000ms cubic-bezier(0.165, 0.84, 0.44, 1),
+    filter 1000ms cubic-bezier(0.165, 0.84, 0.44, 1);
   transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Premium Effects */
+.main-content section[data-reveal="lift"].is-reveal {
+  transform: translateY(60px);
+}
+
+.main-content section[data-reveal="slide-left"].is-reveal {
+  transform: translateX(60px);
+}
+
+.main-content section[data-reveal="slide-right"].is-reveal {
+  transform: translateX(-60px);
+}
+
+.main-content section[data-reveal="soft-zoom"].is-reveal {
+  transform: scale(0.95);
 }
 
 .main-content section.is-reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0) scale(1);
   filter: blur(0);
 }
+
+/* --- INNER ELEMENT EFFECTS (Staggered inside visible sections) --- */
+
+section .reveal-badge {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s;
+  will-change: opacity, transform;
+}
+
+section.is-visible .reveal-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section .reveal-heading {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.25s, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.25s;
+  will-change: opacity, transform;
+}
+
+section.is-visible .reveal-heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section .reveal-subtext {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s;
+  will-change: opacity, transform;
+}
+
+section.is-visible .reveal-subtext {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section .reveal-cta {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
+  will-change: opacity, transform;
+}
+
+section.is-visible .reveal-cta {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* End inner effects */
 
 /* Title reveal: after section becomes visible (subtle top-to-bottom). */
 .main-content section.is-reveal .reveal-title {
@@ -415,10 +483,21 @@ body {
   }
 }
 
+@keyframes heroImageEntry {
+  0% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .hero-slides {
   position: absolute;
   inset: 0;
   z-index: 0;
+  animation: heroImageEntry 2.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  will-change: transform;
 }
 
 .hero-slide {

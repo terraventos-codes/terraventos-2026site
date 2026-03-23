@@ -96,13 +96,13 @@ export default function Depoimentos() {
     >
       <div className="depoimentos-shell">
         <div className="depoimentos-intro">
-          <span className="depoimentos-pill">Depoimentos</span>
-          <h2 className="depoimentos-title reveal-title">
+          <span className="depoimentos-pill reveal-badge">Depoimentos</span>
+          <h2 className="depoimentos-title reveal-heading">
             VOZES DA
             <br />
             COMUNIDADE
           </h2>
-          <p className="depoimentos-text">
+          <p className="depoimentos-text reveal-subtext">
             Mais do que investidores, somos um ecossistema de visionários, atletas e entusiastas do litoral
             que escolheram o Ceará como o seu próximo marco de vida e patrimônio.
           </p>

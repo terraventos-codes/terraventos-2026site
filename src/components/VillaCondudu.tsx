@@ -23,32 +23,32 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
         </div>
 
         <div className="condudu-content">
-          <h2 className="condudu-title reveal-title">
+          <h2 className="condudu-title reveal-heading">
             VILLA CONDUDU III
             <br />
             PARA ALUGAR NO PREA
           </h2>
 
-          <p className="condudu-subtitle">
+          <p className="condudu-subtitle reveal-subtext">
             Casa de alto padrão em Preá, pensada para temporadas com vento constante,
             serviço personalizado e integração total com o mar.
           </p>
 
-          <div className="condudu-tags">
+          <div className="condudu-tags reveal-subtext" style={{ transitionDelay: '0.45s' }}>
             <span className="condudu-tag">Temporada</span>
             <span className="condudu-tag">3 quartos</span>
             <span className="condudu-tag">2 banheiros</span>
             <span className="condudu-tag">500 m²</span>
           </div>
 
-          <div className="condudu-price-line">
+          <div className="condudu-price-line reveal-subtext" style={{ transitionDelay: '0.5s' }}>
             <span className="condudu-price">R$ 1.200/dia</span>
             <span className="condudu-price-note">tarifa referência em alta temporada</span>
           </div>
 
           <button
             type="button"
-            className="condudu-cta"
+            className="condudu-cta reveal-cta"
             onClick={() => onSelect(conduduOpportunity)}
           >
             Ver detalhes da casa
