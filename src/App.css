@@ -521,14 +521,35 @@ body {
   bottom: 0;
   right: 0;
   background-color: #fff;
-  border-top-left-radius: 40px;
+  border-top-left-radius: 48px;
   padding: 18px 26px;
   display: flex;
   align-items: center;
   gap: 14px;
   z-index: 5;
-  border-top: 1px solid rgba(0,0,0,0.06);
-  border-left: 1px solid rgba(0,0,0,0.06);
+  filter: drop-shadow(-2px -2px 14px rgba(0,0,0,0.06));
+}
+
+.floating-card::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 0 0, transparent 40px, #fff 40px);
+  pointer-events: none;
+}
+
+.floating-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -40px;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 0 0, transparent 40px, #fff 40px);
+  pointer-events: none;
 }
 
 /* Avatars */
@@ -659,6 +680,12 @@ body {
     right: 0;
     background-color: rgba(255, 255, 255, 0.96);
     box-shadow: -5px -5px 20px rgba(0,0,0,0.05);
+    filter: none;
+  }
+
+  .floating-card::before,
+  .floating-card::after {
+    display: none;
   }
 
   .avatars img {

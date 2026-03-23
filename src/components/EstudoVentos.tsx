@@ -18,7 +18,7 @@ export default function EstudoVentos() {
             {playing ? (
               <iframe
                 className="estudo-video-iframe-player"
-                src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+                src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&controls=0&showinfo=0&playsinline=1`}
                 title="Estudo dos Ventos - Terra Ventos"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
@@ -40,7 +40,6 @@ export default function EstudoVentos() {
                     <circle cx="40" cy="40" r="39" stroke="white" strokeWidth="2" fill="rgba(0,0,0,0.35)" />
                     <polygon points="32,24 60,40 32,56" fill="white" />
                   </svg>
-                  <span className="estudo-play-label">Assistir no YouTube</span>
                 </button>
               </>
             )}
