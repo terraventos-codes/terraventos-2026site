@@ -103,7 +103,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     id: '03',
     title: 'PROJETOS',
     image: '/projetos.avif',
-    badge: 'Lançamento',
+    badge: 'Investimento',
     propertyTitle: 'VILA DO INGLÊS',
     location: 'Preá, Ceará, Brasil',
     rating: 5,
