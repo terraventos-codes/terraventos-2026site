@@ -1,6 +1,7 @@
 .pagina-individual {
   max-width: 1120px;
   margin: 18px auto 48px;
+  padding: 0 24px;
 }
 
 .pi-back-button {
