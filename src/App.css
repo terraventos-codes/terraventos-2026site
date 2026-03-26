@@ -2,7 +2,6 @@ html {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
-  overscroll-behavior: none;
   height: auto;
 }
 
@@ -16,7 +15,6 @@ body {
   overscroll-behavior: none;
   font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   color: #111827;
-  position: relative;
 }
 
 #root {
@@ -165,6 +163,24 @@ body {
   height: 18px;
 }
 
+.language-selector {
+  background: transparent;
+  border: 1px solid rgba(17, 24, 39, 0.2);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #111827;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.language-selector:hover {
+  border-color: #C4B096;
+}
+
 .nav-links a:hover {
   color: #111827;
   opacity: 1;
@@ -296,6 +312,46 @@ body {
   width: 100%;
   padding-bottom: 24px;
   overflow: hidden; /* Prevents margin collapse */
+}
+
+/* ── Mobile Header ── */
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 16px;
+    gap: 8px;
+  }
+
+  .brand-logo {
+    height: 48px;
+  }
+
+  /* Hide full nav links on mobile */
+  .nav-links {
+    display: none;
+  }
+
+  /* Show language selector on mobile (it was inside nav-links, move it) */
+  .language-selector {
+    display: block;
+    padding: 4px 6px;
+    font-size: 0.78rem;
+  }
+
+  /* Compact contact button */
+  .header-contact-button {
+    height: 38px;
+    padding: 0 14px;
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+
+  .header-contact-button .contact-arrow {
+    display: none;
+  }
+
+  .main-content {
+    padding-top: 72px;
+  }
 }
 
 .main-content {

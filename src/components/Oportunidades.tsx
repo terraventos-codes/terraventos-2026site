@@ -1,28 +1,19 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Oportunidades.css';
 import { oportunidadesData, type OportunidadeDetalhe } from '../data/oportunidadesData';
+import { getOportunidadesData } from '../data/oportunidadesDataI18n';
 
 type OportunidadesProps = {
   onSelect: (item: OportunidadeDetalhe) => void;
 };
 
-// Textos dinâmicos por card
-const cardTexts: Record<string, { subtitle: string }> = {
-  '01': {
-    subtitle:
-      'Residências de alto padrão prontas, com arquitetura contemporânea e integração com a natureza. Ideais para segunda moradia e renda de locação premium com demanda internacional.',
-  },
-  '02': {
-    subtitle:
-      'Terrenos pé na areia no último village planejado do Roteiro Costa dos Ventos. Oportunidade de entrada com valores abaixo do preço maduro e os mesmos vetores de valorização.',
-  },
-  '03': {
-    subtitle:
-      'Empreendimentos boutique para investidores com visão antecipada. Produto com estudo de vento aplicado, personalização arquitetônica e localização de alta escassez.',
-  },
-};
+
 
 export default function Oportunidades({ onSelect }: OportunidadesProps) {
+  const { t, i18n } = useTranslation();
+  const opTitles = t('oportunidades.titles', { returnObjects: true }) as string[];
+  const localizedData = getOportunidadesData(i18n.language);
   const [activeIndex, setActiveIndex] = useState(2);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -43,28 +34,27 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
   };
 
   const activeItem = oportunidadesData[activeIndex];
-  const activeText = cardTexts[activeItem.id] ?? { subtitle: '' };
 
   return (
     <section id="oportunidades" className="oportunidades-section">
       <div className="ops-container">
         <div className="ops-info">
-          <div className="ops-badge">Oportunidades exclusivas</div>
+          <div className="ops-badge">{t('oportunidades.badge')}</div>
           <button
             type="button"
             className="ops-title-link"
-            onClick={() => onSelect(oportunidadesData[activeIndex])}
+            onClick={() => onSelect(localizedData[activeIndex])}
             aria-label="Abrir detalhes do imovel em destaque"
           >
             <h2 className="ops-title">
               <span className="ops-reveal-wrapper">
                 <span className="ops-reveal-line" style={{ transitionDelay: '0.1s' }}>
-                  ENCONTRE SEU PRÓXIMO
+                  {t('oportunidades.title1')}
                 </span>
               </span>
               <span className="ops-reveal-wrapper">
                 <span className="ops-reveal-line" style={{ transitionDelay: '0.2s' }}>
-                  IMÓVEL NO LITORAL DO CEARÁ
+                  {t('oportunidades.title2')}
                 </span>
               </span>
             </h2>
@@ -72,7 +62,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
 
           {/* Subtítulo dinâmico que acompanha o card ativo */}
           <p className="ops-subtitle ops-subtitle--dynamic" key={activeItem.id}>
-            {activeText.subtitle}
+            {t(`oportunidades.cards.${activeItem.id}`)}
           </p>
 
           <div className="ops-icon">
@@ -103,28 +93,39 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
               <div className="ops-accordion">
                 {oportunidadesData.map((item, index) => {
                   const isActive = index === activeIndex;
+                  const localItem = localizedData[index];
 
                   return (
                     <div
                       key={item.id}
                       className={`ops-card ${isActive ? 'active' : ''}`}
-                      onClick={() => setActiveIndex(index)}
+                      onClick={() => isActive ? onSelect(localItem) : setActiveIndex(index)}
+                      title={isActive ? undefined : opTitles[index] || item.title}
                     >
                       {isActive ? (
                         <div className="ops-card-expanded">
-                          <img src={item.image} alt={item.title} className="ops-card-image" />
-                          <div className="ops-card-cutout">
+                          <img src={item.image} alt={opTitles[index] || item.title} className="ops-card-image" />
+                          <div className="ops-card-cutout ops-card-cutout--rich">
                             <div className="ops-card-cutout-inner">
-                              {item.id}
                               <div className="ops-card-pip" aria-hidden="true" />
-                              <span className="ops-card-label">{item.title}</span>
+                              <span className="ops-card-label">{opTitles[index] || item.title}</span>
+                              <span className="ops-card-property-name">{localItem.propertyTitle}</span>
+                              <span className="ops-card-price">{localItem.price}</span>
                             </div>
+                            <button
+                              className="ops-card-cta"
+                              type="button"
+                              onClick={(e) => { e.stopPropagation(); onSelect(localItem); }}
+                            >
+                              {t('pagina.cta')} →
+                            </button>
                           </div>
                         </div>
                       ) : (
                         <div className="ops-card-collapsed">
                           <div className="ops-collapsed-pip" aria-hidden="true" />
-                          <span className="ops-collapsed-text">{item.title}</span>
+                          <span className="ops-collapsed-text">{opTitles[index] || item.title}</span>
+                          <span className="ops-collapsed-hint" aria-hidden="true">›</span>
                         </div>
                       )}
                     </div>

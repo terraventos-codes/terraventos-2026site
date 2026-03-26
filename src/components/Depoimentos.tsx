@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Depoimentos.css';
 
 type Testimonial = {
@@ -7,6 +8,7 @@ type Testimonial = {
   role: string;
   avatar: string;
   female: boolean;
+  rating?: number;
 };
 
 const depoimentos: Testimonial[] = [
@@ -27,6 +29,7 @@ const depoimentos: Testimonial[] = [
     avatar:
       'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=96&q=80',
     female: false,
+    rating: 4,
   },
   {
     quote:
@@ -34,7 +37,7 @@ const depoimentos: Testimonial[] = [
     name: 'Ana Paula S.',
     role: 'Proprietaria de Casa de Veraneio',
     avatar:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&q=80',
+      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=96&q=80',
     female: true,
   },
   {
@@ -54,6 +57,7 @@ const depoimentos: Testimonial[] = [
     avatar:
       'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=96&q=80',
     female: true,
+    rating: 4,
   },
   {
     quote:
@@ -63,10 +67,12 @@ const depoimentos: Testimonial[] = [
     avatar:
       'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=96&q=80',
     female: false,
+    rating: 4,
   },
 ];
 
 export default function Depoimentos() {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -95,45 +101,39 @@ export default function Depoimentos() {
       className={`depoimentos-section ${isVisible ? 'is-visible' : ''}`}
     >
       <div className="depoimentos-shell">
-        <div className="depoimentos-intro">
-          <span className="depoimentos-pill reveal-badge">Depoimentos</span>
-          <h2 className="depoimentos-title reveal-heading">
-            VOZES DA
-            <br />
-            COMUNIDADE
-          </h2>
-          <p className="depoimentos-text reveal-subtext">
-            Mais do que investidores, somos um ecossistema de visionários, atletas e entusiastas do litoral
-            que escolheram o Ceará como o seu próximo marco de vida e patrimônio.
+        <div className="depoimentos-header">
+          <span className="depoimentos-pill reveal-badge">{t('depoimentos.badge')}</span>
+          <h2 className="depoimentos-title reveal-heading" dangerouslySetInnerHTML={{ __html: t('depoimentos.title') }}></h2>
+          <p className="depoimentos-subtitle reveal-subtext">
+            {t('depoimentos.subtitle')}
           </p>
         </div>
 
         <div className="depoimentos-grid">
-          {depoimentos.map((item, index) => (
-            <article
-              key={item.name}
-              className="depoimento-card"
-              style={{ transitionDelay: `${index * 0.08}s` }}
-            >
-              <div className="depoimento-stars" aria-hidden="true">
-                {'★★★★★'}
-              </div>
-              <p className="depoimento-quote">{item.quote}</p>
-              <div className="depoimento-footer">
-                <img
-                  className={`depoimento-avatar ${item.female ? 'is-female' : 'is-male'}`}
-                  src={item.avatar}
-                  alt={`Avatar de ${item.name}`}
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
+          {depoimentos.map((dep, idx) => {
+            const roles = t('depoimentos.roles', { returnObjects: true }) as string[];
+            const quotes = t('depoimentos.quotes', { returnObjects: true }) as string[];
+            
+            return (
+              <div 
+                key={dep.name} 
+                className="depoimento-card"
+                style={{ transitionDelay: `${idx * 0.15}s` }}
+              >
+                <div className="depoimento-stars">
+                  {'★'.repeat(dep.rating || 5)}{'☆'.repeat(5 - (dep.rating || 5))}
+                </div>
+                <p className="depoimento-quote">{quotes[idx]}</p>
                 <div className="depoimento-author">
-                  <strong>{item.name}</strong>
-                  <span>{item.role}</span>
+                  <img src={dep.avatar} alt={`Avatar de ${dep.name}`} className="depoimento-avatar" />
+                  <div className="depoimento-author-info">
+                    <span className="depoimento-name">{dep.name}</span>
+                    <span className="depoimento-role">{roles[idx]}</span>
+                  </div>
                 </div>
               </div>
-            </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

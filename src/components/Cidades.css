@@ -43,14 +43,33 @@
   line-height: 1.2;
 }
 
-/* Infinite Slider */
+/* Scrollable container — desktop */
 .cidades-slider-container {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   width: 100%;
   position: relative;
-  /* Add subtle gradient fades on left and right for seamless loop look */
-  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: none;
+  mask-image: none;
+  /* Styled scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #C4B096 rgba(196,176,150,0.15);
+  padding-bottom: 12px;
+}
+
+.cidades-slider-container::-webkit-scrollbar {
+  height: 5px;
+}
+
+.cidades-slider-container::-webkit-scrollbar-track {
+  background: rgba(196,176,150,0.15);
+  border-radius: 999px;
+  margin: 0 48px;
+}
+
+.cidades-slider-container::-webkit-scrollbar-thumb {
+  background: #C4B096;
+  border-radius: 999px;
 }
 
 .cidades-slider-track {
@@ -58,12 +77,8 @@
   width: max-content;
   align-items: flex-start;
   gap: 24px;
-  padding: 0 24px;
-  animation: scrollInfinite 40s linear infinite;
-}
-
-.cidades-slider-track:hover {
-  animation-play-state: paused;
+  padding: 0 48px 8px;
+  animation: none;
 }
 
 @keyframes scrollInfinite {
@@ -148,32 +163,102 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .cidades-section {
-    padding: 48px 0;
+    padding: 40px 0;
   }
-  
+
   .cidades-title {
     font-size: 1.6rem;
   }
 
+  /* Switch to native horizontal scroll on mobile */
   .cidades-slider-container {
-    overflow: visible;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
     -webkit-mask-image: none;
     mask-image: none;
+    /* Hide scrollbar visually */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .cidades-slider-container::-webkit-scrollbar {
+    display: none;
   }
 
   .cidades-slider-track {
     animation: none;
-    width: 100%;
-    flex-direction: column;
-    padding: 0 16px;
-    gap: 20px;
+    width: max-content;
+    flex-direction: row;
+    padding: 0 20px;
+    gap: 16px;
   }
 
   .cidades-card {
-    width: 100%;
+    width: 72vw;
+    max-width: 280px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
   }
 
   .cidades-card-title {
     font-size: 1rem;
   }
+
+  /* Scroll indicators */
+  .cidades-scroll-indicators {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px 4px;
+  }
+
+  .cidades-scroll-bar-track {
+    width: 100%;
+    max-width: 200px;
+    height: 3px;
+    background: rgba(196, 176, 150, 0.2);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .cidades-scroll-bar-fill {
+    height: 100%;
+    background: #C4B096;
+    border-radius: 999px;
+    transition: width 0.1s ease;
+    min-width: 20px;
+  }
+
+  .cidades-scroll-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .cidades-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(196, 176, 150, 0.35);
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, width 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  .cidades-dot.active {
+    background: #C4B096;
+    width: 20px;
+    border-radius: 4px;
+    transform: none;
+  }
+}
+
+/* Desktop: hide indicators */
+.cidades-scroll-indicators {
+  display: none;
 }

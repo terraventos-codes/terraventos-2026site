@@ -1,7 +1,11 @@
 import { useState, useRef } from 'react';
 import './EstudoVentos.css';
+import { useTranslation } from 'react-i18next';
 
 export default function EstudoVentos() {
+  const { t } = useTranslation();
+  const videoInfo = t('estudo.videoInfo', { returnObjects: true }) as string[];
+  const stats = t('estudo.stats', { returnObjects: true }) as Record<string, string>;
   const [playing, setPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -13,7 +17,7 @@ export default function EstudoVentos() {
     setIsPaused(!isPaused);
   };
 
-  const VIDEO_ID = '1176298093';
+  const VIDEO_ID = '1177444750';
 
   return (
     <section
@@ -45,13 +49,13 @@ export default function EstudoVentos() {
               <>
                 <img
                   src={`https://vumbnail.com/${VIDEO_ID}.jpg`}
-                  alt="Estudo dos Ventos - clique para assistir"
+                  alt={videoInfo[1]}
                   className="estudo-video-thumb"
                 />
                 <button
                   className="estudo-play-btn"
                   type="button"
-                  aria-label="Reproduzir vídeo"
+                  aria-label={videoInfo[2]}
                   onClick={() => setPlaying(true)}
                 >
                   <svg viewBox="0 0 80 80" fill="none" className="estudo-play-icon">
@@ -63,36 +67,32 @@ export default function EstudoVentos() {
             )}
             <div className="estudo-video-info">
               <h4>Bernardo Carvalho Wertheim</h4>
-              <p>Fundador e CEO Terra Ventos</p>
+              <p>{videoInfo[0]}</p>
             </div>
           </div>
         </div>
 
         <div className="estudo-content">
-          <h2 className="estudo-title reveal-title">
-            ESTUDO<br />DOS VENTOS
-          </h2>
+          <h2 className="estudo-title reveal-title" dangerouslySetInnerHTML={{ __html: t('estudo.title') }}></h2>
 
-          <p className="estudo-desc">
-            Terra Ventos apresenta: Quais locais mais crescem em valorização, onde está menos explorado e com o maior potencial. <strong>Mergulhe em dados e análise potencial do Litoral Cearense.</strong>
-          </p>
+          <p className="estudo-desc" dangerouslySetInnerHTML={{ __html: t('estudo.desc') }}></p>
 
           <div className="estudo-stats">
             <div className="estudo-stat">
               <span className="stat-value">+15</span>
-              <span className="stat-label">Cidades analisadas</span>
+              <span className="stat-label">{stats['1']}</span>
             </div>
             <div className="estudo-stat">
               <span className="stat-value">9 meses</span>
-              <span className="stat-label">de ventos constante</span>
+              <span className="stat-label">{stats['2']}</span>
             </div>
             <div className="estudo-stat">
               <span className="stat-value">+20%</span>
-              <span className="stat-label">de valorização ao ano</span>
+              <span className="stat-label">{stats['3']}</span>
             </div>
             <div className="estudo-stat">
               <span className="stat-value">APAs</span>
-              <span className="stat-label">técnico e ambiental</span>
+              <span className="stat-label">{stats['4']}</span>
             </div>
           </div>
 
@@ -102,7 +102,7 @@ export default function EstudoVentos() {
             target="_blank"
             rel="noreferrer"
           >
-            Ver o estudo completo
+            {t('estudo.cta')}
           </a>
         </div>
       </div>

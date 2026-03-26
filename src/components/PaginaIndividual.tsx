@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import './PaginaIndividual.css';
 import type { OportunidadeDetalhe } from '../data/oportunidadesData';
 
@@ -8,7 +9,15 @@ type PaginaIndividualProps = {
 };
 
 export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps) {
+  const { t } = useTranslation();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+
+  // Fix: reset body overflow when component unmounts (e.g. navigating away with lightbox open)
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
 
   const openLightbox = (src: string) => {
     setLightboxImage(src);
@@ -27,7 +36,7 @@ export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
-        <span>Voltar</span>
+        <span>{t('pagina.back')}</span>
       </button>
 
       <div className="pi-main">
@@ -59,14 +68,14 @@ export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps
 
         <div className="pi-content-grid">
           <div className="pi-content-main">
-            <h2 className="pi-section-title reveal-title">Sobre a propriedade</h2>
+            <h2 className="pi-section-title reveal-title">{t('pagina.about')}</h2>
             {item.about.map((paragraph) => (
               <p key={paragraph} className="pi-text">
                 {paragraph}
               </p>
             ))}
 
-            <h3 className="pi-section-subtitle">Infra-estrutura</h3>
+            <h3 className="pi-section-subtitle">{t('pagina.infra')}</h3>
             <ul className="pi-infra-list">
               {item.infra.map((info) => (
                 <li key={info}>
@@ -84,7 +93,7 @@ export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps
               ))}
             </ul>
 
-            <h3 className="pi-section-subtitle">Facilidades</h3>
+            <h3 className="pi-section-subtitle">{t('pagina.facilities')}</h3>
             <div className="pi-facilities">
               {item.facilities.map((facilidadeOrig) => {
                 const isUnavailable = facilidadeOrig.startsWith('!');
@@ -118,7 +127,7 @@ export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps
               <p className="pi-price">{item.price}</p>
               
               <p className="pi-contact-text">
-                Fale com um de nossos<br />consultores
+                {t('pagina.contact')}
               </p>
 
               <div className="pi-avatars-center">
@@ -128,7 +137,7 @@ export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps
               </div>
               
               <p className="pi-experience-text">
-                10+ anos de experiência<br />imobiliária no Ceará
+                {t('hero.card.experience').split('\n').map((line: string, i: number) => i > 0 ? <><br key={i}/>{line}</> : line)}
               </p>
               
               <div className="pi-stars" aria-hidden="true">
@@ -136,13 +145,13 @@ export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps
               </div>
 
               <button type="button" className="pi-cta">
-                Entrar em contato
+                {t('pagina.cta')}
               </button>
             </div>
           </aside>
         </div>
 
-        <h3 className="pi-section-subtitle">Location</h3>
+        <h3 className="pi-section-subtitle">{t('pagina.location')}</h3>
         <div className="pi-map-wrapper">
           {item.mapUrl ? (
             <iframe

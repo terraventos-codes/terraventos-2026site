@@ -50,7 +50,7 @@
   z-index: 1;
 }
 
-.depoimentos-intro {
+.depoimentos-header {
   padding-top: 2px;
 }
 
@@ -58,6 +58,16 @@
   .depoimentos-section {
     padding: 56px 0 56px;
     width: 100%;
+  }
+
+  .depoimentos-shell {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 24px;
+  }
+
+  .depoimentos-header {
+    text-align: center;
   }
 }
 
@@ -95,13 +105,15 @@
   line-height: 1.06;
 }
 
-.depoimentos-text {
-  margin: 58px 0 0;
-  max-width: 250px;
+.depoimentos-text,
+.depoimentos-subtitle {
+  margin: 24px 0 0;
+  max-width: 100%;
   color: #505050;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.58;
   letter-spacing: 0.1px;
+  text-align: center;
 }
 
 .depoimentos-grid {
@@ -213,7 +225,19 @@
   filter: contrast(1.02);
 }
 
-.depoimento-author strong {
+.depoimento-author {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.depoimento-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.depoimento-name {
   display: block;
   color: #4f4f4f;
   font-size: 15px;
@@ -221,7 +245,7 @@
   line-height: 1.15;
 }
 
-.depoimento-author span {
+.depoimento-role {
   display: block;
   color: #9a9a9a;
   font-size: 14px;
@@ -235,7 +259,7 @@
     gap: 34px;
   }
 
-  .depoimentos-intro {
+  .depoimentos-header {
     max-width: 640px;
   }
 

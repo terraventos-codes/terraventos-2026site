@@ -1,6 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import './Footer.css';
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="footer-luxo">
       <div className="footer-luxo-logo-container">
@@ -36,7 +39,7 @@ export default function Footer() {
               </svg>
             </a>
           </nav>
-          <p className="footer-copyright">© Copyright 2025. All Rights Reserved.</p>
+          <p className="footer-copyright">{t('footer.rights')}</p>
         </div>
       </div>
     </footer>

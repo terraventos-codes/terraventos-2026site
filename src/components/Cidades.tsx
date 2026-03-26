@@ -1,5 +1,6 @@
 import './Cidades.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const cidadesData = [
   {
@@ -54,46 +55,88 @@ const cidadesData = [
 ];
 
 export default function Cidades() {
+  const { t } = useTranslation();
+  const cData = t('cidades.cards', { returnObjects: true }) as Record<string, any>;
   const [isMobile, setIsMobile] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeCard, setActiveCard] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)');
-
     const update = () => setIsMobile(mq.matches);
-
     update();
     mq.addEventListener('change', update);
     return () => mq.removeEventListener('change', update);
   }, []);
 
-  // Duplicate only on desktop to create the infinite scroll effect
-  const cidadesToRender = isMobile ? cidadesData : [...cidadesData, ...cidadesData];
+  useEffect(() => {
+    const el = sliderRef.current;
+    if (!el || !isMobile) return;
+    const onScroll = () => {
+      const max = el.scrollWidth - el.clientWidth;
+      const progress = max > 0 ? el.scrollLeft / max : 0;
+      setScrollProgress(progress);
+      const cardWidth = el.clientWidth * 0.72 + 16;
+      setActiveCard(Math.round(el.scrollLeft / cardWidth));
+    };
+    el.addEventListener('scroll', onScroll, { passive: true });
+    return () => el.removeEventListener('scroll', onScroll);
+  }, [isMobile]);
+
+  // Always render the original 7 cities (no duplication needed now that both views scroll manually)
+  const cidadesToRender = cidadesData;
 
   return (
     <section id="regioes" className="cidades-section">
       <div className="cidades-header">
-        <div className="cidades-badge reveal-badge">Litoral Cearense</div>
-        <h2 className="cidades-title reveal-heading">
-          CIDADES ONDE<br />
-          ESTAMOS PRESENTES
-        </h2>
+        <div className="cidades-badge reveal-badge">{t('cidades.badge')}</div>
+        <h2 className="cidades-title reveal-heading" dangerouslySetInnerHTML={{ __html: t('cidades.title') }}></h2>
       </div>
 
-      <div className="cidades-slider-container">
+      <div className="cidades-slider-container" ref={sliderRef}>
         <div className="cidades-slider-track">
-          {cidadesToRender.map((cidade, index) => (
-            <div className="cidades-card" key={`${cidade.id}-${index}`}>
-              <div className="cidades-image-wrapper">
-                <img src={cidade.image} alt={cidade.title} className="cidades-image" />
+          {cidadesToRender.map((cidade, index) => {
+            const raw = cData[cidade.id];
+            const cardTitle = (raw && typeof raw === 'object' && raw.title) ? raw.title : cidade.title;
+            const cardDesc = (raw && typeof raw === 'object' && raw.desc) ? raw.desc : cidade.description;
+            return (
+              <div className="cidades-card" key={`${cidade.id}-${index}`}>
+                <div className="cidades-image-wrapper">
+                  <img src={cidade.image} alt={cardTitle} className="cidades-image" />
+                </div>
+                <div className="cidades-content">
+                  <h3 className="cidades-card-title">{cardTitle}</h3>
+                  <p className="cidades-card-desc">{cardDesc}</p>
+                </div>
               </div>
-              <div className="cidades-content">
-                <h3 className="cidades-card-title">{cidade.title}</h3>
-                <p className="cidades-card-desc">{cidade.description}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
+
+      {/* Mobile scroll indicators */}
+      {isMobile && (
+        <div className="cidades-scroll-indicators">
+          <div className="cidades-scroll-bar-track">
+            <div className="cidades-scroll-bar-fill" style={{ width: `${scrollProgress * 100}%` }} />
+          </div>
+          <div className="cidades-scroll-dots">
+            {cidadesData.map((_, i) => (
+              <button
+                key={i}
+                className={`cidades-dot ${i === activeCard ? 'active' : ''}`}
+                aria-label={`Cidade ${i + 1}`}
+                onClick={() => {
+                  if (!sliderRef.current) return;
+                  const cardWidth = sliderRef.current.clientWidth * 0.72 + 16;
+                  sliderRef.current.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -1,5 +1,7 @@
 import './ProjetosDestaque.css';
+import { useTranslation } from 'react-i18next';
 import { oportunidadesData, type OportunidadeDetalhe } from '../data/oportunidadesData';
+import { getOportunidadesData } from '../data/oportunidadesDataI18n';
 
 type ProjetosDestaqueProps = {
   onSelect: (item: OportunidadeDetalhe) => void;
@@ -45,24 +47,29 @@ const projetos = [
 ];
 
 export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
+  const { t, i18n } = useTranslation();
+  const pdData = t('projetos.cards', { returnObjects: true }) as Record<string, any>;
+  const localizedData = getOportunidadesData(i18n.language);
+
   return (
     <section id="projetos" className="pd-section">
       <div className="pd-container">
         <div className="pd-header">
-          <div className="pd-badge reveal-badge">Projetos em destaque</div>
-          <h2 className="pd-title reveal-heading">
-            PARA INVESTIR, MORAR OU VIVER UMA
-            <br />
-            TEMPORADA NO CEARA
-          </h2>
+          <div className="pd-badge reveal-badge">{t('projetos.badge')}</div>
+          <h2 className="pd-title reveal-heading" dangerouslySetInnerHTML={{ __html: t('projetos.title') }}></h2>
         </div>
 
         <div className="pd-grid">
-          {projetos.filter((p) => p.id !== 2).map((projeto) => (
-            <div className="pd-card" key={projeto.id} onClick={() => onSelect(projeto.detail)}>
+          {projetos.map((projeto) => {
+            const cardData = pdData[projeto.id] || { title: projeto.title, tag: projeto.tag, price: projeto.price };
+            return (
+            <div className="pd-card" key={projeto.id} onClick={() => {
+              const found = localizedData.find((d) => d.id === projeto.detail.id);
+              onSelect(found ?? projeto.detail);
+            }}>
               <div className="pd-image-wrapper">
-                <img src={projeto.image} alt={projeto.title} className="pd-image" />
-                <div className="pd-tag">{projeto.tag}</div>
+                <img src={projeto.image} alt={cardData.title} className="pd-image" />
+                <div className="pd-tag">{cardData.tag}</div>
               </div>
 
               <div className="pd-content">
@@ -73,7 +80,7 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
                   <span>{projeto.location}</span>
                 </div>
 
-                <h3 className="pd-card-title">{projeto.title}</h3>
+                <h3 className="pd-card-title">{cardData.title}</h3>
 
                 <div className="pd-amenities">
                   {projeto.beds && (
@@ -105,10 +112,11 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
                   )}
                 </div>
 
-                <div className="pd-price">{projeto.price}</div>
+                <div className="pd-price">{cardData.price}</div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

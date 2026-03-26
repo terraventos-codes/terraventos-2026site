@@ -289,11 +289,32 @@
 /* Cutout styling from image */
 .ops-card-cutout {
   position: absolute;
-  bottom: 0px;
-  right: 0px;
-  background-color: #fff;
-  padding: 16px 24px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.55) 60%, transparent 100%);
+  padding: 28px 22px 20px;
   z-index: 2;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Rich cutout variant (same base, flex column) */
+.ops-card-cutout--rich {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.90) 0%, rgba(10,10,10,0.55) 65%, transparent 100%);
+  padding: 32px 24px 22px;
+  z-index: 2;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 /* Curve smoothing on the top left of the cutout to match exactly like the hero */
@@ -315,26 +336,101 @@
 .ops-card-cutout-inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
+  gap: 4px;
+  flex: 1;
 }
 
-/* Meia-elipse decorativa no cutout do card ativo */ */
 .ops-card-pip {
-  width: 36px;
-  height: 18px;
-  background: linear-gradient(180deg, #C4B096 0%, rgba(196,176,150,0.35) 100%);
-  border-radius: 36px 36px 0 0;
+  width: 28px;
+  height: 4px;
+  background: #C4B096;
+  border-radius: 4px;
   margin-bottom: 6px;
   flex-shrink: 0;
 }
 
 .ops-card-label {
-  font-size: 0.8rem;
-  color: #888;
+  font-size: 0.68rem;
+  color: rgba(196,176,150,0.9);
   text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.ops-card-property-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ops-card-price {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #C4B096;
+  letter-spacing: 0.3px;
+  margin-top: 4px;
+}
+
+.ops-card-cta {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 24px;
+  padding: 9px 18px;
+  font-size: 0.75rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
   letter-spacing: 1px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  align-self: flex-end;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.ops-card-cta:hover {
+  background: #C4B096;
+  border-color: #C4B096;
+  transform: translateY(-2px);
+}
+
+/* Active card: clicking the image itself opens the page */
+.ops-card.active {
+  cursor: pointer;
+}
+
+.ops-card.active .ops-card-image {
+  transition: transform 0.4s ease;
+}
+
+.ops-card.active:hover .ops-card-image {
+  transform: scale(1.03);
+}
+
+/* Collapsed card hint arrow */
+.ops-collapsed-hint {
+  font-size: 1.1rem;
+  color: #C4B096;
+  display: block;
+  text-align: center;
+  margin-top: auto;
+  padding-bottom: 14px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ops-card:not(.active):hover .ops-collapsed-hint {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Mobile Responsiveness */
@@ -371,6 +467,10 @@
 
   .ops-subtitle {
     font-size: 0.95rem;
+  }
+
+  .ops-icon {
+    display: none;
   }
 
   /* Mobile list layout */

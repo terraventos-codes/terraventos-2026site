@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './App.css';
 import Oportunidades from './components/Oportunidades';
 import ProjetosDestaque from './components/ProjetosDestaque';
@@ -12,6 +13,7 @@ import FormularioLuxo from './components/FormularioLuxo';
 import Footer from './components/Footer';
 import PaginaIndividual from './components/PaginaIndividual';
 import { oportunidadesData, type OportunidadeDetalhe } from './data/oportunidadesData';
+import { getOportunidadesData } from './data/oportunidadesDataI18n';
 
 function App() {
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname.toLowerCase());
@@ -20,13 +22,27 @@ function App() {
   const [heroSlideIndex, setHeroSlideIndex] = useState(0);
   const isSwitchingRef = useRef(false);
 
-  const heroSlides = ['/hero.avif', '/bitupita.JPG', '/conduru.jpeg'] as const;
+  const heroSlides = ['/banners/2.png', '/banners/3.png', '/banners/4.png', '/banners/5.png'] as const;
+
+  const { t, i18n } = useTranslation();
+
+  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newLang = e.target.value;
+    i18n.changeLanguage(newLang);
+    // Update the displayed individual page data when language switches
+    const localized = getOportunidadesData(newLang);
+    const match = localized.find((d) => d.id === selectedOpportunity.id);
+    if (match) setSelectedOpportunity(match);
+  };
 
   const runTransitionTo = (nextPath: string, selectedItem?: OportunidadeDetalhe, pushHistory = true) => {
     if (isSwitchingRef.current) return;
 
     if (selectedItem) {
-      setSelectedOpportunity(selectedItem);
+      // Find the localized version by id
+      const localized = getOportunidadesData(i18n.language);
+      const localizedItem = localized.find((d) => d.id === selectedItem.id) ?? selectedItem;
+      setSelectedOpportunity(localizedItem);
     }
 
     isSwitchingRef.current = true;
@@ -137,11 +153,11 @@ function App() {
         </a>
 
         <nav className="nav-links">
-          <a href="#inicio" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('inicio'); } else { runTransitionTo('/'); } }}>Inicio</a>
-          <a href="#oportunidades" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('oportunidades'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('oportunidades'), 950); } }}>Oportunidades</a>
-          <a href="#projetos" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('projetos'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('projetos'), 950); } }}>Projetos</a>
-          <a href="#estudo" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('estudo'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('estudo'), 950); } }}>Estudo dos Ventos</a>
-          <a href="#regioes" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('regioes'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('regioes'), 950); } }}>Regiões</a>
+          <a href="#inicio" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('inicio'); } else { runTransitionTo('/'); } }}>{t('nav.inicio')}</a>
+          <a href="#oportunidades" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('oportunidades'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('oportunidades'), 950); } }}>{t('nav.oportunidades')}</a>
+          <a href="#projetos" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('projetos'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('projetos'), 950); } }}>{t('nav.projetos')}</a>
+          <a href="#estudo" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('estudo'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('estudo'), 950); } }}>{t('nav.estudo')}</a>
+          <a href="#regioes" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('regioes'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('regioes'), 950); } }}>{t('nav.regioes')}</a>
           <a
             href="https://www.instagram.com/terraventos/"
             target="_blank"
@@ -157,6 +173,17 @@ function App() {
           </a>
         </nav>
 
+        {/* Language selector — outside nav so it stays visible on mobile */}
+        <select
+          className="language-selector"
+          value={i18n.language.split('-')[0] || 'pt'}
+          onChange={handleLanguageChange}
+        >
+          <option value="pt">PT</option>
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+        </select>
+
         <button
           className="header-contact-button"
           type="button"
@@ -170,7 +197,7 @@ function App() {
           }}
         >
           <span className="contact-dot"></span>
-          Entrar em contato
+          {t('nav.contato')}
           <svg className="contact-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="7" y1="17" x2="17" y2="7"></line>
             <polyline points="7 7 17 7 17 17"></polyline>
@@ -189,11 +216,10 @@ function App() {
                 <div className="hero-slides" aria-hidden="true">
                   {heroSlides.map((src, index) => {
                     const isActive = index === heroSlideIndex;
-                    const isBitupita = src.toLowerCase().includes('bitupita');
                     return (
                       <div
                         key={src}
-                        className={`hero-slide ${isActive ? 'is-active' : ''} ${isBitupita ? 'hero-slide--bitupita' : ''}`}
+                        className={`hero-slide ${isActive ? 'is-active' : ''}`}
                         style={{ backgroundImage: `url('${src}')` }}
                       />
                     );
@@ -201,22 +227,54 @@ function App() {
                 </div>
                 <div className="hero-overlay" aria-hidden="true" />
 
-                <div className="hero-text-container" style={{ display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center', zIndex: 10 }}>
-                  <button
-                    className="cta-button"
-                    type="button"
-                    onClick={() => {
-                      if (!isPaginaIndividual) {
-                        scrollToSection('oportunidades');
-                      } else {
-                        runTransitionTo('/');
-                        window.setTimeout(() => scrollToSection('oportunidades'), 950);
-                      }
-                    }}
-                    style={{ transform: 'scale(1.2)' }}
-                  >
-                    Conhecer Projetos
-                  </button>
+                <div className="hero-text-container" style={{ zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', transition: 'opacity 0.6s ease' }}>
+                  {[0, 1, 2, 3].map((index) => {
+                    const titles = t('hero.titles', { returnObjects: true }) as string[];
+                    const subtitles = t('hero.subtitles', { returnObjects: true }) as string[];
+                    const tags = t('hero.tags', { returnObjects: true }) as string[];
+                    
+                    return (
+                      <div key={index} style={{
+                        opacity: heroSlideIndex === index ? 1 : 0,
+                        pointerEvents: heroSlideIndex === index ? 'auto' : 'none',
+                        transition: 'opacity 0.6s ease',
+                        position: heroSlideIndex === index ? 'relative' : 'absolute',
+                        transform: heroSlideIndex === index ? 'none' : 'translateY(20px)',
+                      }}>
+                        <div style={{ display: 'inline-block', border: '1px solid #fff', borderRadius: '40px', padding: '6px 20px', fontSize: '1rem', marginBottom: '20px', color: '#fff', letterSpacing: '0.5px' }}>
+                          {tags[index]}
+                        </div>
+                        <h1 className="hero-title" style={{ fontSize: 'clamp(36px, 4.5vw, 64px)', margin: '0 0 24px 0', textShadow: '0 4px 12px rgba(0,0,0,0.15)', fontWeight: 400 }} dangerouslySetInnerHTML={{ __html: titles[index] }} />
+                        <p className="hero-subtitle" style={{ fontSize: 'clamp(16px, 1.5vw, 20px)', color: '#fff', textShadow: '0 2px 8px rgba(0,0,0,0.15)' }} dangerouslySetInnerHTML={{ __html: subtitles[index] }} />
+                      </div>
+                    );
+                  })}
+
+                  <div style={{
+                    opacity: heroSlideIndex >= 4 ? 1 : 0,
+                    pointerEvents: heroSlideIndex >= 4 ? 'auto' : 'none',
+                    transition: 'opacity 0.6s ease',
+                    position: heroSlideIndex >= 4 ? 'relative' : 'absolute',
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'center'
+                  }}>
+                    <button
+                      className="cta-button"
+                      type="button"
+                      onClick={() => {
+                        if (!isPaginaIndividual) {
+                          scrollToSection('oportunidades');
+                        } else {
+                          runTransitionTo('/');
+                          window.setTimeout(() => scrollToSection('oportunidades'), 950);
+                        }
+                      }}
+                      style={{ transform: 'scale(1.2)' }}
+                    >
+                      {t('hero.cta')}
+                    </button>
+                  </div>
                 </div>
 
                 <div className="floating-card">
@@ -226,11 +284,7 @@ function App() {
                     <img src="/pessoa3.avif" alt="Avatar 3" />
                   </div>
                   <div className="card-info">
-                    <p>
-                      10+ anos de experiência
-                      <br />
-                      imobiliária no Ceará
-                    </p>
+                    <p dangerouslySetInnerHTML={{ __html: t('hero.card.experience').replace('\n', '<br />') }}></p>
                     <div className="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                   </div>
                 </div>

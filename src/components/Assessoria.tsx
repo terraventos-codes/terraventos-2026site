@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './Assessoria.css';
+import { useTranslation } from 'react-i18next';
 
 const diferenceiais = [
   {
@@ -69,6 +70,8 @@ const diferenceiais = [
 ];
 
 export default function Assessoria() {
+  const { t } = useTranslation();
+  const cards = t('assessoria.items', { returnObjects: true }) as Record<string, any>;
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -97,25 +100,25 @@ export default function Assessoria() {
       className={`assessoria-section ${isVisible ? 'is-visible' : ''}`}
     >
       <div className="assessoria-header">
-        <span className="assessoria-pill reveal-badge">Diferenciais da Terra Ventos</span>
-        <h2 className="assessoria-title reveal-heading">
-          ASSESSORIA COMPLETA<br/>
-          DO INICIO AO FIM
-        </h2>
+        <span className="assessoria-pill reveal-badge">{t('assessoria.badge')}</span>
+        <h2 className="assessoria-title reveal-heading" dangerouslySetInnerHTML={{ __html: t('assessoria.title') }}></h2>
       </div>
 
       <div className="assessoria-grid">
-        {diferenceiais.map((item, idx) => (
-          <div 
-            key={idx} 
-            className="assessoria-card"
-            style={{ transitionDelay: `${idx * 0.15}s` }}
-          >
-            <div className="assessoria-icon">{item.icon}</div>
-            <h3 className="assessoria-card-title">{item.title}</h3>
-            <p className="assessoria-card-text">{item.text}</p>
-          </div>
-        ))}
+        {diferenceiais.map((item, idx) => {
+          const trans = cards[idx + 1] || { title: item.title, text: item.text };
+          return (
+            <div 
+              key={idx} 
+              className="assessoria-card"
+              style={{ transitionDelay: `${idx * 0.15}s` }}
+            >
+              <div className="assessoria-icon">{item.icon}</div>
+              <h3 className="assessoria-card-title">{trans.title}</h3>
+              <p className="assessoria-card-text">{trans.text}</p>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
