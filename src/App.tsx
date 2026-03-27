@@ -227,54 +227,76 @@ function App() {
                 </div>
                 <div className="hero-overlay" aria-hidden="true" />
 
-                <div className="hero-text-container" style={{ zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', transition: 'opacity 0.6s ease' }}>
+                {/* Manual toggles for hero slides */}
+                <div className="hero-nav-arrows">
+                  <button 
+                    className="hero-nav-arrow prev" 
+                    onClick={() => setHeroSlideIndex(prev => (prev - 1 + heroSlides.length) % heroSlides.length)}
+                    aria-label="Anterior"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                  </button>
+                  <button 
+                    className="hero-nav-arrow next" 
+                    onClick={() => setHeroSlideIndex(prev => (prev + 1) % heroSlides.length)}
+                    aria-label="Próximo"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                  </button>
+                </div>
+
+                <div className="hero-text-container">
                   {[0, 1, 2, 3].map((index) => {
                     const titles = t('hero.titles', { returnObjects: true }) as string[];
                     const subtitles = t('hero.subtitles', { returnObjects: true }) as string[];
                     const tags = t('hero.tags', { returnObjects: true }) as string[];
-                    
+                    const isActive = heroSlideIndex === index;
+
                     return (
-                      <div key={index} style={{
-                        opacity: heroSlideIndex === index ? 1 : 0,
-                        pointerEvents: heroSlideIndex === index ? 'auto' : 'none',
-                        transition: 'opacity 0.6s ease',
-                        position: heroSlideIndex === index ? 'relative' : 'absolute',
-                        transform: heroSlideIndex === index ? 'none' : 'translateY(20px)',
-                      }}>
-                        <div style={{ display: 'inline-block', border: '1px solid #fff', borderRadius: '40px', padding: '6px 20px', fontSize: '1rem', marginBottom: '20px', color: '#fff', letterSpacing: '0.5px' }}>
+                      <div key={index} className={`hero-content-group ${isActive ? 'is-active' : ''}`}>
+                        <div className="hero-tag">
                           {tags[index]}
                         </div>
-                        <h1 className="hero-title" style={{ fontSize: 'clamp(36px, 4.5vw, 64px)', margin: '0 0 24px 0', textShadow: '0 4px 12px rgba(0,0,0,0.15)', fontWeight: 400 }} dangerouslySetInnerHTML={{ __html: titles[index] }} />
-                        <p className="hero-subtitle" style={{ fontSize: 'clamp(16px, 1.5vw, 20px)', color: '#fff', textShadow: '0 2px 8px rgba(0,0,0,0.15)' }} dangerouslySetInnerHTML={{ __html: subtitles[index] }} />
+                        <h1 className="hero-title" dangerouslySetInnerHTML={{ __html: titles[index] }} />
+                        <p className="hero-subtitle" dangerouslySetInnerHTML={{ __html: subtitles[index] }} />
+                        
+                        {/* Slide-specific CTA: only one button now, using the secondary (glass) style */}
+                        <div className="hero-cta-wrapper">
+                          <button
+                            className="cta-button secondary"
+                            type="button"
+                            onClick={() => {
+                              if (index === 1) {
+                                const bitupita = oportunidadesData.find(o => o.id === '02');
+                                if (bitupita) handleSelectOpportunity(bitupita);
+                              } else if (index === 0) {
+                                scrollToSection('estudo');
+                              } else if (index === 2) {
+                                scrollToSection('regioes');
+                              } else {
+                                if (!isPaginaIndividual) {
+                                  scrollToSection('contato');
+                                } else {
+                                  runTransitionTo('/');
+                                  window.setTimeout(() => scrollToSection('contato'), 950);
+                                }
+                              }
+                            }}
+                          >
+                            {index === 0 ? t('estudo.cta') : (index === 1 ? t('projetos.cards.1.tag') : (index === 2 ? t('nav.regioes') : t('hero.saberMais')))}
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                              <line x1="7" y1="17" x2="17" y2="7"></line>
+                              <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                          </button>
+                        </div>
                       </div>
                     );
                   })}
-
-                  <div style={{
-                    opacity: heroSlideIndex >= 4 ? 1 : 0,
-                    pointerEvents: heroSlideIndex >= 4 ? 'auto' : 'none',
-                    transition: 'opacity 0.6s ease',
-                    position: heroSlideIndex >= 4 ? 'relative' : 'absolute',
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'center'
-                  }}>
-                    <button
-                      className="cta-button"
-                      type="button"
-                      onClick={() => {
-                        if (!isPaginaIndividual) {
-                          scrollToSection('oportunidades');
-                        } else {
-                          runTransitionTo('/');
-                          window.setTimeout(() => scrollToSection('oportunidades'), 950);
-                        }
-                      }}
-                      style={{ transform: 'scale(1.2)' }}
-                    >
-                      {t('hero.cta')}
-                    </button>
-                  </div>
                 </div>
 
                 <div className="floating-card">
@@ -315,6 +337,19 @@ function App() {
           <Footer />
         </div>
       </main>
+      {/* Fixed WhatsApp Button */}
+      <a 
+        href="https://wa.me/5585985572807" 
+        target="_blank" 
+        rel="noreferrer" 
+        className="whatsapp-fixed-button"
+        aria-label="Fale conosco pelo WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.067 2.877 1.215 3.072.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span>Fale conosco</span>
+      </a>
     </div>
   );
 }

@@ -1,20 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Mapa.css';
 
 export default function Mapa() {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        } else {
-          setIsVisible(false);
-        }
+        setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -24,32 +22,31 @@ export default function Mapa() {
     return () => observer.disconnect();
   }, []);
 
+  // Google My Maps Embed URL derived from the user provided viewer link
+  const embedUrl = "https://www.google.com/maps/d/embed?mid=1y7OKHOzgcZOWFNI0996lAhlUT250Uj8&ehbc=2E312F&z=11";
+
   return (
     <section 
       ref={sectionRef} 
       id="mapa" 
-      data-reveal-managed="true"
       className={`mapa-section ${isVisible ? 'is-visible' : ''}`}
     >
-      {/* --- Desktop View --- */}
-      <div className="mapa-parallax-bg desktop-only"></div>
-      <div className="mapa-overlay desktop-only"></div>
+      {/* ── Custom Title Div (Above the Map) ── */}
+      <div className="mapa-header">
+        <h2 className="mapa-title">{t('mapa.title')}</h2>
+      </div>
 
-      {/* --- Mobile View: Slider --- */}
-      <div className="mapa-slider-wrapper mobile-only">
-        <div className="mapa-slider-container">
-          <div className="mapa-slider-track">
-            <img src="/mapa.avif" alt="Mapa Litoral Cearense" className="mapa-slider-img" />
-          </div>
-        </div>
-        <div className="mapa-slider-hint">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M17 8l4 4-4 4"></path>
-            <path d="M3 12h18"></path>
-            <path d="M7 8l-4 4 4 4"></path>
-          </svg>
-          Deslize para ver
-        </div>
+      {/* ── Interactive Map Viewport (Cropped to hide owner name) ── */}
+      <div className="mapa-viewport">
+        <iframe 
+          src={embedUrl} 
+          width="100%" 
+          height="100%" 
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          title={t('mapa.title')}
+        ></iframe>
       </div>
     </section>
   );

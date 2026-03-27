@@ -1,5 +1,5 @@
 import './Cidades.css';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const cidadesData = [
@@ -60,7 +60,13 @@ export default function Cidades() {
   const [isMobile, setIsMobile] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeCard, setActiveCard] = useState(0);
+  const [paused, setPaused] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
+
+  // ── drag state ──────────────────────────────────
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const startScrollLeft = useRef(0);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)');
@@ -70,70 +76,140 @@ export default function Cidades() {
     return () => mq.removeEventListener('change', update);
   }, []);
 
+  // ── progress tracking ────────────────────────────
+  const syncProgress = useCallback(() => {
+    const el = sliderRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    const progress = max > 0 ? el.scrollLeft / max : 0;
+    setScrollProgress(progress);
+    const CARD_GAP = 16;
+    const cardWidth = el.clientWidth * 0.72 + CARD_GAP;
+    setActiveCard(Math.round(el.scrollLeft / cardWidth));
+  }, []);
+
   useEffect(() => {
     const el = sliderRef.current;
-    if (!el || !isMobile) return;
-    const onScroll = () => {
-      const max = el.scrollWidth - el.clientWidth;
-      const progress = max > 0 ? el.scrollLeft / max : 0;
-      setScrollProgress(progress);
-      const cardWidth = el.clientWidth * 0.72 + 16;
-      setActiveCard(Math.round(el.scrollLeft / cardWidth));
-    };
-    el.addEventListener('scroll', onScroll, { passive: true });
-    return () => el.removeEventListener('scroll', onScroll);
-  }, [isMobile]);
+    if (!el) return;
+    el.addEventListener('scroll', syncProgress, { passive: true });
+    return () => el.removeEventListener('scroll', syncProgress);
+  }, [isMobile, syncProgress]);
 
-  // Always render the original 7 cities (no duplication needed now that both views scroll manually)
-  const cidadesToRender = cidadesData;
+  // ── pointer/mouse drag handlers ──────────────────
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = sliderRef.current;
+    if (!el) return;
+    isDragging.current = true;
+    startX.current = e.clientX;
+    startScrollLeft.current = el.scrollLeft;
+    el.setPointerCapture(e.pointerId);
+    el.style.cursor = 'grabbing';
+    el.style.userSelect = 'none';
+  };
+
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging.current) return;
+    const el = sliderRef.current;
+    if (!el) return;
+    const dx = e.clientX - startX.current;
+    el.scrollLeft = startScrollLeft.current - dx;
+    syncProgress();
+  };
+
+  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    const el = sliderRef.current;
+    if (!el) return;
+    el.releasePointerCapture(e.pointerId);
+    el.style.cursor = 'grab';
+    el.style.userSelect = '';
+
+    // snap to nearest card
+    const CARD_GAP = 16;
+    const cardWidth = el.clientWidth * 0.72 + CARD_GAP;
+    const nearest = Math.round(el.scrollLeft / cardWidth);
+    el.scrollTo({ left: nearest * cardWidth, behavior: 'smooth' });
+  };
+
+  // ── render helpers ───────────────────────────────
+  const renderCard = (cidade: typeof cidadesData[0], index: number, suffix = '') => {
+    const raw = cData[cidade.id];
+    const cardTitle = (raw && typeof raw === 'object' && raw.title) ? raw.title : cidade.title;
+    const cardDesc  = (raw && typeof raw === 'object' && raw.desc)  ? raw.desc  : cidade.description;
+    return (
+      <div
+        className="cidades-card"
+        key={`${cidade.id}-${suffix}-${index}`}
+        aria-hidden={suffix === 'b' ? true : undefined}
+      >
+        <div className="cidades-image-wrapper">
+          <img src={cidade.image} alt={cardTitle} className="cidades-image" loading="lazy" />
+        </div>
+        <div className="cidades-content">
+          <h3 className="cidades-card-title">{cardTitle}</h3>
+          <p className="cidades-card-desc">{cardDesc}</p>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <section id="regioes" className="cidades-section">
       <div className="cidades-header">
         <div className="cidades-badge reveal-badge">{t('cidades.badge')}</div>
-        <h2 className="cidades-title reveal-heading" dangerouslySetInnerHTML={{ __html: t('cidades.title') }}></h2>
+        <h2 className="cidades-title reveal-heading" dangerouslySetInnerHTML={{ __html: t('cidades.title') }} />
       </div>
 
-      <div className="cidades-slider-container" ref={sliderRef}>
-        <div className="cidades-slider-track">
-          {cidadesToRender.map((cidade, index) => {
-            const raw = cData[cidade.id];
-            const cardTitle = (raw && typeof raw === 'object' && raw.title) ? raw.title : cidade.title;
-            const cardDesc = (raw && typeof raw === 'object' && raw.desc) ? raw.desc : cidade.description;
-            return (
-              <div className="cidades-card" key={`${cidade.id}-${index}`}>
-                <div className="cidades-image-wrapper">
-                  <img src={cidade.image} alt={cardTitle} className="cidades-image" />
-                </div>
-                <div className="cidades-content">
-                  <h3 className="cidades-card-title">{cardTitle}</h3>
-                  <p className="cidades-card-desc">{cardDesc}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Mobile scroll indicators */}
-      {isMobile && (
-        <div className="cidades-scroll-indicators">
-          <div className="cidades-scroll-bar-track">
-            <div className="cidades-scroll-bar-fill" style={{ width: `${scrollProgress * 100}%` }} />
+      {isMobile ? (
+        /* ── MOBILE: drag-scrollable ── */
+        <>
+          <div
+            className="cidades-slider-container"
+            ref={sliderRef}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerUp}
+            onPointerCancel={onPointerUp}
+          >
+            <div className="cidades-slider-track">
+              {cidadesData.map((cidade, index) => renderCard(cidade, index))}
+            </div>
           </div>
-          <div className="cidades-scroll-dots">
-            {cidadesData.map((_, i) => (
-              <button
-                key={i}
-                className={`cidades-dot ${i === activeCard ? 'active' : ''}`}
-                aria-label={`Cidade ${i + 1}`}
-                onClick={() => {
-                  if (!sliderRef.current) return;
-                  const cardWidth = sliderRef.current.clientWidth * 0.72 + 16;
-                  sliderRef.current.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
-                }}
+
+          <div className="cidades-scroll-indicators">
+            <div className="cidades-scroll-bar-track">
+              <div
+                className="cidades-scroll-bar-fill"
+                style={{ width: `${scrollProgress * 100}%` }}
               />
-            ))}
+            </div>
+            <div className="cidades-scroll-dots">
+              {cidadesData.map((_, i) => (
+                <button
+                  key={i}
+                  className={`cidades-dot ${i === activeCard ? 'active' : ''}`}
+                  aria-label={`Cidade ${i + 1}`}
+                  onClick={() => {
+                    if (!sliderRef.current) return;
+                    const cardWidth = sliderRef.current.clientWidth * 0.72 + 16;
+                    sliderRef.current.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </>
+      ) : (
+        /* ── DESKTOP: infinite marquee loop ── */
+        <div
+          className="cidades-marquee-wrapper"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div className={`cidades-marquee-track${paused ? ' paused' : ''}`}>
+            {cidadesData.map((cidade, index) => renderCard(cidade, index, 'a'))}
+            {cidadesData.map((cidade, index) => renderCard(cidade, index, 'b'))}
           </div>
         </div>
       )}

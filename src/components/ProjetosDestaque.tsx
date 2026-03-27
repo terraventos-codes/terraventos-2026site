@@ -22,7 +22,7 @@ const projetos = [
   },
   {
     id: 2,
-    image: '/projetos.avif',
+    image: '/imoveis.avif',
     tag: 'Temporada',
     location: 'Pre\u00E1, Cear\u00E1, Brasil',
     title: 'Villa Condudu III',
@@ -34,7 +34,7 @@ const projetos = [
   },
   {
     id: 3,
-    image: '/imoveis.avif',
+    image: '/projetos.avif',
     tag: 'Investimento',
     location: 'Pre\u00E1, Cear\u00E1, Brasil',
     title: 'Vila do Ingl\u00EAs',

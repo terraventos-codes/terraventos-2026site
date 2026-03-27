@@ -39,7 +39,8 @@ i18n
             ],
             card: {
               experience: "10+ anos de experiência\nimobiliária no Ceará"
-            }
+            },
+            saberMais: "Quero saber mais"
           },
           oportunidades: {
             badge: "Oportunidades exclusivas",
@@ -90,7 +91,11 @@ i18n
               "1": "Cidades analisadas", "2": "de ventos constante", "3": "de valorização ao ano", "4": "técnico e ambiental" 
             },
             cta: "Ver o estudo completo",
-            videoInfo: ["Fundador e CEO Terra Ventos", "Estudo dos Ventos - clique para assistir", "Reproduzir vídeo"]
+            videoInfo: ["Fundador e CEO Terra Ventos", "Estudo dos Ventos - clique para assistir", "Reproduzir vídeo"],
+            watchFull: "Assista o vídeo completo"
+          },
+          mapa: {
+            title: "MAPA INTERATIVO DOS DESTINOS"
           },
           assessoria: {
             badge: "Diferenciais da Terra Ventos",
@@ -145,7 +150,8 @@ i18n
             tags: ["Terra Ventos Launch", "Beachfront Opportunity", "Vacation Rental", "Investments on the coast of Ceará"],
             titles: ["WIND<br />STUDY", "INVEST IN<br />BITUPITÁ, CEARÁ", "DISCOVER<br />CASA TERRA<br />VENTOS IN PREÁ", "INVEST WITH THE<br />WIND IN YOUR FAVOR."],
             subtitles: ["Sports Tourism & Real Estate<br />Investment on Ceará's west coast", "Exclusive <b>beachfront</b> land projects<br />with estimated 20% per year appreciation.", "Stay beachfront at the biggest<br />kitesurf & wingfoil spot in Ceará.", "Land, houses, and exclusive projects with legal<br />security, real appreciation, and full advisory."],
-            card: { experience: "10+ years of real estate\nexperience in Ceará" }
+            card: { experience: "10+ years of real estate\nexperience in Ceará" },
+            saberMais: "Learn more"
           },
           oportunidades: {
             badge: "Exclusive Opportunities",
@@ -194,7 +200,11 @@ i18n
             desc: "Terra Ventos presents: Which locations grow most in value, where is least explored and with the greatest potential. <strong>Dive into data and potential analysis of the Ceará Coast.</strong>",
             stats: { "1": "Analyzed cities", "2": "months of constant wind", "3": "yearly appreciation", "4": "technical environmental areas" },
             cta: "View full study",
-            videoInfo: ["Founder and CEO Terra Ventos", "Wind Study - click to watch", "Play video"]
+            videoInfo: ["Founder and CEO Terra Ventos", "Wind Study - click to watch", "Play video"],
+            watchFull: "Watch full video"
+          },
+          mapa: {
+            title: "INTERACTIVE DESTINATIONS MAP"
           },
           assessoria: {
             badge: "Terra Ventos Differentials",
@@ -249,7 +259,8 @@ i18n
             tags: ["Lanzamiento Terra Ventos", "Oportunidad Frente al Mar", "Alquiler Vacacional", "Inversiones en la costa de Ceará"],
             titles: ["ESTUDIO DE<br />LOS VIENTOS", "INVIERTA EN<br />BITUPITÁ, CEARÁ", "DESCUBRA<br />LA CASA TERRA<br />VENTOS EN PREÁ", "INVIERTA CON EL<br />VIENTO A FAVOR."],
             subtitles: ["Turismo Deportivo e Inversión<br />Inmobiliaria en la costa oeste de Ceará", "Proyectos exclusivos de terrenos <b>frente al mar</b><br />con apreciación estimada al 20% anual.", "Alójese frente al mar en el mayor punto de<br />kitesurf y wingfoil de Ceará.", "Terrenos, casas y proyectos exclusivos con seguridad<br />jurídica, apreciación real y asesoría completa."],
-            card: { experience: "10+ años de experiencia\ninmobiliaria en Ceará" }
+            card: { experience: "10+ años de experiencia\ninmobiliaria en Ceará" },
+            saberMais: "Quiero saber más"
           },
           oportunidades: {
              badge: "Oportunidades exclusivas",
@@ -298,7 +309,11 @@ i18n
             desc: "Terra Ventos presenta: Qué ubicaciones crecen más en valor, dónde está menos explorado y con mayor potencial. <strong>Sumérgete en los datos y análisis de potencial de la Costa Ceará.</strong>",
             stats: { "1": "Ciudades analizadas", "2": "meses de viento constante", "3": "apreciación anual", "4": "áreas técnicas y ambientales" },
             cta: "Ver estudio completo",
-            videoInfo: ["Fundador y CEO Terra Ventos", "Estudio de Vientos - clic para ver", "Reproducir vídeo"]
+            videoInfo: ["Fundador y CEO Terra Ventos", "Estudio de Vientos - clic para ver", "Reproducir vídeo"],
+            watchFull: "Ver el vídeo completo"
+          },
+          mapa: {
+            title: "MAPA INTERACTIVO DE DESTINOS"
           },
           assessoria: {
             badge: "Diferenciales de Terra Ventos",

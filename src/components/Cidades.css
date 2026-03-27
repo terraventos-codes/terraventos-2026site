@@ -1,5 +1,8 @@
+/* ─────────────────────────────────────────
+   CIDADES SECTION
+───────────────────────────────────────── */
 .cidades-section {
-  padding: 80px 0; /* padding 0 on sides to allow full bleed scrolling */
+  padding: 80px 0;
   background-color: #fff;
   font-family: 'Avenir', 'Manrope', sans-serif;
   overflow: hidden;
@@ -43,77 +46,60 @@
   line-height: 1.2;
 }
 
-/* Scrollable container — desktop */
-.cidades-slider-container {
-  overflow-x: auto;
-  overflow-y: hidden;
+/* ─────────────────────────────────────────
+   DESKTOP: Infinite marquee
+───────────────────────────────────────── */
+.cidades-marquee-wrapper {
   width: 100%;
+  overflow: hidden;
   position: relative;
-  -webkit-mask-image: none;
-  mask-image: none;
-  /* Styled scrollbar */
-  scrollbar-width: thin;
-  scrollbar-color: #C4B096 rgba(196,176,150,0.15);
-  padding-bottom: 12px;
+  /* Soft fade edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  cursor: default;
 }
 
-.cidades-slider-container::-webkit-scrollbar {
-  height: 5px;
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.cidades-slider-container::-webkit-scrollbar-track {
-  background: rgba(196,176,150,0.15);
-  border-radius: 999px;
-  margin: 0 48px;
-}
-
-.cidades-slider-container::-webkit-scrollbar-thumb {
-  background: #C4B096;
-  border-radius: 999px;
-}
-
-.cidades-slider-track {
+.cidades-marquee-track {
   display: flex;
   width: max-content;
-  align-items: flex-start;
   gap: 24px;
-  padding: 0 48px 8px;
-  animation: none;
+  padding: 8px 0 16px;
+  animation: marqueeScroll 38s linear infinite;
+  will-change: transform;
 }
 
-@keyframes scrollInfinite {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    /* Translate exactly half the track width (because the items are duplicated once) */
-    transform: translateX(calc(-50% - 12px)); /* -12px accounts for half the gap gap:24px */
-  }
+.cidades-marquee-track.paused {
+  animation-play-state: paused;
 }
 
+/* ─────────────────────────────────────────
+   CARDS (shared desktop + mobile)
+───────────────────────────────────────── */
 .cidades-card {
-  width: 280px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  opacity: 0;
-  transform: scale(0.95) translateY(20px);
-  transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.cidades-section.is-visible .cidades-card {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
-
-.cidades-section.is-visible .cidades-card:nth-child(1) { transition-delay: 0.1s; }
-.cidades-section.is-visible .cidades-card:nth-child(2) { transition-delay: 0.2s; }
-.cidades-section.is-visible .cidades-card:nth-child(3) { transition-delay: 0.3s; }
-.cidades-section.is-visible .cidades-card:nth-child(4) { transition-delay: 0.4s; }
-.cidades-section.is-visible .cidades-card:nth-child(5) { transition-delay: 0.5s; }
-.cidades-section.is-visible .cidades-card:nth-child(n+6) { transition-delay: 0.6s; }
-
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .cidades-card {
     width: 320px;
   }
@@ -121,7 +107,7 @@
 
 .cidades-image-wrapper {
   width: 100%;
-  aspect-ratio: 1 / 1; /* Square images as per screenshot */
+  aspect-ratio: 1 / 1;
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 16px;
@@ -135,7 +121,7 @@
 }
 
 .cidades-card:hover .cidades-image {
-  transform: scale(1.08); /* slight zoom on hover */
+  transform: scale(1.08);
 }
 
 .cidades-content {
@@ -160,7 +146,9 @@
   font-family: 'Diodrum', sans-serif;
 }
 
-/* Mobile Responsiveness */
+/* ─────────────────────────────────────────
+   MOBILE: native horizontal scroll
+───────────────────────────────────────── */
 @media (max-width: 768px) {
   .cidades-section {
     padding: 40px 0;
@@ -170,17 +158,16 @@
     font-size: 1.6rem;
   }
 
-  /* Switch to native horizontal scroll on mobile */
   .cidades-slider-container {
     overflow-x: auto;
     overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    -webkit-mask-image: none;
-    mask-image: none;
-    /* Hide scrollbar visually */
+    /* Hide scrollbar — custom bar shown instead */
     scrollbar-width: none;
     -ms-overflow-style: none;
+    width: 100%;
+    cursor: grab;
+    /* Prevent default touch pan so pointer events take over */
+    touch-action: none;
   }
 
   .cidades-slider-container::-webkit-scrollbar {
@@ -188,10 +175,11 @@
   }
 
   .cidades-slider-track {
-    animation: none;
-    width: max-content;
+    display: flex;
     flex-direction: row;
-    padding: 0 20px;
+    width: max-content;
+    align-items: flex-start;
+    padding: 8px 20px 16px;
     gap: 16px;
   }
 
@@ -206,13 +194,13 @@
     font-size: 1rem;
   }
 
-  /* Scroll indicators */
+  /* ── Custom progress bar + dots ── */
   .cidades-scroll-indicators {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    padding: 16px 20px 4px;
+    padding: 12px 20px 4px;
   }
 
   .cidades-scroll-bar-track {
@@ -258,7 +246,13 @@
   }
 }
 
-/* Desktop: hide indicators */
-.cidades-scroll-indicators {
-  display: none;
+/* Desktop: guarantee scroll indicators are hidden */
+@media (min-width: 769px) {
+  .cidades-scroll-indicators {
+    display: none;
+  }
+  .cidades-slider-container,
+  .cidades-slider-track {
+    display: none;
+  }
 }
