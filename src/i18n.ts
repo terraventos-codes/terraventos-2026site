@@ -275,7 +275,7 @@ i18n
           },
           projetos: {
             badge: "Proyectos destacados",
-            title: "PARA INVERTIR, VIVIR O PASAR UNA TEMPORADA EN CEARÁ",
+            title: "UNA TEMPORADA EN EL LITORAL DE CEARA",
             cards: {
               "1": { tag: "Venta", title: "Terrenos frente al mar en Bitupitá", price: "R$ 120.000" },
               "2": { tag: "Temporada", title: "Villa Condudu III", price: "R$ 1.200/día" },

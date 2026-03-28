@@ -49,9 +49,11 @@
 }
 
 .condudu-image-wrapper {
-  border-radius: 32px;
+  background-color: #f3f4f6;
+  border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 4 / 3;
 }
 
 .condudu-image {
@@ -80,12 +82,12 @@
 }
 
 .condudu-title {
-  font-size: 2.4rem;
-  font-family: 'Avenir', sans-serif;
-  font-weight: 400;
-  color: #333;
+  font-size: 2.2rem;
+  font-family: 'Avenir', 'Manrope', sans-serif;
+  font-weight: 500;
+  color: #111;
   margin: 0 0 20px 0;
-  line-height: 1.18;
+  line-height: 1.15;
 }
 
 .condudu-subtitle {
@@ -121,14 +123,16 @@
 }
 
 .condudu-price {
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: #111827;
+  font-family: 'Manrope', sans-serif;
 }
 
 .condudu-price-note {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: #6b7280;
+  font-family: 'Manrope', sans-serif;
 }
 
 .condudu-cta {
@@ -171,15 +175,22 @@
   }
 
   .condudu-title {
-    font-size: 1.8rem;
+    font-size: 1.45rem;
   }
 
   .condudu-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+  }
+
+  .condudu-price {
+    font-size: 1.15rem;
+  }
+
+  .condudu-image-wrapper {
+    border-radius: 20px;
   }
 
   .condudu-tag {
     font-size: 0.75rem;
   }
 }
-

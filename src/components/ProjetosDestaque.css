@@ -45,11 +45,11 @@
 
 .pd-title {
   font-size: 2.2rem;
-  font-family: 'Avenir', sans-serif;
-  font-weight: 400;
-  color: #333;
+  font-family: 'Avenir', 'Manrope', sans-serif;
+  font-weight: 500;
+  color: #111;
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
 .pd-grid {
@@ -98,9 +98,11 @@
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
-  border-radius: 24px;
+  background-color: #f3f4f6; /* Fallback for missing images */
+  border-radius: 20px;
   overflow: hidden;
   margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .pd-image {
@@ -177,10 +179,12 @@
 }
 
 .pd-price {
-  font-size: 1.1rem;
-  color: #333;
-  font-weight: 600;
+  font-size: 1.25rem;
+  color: #111;
+  font-weight: 700;
+  font-family: 'Manrope', sans-serif;
   margin-top: auto;
+  letter-spacing: -0.2px;
 }
 
 /* Mobile Responsiveness */
@@ -205,10 +209,17 @@
   }
 
   .pd-title {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
+    line-height: 1.25;
+    word-break: break-word; /* Ensure long titles wrap nicely */
   }
 
   .pd-card-title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    line-height: 1.3;
+  }
+
+  .pd-price {
+    font-size: 1.15rem;
   }
 }
