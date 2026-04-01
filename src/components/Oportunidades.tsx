@@ -14,7 +14,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
   const { t, i18n } = useTranslation();
   const opTitles = t('oportunidades.titles', { returnObjects: true }) as string[];
   const localizedData = getOportunidadesData(i18n.language);
-  const [activeIndex, setActiveIndex] = useState(2);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -82,6 +82,12 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <title>Arvore</title>
                 <path d="M12 2L4 12H8L4 20H11V24H13V20H20L16 12H20L12 2Z" />
+              </svg>
+            )}
+            {activeIndex === 3 && (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <title>Mapa</title>
+                <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
               </svg>
             )}
           </div>
@@ -166,7 +172,10 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
                   </div>
                   <div className="ops-card-mobile-body">
                     <span className="ops-card-mobile-id">{item.id}</span>
-                    <span className="ops-card-mobile-title">{item.title}</span>
+                    <div className="ops-card-mobile-info">
+                      <span className="ops-card-mobile-title">{item.title}</span>
+                      <span className="ops-card-mobile-property">{item.propertyTitle}</span>
+                    </div>
                   </div>
                 </button>
               ))}

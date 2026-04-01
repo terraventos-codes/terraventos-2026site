@@ -22,7 +22,7 @@ i18n
             tags: [
               "Lançamento Terra Ventos",
               "Oportunidade Pé na Areia",
-              "Aluguel de Temporada",
+              "Lugar de Evento",
               "Investimentos no litoral do Ceará"
             ],
             titles: [
@@ -34,7 +34,7 @@ i18n
             subtitles: [
               "Turismo Esportivo & Investimento<br />Imobiliário no litoral oeste do Ceará",
               "Projetos terreno exclusivos <b>beira-mar</b><br />com valorização estimada em 20% ao ano.",
-              "Hospede-se a beira-mar no maior spot<br />de kitesurf e wingfoil do Ceará.",
+              "Viva momentos exclusivos à beira-mar no maior spot<br />de kitesurf e wingfoil do Ceará.",
               "Terrenos, casas e projetos exclusivos com segurança<br />jurídica, valorização real e assessoria completa."
             ],
             card: {
@@ -46,28 +46,29 @@ i18n
             badge: "Oportunidades exclusivas",
             title1: "ENCONTRE SEU PRÓXIMO",
             title2: "IMÓVEL NO LITORAL DO CEARÁ",
-            titles: ["TEMPORADA", "TERRENOS", "PROJETOS"],
+            titles: ["LUGAR DE EVENTO", "VENDA", "INVESTIMENTOS", "LANÇAMENTO"],
             cards: {
-              "01": "Residências de alto padrão prontas, com arquitetura contemporânea e integração com a natureza. Ideais para segunda moradia e renda de locação premium com demanda internacional.",
-              "02": "Terrenos pé na areia no último village planejado do Roteiro Costa dos Ventos. Oportunidade de entrada com valores abaixo do preço maduro e os mesmos vetores de valorização.",
-              "03": "Empreendimentos boutique para investidores com visão antecipada. Produto com estudo de vento aplicado, personalização arquitetônica e localização de alta escassez."
+              "01": "Residências de alto padrão prontas, com arquitetura contemporânea e integração com a natureza. Ideais para segunda moradia e experiências exclusivas beira-mar.",
+              "02": "Terrenos pé na areia no último village planejado do Roteiro Costa dos Ventos. Oportunidade de investimento estratégico com os melhores vetores de valorização.",
+              "03": "Empreendimentos boutique para investidores com visão antecipada. Produto com estudo de vento aplicado, personalização arquitetônica e localização de alta escassez.",
+              "04": "O Villa Prabhu é um empreendimento planejado pela Bianchi Urbanismo, focado em oferecer qualidade de vida e segurança em uma região privilegiada."
             }
           },
           projetos: {
             badge: "Projetos em destaque",
-            title: "PARA INVESTIR, MORAR OU VIVER UMA TEMPORADA NO CEARA",
+            title: "VENDA, INVESTIMENTOS E LUGARES DE EVENTOS NO CEARA",
             cards: {
-              "1": { tag: "Venda", title: "Terrenos pé na areia em Bitupitá", price: "R$ 120.000" },
-              "2": { tag: "Temporada", title: "Villa Condudu III", price: "R$ 1.200/dia" },
-              "3": { tag: "Investimento", title: "Vila do Inglês", price: "R$ 100.000" }
+              "1": { tag: "Lan\u00E7amento", title: "Villa Prabhu \u2014 Paracuru-CE", price: "Sob Consulta" },
+              "2": { tag: "Venda", title: "Terrenos p\u00E9 na areia em Bitupit\u00E1", price: "R$ 120 MIL" },
+              "3": { tag: "Investimento", title: "Vila do Ingl\u00EAs", price: "Em Breve" }
             }
           },
           condudu: {
-            badge: "Temporada exclusiva",
-            title: "VILLA CONDUDU III<br />PARA ALUGAR NO PREA",
-            subtitle: "Casa de alto padrão em Preá, pensada para temporadas com vento constante, serviço personalizado e integração total com o mar.",
-            tags: ["Temporada", "3 quartos", "2 banheiros", "500 m²"],
-            priceNote: "tarifa referência em alta temporada",
+            badge: "Exclusividade",
+            title: "VILLA CONDUDU III<br />NO PREA",
+            subtitle: "Casa de alto padrão em Preá, pensada para momentos únicos com vento constante, serviço personalizado e integração total com o mar.",
+            tags: ["Lugar de Evento", "3 quartos", "2 banheiros", "500 m²"],
+            priceNote: "consultar disponibilidade",
             cta: "Ver detalhes da casa"
           },
           cidades: {
@@ -95,7 +96,9 @@ i18n
             watchFull: "Assista o vídeo completo"
           },
           mapa: {
-            title: "MAPA INTERATIVO DOS DESTINOS"
+            title: "ESTUDO DOS VENTOS PELO LITORAL DE CEARA",
+            activateInstructions: "Clique para interagir com o mapa",
+            deactivate: "Travar mapa para scroll"
           },
           assessoria: {
             badge: "Diferenciais da Terra Ventos",
@@ -147,9 +150,9 @@ i18n
           nav: { inicio: "Home", oportunidades: "Opportunities", projetos: "Projects", estudo: "Wind Study", regioes: "Regions", contato: "Contact Us" },
           hero: {
             cta: "View Projects",
-            tags: ["Terra Ventos Launch", "Beachfront Opportunity", "Vacation Rental", "Investments on the coast of Ceará"],
+            tags: ["Terra Ventos Launch", "Beachfront Opportunity", "Event Venue", "Investments on the coast of Ceará"],
             titles: ["WIND<br />STUDY", "INVEST IN<br />BITUPITÁ, CEARÁ", "DISCOVER<br />CASA TERRA<br />VENTOS IN PREÁ", "INVEST WITH THE<br />WIND IN YOUR FAVOR."],
-            subtitles: ["Sports Tourism & Real Estate<br />Investment on Ceará's west coast", "Exclusive <b>beachfront</b> land projects<br />with estimated 20% per year appreciation.", "Stay beachfront at the biggest<br />kitesurf & wingfoil spot in Ceará.", "Land, houses, and exclusive projects with legal<br />security, real appreciation, and full advisory."],
+            subtitles: ["Sports Tourism & Real Estate<br />Investment on Ceará's west coast", "Exclusive <b>beachfront</b> land projects<br />with estimated 20% per year appreciation.", "Experience beachfront excellence at the biggest<br />kitesurf & wingfoil spot in Ceará.", "Land, houses, and exclusive projects with legal<br />security, real appreciation, and full advisory."],
             card: { experience: "10+ years of real estate\nexperience in Ceará" },
             saberMais: "Learn more"
           },
@@ -157,28 +160,29 @@ i18n
             badge: "Exclusive Opportunities",
             title1: "FIND YOUR NEXT",
             title2: "PROPERTY ON CEARÁ'S COAST",
-            titles: ["SEASON", "LAND", "PROJECTS"],
+            titles: ["EVENT VENUE", "FOR SALE", "INVESTMENTS", "LAUNCH"],
             cards: {
-              "01": "Ready high-end residences with contemporary architecture integrated into nature. Ideal for a second home and premium rental income with international demand.",
-              "02": "Beachfront land in the latest planned village on the Costa dos Ventos Route. Entry opportunity below mature prices with the same appreciation drivers.",
-              "03": "Boutique developments for early-vision investors. Product featuring applied wind study, architectural customization, and highly scarce locations."
+              "01": "Ready high-end residences with contemporary architecture integrated into nature. Ideal for a second home and exclusive beachfront experiences.",
+              "02": "Beachfront land in the latest planned village on the Costa dos Ventos Route. Strategic investment opportunity with the best appreciation drivers.",
+              "03": "Boutique developments for early-vision investors. Product featuring applied wind study, architectural customization, and highly scarce locations.",
+              "04": "Villa Prabhu is a development planned by Bianchi Urbanismo, focused on offering quality of life and security in a privileged region."
             }
           },
           projetos: {
             badge: "Featured Projects",
-            title: "TO INVEST, LIVE, OR SPEND A SEASON IN CEARÁ",
+            title: "FOR SALE, INVESTMENTS AND EVENT VENUES IN CEARÁ",
             cards: {
-              "1": { tag: "Sale", title: "Beachfront land in Bitupitá", price: "R$ 120,000" },
-              "2": { tag: "Holiday Rental", title: "Villa Condudu III", price: "R$ 1,200/day" },
-              "3": { tag: "Investment", title: "Vila do Inglês", price: "R$ 100,000" }
+              "1": { tag: "Launch", title: "Villa Prabhu \u2014 Paracuru-CE", price: "On Request" },
+              "2": { tag: "For Sale", title: "Beachfront land in Bitupit\u00E1", price: "R$ 120,000" },
+              "3": { tag: "Investment", title: "Vila do Ingl\u00EAs", price: "Coming Soon" }
             }
           },
           condudu: {
-            badge: "Exclusive Season",
-            title: "VILLA CONDUDU III<br />FOR RENT IN PREÁ",
-            subtitle: "High-end house in Preá, designed for seasons with constant wind, personalized service, and total integration with the sea.",
-            tags: ["Season", "3 bedrooms", "2 bathrooms", "500 m²"],
-            priceNote: "reference rate in high season",
+            badge: "Exclusive",
+            title: "VILLA CONDUDU III<br />IN PREÁ",
+            subtitle: "High-end house in Preá, designed for unique moments with constant wind, personalized service, and total integration with the sea.",
+            tags: ["Event Venue", "3 bedrooms", "2 bathrooms", "500 m²"],
+            priceNote: "consult availability",
             cta: "View house details"
           },
           cidades: {
@@ -204,7 +208,9 @@ i18n
             watchFull: "Watch full video"
           },
           mapa: {
-            title: "INTERACTIVE DESTINATIONS MAP"
+            title: "WIND STUDY BY THE CEARA COAST",
+            activateInstructions: "Click to interact with the map",
+            deactivate: "Lock map for scroll"
           },
           assessoria: {
             badge: "Terra Ventos Differentials",
@@ -256,9 +262,9 @@ i18n
           nav: { inicio: "Inicio", oportunidades: "Oportunidades", projetos: "Proyectos", estudo: "Estudio de los Vientos", regioes: "Regiones", contato: "Contáctenos" },
           hero: {
             cta: "Ver Proyectos",
-            tags: ["Lanzamiento Terra Ventos", "Oportunidad Frente al Mar", "Alquiler Vacacional", "Inversiones en la costa de Ceará"],
+            tags: ["Lanzamiento Terra Ventos", "Oportunidad Frente al Mar", "Lugar de Eventos", "Inversiones en la costa de Ceará"],
             titles: ["ESTUDIO DE<br />LOS VIENTOS", "INVIERTA EN<br />BITUPITÁ, CEARÁ", "DESCUBRA<br />LA CASA TERRA<br />VENTOS EN PREÁ", "INVIERTA CON EL<br />VIENTO A FAVOR."],
-            subtitles: ["Turismo Deportivo e Inversión<br />Inmobiliaria en la costa oeste de Ceará", "Proyectos exclusivos de terrenos <b>frente al mar</b><br />con apreciación estimada al 20% anual.", "Alójese frente al mar en el mayor punto de<br />kitesurf y wingfoil de Ceará.", "Terrenos, casas y proyectos exclusivos con seguridad<br />jurídica, apreciación real y asesoría completa."],
+            subtitles: ["Turismo Deportivo e Inversión<br />Inmobiliaria en la costa oeste de Ceará", "Proyectos exclusivos de terrenos <b>frente al mar</b><br />con apreciación estimada al 20% anual.", "Viva momentos exclusivos en el mayor punto de<br />kitesurf y wingfoil de Ceará.", "Terrenos, casas y proyectos exclusivos con seguridad<br />jurídica, apreciación real y asesoría completa."],
             card: { experience: "10+ años de experiencia\ninmobiliaria en Ceará" },
             saberMais: "Quiero saber más"
           },
@@ -266,28 +272,29 @@ i18n
              badge: "Oportunidades exclusivas",
              title1: "ENCUENTRA TU PRÓXIMA",
              title2: "PROPIEDAD EN LA COSTA DE CEARÁ",
-             titles: ["TEMPORADA", "TERRENOS", "PROYECTOS"],
+             titles: ["LUGAR DE EVENTOS", "VENTA", "INVERSIONES", "LANZAMIENTO"],
              cards: {
-               "01": "Residencias de alta gama listas, con arquitectura contemporánea integrada a la naturaleza. Ideales para segunda vivienda e ingresos por alquiler premium con demanda internacional.",
-               "02": "Terrenos frente al mar en el último pueblo planeado en la Ruta Costa dos Ventos. Oportunidad de entrada a precios por debajo de la maduración con los mismos vectores de apreciación.",
-               "03": "Desarrollos boutique para inversores con visión anticipada. Producto con estudio de vientos aplicado, personalización arquitectónica y ubicaciones de alta escasez."
+               "01": "Residencias de alta gama listas, con arquitectura contemporánea integrada a la naturaleza. Ideales para segunda vivienda y experiencias exclusivas frente al mar.",
+               "02": "Terrenos frente al mar en el último pueblo planeado en la Ruta Costa dos Ventos. Oportunidad de inversión estratégica con los mejores vectores de apreciación.",
+               "03": "Desarrollos boutique para inversores con visión anticipada. Producto con estudio de vientos aplicado, personalización arquitectónica y ubicaciones de alta escasez.",
+               "04": "Villa Prabhu es un desarrollo planificado por Bianchi Urbanismo, enfocado en ofrecer calidad de vida y seguridad en una región privilegiada."
              }
           },
           projetos: {
             badge: "Proyectos destacados",
-            title: "UNA TEMPORADA EN EL LITORAL DE CEARA",
+            title: "VENTA, INVERSIONES Y LUGARES DE EVENTOS EN EL LITORAL DE CEARA",
             cards: {
-              "1": { tag: "Venta", title: "Terrenos frente al mar en Bitupitá", price: "R$ 120.000" },
-              "2": { tag: "Temporada", title: "Villa Condudu III", price: "R$ 1.200/día" },
-              "3": { tag: "Inversión", title: "Vila do Inglês", price: "R$ 100.000" }
+              "1": { tag: "Lanzamiento", title: "Villa Prabhu \u2014 Paracuru-CE", price: "Bajo Consulta" },
+              "2": { tag: "Venta", title: "Terrenos frente al mar en Bitupit\u00E1", price: "R$ 120 MIL" },
+              "3": { tag: "Inversi\u00F3n", title: "Vila do Ingl\u00EAs", price: "Pr\u00F3ximamente" }
             }
           },
           condudu: {
-            badge: "Temporada exclusiva",
-            title: "VILLA CONDUDU III<br />PARA ALQUILAR EN PREÁ",
-            subtitle: "Casa de alto estándar en Preá, diseñada para temporadas con viento constante, servicio personalizado e integración total con el mar.",
-            tags: ["Temporada", "3 dormitorios", "2 baños", "500 m²"],
-            priceNote: "tarifa de referencia en temporada alta",
+            badge: "Exclusivo",
+            title: "VILLA CONDUDU III<br />EN PREÁ",
+            subtitle: "Casa de alto estándar en Preá, diseñada para momentos únicos con viento constante, servicio personalizado e integración total con el mar.",
+            tags: ["Lugar de Evento", "3 dormitorios", "2 baños", "500 m²"],
+            priceNote: "consultar disponibilidad",
             cta: "Ver detalles de la casa"
           },
           cidades: {
@@ -313,7 +320,9 @@ i18n
             watchFull: "Ver el vídeo completo"
           },
           mapa: {
-            title: "MAPA INTERACTIVO DE DESTINOS"
+            title: "ESTUDIO DE LOS VIENTOS POR EL LITORAL DE CEARA",
+            activateInstructions: "Haz clic para interactuar con el mapa",
+            deactivate: "Bloquear mapa para scroll"
           },
           assessoria: {
             badge: "Diferenciales de Terra Ventos",

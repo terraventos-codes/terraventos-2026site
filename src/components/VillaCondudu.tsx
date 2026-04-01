@@ -11,7 +11,7 @@ type VillaConduduProps = {
 export default function VillaCondudu({ onSelect }: VillaConduduProps) {
   const { t, i18n } = useTranslation();
   const tags = t('condudu.tags', { returnObjects: true }) as string[];
-  const conduduLocalized = getOportunidadesData(i18n.language)[0];
+  const conduduLocalized = getOportunidadesData(i18n.language)[1];
 
   return (
     <section id="villa-condudu" className="condudu-section">
@@ -20,7 +20,7 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
           <span className="condudu-pill">{t('condudu.badge')}</span>
           <div className="condudu-image-wrapper">
             <img
-              src="/projetos.avif"
+              src="/VillaCondutuPaginaInicial/FINAL 14.png"
               alt="Villa Condudu III em Preá, Ceará"
               className="condudu-image"
             />

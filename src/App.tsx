@@ -16,18 +16,39 @@ import { oportunidadesData, type OportunidadeDetalhe } from './data/oportunidade
 import { getOportunidadesData } from './data/oportunidadesDataI18n';
 
 function App() {
+  const { t, i18n } = useTranslation();
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname.toLowerCase());
-  const [selectedOpportunity, setSelectedOpportunity] = useState<OportunidadeDetalhe>(oportunidadesData[1]);
+  const [selectedOpportunity, setSelectedOpportunity] = useState<OportunidadeDetalhe>(() => {
+    const path = window.location.pathname.toLowerCase();
+    if (path.startsWith('/propriedade/')) {
+      const slug = path.replace('/propriedade/', '');
+      const found = oportunidadesData.find(o => o.slug === slug);
+      if (found) {
+        const localized = getOportunidadesData(i18n.language || 'pt');
+        return localized.find(d => d.id === found.id) || found;
+      }
+    }
+    return oportunidadesData[0];
+  });
   const [transitionClass, setTransitionClass] = useState<'page-enter' | 'page-exit'>('page-enter');
   const [heroSlideIndex, setHeroSlideIndex] = useState(0);
   const isSwitchingRef = useRef(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
 
   const heroSlides = ['/banners/2.png', '/banners/3.png', '/banners/4.png', '/banners/5.png'] as const;
 
-  const { t, i18n } = useTranslation();
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(event.target as Node)) {
+        setIsLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
-  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newLang = e.target.value;
+  const handleLanguageChangeDirectly = (newLang: string) => {
     i18n.changeLanguage(newLang);
     // Update the displayed individual page data when language switches
     const localized = getOportunidadesData(newLang);
@@ -66,7 +87,13 @@ function App() {
   useEffect(() => {
     const handlePopState = () => {
       const nextPath = window.location.pathname.toLowerCase();
-      runTransitionTo(nextPath, undefined, false);
+      if (nextPath.startsWith('/propriedade/')) {
+        const slug = nextPath.replace('/propriedade/', '');
+        const item = oportunidadesData.find(o => o.slug === slug);
+        runTransitionTo(nextPath, item, false);
+      } else {
+        runTransitionTo(nextPath, undefined, false);
+      }
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -140,10 +167,10 @@ function App() {
   }, []);
 
   const handleSelectOpportunity = (item: OportunidadeDetalhe) => {
-    runTransitionTo('/pagina-individual', item, true);
+    runTransitionTo(`/propriedade/${item.slug}`, item, true);
   };
 
-  const isPaginaIndividual = currentPath === '/pagina-individual';
+  const isPaginaIndividual = currentPath.startsWith('/propriedade/');
 
   return (
     <div className="app-container">
@@ -174,15 +201,35 @@ function App() {
         </nav>
 
         {/* Language selector — outside nav so it stays visible on mobile */}
-        <select
-          className="language-selector"
-          value={i18n.language.split('-')[0] || 'pt'}
-          onChange={handleLanguageChange}
-        >
-          <option value="pt">PT</option>
-          <option value="en">EN</option>
-          <option value="es">ES</option>
-        </select>
+        <div className="language-selector-wrapper" ref={langRef}>
+          <button 
+            className="language-selector-trigger" 
+            onClick={() => setIsLangOpen(!isLangOpen)}
+            aria-label="Selecionar idioma"
+          >
+            {i18n.language.split('-')[0] === 'pt' && <img src="https://flagcdn.com/w20/br.png" alt="BR" className="lang-flag" />}
+            {i18n.language.split('-')[0] === 'en' && <img src="https://flagcdn.com/w20/us.png" alt="US" className="lang-flag" />}
+            {i18n.language.split('-')[0] === 'es' && <img src="https://flagcdn.com/w20/es.png" alt="ES" className="lang-flag" />}
+            <span className="lang-label">{i18n.language.split('-')[0].toUpperCase()}</span>
+            <svg className={`lang-arrow ${isLangOpen ? 'open' : ''}`} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          
+          {isLangOpen && (
+            <div className="language-dropdown">
+              <button onClick={() => { i18n.changeLanguage('pt'); handleLanguageChangeDirectly('pt'); setIsLangOpen(false); }}>
+                <img src="https://flagcdn.com/w20/br.png" alt="PT" /> <span>Português</span>
+              </button>
+              <button onClick={() => { i18n.changeLanguage('en'); handleLanguageChangeDirectly('en'); setIsLangOpen(false); }}>
+                <img src="https://flagcdn.com/w20/us.png" alt="EN" /> <span>English</span>
+              </button>
+              <button onClick={() => { i18n.changeLanguage('es'); handleLanguageChangeDirectly('es'); setIsLangOpen(false); }}>
+                <img src="https://flagcdn.com/w20/es.png" alt="ES" /> <span>Español</span>
+              </button>
+            </div>
+          )}
+        </div>
 
         <button
           className="header-contact-button"
