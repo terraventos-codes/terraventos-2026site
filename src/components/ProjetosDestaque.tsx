@@ -1,6 +1,6 @@
 import './ProjetosDestaque.css';
 import { useTranslation } from 'react-i18next';
-import { oportunidadesData, type OportunidadeDetalhe } from '../data/oportunidadesData';
+import { type OportunidadeDetalhe } from '../data/oportunidadesData';
 import { getOportunidadesData } from '../data/oportunidadesDataI18n';
 
 type ProjetosDestaqueProps = {
