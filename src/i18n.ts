@@ -135,7 +135,7 @@ i18n
             submit: "Enviar Mensagem",
             success: "Mensagem recebida com sucesso! Em breve, um de nossos especialistas entrará em contato."
           },
-          footer: { rights: "© Copyright 2025. Todos os direitos reservados." },
+          footer: { rights: "© Copyright 2026. Todos os direitos reservados." },
           pagina: {
             back: "Voltar",
             about: "Sobre a propriedade",
@@ -253,7 +253,7 @@ i18n
             submit: "Send Message",
             success: "Message received successfully! One of our experts will contact you shortly."
           },
-          footer: { rights: "© Copyright 2025. All Rights Reserved." },
+          footer: { rights: "© Copyright 2026. All Rights Reserved." },
           pagina: {
             back: "Back",
             about: "About the property",
@@ -371,7 +371,7 @@ i18n
             submit: "Enviar Mensaje",
             success: "¡Mensaje recibido con éxito! En breve uno de nuestros expertos se pondrá en contacto contigo."
           },
-          footer: { rights: "© Copyright 2025. Todos los derechos reservados." },
+          footer: { rights: "© Copyright 2026. Todos los derechos reservados." },
           pagina: {
             back: "Volver",
             about: "Sobre la propiedad",

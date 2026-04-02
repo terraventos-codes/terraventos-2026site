@@ -114,7 +114,7 @@ function App() {
   useEffect(() => {
     const sections = Array.from(
       document.querySelectorAll<HTMLElement>('.main-content section')
-    ).filter((section) => !section.classList.contains('hero') && section.dataset.revealManaged !== 'true');
+    ).filter((section) => !section.classList.contains('hero') && !section.classList.contains('pagina-individual') && section.dataset.revealManaged !== 'true');
 
     const resolveRevealType = (section: HTMLElement) => {
       if (section.classList.contains('beach-banner')) return 'soft-zoom';
@@ -175,9 +175,19 @@ function App() {
   return (
     <div className="app-container">
       <header className="header">
-        <a href="/" className="brand">
-          <img src="/logo.avif" alt="Terra Ventos" className="brand-logo" />
-        </a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          {isPaginaIndividual && (
+            <button className="header-back-button" onClick={() => runTransitionTo('/')} aria-label={t('pagina.back') || 'Voltar'}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+          )}
+          <a href="/" className="brand">
+            <img src="/logo.avif" alt="Terra Ventos" className="brand-logo" />
+          </a>
+        </div>
 
         <nav className="nav-links">
           <a href="#inicio" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('inicio'); } else { runTransitionTo('/'); } }}>{t('nav.inicio')}</a>

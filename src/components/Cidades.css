@@ -166,8 +166,8 @@
     -ms-overflow-style: none;
     width: 100%;
     cursor: grab;
-    /* Prevent default touch pan so pointer events take over */
-    touch-action: none;
+    /* Allow vertical panning, but let horizontal rely on JS/native scroll */
+    touch-action: pan-y;
   }
 
   .cidades-slider-container::-webkit-scrollbar {

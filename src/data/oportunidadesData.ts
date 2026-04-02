@@ -28,62 +28,6 @@ export type OportunidadeDetalhe = {
 
 export const oportunidadesData: OportunidadeDetalhe[] = [
   {
-    id: '04',
-    slug: 'villa-prabhu',
-    title: 'LAN\u00C7AMENTO',
-    image: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
-    badge: 'LAN\u00C7AMENTO',
-    propertyTitle: 'VILLA PRABHU \u2014 PARACURU-CE',
-    location: 'Paracuru, Cear\u00E1, Brasil',
-    rating: 5,
-    exclusiveText: 'Condom\u00EDnio Fechado de Lotes em Paracuru-CE com lagoa privativa, lazer completo e a 100m da praia. Alto padr\u00E3o e exclusividade numa das mais belas praias do Cear\u00E1',
-    about: [
-      'O Villa Prabhu \u00E9 um empreendimento planejado pela Bianchi Urbanismo, focado em oferecer qualidade de vida e seguran\u00E7a.',
-      'Localizado em uma regi\u00E3o privilegiada com ampla \u00E1rea verde e recursos h\u00EDdricos, o projeto se destaca pelo planejamento urbano inteligente e integra\u00E7\u00E3o com a natureza.',
-      'Lotes Exclusivos: Unidades amplas com \u00E1reas privativas variando de 242 m\u00B2 a mais de 600 m\u00B2.',
-      'Planejamento de Etapas: Projeto dividido em fases, com a Etapa 1 j\u00E1 consolidada e unidades dispon\u00EDveis na Etapa 2.',
-      'Urbanismo de Qualidade: Infraestrutura pensada para o bem-estar, com ruas projetadas como a Av. Prabhu e Rua Azalea.'
-    ],
-    infra: [
-      'Financiamento Direto: Pagamento facilitado em at\u00E9 120 parcelas mensais.',
-      'Pronto para Investir: Documenta\u00E7\u00E3o e tabela de vendas atualizadas para 2026.',
-      'Localiza\u00E7\u00E3o Estrat\u00E9gica: Quadras planejadas para garantir privacidade e f\u00E1cil acesso \u00E0s \u00E1reas comuns.',
-      'Cen\u00E1rio Natural: Empreendimento contornado por \u00E1guas e vegeta\u00E7\u00E3o preservada.'
-    ],
-    facilities: ['Projeto Urban\u00EDstico', 'Parcelamento em 120x', '\u00C1reas Verdes', 'Pronto para Construir'],
-    gallery: {
-      main: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
-      sideTop: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56.jpeg',
-      sideBottom: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (2).jpeg',
-      extra: [
-        '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (1).jpeg'
-      ]
-    },
-    mapImage: '/mapa.avif',
-    mapUrl: 'https://maps.google.com/maps?q=-3.4146184,-39.046461&z=15&output=embed',
-    videoSources: [
-      'https://player.vimeo.com/video/1179327775?h=c94b7f80f1',
-      'https://player.vimeo.com/video/1179327749?h=9d3c5f80f1',
-      'https://player.vimeo.com/video/1179327705?h=7a1b5f80f1',
-      'https://player.vimeo.com/video/1179327631?h=2e9d5f80f1'
-    ],
-    documents: [
-      { 
-        label: 'Tabela de Pre\u00E7os (120 meses) \u2013 Atualizada 2026', 
-        url: '/VILLA_PRABHU/Tabela de Pre\u00E7os (120 meses).pdf', 
-        legend: 'Detalhamento de valores, sinal e parcelas mensais.' 
-      },
-      { 
-        label: 'Mapa de Disponibilidade (Masterplan)', 
-        url: '/VILLA_PRABHU/Mapa de Disponibilidade (Masterplan).pdf', 
-        legend: 'Visualize a localiza\u00E7\u00E3o exata de cada lote e as \u00E1reas verdes.' 
-      }
-    ],
-    priceTag: 'Consulte',
-    price: 'Sob Consulta',
-    installments: 'A partir de 120 parcelas'
-  },
-  {
     id: '01',
     slug: 'villa-condudu-3',
     title: 'TEMPORADA',
@@ -210,5 +154,62 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     priceTag: 'Status',
     price: 'Em Breve',
     installments: '',
-  }
+  },
+  {
+    id: '04',
+    slug: 'villa-prabhu',
+    title: 'LAN\u00C7AMENTO',
+    image: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
+    badge: 'LAN\u00C7AMENTO',
+    propertyTitle: 'VILLA PRABHU \u2014 PARACURU-CE',
+    location: 'Paracuru, Cear\u00E1, Brasil',
+    rating: 5,
+    exclusiveText: 'Condom\u00EDnio Fechado de Lotes em Paracuru-CE com lagoa privativa, lazer completo e a 100m da praia. Alto padr\u00E3o e exclusividade numa das mais belas praias do Cear\u00E1',
+    about: [
+      'O Villa Prabhu \u00E9 um empreendimento planejado pela Bianchi Urbanismo, focado em oferecer qualidade de vida e seguran\u00E7a.',
+      'Localizado em uma regi\u00E3o privilegiada com ampla \u00E1rea verde e recursos h\u00EDdricos, o projeto se destaca pelo planejamento urbano inteligente e integra\u00E7\u00E3o com a natureza.',
+      'Lotes Exclusivos: Unidades amplas com \u00E1reas privativas variando de 242 m\u00B2 a mais de 600 m\u00B2.',
+      'Planejamento de Etapas: Projeto dividido em fases, com a Etapa 1 j\u00E1 consolidada e unidades dispon\u00EDveis na Etapa 2.',
+      'Urbanismo de Qualidade: Infraestrutura pensada para o bem-estar, com ruas projetadas como a Av. Prabhu e Rua Azalea.'
+    ],
+    infra: [
+      'Financiamento Direto: Pagamento facilitado em at\u00E9 120 parcelas mensais.',
+      'Pronto para Investir: Documenta\u00E7\u00E3o e tabela de vendas atualizadas para 2026.',
+      'Localiza\u00E7\u00E3o Estrat\u00E9gica: Quadras planejadas para garantir privacidade e f\u00E1cil acesso \u00E0s \u00E1reas comuns.',
+      'Cen\u00E1rio Natural: Empreendimento contornado por \u00E1guas e vegeta\u00E7\u00E3o preservada.'
+    ],
+    facilities: ['Projeto Urban\u00EDstico', 'Parcelamento em 120x', '\u00C1reas Verdes', 'Pronto para Construir'],
+    gallery: {
+      main: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
+      sideTop: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56.jpeg',
+      sideBottom: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (2).jpeg',
+      extra: [
+        '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (1).jpeg'
+      ]
+    },
+    mapImage: '/mapa.avif',
+    mapUrl: 'https://maps.google.com/maps?q=-3.4146184,-39.046461&z=15&output=embed',
+    videoSources: [
+      'https://player.vimeo.com/video/1179327775?h=c94b7f80f1',
+      'https://player.vimeo.com/video/1179327749?h=9d3c5f80f1',
+      'https://player.vimeo.com/video/1179327705?h=7a1b5f80f1',
+      'https://player.vimeo.com/video/1179327631?h=2e9d5f80f1'
+    ],
+    documents: [
+      { 
+        label: 'Tabela de Pre\u00E7os (120 meses) \u2013 Atualizada 2026', 
+        url: '/VILLA_PRABHU/Tabela de Pre\u00E7os (120 meses).pdf', 
+        legend: 'Detalhamento de valores, sinal e parcelas mensais.' 
+      },
+      { 
+        label: 'Mapa de Disponibilidade (Masterplan)', 
+        url: '/VILLA_PRABHU/Mapa de Disponibilidade (Masterplan).pdf', 
+        legend: 'Visualize a localiza\u00E7\u00E3o exata de cada lote e as \u00E1reas verdes.' 
+      }
+    ],
+    priceTag: 'Consulte',
+    price: 'Sob Consulta',
+    installments: 'A partir de 120 parcelas'
+  },
+
 ];

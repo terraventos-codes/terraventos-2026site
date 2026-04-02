@@ -245,9 +245,15 @@ export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps
                 ★★★★★
               </div>
 
-              <button type="button" className="pi-cta">
+              <a 
+                href="https://wa.me/5585985572807" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="pi-cta"
+                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textDecoration: 'none' }}
+              >
                 {t('pagina.cta')}
-              </button>
+              </a>
             </div>
           </aside>
         </div>
