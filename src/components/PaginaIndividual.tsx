@@ -6,10 +6,9 @@ import type { OportunidadeDetalhe } from '../data/oportunidadesData';
 
 type PaginaIndividualProps = {
   item: OportunidadeDetalhe;
-  onBack: () => void;
 };
 
-export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps) {
+export default function PaginaIndividual({ item }: PaginaIndividualProps) {
   const { t } = useTranslation();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxVideo, setLightboxVideo] = useState<string | null>(null);
@@ -39,14 +38,6 @@ export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps
 
   return (
     <section className="pagina-individual">
-      <button className="pi-back-button" onClick={onBack} aria-label="Voltar para a página inicial">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <line x1="19" y1="12" x2="5" y2="12"></line>
-          <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        <span>{t('pagina.back')}</span>
-      </button>
-
       <div className="pi-main">
         <div className="pi-gallery">
           <span className="pi-pill">{item.badge}</span>

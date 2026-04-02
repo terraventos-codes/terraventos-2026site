@@ -265,7 +265,7 @@ function App() {
       <main className="main-content">
         <div className={`page-shell ${transitionClass}`}>
           {isPaginaIndividual ? (
-            <PaginaIndividual item={selectedOpportunity} onBack={() => runTransitionTo('/')} />
+            <PaginaIndividual item={selectedOpportunity} />
           ) : (
             <>
               <div className="hero-background">

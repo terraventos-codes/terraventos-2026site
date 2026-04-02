@@ -524,8 +524,21 @@
   }
 
   .ops-card-mobile-title {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-family: 'Avenir', sans-serif;
-    color: #333;
+    color: #666;
+  }
+
+  .ops-card-mobile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .ops-card-mobile-property {
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-weight: 500;
+    color: #111;
   }
 }

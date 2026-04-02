@@ -950,7 +950,7 @@ section.is-visible .reveal-cta {
 }
 
 /* Tablet layout tweaks */
-@media (max-width: 1024px) {
+@media (max-width: 1150px) {
   .app-container {
     padding: 0;
   }
