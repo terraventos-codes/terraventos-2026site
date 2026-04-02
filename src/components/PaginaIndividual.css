@@ -227,30 +227,47 @@
 }
 
 .pi-card {
-  border-radius: 16px;
-  border: 1px solid #e7e7e7;
-  background: #fff;
-  padding: 32px 24px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  padding: 40px 28px;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.05), 
+    0 20px 40px -10px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.08), 
+    0 25px 50px -12px rgba(0, 0, 0, 0.12);
 }
 
 .pi-card-tag {
   display: inline-block;
-  color: #333;
-  font-size: 16px;
+  color: #C4B096;
+  font-size: 13px;
   font-family: 'Avenir', sans-serif;
-  margin-bottom: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
 }
 
 .pi-price {
-  margin: 0 0 24px;
+  margin: 0 0 32px;
   color: #111;
-  font-size: 32px;
-  font-weight: 500;
+  font-size: 36px;
+  font-weight: 600;
+  font-family: 'Avenir', sans-serif;
+  letter-spacing: -1px;
 }
 
 .pi-contact-text {
@@ -260,21 +277,35 @@
   margin: 0 0 16px;
 }
 
+.pi-card-divider {
+  width: 40px;
+  height: 1px;
+  background: #C4B096;
+  margin-bottom: 24px;
+  opacity: 0.6;
+}
+
 .pi-avatars-center {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .pi-avatars-center img {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 2px solid #fff;
   margin-left: -12px;
   object-fit: cover;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.pi-avatars-center img:hover {
+  transform: translateY(-3px);
+  z-index: 10;
 }
 
 .pi-avatars-center img:first-child {
@@ -282,37 +313,45 @@
 }
 
 .pi-experience-text {
-  color: #444;
-  font-size: 12.5px;
-  line-height: 1.4;
-  margin: 0 0 8px;
+  color: #666;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0 0 6px;
+  max-width: 180px;
 }
 
 .pi-stars {
-  color: #fca11a;
-  font-size: 16px;
+  color: #EAB308;
+  font-size: 14px;
   letter-spacing: 2px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .pi-cta {
   width: 100%;
-  height: 48px;
+  height: 56px;
   border: none;
-  border-radius: 999px;
-  background: #000;
+  border-radius: 14px;
+  background: #111827;
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .pi-cta:hover {
   transform: translateY(-2px);
-  filter: brightness(1.1);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  background: #C4B096;
+  color: #111827;
+  box-shadow: 0 12px 24px rgba(196, 176, 150, 0.3);
 }
 
 .pi-cta--airbnb {

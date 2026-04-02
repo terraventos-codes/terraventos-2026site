@@ -108,7 +108,7 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       priceTag: 'Di\u00E1ria',
       price: 'Sob Consulta',
       installments: 'Consulte pacotes',
-      reservationUrl: 'https://www.airbnb.com.br/rooms/53412704',
+      reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
     },
     {
       id: '02',
@@ -283,7 +283,7 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       gallery: { 
         main: '/VillaCondutuPaginaInicial/Final 01 (2).png', 
         sideTop: '/VillaCondutuPaginaInicial/FINAL 02 (1).png', 
-        sideBottom: '/VillaCondutuPaginaInicial/FINAL 02 (2).png',
+        sideBottom: '/VillaCondutuPaginaInicial/Final 02 (2).png',
         extra: [
           '/VillaCondutuPaginaInicial/FINAL 03 (1).png',
           '/VillaCondutuPaginaInicial/FINAL 08.png',
@@ -297,7 +297,7 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       priceTag: 'Daily',
       price: 'On Request',
       installments: 'Consult packages',
-      reservationUrl: 'https://www.airbnb.com.br/rooms/53412704',
+      reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
     },
     {
       id: '02',
@@ -472,7 +472,7 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       gallery: { 
         main: '/VillaCondutuPaginaInicial/Final 01 (2).png', 
         sideTop: '/VillaCondutuPaginaInicial/FINAL 02 (1).png', 
-        sideBottom: '/VillaCondutuPaginaInicial/FINAL 02 (2).png',
+        sideBottom: '/VillaCondutuPaginaInicial/Final 02 (2).png',
         extra: [
           '/VillaCondutuPaginaInicial/FINAL 03 (1).png',
           '/VillaCondutuPaginaInicial/FINAL 08.png',
@@ -486,7 +486,7 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       priceTag: 'Diario',
       price: 'Bajo Consulta',
       installments: 'Consultar paquetes',
-      reservationUrl: 'https://www.airbnb.com.br/rooms/53412704',
+      reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
     },
     {
       id: '02',
