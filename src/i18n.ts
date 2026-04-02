@@ -67,7 +67,7 @@ i18n
             badge: "Exclusividade",
             title: "VILLA CONDURU III<br />NO PREA",
             subtitle: "Casa de alto padrão em Preá, pensada para momentos únicos com vento constante, serviço personalizado e integração total com o mar.",
-            tags: ["Lugar de Evento", "3 quartos", "2 banheiros", "500 m²"],
+            tags: ["Piscina", "3 quartos", "Beira-mar", "Projeto Patricia Mureta"],
             priceNote: "consultar disponibilidade",
             cta: "Ver detalhes da casa"
           },
@@ -147,7 +147,9 @@ i18n
             videoGallery: "Galeria de Vídeos",
             downloadTitle: "Baixar Material",
             downloadDesc: "Acesse os arquivos oficiais do empreendimento.",
-            viewPdf: "Visualizar PDF"
+            viewPdf: "Visualizar PDF",
+            reservationNotice: "Fa\u00E7a a cota\u00E7\u00E3o direto na plataforma de reserva",
+            bookAirbnb: "Link para o Airbnb"
           }
         }
       },
@@ -187,7 +189,7 @@ i18n
             badge: "Exclusive",
             title: "VILLA CONDURU III<br />IN PREÁ",
             subtitle: "High-end house in Preá, designed for unique moments with constant wind, personalized service, and total integration with the sea.",
-            tags: ["Event Venue", "3 bedrooms", "2 bathrooms", "500 m²"],
+            tags: ["Pool", "3 Bedrooms", "Beachfront", "Patricia Mureta Project"],
             priceNote: "consult availability",
             cta: "View house details"
           },
@@ -265,7 +267,9 @@ i18n
             videoGallery: "Video Gallery",
             downloadTitle: "Download Material",
             downloadDesc: "Access the official project files.",
-            viewPdf: "View PDF"
+            viewPdf: "View PDF",
+            reservationNotice: "Make the quote directly on the booking platform",
+            bookAirbnb: "Link to Airbnb"
           }
         }
       },
@@ -305,7 +309,7 @@ i18n
             badge: "Exclusivo",
             title: "VILLA CONDURU III<br />EN PREÁ",
             subtitle: "Casa de alto estándar en Preá, diseñada para momentos únicos con viento constante, servicio personalizado e integración total con el mar.",
-            tags: ["Lugar de Evento", "3 dormitorios", "2 baños", "500 m²"],
+            tags: ["Piscina", "3 Habitaciones", "Frente al mar", "Proyecto Patricia Mureta"],
             priceNote: "consultar disponibilidad",
             cta: "Ver detalles de la casa"
           },
@@ -383,7 +387,9 @@ i18n
             videoGallery: "Galería de Videos",
             downloadTitle: "Descargar Material",
             downloadDesc: "Acceda a los archivos oficiales del proyecto.",
-            viewPdf: "Ver PDF"
+            viewPdf: "Ver PDF",
+            reservationNotice: "Realice la cotizaci\u00F3n directamente en la plataforma de reservas",
+            bookAirbnb: "Link al Airbnb"
           }
         }
       }

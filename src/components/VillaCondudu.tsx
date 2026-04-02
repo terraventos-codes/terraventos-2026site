@@ -41,7 +41,7 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
           </div>
 
           <div className="condudu-price-line reveal-subtext" style={{ transitionDelay: '0.5s' }}>
-            <span className="condudu-price">R$ 1.200/dia</span>
+            <span className="condudu-price">{conduduLocalized.price}</span>
             <span className="condudu-price-note">{t('condudu.priceNote')}</span>
           </div>
 

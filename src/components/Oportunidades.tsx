@@ -110,7 +110,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
                     >
                       {isActive ? (
                         <div className="ops-card-expanded">
-                          <img src={item.image} alt={opTitles[index] || item.title} className="ops-card-image" />
+                          <img src={localItem.image} alt={opTitles[index] || localItem.title} className="ops-card-image" />
                           <div className="ops-card-cutout ops-card-cutout--rich">
                             <div className="ops-card-cutout-inner">
                               <div className="ops-card-pip" aria-hidden="true" />

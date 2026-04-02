@@ -24,6 +24,7 @@ export type OportunidadeDetalhe = {
   priceTag: string;
   price: string;
   installments: string;
+  reservationUrl?: string;
 };
 
 export const oportunidadesData: OportunidadeDetalhe[] = [
@@ -47,11 +48,14 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
       '5. Suporte Concierge Terra Ventos: Sua \u00FAnica preocupa\u00E7\u00E3o ser\u00E1 velejar.'
     ],
     infra: [
-      '5 Amplos Quartos',
-      '3.800 sq.ft de Living Moderno',
-      'Janelas do Ch\u00E3o ao Teto',
-      'Piscina Privativa e Lounge Externo',
-      'Localizado no Exclusivo Bel Air'
+      'Piscina no condominio',
+      '3 quartos amplos',
+      'Churrasqueira',
+      'Beira-mar',
+      'Kite-point',
+      'Projeto Patricia Mureta',
+      'Estacionamento',
+      'Portaria 24h'
     ],
     facilities: ['Quartos', 'Banheiro', 'Beira-mar', 'P\u00E9 na areia', 'Piscina', 'Cozinha completa', 'Ar condicionado', 'Lavabo', 'Estacionamento', 'Portaria 24h'],
     gallery: {
@@ -69,8 +73,9 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     mapImage: '/mapa.avif',
     mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
     priceTag: 'Di\u00E1ria',
-    price: 'R$ 1.200',
-    installments: 'Consulte pacotes'
+    price: 'Sob Consulta',
+    installments: 'Consulte pacotes',
+    reservationUrl: 'https://www.airbnb.com.br/rooms/53412704'
   },
   {
     id: '02',
@@ -90,7 +95,12 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
       'P\u00E9 na Areia com Acesso Direto: Propriedades com frente mar livre e acesso direto \u00E0 praia.',
       'Seguran\u00E7a Jur\u00EDdica Terra Ventos: Documenta\u00E7\u00E3o 100% revisada, com matr\u00EDcula individualizada.'
     ],
-    infra: ['Amplo layout de 3 quartos', 'Piscina privativa e coqueiral', 'Infraestrutura completa em todo o projeto', 'Janelas de vidro do ch\u00E3o ao teto', 'Localiza\u00E7\u00E3o prime e exclusiva'],
+    infra: [
+      'Localiza\u00E7\u00E3o prime e exclusiva',
+      'Villa privativa com 10 projetos',
+      'P\u00E9 na areia ',
+      'Ideal para velejo'
+    ],
     facilities: ['Projeto exclusivo', 'Beira-mar', 'Pr\u00F3ximo a comodidades'],
     gallery: {
       main: '/bitupitaPaginaIndividual/DJI_20251207012123_0102_D.jpg',

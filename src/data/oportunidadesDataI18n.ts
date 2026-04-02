@@ -80,7 +80,16 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
         '4. Lifestyle e Conectividade Org\u00E2nica: A Villa elimina as barreiras entre voc\u00EA e o para\u00EDso.',
         '5. Suporte Concierge Terra Ventos: Sua \u00FAnica preocupa\u00E7\u00E3o ser\u00E1 o velejo.',
       ],
-      infra: ['5 Amplos Quartos', '3.800 sq.ft de Living Moderno', 'Janelas do Ch\u00E3o ao Teto', 'Piscina Privativa e Lounge Externo', 'Localizado no Exclusivo Bel Air'],
+      infra: [
+        'Piscina no condominio',
+        '3 quartos amplos',
+        'Churrasqueira',
+        'Beira-mar',
+        'Kite-point',
+        'Projeto Patricia Mureta',
+        'Estacionamento',
+        'Portaria 24h'
+      ],
       facilities: ['Quartos', 'Banheiro', 'Beira-mar', 'P\u00E9 na areia', 'Piscina', 'Cozinha completa', 'Ar condicionado', 'Lavabo', 'Estacionamento', 'Portaria 24h'],
       gallery: { 
         main: '/VillaCondutuPaginaInicial/Final 01 (2).png', 
@@ -97,8 +106,9 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
       priceTag: 'Di\u00E1ria',
-      price: 'R$ 1.200',
+      price: 'Sob Consulta',
       installments: 'Consulte pacotes',
+      reservationUrl: 'https://www.airbnb.com.br/rooms/53412704',
     },
     {
       id: '02',
@@ -118,7 +128,12 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
         'P\u00E9 na Areia com Acesso Direto: Propriedades com frente mar livre e acesso direto \u00E0 praia.',
         'Seguran\u00E7a Jur\u00EDdica Terra Ventos: Documenta\u00E7\u00E3o 100% revisada, com matr\u00EDcula individualizada.',
       ],
-      infra: ['Amplo layout de 3 quartos', 'Piscina privativa e coqueiral', 'Infraestrutura completa em todo o projeto', 'Janelas de vidro do ch\u00E3o ao teto', 'Localiza\u00E7\u00E3o prime e exclusiva'],
+      infra: [
+        'Localiza\u00E7\u00E3o prime e exclusiva',
+        'Villa privativa com 10 projetos',
+        'P\u00E9 na areia ',
+        'Ideal para velejo'
+      ],
       facilities: ['Projeto exclusivo', 'Beira-mar', 'Pr\u00F3ximo a comodidades'],
       gallery: { 
         main: '/bitupitaPaginaIndividual/DJI_20251207012123_0102_D.jpg', 
@@ -254,7 +269,16 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
         '4. Organic Lifestyle & Connectivity: The villa eliminates barriers between you and paradise.',
         '5. Terra Ventos Concierge Support: Your only concern will be sailing.',
       ],
-      infra: ['5 Spacious Bedrooms', '3,800 sq.ft Modern Living', 'Floor-to-Ceiling Windows', 'Private Pool & Outdoor Lounge', 'Located in Exclusive Bel Air'],
+      infra: [
+        'Pool in the condominium',
+        '3 large bedrooms',
+        'Barbecue area',
+        'Beachfront',
+        'Kite-point',
+        'Patricia Mureta Project',
+        'Parking',
+        '24h Security/Portaria'
+      ],
       facilities: ['Bedrooms', 'Bathroom', 'Beachfront', 'Feet in the sand', 'Pool', 'Full kitchen', 'Air conditioning', 'Powder room', 'Parking', '24h Security'],
       gallery: { 
         main: '/VillaCondutuPaginaInicial/Final 01 (2).png', 
@@ -271,8 +295,9 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
       priceTag: 'Daily',
-      price: 'R$ 1.200',
+      price: 'On Request',
       installments: 'Consult packages',
+      reservationUrl: 'https://www.airbnb.com.br/rooms/53412704',
     },
     {
       id: '02',
@@ -292,7 +317,12 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
         'Direct Beachfront Access: Properties with open sea frontage and direct beach access.',
         'Terra Ventos Legal Security: 100% reviewed documentation with individual registration.',
       ],
-      infra: ['Spacious 3-bedroom layout', 'Private pool and coconut grove', 'Full infrastructure across the project', 'Floor-to-ceiling glass walls', 'Prime and exclusive location'],
+      infra: [
+        'Prime and exclusive location',
+        'Private Villa with 10 projects',
+        'Feet in the sand',
+        'Ideal for sailing/kite'
+      ],
       facilities: ['Exclusive project', 'Beachfront', 'Close to amenities'],
       gallery: { 
         main: '/bitupitaPaginaIndividual/DJI_20251207012123_0102_D.jpg', 
@@ -428,7 +458,16 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
         '4. Estilo de Vida y Conectividad Org\u00E2nica: La villa elimina las barreras entre t\u00FA y el para\u00EDso.',
         '5. Soporte Concierge Terra Ventos: Tu \u00FAnica preocupaci\u00F3n ser\u00E1 navegar.',
       ],
-      infra: ['5 Dormitorios Amplios', '3.800 sq.ft de Sal\u00F3n Moderno', 'Ventanas del Suelo al Techo', 'Piscina Privada y Sal\u00F3n Exterior', 'Ubicado en el Exclusivo Bel Air'],
+      infra: [
+        'Piscina en el condominio',
+        '3 habitaciones amplias',
+        'Parilla',
+        'Frente al mar',
+        'Kite-point',
+        'Proyecto Patricia Mureta',
+        'Estacionamiento',
+        'Seguridad 24h'
+      ],
       facilities: ['Habitaciones', 'Ba\u00F1o', 'Frente al mar', 'Pies en la arena', 'Piscina', 'Cocina completa', 'Aire acondicionado', 'Aseo', 'Estacionamiento', 'Seguridad 24h'],
       gallery: { 
         main: '/VillaCondutuPaginaInicial/Final 01 (2).png', 
@@ -445,8 +484,9 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
       priceTag: 'Diario',
-      price: 'R$ 1.200',
+      price: 'Bajo Consulta',
       installments: 'Consultar paquetes',
+      reservationUrl: 'https://www.airbnb.com.br/rooms/53412704',
     },
     {
       id: '02',
@@ -466,7 +506,12 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
         'Acceso Directo Frente al Mar: Propiedades con frente al mar libre y acceso directo a la playa.',
         'Seguridad Legal Terra Ventos: Documentaci\u00F3n 100% revisada con matr\u00EDcula individualizada.',
       ],
-      infra: ['Amplia distribuci\u00F3n de 3 dormitorios', 'Piscina privada y palmeras', 'Infraestructura completa en todo el proyecto', 'Paredes de vidrio del suelo al techo', 'Ubicaci\u00F3n prime y exclusiva'],
+      infra: [
+        'Ubicaci\u00F3n prime y exclusiva',
+        'Villa privada con 10 proyectos',
+        'Pies en la arena',
+        'Ideal para la vela/kite'
+      ],
       facilities: ['Proyecto exclusivo', 'Frente al mar', 'Cerca de servicios'],
       gallery: { 
         main: '/bitupitaPaginaIndividual/DJI_20251207012123_0102_D.jpg', 

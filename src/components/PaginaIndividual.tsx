@@ -218,33 +218,35 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
               <span className="pi-card-tag">{item.priceTag}</span>
               <p className="pi-price">{item.price}</p>
               
-              <p className="pi-contact-text">
-                {t('pagina.contact')}
-              </p>
-
-              <div className="pi-avatars-center">
-                <img src="/pessoa.avif" alt="Consultor 1" />
-                <img src="/pessoa2.avif" alt="Consultor 2" />
-                <img src="/pessoa3.avif" alt="Consultor 3" />
-              </div>
-              
-              <p className="pi-experience-text">
-                {t('hero.card.experience').split('\n').map((line: string, i: number) => i > 0 ? <><br key={i}/>{line}</> : line)}
-              </p>
-              
-              <div className="pi-stars" aria-hidden="true">
-                ★★★★★
-              </div>
-
-              <a 
-                href="https://wa.me/5585985572807" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="pi-cta"
-                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textDecoration: 'none' }}
-              >
-                {t('pagina.cta')}
-              </a>
+              {item.reservationUrl ? (
+                <>
+                  <p className="pi-contact-text">
+                    {t('pagina.reservationNotice') || 'Fa\u00E7a a cota\u00E7\u00E3o direto na plataforma de reserva'}
+                  </p>
+                  <a 
+                    href={item.reservationUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="pi-cta pi-cta--airbnb"
+                  >
+                    {t('pagina.bookAirbnb') || 'Link para o Airbnb'}
+                  </a>
+                </>
+              ) : (
+                <>
+                  <p className="pi-contact-text">
+                    {t('pagina.contact')}
+                  </p>
+                  <a 
+                    href="https://wa.me/5585985572807" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="pi-cta"
+                  >
+                    {t('pagina.cta')}
+                  </a>
+                </>
+              )}
             </div>
           </aside>
         </div>
