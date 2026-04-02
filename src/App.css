@@ -456,6 +456,8 @@ button.header-back-button {
   .header {
     padding: 10px 16px;
     gap: 8px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
   }
 
   .brand-logo {
