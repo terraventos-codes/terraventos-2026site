@@ -29,7 +29,7 @@ const projetos = [
     area: '4.300 m\u00B2',
     beds: null,
     baths: null,
-    price: 'R$ 120 MIL',
+    price: 'A partir de R$ 120 MIL',
     detailIndex: 2, // Terrenos Bitupit\u00E1
   },
   {
@@ -112,7 +112,33 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
                     )}
                   </div>
 
-                  <div className="pd-price">{cardData.price}</div>
+                  <div className="pd-price">
+                    {(() => {
+                      const p = cardData.price;
+                      if (!p) return null;
+                      if (p.toLowerCase().startsWith('a partir de ')) {
+                        return (
+                          <>
+                            <span style={{ fontSize: '0.6em', display: 'block', fontWeight: 400, opacity: 0.8, marginBottom: '2px', lineHeight: 1, textTransform: 'lowercase', letterSpacing: '0.5px' }}>
+                              a partir de
+                            </span>
+                            {p.substring(12)}
+                          </>
+                        );
+                      }
+                      if (p.toLowerCase().startsWith('desde ')) {
+                        return (
+                          <>
+                            <span style={{ fontSize: '0.6em', display: 'block', fontWeight: 400, opacity: 0.8, marginBottom: '2px', lineHeight: 1, textTransform: 'lowercase', letterSpacing: '0.5px' }}>
+                              desde
+                            </span>
+                            {p.substring(6)}
+                          </>
+                        );
+                      }
+                      return p;
+                    })()}
+                  </div>
                 </div>
               </div>
             );

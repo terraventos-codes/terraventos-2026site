@@ -151,8 +151,7 @@ export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps
             {item.videoSources && item.videoSources.length > 0 && (
               <div className="pi-video-gallery-v3">
                 <div className="pi-section-header">
-                  <h3 className="pi-section-title">{t('estudo.watchFull') || 'Assista o vídeo completo'}</h3>
-                  <p className="pi-section-description">Experi\u00EAncia imersiva em alta defini\u00E7\u00E3o.</p>
+                  <h3 className="pi-section-title">{t('pagina.videoGallery') || 'Galeria de Vídeos'}</h3>
                 </div>
                 
                 <div className="pi-video-grid-v3">
@@ -176,10 +175,7 @@ export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps
                                 <path d="M8 5v14l11-7z" />
                               </svg>
                             </div>
-                            <div className="pi-video-card-info">
-                              <span className="pi-video-take-label">V\u00CDDEO {idx + 1}</span>
-                              <h4 className="pi-video-take-name">{idx === 0 ? 'Panorama Geral' : idx === 1 ? 'Tour Interno' : idx === 2 ? 'Lazer & \u00C1reas' : 'Diferenciais'}</h4>
-                            </div>
+
                           </div>
                         </div>
                       </div>
@@ -192,8 +188,8 @@ export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps
             {item.documents && item.documents.length > 0 && (
               <div className="pi-documents-section">
                 <div className="pi-section-header">
-                  <h3 className="pi-section-title">Documenta\u00E7\u00E3o e Tabelas</h3>
-                  <p className="pi-section-description">Acesse os arquivos oficiais do empreendimento.</p>
+                  <h3 className="pi-section-title">{t('pagina.downloadTitle') || 'Baixar Material'}</h3>
+                  <p className="pi-section-description">{t('pagina.downloadDesc') || 'Acesse os arquivos oficiais do empreendimento.'}</p>
                 </div>
                 <div className="pi-documents-grid">
                   {item.documents.map((doc, idx) => (
@@ -217,7 +213,7 @@ export default function PaginaIndividual({ item, onBack }: PaginaIndividualProps
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Visualizar PDF
+                        {t('pagina.viewPdf') || 'Visualizar PDF'}
                       </a>
                     </div>
                   ))}

@@ -89,7 +89,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     title: 'TEMPORADA',
     image: '/VillaCondutuPaginaInicial/FINAL 14.png',
     badge: 'Lugar de Evento',
-    propertyTitle: 'VILLA CONDUDU III',
+    propertyTitle: 'VILLA CONDURU III',
     location: 'Pre\u00E1, Cear\u00E1, Brasil',
     rating: 5,
     exclusiveText: '500 m\u00B2 | 3 Quartos | 2 Banheiros | 10 Projetos exclusivos',

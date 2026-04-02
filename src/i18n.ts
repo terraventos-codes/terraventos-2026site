@@ -59,13 +59,13 @@ i18n
             title: "VENDA, INVESTIMENTOS E LUGARES DE EVENTOS NO CEARA",
             cards: {
               "1": { tag: "Lan\u00E7amento", title: "Villa Prabhu \u2014 Paracuru-CE", price: "Sob Consulta" },
-              "2": { tag: "Venda", title: "Terrenos p\u00E9 na areia em Bitupit\u00E1", price: "R$ 120 MIL" },
+              "2": { tag: "Venda", title: "Terrenos p\u00E9 na areia em Bitupit\u00E1", price: "A partir de R$ 120 MIL" },
               "3": { tag: "Investimento", title: "Vila do Ingl\u00EAs", price: "Em Breve" }
             }
           },
           condudu: {
             badge: "Exclusividade",
-            title: "VILLA CONDUDU III<br />NO PREA",
+            title: "VILLA CONDURU III<br />NO PREA",
             subtitle: "Casa de alto padrão em Preá, pensada para momentos únicos com vento constante, serviço personalizado e integração total com o mar.",
             tags: ["Lugar de Evento", "3 quartos", "2 banheiros", "500 m²"],
             priceNote: "consultar disponibilidade",
@@ -131,7 +131,9 @@ i18n
             title: "VENTO SOPRA PRIMEIRO PARA<br />QUEM ESTA CONECTADO.",
             subtitle: "Junte-se à nossa lista prioritária e receba curadoria de terrenos early stage, dados de valorização do litoral cearense e oportunidades que não chegam ao mercado aberto.",
             fields: { first: "Nome", last: "Sobrenome", email: "E-mail", phone: "Telefone" },
-            message: "Como podemos ajudar?"
+            message: "Como podemos ajudar?",
+            submit: "Enviar Mensagem",
+            success: "Mensagem recebida com sucesso! Em breve, um de nossos especialistas entrará em contato."
           },
           footer: { rights: "© Copyright 2025. Todos os direitos reservados." },
           pagina: {
@@ -141,7 +143,11 @@ i18n
             facilities: "Facilidades",
             contact: "Fale com um de nossos consultores",
             cta: "Entrar em contato",
-            location: "Localização"
+            location: "Localização",
+            videoGallery: "Galeria de Vídeos",
+            downloadTitle: "Baixar Material",
+            downloadDesc: "Acesse os arquivos oficiais do empreendimento.",
+            viewPdf: "Visualizar PDF"
           }
         }
       },
@@ -179,7 +185,7 @@ i18n
           },
           condudu: {
             badge: "Exclusive",
-            title: "VILLA CONDUDU III<br />IN PREÁ",
+            title: "VILLA CONDURU III<br />IN PREÁ",
             subtitle: "High-end house in Preá, designed for unique moments with constant wind, personalized service, and total integration with the sea.",
             tags: ["Event Venue", "3 bedrooms", "2 bathrooms", "500 m²"],
             priceNote: "consult availability",
@@ -243,7 +249,9 @@ i18n
             title: "THE WIND BLOWS FIRST FOR<br />THOSE WHO ARE CONNECTED.",
             subtitle: "Join our priority list and receive early-stage land curation, appreciation data from the Ceará coast, and opportunities that don't reach the open market.",
             fields: { first: "First Name", last: "Last Name", email: "Email", phone: "Phone" },
-            message: "How can we help you?"
+            message: "How can we help you?",
+            submit: "Send Message",
+            success: "Message received successfully! One of our experts will contact you shortly."
           },
           footer: { rights: "© Copyright 2025. All Rights Reserved." },
           pagina: {
@@ -253,7 +261,11 @@ i18n
             facilities: "Facilities",
             contact: "Talk to one of our consultants",
             cta: "Contact Us",
-            location: "Location"
+            location: "Location",
+            videoGallery: "Video Gallery",
+            downloadTitle: "Download Material",
+            downloadDesc: "Access the official project files.",
+            viewPdf: "View PDF"
           }
         }
       },
@@ -285,13 +297,13 @@ i18n
             title: "VENTA, INVERSIONES Y LUGARES DE EVENTOS EN EL LITORAL DE CEARA",
             cards: {
               "1": { tag: "Lanzamiento", title: "Villa Prabhu \u2014 Paracuru-CE", price: "Bajo Consulta" },
-              "2": { tag: "Venta", title: "Terrenos frente al mar en Bitupit\u00E1", price: "R$ 120 MIL" },
+              "2": { tag: "Venta", title: "Terrenos frente al mar en Bitupit\u00E1", price: "Desde R$ 120 MIL" },
               "3": { tag: "Inversi\u00F3n", title: "Vila do Ingl\u00EAs", price: "Pr\u00F3ximamente" }
             }
           },
           condudu: {
             badge: "Exclusivo",
-            title: "VILLA CONDUDU III<br />EN PREÁ",
+            title: "VILLA CONDURU III<br />EN PREÁ",
             subtitle: "Casa de alto estándar en Preá, diseñada para momentos únicos con viento constante, servicio personalizado e integración total con el mar.",
             tags: ["Lugar de Evento", "3 dormitorios", "2 baños", "500 m²"],
             priceNote: "consultar disponibilidad",
@@ -355,7 +367,9 @@ i18n
             title: "EL VIENTO SOPLA PRIMERO PARA<br />LOS QUE ESTÁN CONECTADOS.",
             subtitle: "Únase a nuestra lista de prioridad y reciba curaduría de tierras temprano, datos de apreciación de la costa de Ceará y oportunidades que no llegan al mercado abierto.",
             fields: { first: "Nombre", last: "Apellido", email: "Correo", phone: "Teléfono" },
-            message: "¿En qué te podemos ayudar?"
+            message: "¿En qué te podemos ayudar?",
+            submit: "Enviar Mensaje",
+            success: "¡Mensaje recibido con éxito! En breve uno de nuestros expertos se pondrá en contacto contigo."
           },
           footer: { rights: "© Copyright 2025. Todos los derechos reservados." },
           pagina: {
@@ -365,7 +379,11 @@ i18n
             facilities: "Instalaciones",
             contact: "Hable con uno de nuestros consultores",
             cta: "Contáctenos",
-            location: "Ubicación"
+            location: "Ubicación",
+            videoGallery: "Galería de Videos",
+            downloadTitle: "Descargar Material",
+            downloadDesc: "Acceda a los archivos oficiales del proyecto.",
+            viewPdf: "Ver PDF"
           }
         }
       }

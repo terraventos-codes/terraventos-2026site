@@ -21,7 +21,7 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
           <div className="condudu-image-wrapper">
             <img
               src="/VillaCondutuPaginaInicial/FINAL 14.png"
-              alt="Villa Condudu III em Preá, Ceará"
+              alt="Villa Conduru III em Preá, Ceará"
               className="condudu-image"
             />
           </div>
