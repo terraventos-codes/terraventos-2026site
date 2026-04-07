@@ -58,7 +58,7 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
         }
       ],
       priceTag: 'Consulte',
-      price: 'Sob Consulta',
+      price: 'Conferir',
       installments: 'A partir de 120 parcelas',
     },
     {
@@ -107,7 +107,7 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=-33.95,-71.86&z=15&output=embed',
       priceTag: 'Diária',
-      price: 'Sob Consulta',
+      price: 'Conferir',
       installments: 'Consulte pacotes',
       reservationUrl: 'https://www.airbnb.com.br/rooms/1495622230762379698?unique_share_id=e222b343-72c6-400c-bec4-afd4286d8719&viralityEntryPoint=1&s=76&source_impression_id=p3_1775581234_P3rzyIdyGvGibmTw'
     },
@@ -156,7 +156,7 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
       priceTag: 'Diária',
-      price: 'Sob Consulta',
+      price: 'Conferir',
       installments: 'Consulte pacotes',
       reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
     },

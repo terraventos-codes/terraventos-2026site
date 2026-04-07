@@ -59,10 +59,10 @@ i18n
             badge: "Projetos em destaque",
             title: "VENDA, INVESTIMENTOS E LUGARES DE EVENTOS NO CEARA",
             cards: {
-              "1": { tag: "Lançamento", title: "Villa Prabhu — Paracuru-CE", price: "Sob Consulta" },
+              "1": { tag: "Lançamento", title: "Villa Prabhu — Paracuru-CE", price: "Conferir" },
               "2": { tag: "Venda", title: "Terrenos pé na areia em Bitupitá", price: "A partir de R$ 120 MIL" },
               "3": { tag: "Investimento", title: "Vila do Inglês", price: "Em Breve" },
-              "5": { tag: "Temporada", title: "Casa Matanzas", price: "Sob Consulta" }
+              "5": { tag: "Temporada", title: "Casa Matanzas", price: "Conferir" }
             }
           },
           condudu: {

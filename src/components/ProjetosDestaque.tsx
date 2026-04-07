@@ -18,7 +18,7 @@ const projetos = [
     area: '150 m\u00B2',
     beds: 3,
     baths: 2,
-    price: 'Sob Consulta',
+    price: 'Conferir',
     detailIndex: 1, // Matanzas
   },
   {
@@ -30,7 +30,7 @@ const projetos = [
     area: '242 m\u00B2 a 600 m\u00B2',
     beds: null,
     baths: null,
-    price: 'Sob Consulta',
+    price: 'Conferir',
     detailIndex: 0, // Villa Prabhu
   },
   {
