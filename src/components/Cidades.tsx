@@ -63,11 +63,6 @@ export default function Cidades() {
   const [paused, setPaused] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  // ── drag state ──────────────────────────────────
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const startScrollLeft = useRef(0);
-
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)');
     const update = () => setIsMobile(mq.matches);
@@ -95,44 +90,6 @@ export default function Cidades() {
     return () => el.removeEventListener('scroll', syncProgress);
   }, [isMobile, syncProgress]);
 
-  // ── pointer/mouse drag handlers ──────────────────
-  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    const el = sliderRef.current;
-    if (!el) return;
-    isDragging.current = true;
-    startX.current = e.clientX;
-    startScrollLeft.current = el.scrollLeft;
-    el.setPointerCapture(e.pointerId);
-    el.style.cursor = 'grabbing';
-    el.style.userSelect = 'none';
-  };
-
-  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!isDragging.current) return;
-    const el = sliderRef.current;
-    if (!el) return;
-    const dx = e.clientX - startX.current;
-    el.scrollLeft = startScrollLeft.current - dx;
-    syncProgress();
-  };
-
-  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!isDragging.current) return;
-    isDragging.current = false;
-    const el = sliderRef.current;
-    if (!el) return;
-    el.releasePointerCapture(e.pointerId);
-    el.style.cursor = 'grab';
-    el.style.userSelect = '';
-
-    // snap to nearest card
-    const CARD_GAP = 16;
-    const cardWidth = el.clientWidth * 0.72 + CARD_GAP;
-    const nearest = Math.round(el.scrollLeft / cardWidth);
-    el.scrollTo({ left: nearest * cardWidth, behavior: 'smooth' });
-  };
-
-  // ── render helpers ───────────────────────────────
   const renderCard = (cidade: typeof cidadesData[0], index: number, suffix = '') => {
     const raw = cData[cidade.id];
     const cardTitle = (raw && typeof raw === 'object' && raw.title) ? raw.title : cidade.title;
@@ -162,15 +119,11 @@ export default function Cidades() {
       </div>
 
       {isMobile ? (
-        /* ── MOBILE: drag-scrollable ── */
+        /* ── MOBILE: native touch scroll ── */
         <>
           <div
             className="cidades-slider-container"
             ref={sliderRef}
-            onPointerDown={onPointerDown}
-            onPointerMove={onPointerMove}
-            onPointerUp={onPointerUp}
-            onPointerCancel={onPointerUp}
           >
             <div className="cidades-slider-track">
               {cidadesData.map((cidade, index) => renderCard(cidade, index))}

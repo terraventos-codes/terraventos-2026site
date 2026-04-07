@@ -5,7 +5,6 @@
   padding: 80px 0;
   background-color: #fff;
   font-family: 'Avenir', 'Manrope', sans-serif;
-  overflow: hidden;
 }
 
 .cidades-header {
@@ -166,8 +165,10 @@
     -ms-overflow-style: none;
     width: 100%;
     cursor: grab;
-    /* Allow vertical panning, but let horizontal rely on JS/native scroll */
-    touch-action: pan-y;
+    /* Allow native horizontal swipe on touch devices */
+    touch-action: pan-x;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   .cidades-slider-container::-webkit-scrollbar {

@@ -3,14 +3,19 @@ import { createPortal } from 'react-dom';
 import './EstudoVentos.css';
 import { useTranslation } from 'react-i18next';
 
+const DRIVE_PT = '/Estudo dos Ventos  TERRAVENTOS.pdf';
+const DRIVE_EN = '/Study of the winds  TERRAVENTOS.pdf';
+
 const VIDEO_ID = '1177444750';
 
 export default function EstudoVentos() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const videoInfo = t('estudo.videoInfo', { returnObjects: true }) as string[];
   const stats = t('estudo.stats', { returnObjects: true }) as Record<string, string>;
   const [modalOpen, setModalOpen] = useState(false);
+  const [langPickerOpen, setLangPickerOpen] = useState(false);
   const previewRef = useRef<HTMLIFrameElement>(null);
+  const lang = i18n.language.split('-')[0];
 
   // Seek preview back to 0 every 15 seconds to avoid iframe refresh blink
   useEffect(() => {
@@ -144,20 +149,75 @@ export default function EstudoVentos() {
               </div>
             </div>
 
-            <a
-              className="estudo-btn"
-              href="https://www.canva.com/design/DAG1bAlUIp0/MphbQLRL9vMkqgnCqX7_0w/view?utm_content=DAG1bAlUIp0&utm_campaign=designshare&utm_medium=link&utm_source=viewer"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t('estudo.cta')}
-            </a>
+            {lang === 'es' ? (
+              <button
+                className="estudo-btn"
+                type="button"
+                onClick={() => setLangPickerOpen(true)}
+              >
+                {t('estudo.cta')}
+              </button>
+            ) : (
+              <a
+                className="estudo-btn"
+                href={lang === 'en' ? DRIVE_EN : DRIVE_PT}
+                download
+              >
+                {t('estudo.cta')}
+              </a>
+            )}
           </div>
         </div>
       </section>
 
       {/* Modal rendered directly inside document.body via portal */}
       {modal}
+
+      {/* Language picker modal for ES users */}
+      {langPickerOpen && createPortal(
+        <div
+          className="lang-picker-backdrop"
+          onClick={() => setLangPickerOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Escolha o idioma do documento"
+        >
+          <div className="lang-picker-box" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="lang-picker-close"
+              onClick={() => setLangPickerOpen(false)}
+              aria-label="Fechar"
+            >
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <p className="lang-picker-title">¿En qué idioma deseas descargar?</p>
+            <div className="lang-picker-flags">
+              <a
+                className="lang-picker-flag-btn"
+                href={DRIVE_PT}
+                download
+                onClick={() => setLangPickerOpen(false)}
+              >
+                <img src="https://flagcdn.com/w80/br.png" alt="Português" />
+                <span>Português</span>
+              </a>
+              <a
+                className="lang-picker-flag-btn"
+                href={DRIVE_EN}
+                download
+                onClick={() => setLangPickerOpen(false)}
+              >
+                <img src="https://flagcdn.com/w80/us.png" alt="English" />
+                <span>English</span>
+              </a>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
     </>
   );
 }
