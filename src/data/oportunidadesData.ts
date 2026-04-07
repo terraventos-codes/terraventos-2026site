@@ -116,13 +116,15 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     ],
     facilities: ['Vista para o oceano', 'Vista para o vale', 'Cozinha', 'Wi-Fi', 'Estacionamento gratuito', 'Jacuzzi privativa', 'Permitido animais', 'Câmeras de segurança'],
     gallery: {
-      main: '/Matanzas/b211e036-b276-4446-a3be-7ba65f801a82.avif',
-      sideTop: '/Matanzas/24d1320e-ff30-4707-882b-e14889b2ea9f.avif',
-      sideBottom: '/Matanzas/305fa07a-3d45-4f82-9123-3e865b38faba.avif',
+      main: '/Matanzas/3b77d98c-5cd0-4f51-816a-6e42748720d2.avif',
+      sideTop: '/Matanzas/4d4b9c44-ad67-43ad-8f6b-6497f7b6e7ea.avif',
+      sideBottom: '/Matanzas/59c1aa44-cc72-45be-a883-7724e0f27f11.avif',
       extra: [
-        '/Matanzas/c51be852-eadb-4d58-9b5c-4913e56a873b.avif',
-        '/Matanzas/a932e2b8-9f65-46d6-888b-ec57fe433f45.avif',
-        '/Matanzas/59c1aa44-cc72-45be-a883-7724e0f27f11.avif'
+        '/Matanzas/90d53b04-d0e5-4165-8ddc-2aac9dcfc2fb.avif',
+        '/Matanzas/369ef9fe-3cde-4ff2-b972-97dc02848241.avif',
+        '/Matanzas/6645f7b5-7850-4a44-8ff9-2f81fa7ef623.avif',
+        '/Matanzas/cd0910d3-112f-4ef6-ac70-86906d62bd1c.avif',
+        '/Matanzas/f65a0d94-74da-40f4-9cf3-c6a9262e1be6.avif'
       ]
     },
     mapImage: '/mapa.avif',

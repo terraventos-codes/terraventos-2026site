@@ -11,7 +11,7 @@ type ProjetosDestaqueProps = {
 const projetos = [
   {
     id: 5,
-    image: '/Matanzas/b211e036-b276-4446-a3be-7ba65f801a82.avif',
+    image: '/Matanzas/3b77d98c-5cd0-4f51-816a-6e42748720d2.avif',
     tag: 'TEMPORADA',
     location: 'Navidad, O\'Higgins, Chile',
     title: 'Casa Matanzas',
