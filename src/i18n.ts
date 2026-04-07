@@ -46,30 +46,32 @@ i18n
             badge: "Oportunidades exclusivas",
             title1: "ENCONTRE SEU PRÓXIMO",
             title2: "IMÓVEL NO LITORAL DO CEARÁ",
-            titles: ["LANÇAMENTO", "TEMPORADA", "VENDA", "INVESTIMENTO"],
+            titles: ["LANÇAMENTO", "TEMPORADA", "TEMPORADA", "VENDA", "INVESTIMENTO"],
             cards: {
               "01": "Residências de alto padrão prontas, com arquitetura contemporânea e integração com a natureza. Ideais para segunda moradia e experiências exclusivas beira-mar.",
               "02": "Terrenos pé na areia no último village planejado do Roteiro Costa dos Ventos. Oportunidade de investimento estratégico com os melhores vetores de valorização.",
               "03": "Empreendimentos boutique para investidores com visão antecipada. Produto com estudo de vento aplicado, personalização arquitetônica e localização de alta escassez.",
-              "04": "O Villa Prabhu é um empreendimento planejado pela Bianchi Urbanismo, focado em oferecer qualidade de vida e segurança em uma região privilegiada."
+              "04": "O Villa Prabhu é um empreendimento planejado pela Bianchi Urbanismo, focado em oferecer qualidade de vida e segurança em uma região privilegiada.",
+              "05": "Descubra Matanzas Paradise: Casa moderna confortavelmente equipada para 6 hóspedes, vistas panorâmicas espetaculares do mar e da floresta. Equipada com banheira de hidromassagem e Wi-Fi Starlink."
             }
           },
           projetos: {
             badge: "Projetos em destaque",
             title: "VENDA, INVESTIMENTOS E LUGARES DE EVENTOS NO CEARA",
             cards: {
-              "1": { tag: "Lan\u00E7amento", title: "Villa Prabhu \u2014 Paracuru-CE", price: "Sob Consulta" },
-              "2": { tag: "Venda", title: "Terrenos p\u00E9 na areia em Bitupit\u00E1", price: "A partir de R$ 120 MIL" },
-              "3": { tag: "Investimento", title: "Vila do Ingl\u00EAs", price: "Em Breve" }
+              "1": { tag: "Lançamento", title: "Villa Prabhu — Paracuru-CE", price: "Sob Consulta" },
+              "2": { tag: "Venda", title: "Terrenos pé na areia em Bitupitá", price: "A partir de R$ 120 MIL" },
+              "3": { tag: "Investimento", title: "Vila do Inglês", price: "Em Breve" },
+              "5": { tag: "Temporada", title: "Casa Matanzas", price: "Sob Consulta" }
             }
           },
           condudu: {
             badge: "Exclusividade",
-            title: "VILLA CONDURU III<br />NO PREA",
-            subtitle: "Casa de alto padrão em Preá, pensada para momentos únicos com vento constante, serviço personalizado e integração total com o mar.",
+            title: "CASA ALTO PADR\u00C3O 3 SU\u00CDTES<br />FRENTE \u00C0 PRAIA DO PRE\u00C1",
+            subtitle: "Vila Conduru III — Piscina, churrasqueira, varanda e condomínio de luxo 24 horas.",
             tags: ["Piscina", "3 quartos", "Beira-mar", "Projeto Patricia Mureta"],
             priceNote: "consultar disponibilidade",
-            cta: "Ver detalhes da casa"
+            cta: "RESERVAR"
           },
           cidades: {
             badge: "Litoral Cearense",
@@ -123,7 +125,7 @@ i18n
               "\"A assessoria concierge da Terra Ventos é o que realmente diferencia a marca. Eles cuidaram de tudo, do due diligence jurídico à conexão com os melhores arquitetos locais. Sentir que você faz parte de uma comunidade que preserva a essência rústica do Ceará, mas com um padrão internacional, é impagável.\"",
               "\"Como advogada, a minha prioridade sempre foi a segurança documental. No litoral, a informalidade assusta, mas a Terra Ventos entregou um due diligence impecável. Investi em uma propriedade na Praia dos Monteiros com a certeza de que estava a construir um patrimônio sólido e regularizado para a minha família. É uma tranquilidade que não tem preço.\"",
               "\"O que me conquistou foi o Estudo dos Ventos. Como designer, valorizo projetos que respeitam o meio ambiente. Ver como a Terra Ventos utiliza a ciência do clima para orientar a implantação das casas, garantindo frescor natural e luz perfeita, é fascinante. Não é apenas um terreno, é a base para uma arquitetura de alto padrão que conversa com a natureza.\"",
-              "\"O que me conquistou foi o Estudo dos Ventos. Como designer, valorizo projetos que respeitam o meio ambiente. Ver como a Terra Ventos utiliza a ciência do clima para orientar a implantação das casas, garantindo frescor natural e luz perfeita, é fascinante. Não é apenas um terreno, é a base para uma arquitetura de alto padrão que conversa com a natureza.\""
+              "\"O que me conquistou foi o Estudo dos Ventos. Como designer, valorizo projetos que respetam o meio ambiente. Ver como a Terra Ventos utiliza a ciência do clima para orientar a implantação das casas, garantindo frescor natural e luz perfeita, é fascinante. Não é apenas um terreno, é a base para uma arquitetura de alto padrão que conversa com a natureza.\""
             ]
           },
           form: {
@@ -149,7 +151,8 @@ i18n
             downloadDesc: "Acesse os arquivos oficiais do empreendimento.",
             viewPdf: "Visualizar PDF",
             reservationNotice: "Fa\u00E7a a cota\u00E7\u00E3o direto na plataforma de reserva",
-            bookAirbnb: "Link para o Airbnb"
+            bookAirbnb: "Link para o Airbnb",
+            whatsapp: "Fale conosco"
           }
         }
       },
@@ -168,30 +171,32 @@ i18n
             badge: "Exclusive Opportunities",
             title1: "FIND YOUR NEXT",
             title2: "PROPERTY ON CEARÁ'S COAST",
-            titles: ["LAUNCH", "STAY", "FOR SALE", "INVESTMENT"],
+            titles: ["LAUNCH", "STAY", "STAY", "FOR SALE", "INVESTMENT"],
             cards: {
               "01": "Ready high-end residences with contemporary architecture integrated into nature. Ideal for a second home and exclusive beachfront experiences.",
               "02": "Beachfront land in the latest planned village on the Costa dos Ventos Route. Strategic investment opportunity with the best appreciation drivers.",
               "03": "Boutique developments for early-vision investors. Product featuring applied wind study, architectural customization, and highly scarce locations.",
-              "04": "Villa Prabhu is a development planned by Bianchi Urbanismo, focused on offering quality of life and security in a privileged region."
+              "04": "Villa Prabhu is a development planned by Bianchi Urbanismo, focused on offering quality of life and security in a privileged region.",
+              "05": "Discover Matanzas Paradise: Modern house comfortably equipped for 6 guests, spectacular panoramic sea and forest views. Equipped with a hot tub and Starlink Wi-Fi."
             }
           },
           projetos: {
             badge: "Featured Projects",
             title: "FOR SALE, INVESTMENTS AND EVENT VENUES IN CEARÁ",
             cards: {
-              "1": { tag: "Launch", title: "Villa Prabhu \u2014 Paracuru-CE", price: "On Request" },
-              "2": { tag: "For Sale", title: "Beachfront land in Bitupit\u00E1", price: "R$ 120,000" },
-              "3": { tag: "Investment", title: "Vila do Ingl\u00EAs", price: "Coming Soon" }
+              "1": { tag: "Launch", title: "Villa Prabhu — Paracuru-CE", price: "On Request" },
+              "2": { tag: "For Sale", title: "Beachfront land in Bitupitá", price: "R$ 120,000" },
+              "3": { tag: "Investment", title: "Vila do Inglês", price: "Coming Soon" },
+              "5": { tag: "Stay", title: "Casa Matanzas", price: "On Request" }
             }
           },
           condudu: {
             badge: "Exclusive",
-            title: "VILLA CONDURU III<br />IN PREÁ",
-            subtitle: "High-end house in Preá, designed for unique moments with constant wind, personalized service, and total integration with the sea.",
+            title: "HIGH-END HOUSE 3 SUITES<br />BEACHFRONT IN PREÁ",
+            subtitle: "Vila Conduru III — Pool, BBQ area, balcony, and luxury 24-hour gated community.",
             tags: ["Pool", "3 Bedrooms", "Beachfront", "Patricia Mureta Project"],
             priceNote: "consult availability",
-            cta: "View house details"
+            cta: "BOOK NOW"
           },
           cidades: {
             badge: "Ceará Coast",
@@ -269,7 +274,8 @@ i18n
             downloadDesc: "Access the official project files.",
             viewPdf: "View PDF",
             reservationNotice: "Make the quote directly on the booking platform",
-            bookAirbnb: "Link to Airbnb"
+            bookAirbnb: "Link to Airbnb",
+            whatsapp: "Chat with us"
           }
         }
       },
@@ -288,30 +294,32 @@ i18n
              badge: "Oportunidades exclusivas",
              title1: "ENCUENTRA TU PRÓXIMA",
              title2: "PROPIEDAD EN LA COSTA DE CEARÁ",
-             titles: ["LANZAMIENTO", "ESTANCIA", "VENTA", "INVERSI\u00D3N"],
+             titles: ["LANZAMIENTO", "ESTANCIA", "ESTANCIA", "VENTA", "INVERSIÓN"],
              cards: {
                "01": "Residencias de alta gama listas, con arquitectura contemporánea integrada a la naturaleza. Ideales para segunda vivienda y experiencias exclusivas frente al mar.",
                "02": "Terrenos frente al mar en el último pueblo planeado en la Ruta Costa dos Ventos. Oportunidad de inversión estratégica con los mejores vectores de apreciación.",
                "03": "Desarrollos boutique para inversores con visión anticipada. Producto con estudio de vientos aplicado, personalización arquitectónica y ubicaciones de alta escasez.",
-               "04": "Villa Prabhu es un desarrollo planificado por Bianchi Urbanismo, enfocado en ofrecer calidad de vida y seguridad en una región privilegiada."
+               "04": "Villa Prabhu es un desarrollo planificado por Bianchi Urbanismo, enfocado en ofrecer calidad de vida y seguridad en una región privilegiada.",
+               "05": "Descubre Matanzas Paradise: Casa moderna cómodamente equipada para 6 huéspedes, espectaculares vistas panorámicas al mar y al bosque. Equipada con tinaja y Wi-Fi Starlink."
              }
           },
           projetos: {
             badge: "Proyectos destacados",
             title: "VENTA, INVERSIONES Y LUGARES DE EVENTOS EN EL LITORAL DE CEARA",
             cards: {
-              "1": { tag: "Lanzamiento", title: "Villa Prabhu \u2014 Paracuru-CE", price: "Bajo Consulta" },
-              "2": { tag: "Venta", title: "Terrenos frente al mar en Bitupit\u00E1", price: "Desde R$ 120 MIL" },
-              "3": { tag: "Inversi\u00F3n", title: "Vila do Ingl\u00EAs", price: "Pr\u00F3ximamente" }
+              "1": { tag: "Lanzamiento", title: "Villa Prabhu — Paracuru-CE", price: "Bajo Consulta" },
+              "2": { tag: "Venta", title: "Terrenos frente al mar en Bitupitá", price: "Desde R$ 120 MIL" },
+              "3": { tag: "Inversión", title: "Vila do Inglês", price: "Próximamente" },
+              "5": { tag: "Estancia", title: "Casa Matanzas", price: "Bajo Consulta" }
             }
           },
           condudu: {
             badge: "Exclusivo",
-            title: "VILLA CONDURU III<br />EN PREÁ",
-            subtitle: "Casa de alto estándar en Preá, diseñada para momentos únicos con viento constante, servicio personalizado e integración total con el mar.",
+            title: "CASA DE ALTO ESTÁNDAR 3 SUITES<br />FRENTE A LA PLAYA DE PREÁ",
+            subtitle: "Vila Conduru III — Piscina, parrilla, balcón y condominio de lujo 24 horas.",
             tags: ["Piscina", "3 Habitaciones", "Frente al mar", "Proyecto Patricia Mureta"],
             priceNote: "consultar disponibilidad",
-            cta: "Ver detalles de la casa"
+            cta: "RESERVAR"
           },
           cidades: {
             badge: "Costa Cearense",
@@ -389,7 +397,8 @@ i18n
             downloadDesc: "Acceda a los archivos oficiales del proyecto.",
             viewPdf: "Ver PDF",
             reservationNotice: "Realice la cotizaci\u00F3n directamente en la plataforma de reservas",
-            bookAirbnb: "Link al Airbnb"
+            bookAirbnb: "Link al Airbnb",
+            whatsapp: "Hable con nosotros"
           }
         }
       }

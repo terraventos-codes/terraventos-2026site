@@ -29,23 +29,127 @@ export type OportunidadeDetalhe = {
 
 export const oportunidadesData: OportunidadeDetalhe[] = [
   {
+    id: '04',
+    slug: 'villa-prabhu',
+    title: 'LANÇAMENTO',
+    image: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
+    badge: 'LANÇAMENTO',
+    propertyTitle: 'VILLA PRABHU — PARACURU-CE',
+    location: 'Paracuru, Ceará, Brasil',
+    rating: 5,
+    exclusiveText: 'Condomínio Fechado de Lotes em Paracuru-CE com lagoa privativa, lazer completo e a 100m da praia. Alto padrão e exclusividade numa das mais belas praias do Ceará',
+    about: [
+      'O Villa Prabhu é um empreendimento planejado pela Bianchi Urbanismo, focado em oferecer qualidade de vida e segurança.',
+      'Localizado em uma região privilegiada com ampla área verde e recursos hídricos, o projeto se destaca pelo planejamento urbano inteligente e integração com a natureza.',
+      'Lotes Exclusivos: Unidades amplas com áreas privativas variando de 242 m² a mais de 600 m².',
+      'Planejamento de Etapas: Projeto dividido em fases, com a Etapa 1 já consolidada e unidades disponíveis na Etapa 2.',
+      'Urbanismo de Qualidade: Infraestrutura pensada para o bem-estar, com ruas projetadas como a Av. Prabhu e Rua Azalea.'
+    ],
+    infra: [
+      'Financiamento Direto: Pagamento facilitado em até 120 parcelas mensais.',
+      'Pronto para Investir: Documentação e tabela de vendas atualizadas para 2026.',
+      'Localização Estratégica: Quadras planejadas para garantir privacidade e fácil acesso às áreas comuns.',
+      'Cenário Natural: Empreendimento contornado por águas e vegetação preservada.'
+    ],
+    facilities: ['Projeto Urbanístico', 'Parcelamento em 120x', 'Áreas Verdes', 'Pronto para Construir'],
+    gallery: {
+      main: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
+      sideTop: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56.jpeg',
+      sideBottom: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (2).jpeg',
+      extra: [
+        '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (1).jpeg'
+      ]
+    },
+    mapImage: '/mapa.avif',
+    mapUrl: 'https://maps.google.com/maps?q=-3.4146184,-39.046461&z=15&output=embed',
+    videoSources: [
+      'https://player.vimeo.com/video/1179327775?h=c94b7f80f1',
+      'https://player.vimeo.com/video/1179327749?h=9d3c5f80f1',
+      'https://player.vimeo.com/video/1179327705?h=7a1b5f80f1',
+      'https://player.vimeo.com/video/1179327631?h=2e9d5f80f1'
+    ],
+    documents: [
+      { 
+        label: 'Tabela de Preços (120 meses) – Atualizada 2026', 
+        url: '/VILLA_PRABHU/Tabela de Preços (120 meses).pdf', 
+        legend: 'Detalhamento de valores, sinal e parcelas mensais.' 
+      },
+      { 
+        label: 'Mapa de Disponibilidade (Masterplan)', 
+        url: '/VILLA_PRABHU/Mapa de Disponibilidade (Masterplan).pdf', 
+        legend: 'Visualize a localização exata de cada lote e as áreas verdes.' 
+      }
+    ],
+    priceTag: 'Consulte',
+    price: 'Sob Consulta',
+    installments: 'A partir de 120 parcelas'
+  },
+  {
+    id: '05',
+    slug: 'casa-matanzas',
+    title: 'TEMPORADA',
+    image: '/Matanzas/b211e036-b276-4446-a3be-7ba65f801a82.avif',
+    badge: 'Temporada',
+    propertyTitle: 'Casa Matanzas com banheira de hidromassagem/vista para o mar e floresta',
+    location: 'Navidad, O\'Higgins, Chile',
+    rating: 5,
+    exclusiveText: 'Descubra Matanzas Paradise 🌊 Casa moderna confortavelmente equipada para 6 hóspedes, vistas panorâmicas espetaculares do mar e da floresta.',
+    about: [
+      'Descubra Matanzas Paradise: Casa moderna confortavelmente equipada para 6 hóspedes.',
+      'Vistas panorâmicas espetaculares do mar e da floresta.',
+      'Ideal para quem busca tranquilidade em um dos destinos mais emblemáticos de kitesurf e windsurf do Chile.',
+      '1. Fora da rede: energia solar, espaço sustentável e em harmonia com a natureza.',
+      '2. Estacionamento privativo no local.',
+      '3. Localização Privilegiada: A apenas 7 min da Praia de Matanzas e La Vega de Pupuya.',
+      '4. Terraço com banheira de hidromassagem (Jacuzzi privativa).',
+      '5. Ambiente tranquilo, perto de restaurantes, supermercados e clubes esportivos.'
+    ],
+    infra: [
+      'Vista para o oceano',
+      'Vista para o vale',
+      'Cozinha completa',
+      'Wi-Fi (Starlink)',
+      'Estacionamento gratuito',
+      'Jacuzzi privativa',
+      'Permitido animais',
+      'Câmeras de segurança externa'
+    ],
+    facilities: ['Vista para o oceano', 'Vista para o vale', 'Cozinha', 'Wi-Fi', 'Estacionamento gratuito', 'Jacuzzi privativa', 'Permitido animais', 'Câmeras de segurança'],
+    gallery: {
+      main: '/Matanzas/b211e036-b276-4446-a3be-7ba65f801a82.avif',
+      sideTop: '/Matanzas/24d1320e-ff30-4707-882b-e14889b2ea9f.avif',
+      sideBottom: '/Matanzas/305fa07a-3d45-4f82-9123-3e865b38faba.avif',
+      extra: [
+        '/Matanzas/c51be852-eadb-4d58-9b5c-4913e56a873b.avif',
+        '/Matanzas/a932e2b8-9f65-46d6-888b-ec57fe433f45.avif',
+        '/Matanzas/59c1aa44-cc72-45be-a883-7724e0f27f11.avif'
+      ]
+    },
+    mapImage: '/mapa.avif',
+    mapUrl: 'https://maps.google.com/maps?q=-33.95,-71.86&z=15&output=embed',
+    priceTag: 'Diária',
+    price: 'Sob Consulta',
+    installments: 'Consulte pacotes',
+    reservationUrl: 'https://www.airbnb.com.br/rooms/1495622230762379698?unique_share_id=e222b343-72c6-400c-bec4-afd4286d8719&viralityEntryPoint=1&s=76&source_impression_id=p3_1775581234_P3rzyIdyGvGibmTw'
+  },
+  {
     id: '01',
     slug: 'villa-condudu-3',
     title: 'TEMPORADA',
     image: '/VillaCondutuPaginaInicial/FINAL 14.png',
     badge: 'Lugar de Evento',
-    propertyTitle: 'VILLA CONDURU III',
-    location: 'Pre\u00E1, Cear\u00E1, Brasil',
+    propertyTitle: 'VILA CONDURU III',
+    location: 'Preá, Ceará, Brasil',
     rating: 5,
-    exclusiveText: '500 m\u00B2 | 3 Quartos | 2 Banheiros | 10 Projetos exclusivos',
+    exclusiveText: '500 m² | 3 Quartos | 2 Banheiros | 10 Projetos exclusivos',
     about: [
-      'Seu Ref\u00FAgio Particular Beira-Mar no Pre\u00E1: A experi\u00EAncia definitiva de luxo r\u00FAstico e p\u00E9 na areia.',
-      'A Villa Conduru III n\u00E3o \u00E9 apenas uma casa de temporada; \u00E9 o seu camarote privativo para o melhor vento do mundo. Localizada literalmente \u00E0 beira-mar, esta villa foi desenhada para quem busca a liberdade de acordar e ter o oceano como extens\u00E3o do seu jardim.',
-      '1. Localiza\u00E7\u00E3o Front-Mar: Esque\u00E7a traslados ou longas caminhadas. Aqui, o quintal \u00E9 a praia.',
-      '2. Experi\u00EAncia de Resort: A exclusividade de uma villa com as comodidades de um hotel boutique.',
-      '3. Arquitetura Respir\u00E1vel (Bioclim\u00E1tica): Constru\u00EDda com materiais naturais como madeira, pedra e palha.',
-      '4. Lifestyle e Conectividade Org\u00E2nica: A villa elimina as barreiras entre voc\u00EA e o para\u00EDso.',
-      '5. Suporte Concierge Terra Ventos: Sua \u00FAnica preocupa\u00E7\u00E3o ser\u00E1 velejar.'
+      'Seu Refúgio Particular Beira-Mar no Preá: A experiência definitiva de luxo rústico e pé na areia.',
+      'A Vila Conduru III não é apenas uma casa de temporada; é o seu camarote privativo para o melhor vento do mundo. Localizada literalmente à beira-mar, esta vila foi desenhada para quem busca a liberdade de acordar e ter o oceano como extensão do seu jardim.',
+      '1. Localização Front-Mar: Esqueça traslados ou longas caminhadas. Aqui, o quintal é a praia.',
+      '2. Experiência de Resort: A exclusividade de uma villa com as comodidades de um hotel boutique.',
+      '3. Arquitetura Respirável (Bioclimática): Construída com materiais naturais como madeira, pedra e palha.',
+      '4. Lifestyle e Conectividade Orgânica: A villa elimina as barreiras entre você e o paraíso.',
+      '5. Suporte Concierge Terra Ventos: Sua única preocupação será velejar.'
     ],
     infra: [
       'Piscina no condominio',
@@ -57,7 +161,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
       'Estacionamento',
       'Portaria 24h'
     ],
-    facilities: ['Quartos', 'Banheiro', 'Beira-mar', 'P\u00E9 na areia', 'Piscina', 'Cozinha completa', 'Ar condicionado', 'Lavabo', 'Estacionamento', 'Portaria 24h'],
+    facilities: ['Quartos', 'Banheiro', 'Beira-mar', 'Pé na areia', 'Piscina', 'Cozinha completa', 'Ar condicionado', 'Lavabo', 'Estacionamento', 'Portaria 24h'],
     gallery: {
       main: '/VillaCondutuPaginaInicial/Final 01 (2).png',
       sideTop: '/VillaCondutuPaginaInicial/FINAL 02 (1).png',
@@ -72,7 +176,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     },
     mapImage: '/mapa.avif',
     mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
-    priceTag: 'Di\u00E1ria',
+    priceTag: 'Diária',
     price: 'Sob Consulta',
     installments: 'Consulte pacotes',
     reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710'
@@ -83,25 +187,25 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     title: 'VENDA',
     image: '/bitupitaPaginaIndividual/DJI_20251020023318_0221_D.jpg',
     badge: 'Venda',
-    propertyTitle: 'TERRENOS P\u00C9 NA AREIA EM BITUPIT\u00C1',
-    location: 'Bitupit\u00E1, Cear\u00E1, Brasil',
+    propertyTitle: 'TERRENOS PÉ NA AREIA EM BITUPITÁ',
+    location: 'Bitupitá, Ceará, Brasil',
     rating: 5,
-    exclusiveText: '4300 m\u00B2 | 10 Projetos Terrenos exclusivos',
+    exclusiveText: '4300 m² | 10 Projetos Terrenos exclusivos',
     about: [
-      'A Pr\u00F3xima Fronteira de Valoriza\u00E7\u00E3o: Exclusividade, p\u00E9 na areia e o m\u00B2 mais estrat\u00E9gico do Litoral Oeste.',
-      'Existem lugares que o mercado ainda n\u00E3o descobriu, mas o vento sim. Bitupit\u00E1 \u00E9 o \u00FAltimo ref\u00FAgio intocado na Rota Costa dos Ventos.',
-      'A Nova Rota do Foil: Com ventos constantes durante 6 a 8 meses por ano e \u00E1guas perfeitas.',
+      'A Próxima Fronteira de Valorização: Exclusividade, pé na areia e o m² mais estratégico do Litoral Oeste.',
+      'Existem lugares que o mercado ainda não descobriu, mas o vento sim. Bitupitá é o último refúgio intocado na Rota Costa dos Ventos.',
+      'A Nova Rota do Foil: Com ventos constantes durante 6 a 8 meses por ano e águas perfeitas.',
       'Escassez Real: Um projeto de apenas 10 lotes exclusivos, garantindo baixa densidade e privacidade absoluta.',
-      'P\u00E9 na Areia com Acesso Direto: Propriedades com frente mar livre e acesso direto \u00E0 praia.',
-      'Seguran\u00E7a Jur\u00EDdica Terra Ventos: Documenta\u00E7\u00E3o 100% revisada, com matr\u00EDcula individualizada.'
+      'Pé na Areia com Acesso Direto: Propriedades com frente mar livre e acesso direto à praia.',
+      'Segurança Jurídica Terra Ventos: Documentação 100% revisada, com matrícula individualizada.'
     ],
     infra: [
-      'Localiza\u00E7\u00E3o prime e exclusiva',
+      'Localização prime e exclusiva',
       'Villa privativa com 10 projetos',
-      'P\u00E9 na areia ',
+      'Pé na areia ',
       'Ideal para velejo'
     ],
-    facilities: ['Projeto exclusivo', 'Beira-mar', 'Pr\u00F3ximo a comodidades'],
+    facilities: ['Projeto exclusivo', 'Beira-mar', 'Próximo a comodidades'],
     gallery: {
       main: '/bitupitaPaginaIndividual/DJI_20251207012123_0102_D.jpg',
       sideTop: '/bitupitaPaginaIndividual/DJI_20251019210638_0111_D.jpg',
@@ -126,27 +230,27 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     title: 'INVESTIMENTO',
     image: '/viladoinglesPaginaInicial/Final 04 (1).png',
     badge: 'Investimento',
-    propertyTitle: 'VILA DO INGL\u00CAS',
-    location: 'Pre\u00E1, Cear\u00E1, Brasil',
+    propertyTitle: 'VILA DO INGLÊS',
+    location: 'Preá, Ceará, Brasil',
     rating: 5,
     exclusiveText: '2.200 sq.ft | 2 Banheiros | 10 Projetos exclusivos',
     about: [
-      'A Ess\u00EAncia do Luxo Sustent\u00E1vel: Uma mistura \u00FAnica de sustentabilidade moderna e tranquilidade.',
-      'Situada no requinte inspirado em um ref\u00FAgio de Nova York, esta resid\u00EAncia oferece 2.200 sq.ft totalmente alimentada por energia solar, tornando-a o seu santu\u00E1rio perfeito a poucos passos da pulsa\u00E7\u00E3o cosmopolita.',
-      '1. Design Sustent\u00E1vel: Sistemas inteligentes com pain\u00E9is solares no teto para garantir total autonomia energ\u00E9tica e m\u00EDnimo impacto ambiental.',
+      'A Essência do Luxo Sustentável: Uma mistura única de sustentabilidade moderna e tranquilidade.',
+      'Situada no requinte inspirado em um refúgio de Nova York, esta residência oferece 2.200 sq.ft totalmente alimentada por energia solar, tornando-a o seu santuário perfeito a poucos passos da pulsão cosmopolita.',
+      '1. Design Sustentável: Sistemas inteligentes com painéis solares no teto para garantir total autonomia energética e mínimo impacto ambiental.',
       '2. Conforto em Estilo Spa: Conta com 2 banheiros modernos imersivos desenhados detalhadamente para promover relaxamento absoluto.',
-      '3. Transpar\u00EAncia Din\u00E2mica: Amplas paredes de vidro do ch\u00E3o ao teto, garantindo claridade natural abundante do nascer ao p\u00F4r do sol.',
-      '4. Privacidade Panor\u00E2mica: Um espa\u00E7oso terra\u00E7o privativo na cobertura, perfeitamente constru\u00EDdo para momentos inesquec\u00EDveis ao ar livre.',
-      '5. Conex\u00E3o Exclusiva: O contraste exato entre o acesso a uma localiza\u00E7\u00E3o prime e uma paz isolada.'
+      '3. Transparência Dinâmica: Amplas paredes de vidro do chão ao teto, garantindo claridade natural abundante do nascer ao pôr do sol.',
+      '4. Privacidade Panorâmica: Um espacoso terraço privativo na cobertura, perfeitamente construído para momentos inesquecíveis ao ar livre.',
+      '5. Conexão Exclusiva: O contraste exato entre o acesso a uma localização prime e uma paz isolada.'
     ],
     infra: [
-      'Sistema de teto com pain\u00E9is solares',
-      'Paredes de vidro do ch\u00E3o ao teto',
-      'Terra\u00E7o privativo na cobertura',
+      'Sistema de teto com painéis solares',
+      'Paredes de vidro do chão ao teto',
+      'Terraço privativo na cobertura',
       '2 Banheiros modernos',
-      'Localiza\u00E7\u00E3o prime isolada'
+      'Localização prime isolada'
     ],
-    facilities: ['!Beira-mar', 'Ar-condicionado', '!M\u00E1quina de lavar', '!Internet', 'Aquecedor de \u00E1gua', 'Geladeira', 'Sof\u00E1', 'Guarda-roupa'],
+    facilities: ['!Beira-mar', 'Ar-condicionado', '!Máquina de lavar', '!Internet', 'Aquecedor de água', 'Geladeira', 'Sofá', 'Guarda-roupa'],
     gallery: {
       main: '/viladoinglesPaginaInicial/FINAL 09 (1).png',
       sideTop: '/viladoinglesPaginaInicial/FINAL 01 (3).png',
@@ -165,61 +269,4 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     price: 'Em Breve',
     installments: '',
   },
-  {
-    id: '04',
-    slug: 'villa-prabhu',
-    title: 'LAN\u00C7AMENTO',
-    image: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
-    badge: 'LAN\u00C7AMENTO',
-    propertyTitle: 'VILLA PRABHU \u2014 PARACURU-CE',
-    location: 'Paracuru, Cear\u00E1, Brasil',
-    rating: 5,
-    exclusiveText: 'Condom\u00EDnio Fechado de Lotes em Paracuru-CE com lagoa privativa, lazer completo e a 100m da praia. Alto padr\u00E3o e exclusividade numa das mais belas praias do Cear\u00E1',
-    about: [
-      'O Villa Prabhu \u00E9 um empreendimento planejado pela Bianchi Urbanismo, focado em oferecer qualidade de vida e seguran\u00E7a.',
-      'Localizado em uma regi\u00E3o privilegiada com ampla \u00E1rea verde e recursos h\u00EDdricos, o projeto se destaca pelo planejamento urbano inteligente e integra\u00E7\u00E3o com a natureza.',
-      'Lotes Exclusivos: Unidades amplas com \u00E1reas privativas variando de 242 m\u00B2 a mais de 600 m\u00B2.',
-      'Planejamento de Etapas: Projeto dividido em fases, com a Etapa 1 j\u00E1 consolidada e unidades dispon\u00EDveis na Etapa 2.',
-      'Urbanismo de Qualidade: Infraestrutura pensada para o bem-estar, com ruas projetadas como a Av. Prabhu e Rua Azalea.'
-    ],
-    infra: [
-      'Financiamento Direto: Pagamento facilitado em at\u00E9 120 parcelas mensais.',
-      'Pronto para Investir: Documenta\u00E7\u00E3o e tabela de vendas atualizadas para 2026.',
-      'Localiza\u00E7\u00E3o Estrat\u00E9gica: Quadras planejadas para garantir privacidade e f\u00E1cil acesso \u00E0s \u00E1reas comuns.',
-      'Cen\u00E1rio Natural: Empreendimento contornado por \u00E1guas e vegeta\u00E7\u00E3o preservada.'
-    ],
-    facilities: ['Projeto Urban\u00EDstico', 'Parcelamento em 120x', '\u00C1reas Verdes', 'Pronto para Construir'],
-    gallery: {
-      main: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
-      sideTop: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56.jpeg',
-      sideBottom: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (2).jpeg',
-      extra: [
-        '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (1).jpeg'
-      ]
-    },
-    mapImage: '/mapa.avif',
-    mapUrl: 'https://maps.google.com/maps?q=-3.4146184,-39.046461&z=15&output=embed',
-    videoSources: [
-      'https://player.vimeo.com/video/1179327775?h=c94b7f80f1',
-      'https://player.vimeo.com/video/1179327749?h=9d3c5f80f1',
-      'https://player.vimeo.com/video/1179327705?h=7a1b5f80f1',
-      'https://player.vimeo.com/video/1179327631?h=2e9d5f80f1'
-    ],
-    documents: [
-      { 
-        label: 'Tabela de Pre\u00E7os (120 meses) \u2013 Atualizada 2026', 
-        url: '/VILLA_PRABHU/Tabela de Pre\u00E7os (120 meses).pdf', 
-        legend: 'Detalhamento de valores, sinal e parcelas mensais.' 
-      },
-      { 
-        label: 'Mapa de Disponibilidade (Masterplan)', 
-        url: '/VILLA_PRABHU/Mapa de Disponibilidade (Masterplan).pdf', 
-        legend: 'Visualize a localiza\u00E7\u00E3o exata de cada lote e as \u00E1reas verdes.' 
-      }
-    ],
-    priceTag: 'Consulte',
-    price: 'Sob Consulta',
-    installments: 'A partir de 120 parcelas'
-  },
-
 ];

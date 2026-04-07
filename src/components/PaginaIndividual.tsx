@@ -127,6 +127,9 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
                   if (l.includes('parcelamento') || l.includes('financiamento')) return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="10" width="18" height="12" rx="2" /><path d="M7 10V7a5 5 0 0 1 10 0v3" /><path d="M12 14v4" /><path d="M10 16h4" /></svg>;
                   if (l.includes('áreas verdes') || l.includes('natureza')) return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2L4 12H8L4 20H11V24H13V20H20L16 12H20L12 2Z" /></svg>;
                   if (l.includes('pronto para construir')) return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 20h18L12 4z" /><path d="M7 16h10" /></svg>;
+                  if (l.includes('vale')) return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M8 18l-6-6 6-6M12 2l-8 18h16L12 2z" /><path d="M12 2l-4 12h8L12 2z" /><path d="M16 18l6-6-6-6" /></svg>;
+                  if (l.includes('jacuzzi') || l.includes('hidromassagem')) return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12c0 5.5-4.5 10-10 10S2 17.5 2 12s4.5-10 10-10 10 4.5 10 10z" /><path d="M7 12c0 2.8 2.2 5 5 5s5-2.2 5-5" /><path d="M12 7v5" /></svg>;
+                  if (l.includes('animais') || l.includes('pet')) return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M11 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM7 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm16 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM12 22a8 8 0 0 1-8-8c0-3 2-5 5-5s3 1 3 3 0 3 3 3 5-1 5 3-2 4-8 4z" /></svg>;
                   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="16" /><line x1="8" y1="12" x2="16" y2="12" /></svg>;
                 };
 

@@ -68,26 +68,32 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
           <div className="ops-icon">
             {activeIndex === 0 && (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <title>Mapa</title>
+                <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
+              </svg>
+            )}
+            {activeIndex === 1 && (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <title>Casa</title>
                 <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
               </svg>
             )}
-            {activeIndex === 1 && (
+            {activeIndex === 2 && (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <title>Casa</title>
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+              </svg>
+            )}
+            {activeIndex === 3 && (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <title>Folha</title>
                 <path d="M17 8C8 10 5.9 16.19 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C22 3 21 8 17 8Z" />
               </svg>
             )}
-            {activeIndex === 2 && (
+            {activeIndex === 4 && (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <title>Arvore</title>
                 <path d="M12 2L4 12H8L4 20H11V24H13V20H20L16 12H20L12 2Z" />
-              </svg>
-            )}
-            {activeIndex === 3 && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <title>Mapa</title>
-                <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
               </svg>
             )}
           </div>
@@ -116,7 +122,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
                               <div className="ops-card-pip" aria-hidden="true" />
                               <span className="ops-card-label">{opTitles[index] || item.title}</span>
                               <span className="ops-card-property-name">{localItem.propertyTitle}</span>
-                              <span className="ops-card-price">{localItem.price}</span>
+                              <span className="ops-card-price">{localItem.priceTag} {localItem.price}</span>
                             </div>
                             <button
                               className="ops-card-cta"

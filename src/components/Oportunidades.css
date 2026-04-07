@@ -436,23 +436,7 @@
 /* Mobile Responsiveness */
 @media (max-width: 1023px) {
   .oportunidades-section {
-    padding: 40px 20px;
-  }
-
-  .ops-container {
-    gap: 24px;
-  }
-
-  .ops-content {
-    align-items: stretch;
-  }
-  
-  .ops-title {
-    font-size: 1.7rem;
-  }
-  
-  .ops-controls {
-    display: none; /* Hide arrows on small screens, users just tap */
+    display: none;
   }
 }
 

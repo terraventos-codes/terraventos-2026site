@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './VillaCondudu.css';
 import { useTranslation } from 'react-i18next';
 import type { OportunidadeDetalhe } from '../data/oportunidadesData';
@@ -7,11 +8,26 @@ type VillaConduduProps = {
   onSelect: (item: OportunidadeDetalhe) => void;
 };
 
-
 export default function VillaCondudu({ onSelect }: VillaConduduProps) {
   const { t, i18n } = useTranslation();
+  const [activeSlide, setActiveSlide] = useState(0);
   const tags = t('condudu.tags', { returnObjects: true }) as string[];
   const conduduLocalized = getOportunidadesData(i18n.language)[1];
+
+  const sliderImages = [
+    '/VillaCondutuPaginaInicial/Final 01 (2).png',
+    '/VillaCondutuPaginaInicial/FINAL 02 (1).png'
+  ];
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setActiveSlide((prev) => (prev + 1) % sliderImages.length);
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setActiveSlide((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
+  };
 
   return (
     <section id="villa-condudu" className="condudu-section">
@@ -19,11 +35,37 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
         <div className="condudu-media">
           <span className="condudu-pill">{t('condudu.badge')}</span>
           <div className="condudu-image-wrapper">
-            <img
-              src="/VillaCondutuPaginaInicial/FINAL 14.png"
-              alt="Villa Conduru III em Preá, Ceará"
-              className="condudu-image"
-            />
+            {sliderImages.map((src, idx) => (
+              <img
+                key={src}
+                src={src}
+                alt={`Vila Conduru III - Imagem ${idx + 1}`}
+                className={`condudu-image ${idx === activeSlide ? 'active' : ''}`}
+              />
+            ))}
+            
+            <div className="condudu-slider-nav">
+              <button className="condudu-slider-arrow prev" onClick={handlePrev} aria-label="Anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button className="condudu-slider-arrow next" onClick={handleNext} aria-label="Próximo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+
+            <div className="condudu-slider-dots">
+              {sliderImages.map((_, idx) => (
+                <div 
+                  key={idx} 
+                  className={`condudu-dot ${idx === activeSlide ? 'active' : ''}`}
+                  onClick={(e) => { e.stopPropagation(); setActiveSlide(idx); }}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
@@ -41,7 +83,7 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
           </div>
 
           <div className="condudu-price-line reveal-subtext" style={{ transitionDelay: '0.5s' }}>
-            <span className="condudu-price">{conduduLocalized.price}</span>
+            <span className="condudu-price">{conduduLocalized.priceTag} {conduduLocalized.price}</span>
             <span className="condudu-price-note">{t('condudu.priceNote')}</span>
           </div>
 

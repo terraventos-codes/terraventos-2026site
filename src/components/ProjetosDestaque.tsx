@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from 'react';
 import './ProjetosDestaque.css';
 import { useTranslation } from 'react-i18next';
 import { type OportunidadeDetalhe } from '../data/oportunidadesData';
@@ -8,6 +9,18 @@ type ProjetosDestaqueProps = {
 };
 
 const projetos = [
+  {
+    id: 5,
+    image: '/Matanzas/b211e036-b276-4446-a3be-7ba65f801a82.avif',
+    tag: 'TEMPORADA',
+    location: 'Navidad, O\'Higgins, Chile',
+    title: 'Casa Matanzas',
+    area: '150 m\u00B2',
+    beds: 3,
+    baths: 2,
+    price: 'Sob Consulta',
+    detailIndex: 1, // Matanzas
+  },
   {
     id: 1,
     image: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
@@ -30,7 +43,7 @@ const projetos = [
     beds: null,
     baths: null,
     price: 'A partir de R$ 120 MIL',
-    detailIndex: 2, // Terrenos Bitupit\u00E1
+    detailIndex: 3, // Terrenos Bitupit\u00E1 (agora \u00E9 index 3)
   },
   {
     id: 3,
@@ -42,7 +55,7 @@ const projetos = [
     beds: 2,
     baths: null,
     price: 'Em Breve',
-    detailIndex: 3, // Vila do Ingl\u00EAs
+    detailIndex: 4, // Vila do Ingl\u00EAs (agora \u00E9 index 4)
   },
 ];
 
@@ -50,99 +63,163 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
   const { t, i18n } = useTranslation();
   const pdData = t('projetos.cards', { returnObjects: true }) as Record<string, any>;
   const localizedData = getOportunidadesData(i18n.language);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 10);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+      
+      const progress = scrollLeft / (scrollWidth - clientWidth);
+      setScrollProgress(isNaN(progress) ? 0 : progress);
+    }
+  };
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener('resize', checkScroll);
+    return () => window.removeEventListener('resize', checkScroll);
+  }, []);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { clientWidth } = scrollRef.current;
+      const scrollAmount = direction === 'left' ? -clientWidth * 0.8 : clientWidth * 0.8;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="projetos" className="pd-section">
       <div className="pd-container">
-        <div className="pd-header">
-          <div className="pd-badge reveal-badge">{t('projetos.badge')}</div>
-          <h2 className="pd-title reveal-heading" dangerouslySetInnerHTML={{ __html: t('projetos.title') }}></h2>
+        <div className="pd-header-row">
+          <div className="pd-header-content">
+            <div className="pd-badge reveal-badge">{t('projetos.badge')}</div>
+            <h2 className="pd-title reveal-heading" dangerouslySetInnerHTML={{ __html: t('projetos.title') }}></h2>
+          </div>
+          
+          <div className="pd-nav-controls">
+            <button 
+              className={`pd-nav-btn ${!canScrollLeft ? 'disabled' : ''}`} 
+              onClick={() => scroll('left')}
+              aria-label="Anterior"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button 
+              className={`pd-nav-btn ${!canScrollRight ? 'disabled' : ''}`} 
+              onClick={() => scroll('right')}
+              aria-label="Pr\u00F3ximo"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <div className="pd-grid">
-          {projetos.map((projeto) => {
-            const cardData = pdData[projeto.id] || { title: projeto.title, tag: projeto.tag, price: projeto.price };
-            // Pegar o item correto do localizedData usando o o ID ou Slugs if indices change
-            const itemFromData = localizedData[projeto.detailIndex];
-            
-            return (
-              <div className="pd-card" key={projeto.id} onClick={() => onSelect(itemFromData)}>
-                <div className="pd-image-wrapper">
-                  <img src={projeto.image} alt={cardData.title} className="pd-image" />
-                  <div className="pd-tag">{cardData.tag}</div>
+        <div 
+          className="pd-slider-viewport" 
+          ref={scrollRef} 
+          onScroll={checkScroll}
+        >
+          <div className="pd-slider-track">
+            {projetos.map((projeto) => {
+              const cardData = pdData[projeto.id] || { title: projeto.title, tag: projeto.tag, price: projeto.price };
+              const itemFromData = localizedData[projeto.detailIndex];
+              
+              return (
+                <div className="pd-card" key={projeto.id} onClick={() => onSelect(itemFromData)}>
+                  <div className="pd-image-wrapper">
+                    <img src={projeto.image} alt={cardData.title} className="pd-image" />
+                    <div className="pd-tag">{cardData.tag}</div>
+                  </div>
+
+                  <div className="pd-content">
+                    <div className="pd-location">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                      </svg>
+                      <span>{projeto.location}</span>
+                    </div>
+
+                    <h3 className="pd-card-title">{cardData.title}</h3>
+
+                    <div className="pd-amenities">
+                      {projeto.beds && (
+                        <div className="pd-amenity">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9" />
+                          </svg>
+                          {projeto.beds}
+                        </div>
+                      )}
+                      {projeto.baths && (
+                        <div className="pd-amenity">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5" />
+                            <circle cx="10" cy="9" r="2" />
+                            <path d="M4 12h14" />
+                            <path d="M14 9h4" />
+                          </svg>
+                          {projeto.baths}
+                        </div>
+                      )}
+                      {projeto.area && (
+                        <div className="pd-amenity">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M8 3v18M16 3v18M3 8h18M3 16h18" />
+                          </svg>
+                          {projeto.area}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="pd-price">
+                      {(() => {
+                        const p = cardData.price;
+                        if (!p) return null;
+                        if (p.toLowerCase().startsWith('a partir de ')) {
+                          return (
+                            <>
+                              <span style={{ fontSize: '0.6em', display: 'block', fontWeight: 400, opacity: 0.8, marginBottom: '2px', lineHeight: 1, textTransform: 'lowercase', letterSpacing: '0.5px' }}>
+                                a partir de
+                              </span>
+                              {p.substring(12)}
+                            </>
+                          );
+                        }
+                        if (p.toLowerCase().startsWith('desde ')) {
+                          return (
+                            <>
+                              <span style={{ fontSize: '0.6em', display: 'block', fontWeight: 400, opacity: 0.8, marginBottom: '2px', lineHeight: 1, textTransform: 'lowercase', letterSpacing: '0.5px' }}>
+                                desde
+                              </span>
+                              {p.substring(6)}
+                            </>
+                          );
+                        }
+                        return p;
+                      })()}
+                    </div>
+                  </div>
                 </div>
+              );
+            })}
+          </div>
+        </div>
 
-                <div className="pd-content">
-                  <div className="pd-location">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                    </svg>
-                    <span>{projeto.location}</span>
-                  </div>
-
-                  <h3 className="pd-card-title">{cardData.title}</h3>
-
-                  <div className="pd-amenities">
-                    {projeto.beds && (
-                      <div className="pd-amenity">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9" />
-                        </svg>
-                        {projeto.beds}
-                      </div>
-                    )}
-                    {projeto.baths && (
-                      <div className="pd-amenity">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5" />
-                          <circle cx="10" cy="9" r="2" />
-                          <path d="M4 12h14" />
-                          <path d="M14 9h4" />
-                        </svg>
-                        {projeto.baths}
-                      </div>
-                    )}
-                    {projeto.area && (
-                      <div className="pd-amenity">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M8 3v18M16 3v18M3 8h18M3 16h18" />
-                        </svg>
-                        {projeto.area}
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="pd-price">
-                    {(() => {
-                      const p = cardData.price;
-                      if (!p) return null;
-                      if (p.toLowerCase().startsWith('a partir de ')) {
-                        return (
-                          <>
-                            <span style={{ fontSize: '0.6em', display: 'block', fontWeight: 400, opacity: 0.8, marginBottom: '2px', lineHeight: 1, textTransform: 'lowercase', letterSpacing: '0.5px' }}>
-                              a partir de
-                            </span>
-                            {p.substring(12)}
-                          </>
-                        );
-                      }
-                      if (p.toLowerCase().startsWith('desde ')) {
-                        return (
-                          <>
-                            <span style={{ fontSize: '0.6em', display: 'block', fontWeight: 400, opacity: 0.8, marginBottom: '2px', lineHeight: 1, textTransform: 'lowercase', letterSpacing: '0.5px' }}>
-                              desde
-                            </span>
-                            {p.substring(6)}
-                          </>
-                        );
-                      }
-                      return p;
-                    })()}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        <div className="pd-progress-track">
+          <div 
+            className="pd-progress-fill" 
+            style={{ width: `${scrollProgress * 100}%` }}
+          />
         </div>
       </div>
     </section>
