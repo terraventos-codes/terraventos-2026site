@@ -3,8 +3,8 @@ import { createPortal } from 'react-dom';
 import './EstudoVentos.css';
 import { useTranslation } from 'react-i18next';
 
-const DRIVE_PT = '/Estudo dos Ventos  TERRAVENTOS.pdf';
-const DRIVE_EN = '/Study of the winds  TERRAVENTOS.pdf';
+const DRIVE_PT = 'https://drive.google.com/uc?export=download&id=1TC6NxCt3KOu2ZRwGjnwg-hA75cnz3t0b';
+const DRIVE_EN = 'https://drive.google.com/uc?export=download&id=1YQm0cqP2BtMgxTqaG6RDVYvo49u_rgKm';
 
 const VIDEO_ID = '1177444750';
 
@@ -161,7 +161,8 @@ export default function EstudoVentos() {
               <a
                 className="estudo-btn"
                 href={lang === 'en' ? DRIVE_EN : DRIVE_PT}
-                download
+                target="_blank"
+                rel="noreferrer"
               >
                 {t('estudo.cta')}
               </a>
@@ -198,7 +199,8 @@ export default function EstudoVentos() {
               <a
                 className="lang-picker-flag-btn"
                 href={DRIVE_PT}
-                download
+                target="_blank"
+                rel="noreferrer"
                 onClick={() => setLangPickerOpen(false)}
               >
                 <img src="https://flagcdn.com/w80/br.png" alt="Português" />
@@ -207,7 +209,8 @@ export default function EstudoVentos() {
               <a
                 className="lang-picker-flag-btn"
                 href={DRIVE_EN}
-                download
+                target="_blank"
+                rel="noreferrer"
                 onClick={() => setLangPickerOpen(false)}
               >
                 <img src="https://flagcdn.com/w80/us.png" alt="English" />
