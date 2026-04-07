@@ -46,7 +46,7 @@ i18n
             badge: "Oportunidades exclusivas",
             title1: "ENCONTRE SEU PRÓXIMO",
             title2: "IMÓVEL NO LITORAL DO CEARÁ",
-            titles: ["LANÇAMENTO", "TEMPORADA", "TEMPORADA", "VENDA", "INVESTIMENTO"],
+            titles: ["LANÇAMENTO", "TEMPORADA", "EVENTO", "VENDA", "INVESTIMENTO"],
             cards: {
               "01": "Residências de alto padrão prontas, com arquitetura contemporânea e integração com a natureza. Ideais para segunda moradia e experiências exclusivas beira-mar.",
               "02": "Terrenos pé na areia no último village planejado do Roteiro Costa dos Ventos. Oportunidade de investimento estratégico com os melhores vetores de valorização.",
@@ -171,7 +171,7 @@ i18n
             badge: "Exclusive Opportunities",
             title1: "FIND YOUR NEXT",
             title2: "PROPERTY ON CEARÁ'S COAST",
-            titles: ["LAUNCH", "STAY", "STAY", "FOR SALE", "INVESTMENT"],
+            titles: ["LAUNCH", "STAY", "EVENT", "FOR SALE", "INVESTMENT"],
             cards: {
               "01": "Ready high-end residences with contemporary architecture integrated into nature. Ideal for a second home and exclusive beachfront experiences.",
               "02": "Beachfront land in the latest planned village on the Costa dos Ventos Route. Strategic investment opportunity with the best appreciation drivers.",
@@ -294,7 +294,7 @@ i18n
              badge: "Oportunidades exclusivas",
              title1: "ENCUENTRA TU PRÓXIMA",
              title2: "PROPIEDAD EN LA COSTA DE CEARÁ",
-             titles: ["LANZAMIENTO", "ESTANCIA", "ESTANCIA", "VENTA", "INVERSIÓN"],
+             titles: ["LANZAMIENTO", "ESTANCIA", "EVENTO", "VENTA", "INVERSIÓN"],
              cards: {
                "01": "Residencias de alta gama listas, con arquitectura contemporánea integrada a la naturaleza. Ideales para segunda vivienda y experiencias exclusivas frente al mar.",
                "02": "Terrenos frente al mar en el último pueblo planeado en la Ruta Costa dos Ventos. Oportunidad de inversión estratégica con los mejores vectores de apreciación.",
