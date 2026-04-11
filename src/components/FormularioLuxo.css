@@ -90,7 +90,25 @@
   backdrop-filter: blur(6px);
 }
 
+/* GHL inline form container */
+.formulario-luxo-ghl {
+  padding: 0;
+  height: 530px;
+  overflow: hidden;
+}
+
+.formulario-luxo-ghl iframe {
+  display: block;
+}
+
+@media (max-width: 860px) {
+  .formulario-luxo-ghl {
+    height: 640px;
+  }
+}
+
 .formulario-luxo-grid {
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px 28px;
