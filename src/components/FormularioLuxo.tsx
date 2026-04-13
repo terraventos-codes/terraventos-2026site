@@ -1,6 +1,6 @@
 // EmailJS imports mantidos para uso futuro
-// import { useRef, useState } from 'react';
 // import emailjs from '@emailjs/browser';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 // import toast, { Toaster } from 'react-hot-toast';
 import './FormularioLuxo.css';
@@ -17,6 +17,27 @@ export default function FormularioLuxo() {
   const { t, i18n } = useTranslation();
 
   const currentLang = i18n.language.split('-')[0] as 'pt' | 'en' | 'es';
+
+  // ── Fade suave ao trocar idioma ──────────────────────────────────────────
+  const [visibleLang, setVisibleLang] = useState(currentLang);
+  const [fading, setFading] = useState(false);
+  const fadeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (currentLang === visibleLang) return;
+    // Inicia fade-out
+    setFading(true);
+    if (fadeTimer.current) clearTimeout(fadeTimer.current);
+    // Após fade-out (300 ms), troca o iframe e inicia fade-in
+    fadeTimer.current = setTimeout(() => {
+      setVisibleLang(currentLang);
+      setFading(false);
+    }, 300);
+    return () => {
+      if (fadeTimer.current) clearTimeout(fadeTimer.current);
+    };
+  }, [currentLang]);
+  // ────────────────────────────────────────────────────────────────────────
 
   // ── EmailJS logic (preserved, inactive) ─────────────────────────────────
   // const formRef = useRef<HTMLFormElement>(null);
@@ -62,24 +83,31 @@ export default function FormularioLuxo() {
           {t('form.subtitle')}
         </p>
 
-        {/* ── GHL Forms (todos montados, apenas o do idioma ativo é visível) ── */}
-        <div className="formulario-luxo-card formulario-luxo-ghl reveal-subtext" style={{ transitionDelay: '0.6s' }}>
-          {GHL_FORMS.map(({ lang, id, name }) => {
-            const iframeId = `inline-${id}`;
-            const isActive = currentLang === lang;
-            return (
+        {/* ── GHL Form — fade suave ao trocar idioma ── */}
+        {GHL_FORMS.filter(({ lang }) => lang === visibleLang).map(({ lang, id, name }) => {
+          const iframeId = `inline-${id}`;
+          return (
+            <div
+              key={lang}
+              className="formulario-luxo-card formulario-luxo-ghl reveal-subtext"
+              style={{
+                transitionDelay: '0.6s',
+                opacity: fading ? 0 : 1,
+                transition: 'opacity 0.3s ease',
+              }}
+            >
               <iframe
-                key={lang}
                 src={`https://api.leadconnectorhq.com/widget/form/${id}`}
                 style={{
                   width: '100%',
                   height: '100%',
                   border: 'none',
-                  borderRadius: '8px',
-                  display: isActive ? 'block' : 'none',
+                  borderRadius: '28px',
+                  display: 'block',
+                  background: '#ffffff',
                 }}
                 id={iframeId}
-                data-layout="{'id':'INLINE'}"
+                data-layout={"{'id':'INLINE'}"}
                 data-trigger-type="alwaysShow"
                 data-trigger-value=""
                 data-activation-type="alwaysActivated"
@@ -92,9 +120,9 @@ export default function FormularioLuxo() {
                 data-form-id={id}
                 title={name}
               />
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
 
         {/* ── EmailJS Form (inativo — descomentar para reativar) ── */}
         {/*
