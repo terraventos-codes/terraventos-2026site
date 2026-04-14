@@ -12,7 +12,7 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
   const { t, i18n } = useTranslation();
   const [activeSlide, setActiveSlide] = useState(0);
   const tags = t('condudu.tags', { returnObjects: true }) as string[];
-  const conduduLocalized = getOportunidadesData(i18n.language)[1];
+  const conduduLocalized = getOportunidadesData(i18n.language)[2];
 
   const sliderImages = [
     '/VillaCondutuPaginaInicial/Final 01 (2).png',
