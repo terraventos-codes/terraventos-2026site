@@ -135,7 +135,14 @@ i18n
             fields: { first: "Nome", last: "Sobrenome", email: "E-mail", phone: "Telefone" },
             message: "Como podemos ajudar?",
             submit: "Enviar Mensagem",
-            success: "Mensagem recebida com sucesso! Em breve, um de nossos especialistas entrará em contato."
+            success: "Mensagem recebida com sucesso! Em breve, um de nossos especialistas entrará em contato.",
+            errors: {
+              first: "Por favor, informe seu nome.",
+              last: "Por favor, informe seu sobrenome.",
+              email: "Por favor, informe um e-mail válido.",
+              phone: "Por favor, informe seu telefone.",
+              message: "Por favor, escreva sua mensagem."
+            }
           },
           footer: { rights: "© Copyright 2026. Todos os direitos reservados." },
           pagina: {
@@ -258,7 +265,14 @@ i18n
             fields: { first: "First Name", last: "Last Name", email: "Email", phone: "Phone" },
             message: "How can we help you?",
             submit: "Send Message",
-            success: "Message received successfully! One of our experts will contact you shortly."
+            success: "Message received successfully! One of our experts will contact you shortly.",
+            errors: {
+              first: "Please enter your first name.",
+              last: "Please enter your last name.",
+              email: "Please enter a valid email address.",
+              phone: "Please enter your phone number.",
+              message: "Please write your message."
+            }
           },
           footer: { rights: "© Copyright 2026. All Rights Reserved." },
           pagina: {
@@ -381,7 +395,14 @@ i18n
             fields: { first: "Nombre", last: "Apellido", email: "Correo", phone: "Teléfono" },
             message: "¿En qué te podemos ayudar?",
             submit: "Enviar Mensaje",
-            success: "¡Mensaje recibido con éxito! En breve uno de nuestros expertos se pondrá en contacto contigo."
+            success: "¡Mensaje recibido con éxito! En breve uno de nuestros expertos se pondrá en contacto contigo.",
+            errors: {
+              first: "Por favor, ingrese su nombre.",
+              last: "Por favor, ingrese su apellido.",
+              email: "Por favor, ingrese un correo electrónico válido.",
+              phone: "Por favor, ingrese su teléfono.",
+              message: "Por favor, escriba su mensaje."
+            }
           },
           footer: { rights: "© Copyright 2026. Todos los derechos reservados." },
           pagina: {

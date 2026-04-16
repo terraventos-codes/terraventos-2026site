@@ -4,13 +4,7 @@ import { useTranslation } from 'react-i18next';
 import toast, { Toaster } from 'react-hot-toast';
 import './FormularioLuxo.css';
 
-// ── GHL form config por idioma (inativo — descomentar para reativar) ────────
-// const GHL_FORMS = [
-//   { lang: 'pt', id: 'pvDrkEzyF1OCtbZcq6bK', name: 'Website Form pt-br' },
-//   { lang: 'en', id: '0lRWNzcIWMkbvySfWPWC', name: 'Website Form - english' },
-//   { lang: 'es', id: '7KHKzwkQ8hSIdbuDnwoY', name: 'Website Form - spanish' },
-// ] as const;
-// ─────────────────────────────────────────────────────────────────────────
+type Fields = 'firstName' | 'lastName' | 'email' | 'phone' | 'message';
 
 export default function FormularioLuxo() {
   const { t } = useTranslation();
@@ -18,11 +12,42 @@ export default function FormularioLuxo() {
   const formRef = useRef<HTMLFormElement>(null);
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
+  const [errors, setErrors] = useState<Partial<Record<Fields, string>>>({});
+
+  const validate = (form: HTMLFormElement): Partial<Record<Fields, string>> => {
+    const data = new FormData(form);
+    const errs: Partial<Record<Fields, string>> = {};
+
+    if (!data.get('firstName')?.toString().trim())
+      errs.firstName = t('form.errors.first');
+    if (!data.get('lastName')?.toString().trim())
+      errs.lastName = t('form.errors.last');
+
+    const email = data.get('email')?.toString().trim() ?? '';
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      errs.email = t('form.errors.email');
+
+    if (!data.get('phone')?.toString().trim())
+      errs.phone = t('form.errors.phone');
+    if (!data.get('message')?.toString().trim())
+      errs.message = t('form.errors.message');
+
+    return errs;
+  };
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formRef.current) return;
+
+    const errs = validate(formRef.current);
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      return;
+    }
+
+    setErrors({});
     setIsSending(true);
+
     emailjs.sendForm(
       'service_lr09pp8',
       'template_e800aaa',
@@ -46,6 +71,10 @@ export default function FormularioLuxo() {
       });
   };
 
+  const clearError = (field: Fields) => {
+    if (errors[field]) setErrors(prev => ({ ...prev, [field]: undefined }));
+  };
+
   return (
     <section id="contato" className="formulario-luxo-section">
       <Toaster position="bottom-center" />
@@ -57,64 +86,68 @@ export default function FormularioLuxo() {
           {t('form.subtitle')}
         </p>
 
-        {/* ── EmailJS Form ── */}
-        <form ref={formRef} className="formulario-luxo-card reveal-subtext" style={{ transitionDelay: '0.6s' }} onSubmit={sendEmail}>
+        <form ref={formRef} className="formulario-luxo-card reveal-subtext" style={{ transitionDelay: '0.6s' }} onSubmit={sendEmail} noValidate>
           <div className="formulario-luxo-grid">
-            <label><input type="text" name="firstName" placeholder={t('form.fields.first')} /></label>
-            <label><input type="text" name="lastName" placeholder={t('form.fields.last')} /></label>
-            <label><input type="email" name="email" placeholder={t('form.fields.email')} /></label>
-            <label><input type="tel" name="phone" placeholder={t('form.fields.phone')} /></label>
+            <label>
+              <input
+                type="text"
+                name="firstName"
+                placeholder={t('form.fields.first')}
+                onChange={() => clearError('firstName')}
+                className={errors.firstName ? 'field-error' : ''}
+              />
+              {errors.firstName && <span className="formulario-error">{errors.firstName}</span>}
+            </label>
+
+            <label>
+              <input
+                type="text"
+                name="lastName"
+                placeholder={t('form.fields.last')}
+                onChange={() => clearError('lastName')}
+                className={errors.lastName ? 'field-error' : ''}
+              />
+              {errors.lastName && <span className="formulario-error">{errors.lastName}</span>}
+            </label>
+
+            <label>
+              <input
+                type="email"
+                name="email"
+                placeholder={t('form.fields.email')}
+                onChange={() => clearError('email')}
+                className={errors.email ? 'field-error' : ''}
+              />
+              {errors.email && <span className="formulario-error">{errors.email}</span>}
+            </label>
+
+            <label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder={t('form.fields.phone')}
+                onChange={() => clearError('phone')}
+                className={errors.phone ? 'field-error' : ''}
+              />
+              {errors.phone && <span className="formulario-error">{errors.phone}</span>}
+            </label>
           </div>
+
           <label className="formulario-luxo-message">
-            <textarea name="message" placeholder={t('form.message')} rows={4} />
+            <textarea
+              name="message"
+              placeholder={t('form.message')}
+              rows={4}
+              onChange={() => clearError('message')}
+              className={errors.message ? 'field-error' : ''}
+            />
+            {errors.message && <span className="formulario-error">{errors.message}</span>}
           </label>
+
           <button type="submit" className="formulario-luxo-submit" disabled={isSending}>
             {isSending ? 'Enviando...' : isSent ? 'Mensagem Enviada!' : (t('form.submit') || 'Enviar Mensagem')}
           </button>
         </form>
-
-        {/* ── GHL Form (inativo — descomentar para reativar) ── */}
-        {/*
-        {GHL_FORMS.filter(({ lang }) => lang === visibleLang).map(({ lang, id, name }) => {
-          const iframeId = `inline-${id}`;
-          return (
-            <div
-              key={lang}
-              className="formulario-luxo-card formulario-luxo-ghl reveal-subtext"
-              style={{
-                transitionDelay: '0.6s',
-                opacity: fading ? 0 : 1,
-                transition: 'opacity 0.3s ease',
-              }}
-            >
-              <iframe
-                src={`https://api.leadconnectorhq.com/widget/form/${id}`}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  border: 'none',
-                  borderRadius: '28px',
-                  display: 'block',
-                  background: '#ffffff',
-                }}
-                id={iframeId}
-                data-layout={"{'id':'INLINE'}"}
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name={name}
-                data-height="492"
-                data-layout-iframe-id={iframeId}
-                data-form-id={id}
-                title={name}
-              />
-            </div>
-          );
-        })}
-        */}
       </div>
     </section>
   );
