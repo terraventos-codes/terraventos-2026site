@@ -224,7 +224,7 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
               <div className="pi-card-divider"></div>
 
               <div className="pi-avatars-center">
-                <img src="/pessoa.avif" alt="Avatar 1" />
+                <img src="/mulher.jpg" alt="Avatar 1" />
                 <img src="/pessoa2.avif" alt="Avatar 2" />
                 <img src="/pessoa3.avif" alt="Avatar 3" />
               </div>
