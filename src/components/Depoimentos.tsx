@@ -61,7 +61,7 @@ const depoimentos: Testimonial[] = [
   },
   {
     quote:
-      '"O que me conquistou foi o Estudo dos Ventos. Como designer, valorizo projetos que respeitam o meio ambiente. Ver como a Terra Ventos utiliza a ciência do clima para orientar a implantação das casas, garantindo frescor natural e luz perfeita, é fascinante. Não é apenas um terreno, é a base para uma arquitetura de alto padrão que conversa com a natureza."',
+      '"Sou movido por dados, e a Terra Ventos fala minha língua. O Estudo dos Ventos não é marketing — é ciência aplicada ao investimento imobiliário, com análise de vetores climáticos, escassez locacional e potencial de valorização. Como CTO, reconheço quando um time domina o que faz. Investi no Ceará porque os números eram irrefutáveis."',
     name: 'Ricardo T.',
     role: 'CTO de Tech e Kitesurfista',
     avatar:
