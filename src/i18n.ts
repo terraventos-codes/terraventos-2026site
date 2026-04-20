@@ -46,23 +46,35 @@ i18n
             badge: "Oportunidades exclusivas",
             title1: "ENCONTRE SEU PRÓXIMO",
             title2: "IMÓVEL NO LITORAL DO CEARÁ",
-            titles: ["LANÇAMENTO", "TEMPORADA", "EVENTO", "VENDA", "INVESTIMENTO"],
+            titles: ["VENDA", "LANÇAMENTO", "TEMPORADA", "VENDA", "INVESTIMENTO", "TEMPORADA"],
             cards: {
+              "06": "Preá House: Propriedade luxuosa com área total de 745 m², área gourmet e piscina espetacular em formato de L. Toda infraestrutura e acabamento fino para a melhor experiência no Ceará.",
+              "04": "O Villa Prabhu é um empreendimento planejado pela Bianchi Urbanismo, focado em oferecer qualidade de vida e segurança em uma região privilegiada.",
               "01": "Residências de alto padrão prontas, com arquitetura contemporânea e integração com a natureza. Ideais para segunda moradia e experiências exclusivas beira-mar.",
               "02": "Terrenos pé na areia no último village planejado do Roteiro Costa dos Ventos. Oportunidade de investimento estratégico com os melhores vetores de valorização.",
               "03": "Empreendimentos boutique para investidores com visão antecipada. Produto com estudo de vento aplicado, personalização arquitetônica e localização de alta escassez.",
-              "04": "O Villa Prabhu é um empreendimento planejado pela Bianchi Urbanismo, focado em oferecer qualidade de vida e segurança em uma região privilegiada.",
               "05": "Descubra Matanzas Paradise: Casa moderna confortavelmente equipada para 6 hóspedes, vistas panorâmicas espetaculares do mar e da floresta. Equipada com banheira de hidromassagem e Wi-Fi Starlink."
-            }
+            },
+            noResults: "Nenhuma propriedade encontrada para sua busca.",
+            viewAllPhotos: "Mostrar todas as fotos"
+          },
+          categorias: {
+            all: "Todas",
+            venda: "Venda",
+            lancamento: "Lançamento",
+            temporada: "Temporada",
+            investimento: "Investimento"
           },
           projetos: {
             badge: "Projetos em destaque",
             title: "VENDA, INVESTIMENTOS E LUGARES DE EVENTOS NO CEARA",
             cards: {
-              "1": { tag: "Lançamento", title: "Villa Prabhu — Paracuru-CE", price: "Conferir" },
-              "2": { tag: "Venda", title: "Terrenos pé na areia em Bitupitá", price: "A partir de R$ 120 MIL" },
-              "3": { tag: "Investimento", title: "Vila do Inglês", price: "Em Breve" },
-              "5": { tag: "Temporada", title: "Casa Matanzas", price: "Conferir" }
+              "04": { tag: "Lançamento", title: "Villa Prabhu — Paracuru-CE", price: "Conferir" },
+              "02": { tag: "Venda", title: "Terrenos pé na areia em Bitupitá", price: "A partir de R$ 120 MIL" },
+              "03": { tag: "Investimento", title: "Vila do Inglês", price: "Em Breve" },
+              "05": { tag: "Temporada", title: "Casa Matanzas", price: "Conferir" },
+              "06": { tag: "Venda", title: "Preá House", price: "Conferir" },
+              "01": { tag: "Temporada", title: "Vila Conduru III", price: "Conferir" }
             }
           },
           condudu: {
@@ -90,8 +102,8 @@ i18n
             badge: "Estudo dos Ventos",
             title: "ESTUDO<br />DOS VENTOS",
             desc: "Terra Ventos apresenta: Quais locais mais crescem em valorização, onde está menos explorado e com o maior potencial. <strong>Mergulhe em dados e análise potencial do Litoral Cearense.</strong>",
-            stats: { 
-              "1": "Cidades analisadas", "2": "de ventos constante", "3": "de valorização ao ano", "4": "técnico e ambiental" 
+            stats: {
+              "1": "Cidades analisadas", "2": "de ventos constante", "3": "de valorização ao ano", "4": "técnico e ambiental"
             },
             cta: "Ver o estudo completo",
             videoInfo: ["Fundador e CEO Terra Ventos", "Estudo dos Ventos - clique para assistir", "Reproduzir vídeo"],
@@ -178,23 +190,35 @@ i18n
             badge: "Exclusive Opportunities",
             title1: "FIND YOUR NEXT",
             title2: "PROPERTY ON CEARÁ'S COAST",
-            titles: ["LAUNCH", "STAY", "EVENT", "FOR SALE", "INVESTMENT"],
+            titles: ["FOR SALE", "LAUNCH", "STAY", "FOR SALE", "INVESTMENT", "STAY"],
             cards: {
+              "06": "Preá House: Luxury property with 745 sqm total area, gourmet area and spectacular L-shaped pool. Top-tier infrastructure and finishes for the best experience in Ceará.",
+              "04": "Villa Prabhu is a development planned by Bianchi Urbanismo, focused on offering quality of life and security in a privileged region.",
               "01": "Ready high-end residences with contemporary architecture integrated into nature. Ideal for a second home and exclusive beachfront experiences.",
               "02": "Beachfront land in the latest planned village on the Costa dos Ventos Route. Strategic investment opportunity with the best appreciation drivers.",
               "03": "Boutique developments for early-vision investors. Product featuring applied wind study, architectural customization, and highly scarce locations.",
-              "04": "Villa Prabhu is a development planned by Bianchi Urbanismo, focused on offering quality of life and security in a privileged region.",
               "05": "Discover Matanzas Paradise: Modern house comfortably equipped for 6 guests, spectacular panoramic sea and forest views. Equipped with a hot tub and Starlink Wi-Fi."
-            }
+            },
+            noResults: "No properties found for your search.",
+            viewAllPhotos: "Show all photos"
+          },
+          categorias: {
+            all: "All",
+            venda: "For Sale",
+            lancamento: "Launch",
+            temporada: "Stay",
+            investimento: "Investment"
           },
           projetos: {
             badge: "Featured Projects",
             title: "FOR SALE, INVESTMENTS AND EVENT VENUES IN CEARÁ",
             cards: {
-              "1": { tag: "Launch", title: "Villa Prabhu — Paracuru-CE", price: "On Request" },
-              "2": { tag: "For Sale", title: "Beachfront land in Bitupitá", price: "R$ 120,000" },
-              "3": { tag: "Investment", title: "Vila do Inglês", price: "Coming Soon" },
-              "5": { tag: "Stay", title: "Casa Matanzas", price: "On Request" }
+              "04": { tag: "Launch", title: "Villa Prabhu — Paracuru-CE", price: "On Request" },
+              "02": { tag: "For Sale", title: "Beachfront land in Bitupitá", price: "R$ 120,000" },
+              "03": { tag: "Investment", title: "Vila do Inglês", price: "Coming Soon" },
+              "05": { tag: "Stay", title: "Casa Matanzas", price: "On Request" },
+              "06": { tag: "For Sale", title: "Preá House", price: "On Request" },
+              "01": { tag: "Stay", title: "Vila Conduru III", price: "On Request" }
             }
           },
           condudu: {
@@ -299,32 +323,45 @@ i18n
           hero: {
             cta: "Ver Proyectos",
             tags: ["Lanzamiento Terra Ventos", "Oportunidad Frente al Mar", "Lugar de Eventos", "Inversiones en la costa de Ceará"],
-            titles: ["ESTUDIO DE<br />LOS VIENTOS", "INVIERTA EN<br />BITUPITÁ, CEARÁ", "DESCUBRA<br />LA CASA TERRA<br />VENTOS EN PREÁ", "INVIERTA CON EL<br />VIENTO A FAVOR."],
-            subtitles: ["Turismo Deportivo e Inversión<br />Inmobiliaria en la costa oeste de Ceará", "Proyectos exclusivos de terrenos <b>frente al mar</b><br />con apreciación estimada al 20% anual.", "Viva momentos exclusivos en el mayor punto de<br />kitesurf y wingfoil de Ceará.", "Terrenos, casas y proyectos exclusivos con seguridad<br />jurídica, apreciación real y asesoría completa."],
+            titles: ["ESTUDIO DE<br />LOS VIENTOS", "INVIERTA EN<br />BITUPITÁ, CEARÁ", "DESCUBRA<br />LA CASA TERRA<br />VENTOS EN PREÁ", "INVIERTA CON EL<br />VIENTO A FAVOR.", "PROYECTOS<br />COSTEROS<br />EXCLUSIVOS", "SU FUTURO<br />EN CEARÁ"],
+            subtitles: ["Turismo Deportivo e Inversión<br />Inmobiliaria en la costa oeste de Ceará", "Proyectos exclusivos de terrenos <b>frente al mar</b><br />con apreciación estimada al 20% anual.", "Viva momentos exclusivos en el mayor punto de<br />kitesurf y wingfoil de Ceará.", "Terrenos, casas y proyectos exclusivos con seguridad<br />jurídica, apreciación real y asesoría completa.", "Activos curados para inversores<br />y atletas de alto nivel.", "Ubicaciones estratégicas para su<br />próximo hito."],
             card: { experience: "10+ años de experiencia\ninmobiliaria en Ceará" },
             saberMais: "Quiero saber más"
           },
           oportunidades: {
-             badge: "Oportunidades exclusivas",
-             title1: "ENCUENTRA TU PRÓXIMA",
-             title2: "PROPIEDAD EN LA COSTA DE CEARÁ",
-             titles: ["LANZAMIENTO", "ESTANCIA", "EVENTO", "VENTA", "INVERSIÓN"],
-             cards: {
-               "01": "Residencias de alta gama listas, con arquitectura contemporánea integrada a la naturaleza. Ideales para segunda vivienda y experiencias exclusivas frente al mar.",
-               "02": "Terrenos frente al mar en el último pueblo planeado en la Ruta Costa dos Ventos. Oportunidad de inversión estratégica con los mejores vectores de apreciación.",
-               "03": "Desarrollos boutique para inversores con visión anticipada. Producto con estudio de vientos aplicado, personalización arquitectónica y ubicaciones de alta escasez.",
-               "04": "Villa Prabhu es un desarrollo planificado por Bianchi Urbanismo, enfocado en ofrecer calidad de vida y seguridad en una región privilegiada.",
-               "05": "Descubre Matanzas Paradise: Casa moderna cómodamente equipada para 6 huéspedes, espectaculares vistas panorámicas al mar y al bosque. Equipada con tinaja y Wi-Fi Starlink."
-             }
+            badge: "Oportunidades exclusivas",
+            title1: "ENCUENTRA TU PRÓXIMA",
+            title2: "PROPIEDAD EN LA COSTA DE CEARÁ",
+            titles: ["VENTA", "LANZAMIENTO", "ESTANCIA", "VENTA", "INVERSIÓN", "ESTANCIA"],
+            cards: {
+              "06": "Preá House: Propiedad de lujo con 745 m² de área total, área gourmet y espectacular piscina en L. Infraestructura y acabados de primera para la mejor experiencia en Ceará.",
+              "04": "Villa Prabhu es un desarrollo planificado por Bianchi Urbanismo, enfocado en ofrecer calidad de vida y seguridad en una región privilegiada.",
+              "04": "Villa Prabhu es un desarrollo planificado por Bianchi Urbanismo, focused on offering quality of life and security in a privileged region.",
+              "01": "Residencias de alta gama listas, con arquitectura contemporánea integrada a la naturaleza. Ideales para segunda vivienda y experiencias exclusivas frente al mar.",
+              "02": "Terrenos frente al mar en el último pueblo planeado en la Ruta Costa dos Ventos. Oportunidad de inversión estratégica con los mejores vectores de apreciación.",
+              "03": "Desarrollos boutique para inversores con visión anticipada. Producto con estudio de vientos aplicado, personalización arquitectónica y ubicaciones de alta escasez.",
+              "05": "Descubre Matanzas Paradise: Casa moderna cómodamente equipada para 6 huéspedes, espectaculares vistas panorámicas al mar y al bosque. Equipada con tinaja y Wi-Fi Starlink."
+            },
+            noResults: "No se encontraron propiedades para su búsqueda.",
+            viewAllPhotos: "Mostrar todas las fotos"
+          },
+          categorias: {
+            all: "Todas",
+            venda: "Venta",
+            lancamento: "Lanzamiento",
+            temporada: "Estancia",
+            investimento: "Inversión"
           },
           projetos: {
             badge: "Proyectos destacados",
             title: "VENTA, INVERSIONES Y LUGARES DE EVENTOS EN EL LITORAL DE CEARA",
             cards: {
-              "1": { tag: "Lanzamiento", title: "Villa Prabhu — Paracuru-CE", price: "Bajo Consulta" },
-              "2": { tag: "Venta", title: "Terrenos frente al mar en Bitupitá", price: "Desde R$ 120 MIL" },
-              "3": { tag: "Inversión", title: "Vila do Inglês", price: "Próximamente" },
-              "5": { tag: "Estancia", title: "Casa Matanzas", price: "Bajo Consulta" }
+              "04": { tag: "Lanzamiento", title: "Villa Prabhu — Paracuru-CE", price: "Bajo Consulta" },
+              "02": { tag: "Venta", title: "Terrenos frente al mar en Bitupitá", price: "Desde R$ 120 MIL" },
+              "03": { tag: "Inversión", title: "Vila do Inglês", price: "Próximamente" },
+              "05": { tag: "Estancia", title: "Casa Matanzas", price: "Bajo Consulta" },
+              "06": { tag: "Venta", title: "Preá House", price: "Bajo Consulta" },
+              "01": { tag: "Estancia", title: "Vila Conduru III", price: "Bajo Consulta" }
             }
           },
           condudu: {
@@ -426,7 +463,7 @@ i18n
     },
     fallbackLng: "pt",
     interpolation: {
-      escapeValue: false 
+      escapeValue: false
     }
   });
 

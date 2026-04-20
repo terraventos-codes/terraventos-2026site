@@ -10,52 +10,76 @@ type ProjetosDestaqueProps = {
 
 const projetos = [
   {
-    id: 5,
-    image: '/Matanzas/3b77d98c-5cd0-4f51-816a-6e42748720d2.avif',
-    tag: 'TEMPORADA',
-    location: 'Navidad, O\'Higgins, Chile',
-    title: 'Casa Matanzas',
-    area: '150 m\u00B2',
+    id: "06",
+    image: '/Prea House/WhatsApp Image 2026-04-20 at 09.12.53.jpeg',
+    tag: 'VENDA',
+    location: 'Preá, Ceará, Brasil',
+    title: 'Preá House',
+    area: '745 m²',
     beds: 3,
-    baths: 2,
+    baths: 3,
     price: 'Conferir',
-    detailIndex: 1, // Matanzas
+    detailIndex: 0,
   },
   {
-    id: 1,
+    id: "04",
     image: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
-    tag: 'LAN\u00C7AMENTO',
-    location: 'Paracuru, Cear\u00E1, Brasil',
-    title: 'Villa Prabhu \u2014 Paracuru-CE',
-    area: '242 m\u00B2 a 600 m\u00B2',
+    tag: 'LANÇAMENTO',
+    location: 'Paracuru, Ceará, Brasil',
+    title: 'Villa Prabhu — Paracuru-CE',
+    area: '242 m² a 600 m²',
     beds: null,
     baths: null,
     price: 'Conferir',
-    detailIndex: 0, // Villa Prabhu
+    detailIndex: 1,
   },
   {
-    id: 2,
-    image: '/bitupitaPaginaIndividual/DJI_20251207012123_0102_D.jpg',
-    tag: 'Venda',
-    location: 'Bitupit\u00E1, Cear\u00E1, Brasil',
-    title: 'Terrenos p\u00E9 na areia em Bitupit\u00E1',
-    area: '4.300 m\u00B2',
+    id: "02",
+    image: '/bitupitaPaginaIndividual/DJI_20251020023318_0221_D.jpg',
+    tag: 'VENDA',
+    location: 'Bitupitá, Ceará, Brasil',
+    title: 'Terrenos em Bitupitá',
+    area: '4.300 m²',
     beds: null,
     baths: null,
     price: 'A partir de R$ 120 MIL',
-    detailIndex: 3, // Terrenos Bitupit\u00E1 (agora \u00E9 index 3)
+    detailIndex: 3,
   },
   {
-    id: 3,
+    id: "03",
     image: '/viladoinglesPaginaInicial/Final 04 (1).png',
-    tag: 'Investimento',
-    location: 'Pre\u00E1, Cear\u00E1, Brasil',
-    title: 'Vila do Ingl\u00EAs',
-    area: '2.200 m\u00B2',
-    beds: 2,
+    tag: 'INVESTIMENTO',
+    location: 'Preá, Ceará, Brasil',
+    title: 'Vila do Inglês',
+    area: '200 m²',
+    beds: null,
     baths: null,
     price: 'Em Breve',
-    detailIndex: 4, // Vila do Ingl\u00EAs (agora \u00E9 index 4)
+    detailIndex: 4,
+  },
+  {
+    id: "05",
+    image: '/Matanzas/3b77d98c-5cd0-4f51-816a-6e42748720d2.avif',
+    tag: 'TEMPORADA',
+    location: 'Navidad, Chile',
+    title: 'Casa Matanzas',
+    area: 'N/A',
+    beds: 3,
+    baths: 2,
+    price: 'Conferir',
+    detailIndex: 5,
+  },
+  {
+    id: "01",
+    image: '/VillaCondutuPaginaInicial/FINAL 14.png',
+    tag: 'TEMPORADA',
+    location: 'Preá, Ceará, Brasil',
+    title: 'Vila Conduru III',
+    area: '153 m²',
+    beds: 3,
+    baths: 3,
+    price: 'Conferir',
+    detailIndex: 2,
   },
 ];
 
@@ -73,7 +97,7 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
       setCanScrollLeft(scrollLeft > 10);
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-      
+
       const progress = scrollLeft / (scrollWidth - clientWidth);
       setScrollProgress(isNaN(progress) ? 0 : progress);
     }
@@ -93,6 +117,10 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
     }
   };
 
+  const handleSeeAll = () => {
+    window.dispatchEvent(new CustomEvent('navigate', { detail: '/propriedades' }));
+  };
+
   return (
     <section id="projetos" className="pd-section">
       <div className="pd-container">
@@ -101,39 +129,39 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
             <div className="pd-badge reveal-badge">{t('projetos.badge')}</div>
             <h2 className="pd-title reveal-heading" dangerouslySetInnerHTML={{ __html: t('projetos.title') }}></h2>
           </div>
-          
+
           <div className="pd-nav-controls">
-            <button 
-              className={`pd-nav-btn ${!canScrollLeft ? 'disabled' : ''}`} 
+            <button
+              className={`pd-nav-btn ${!canScrollLeft ? 'disabled' : ''}`}
               onClick={() => scroll('left')}
               aria-label="Anterior"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            <button 
-              className={`pd-nav-btn ${!canScrollRight ? 'disabled' : ''}`} 
+            <button
+              className={`pd-nav-btn ${!canScrollRight ? 'disabled' : ''}`}
               onClick={() => scroll('right')}
               aria-label="Pr\u00F3ximo"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>
         </div>
 
-        <div 
-          className="pd-slider-viewport" 
-          ref={scrollRef} 
+        <div
+          className="pd-slider-viewport"
+          ref={scrollRef}
           onScroll={checkScroll}
         >
           <div className="pd-slider-track">
             {projetos.map((projeto) => {
               const cardData = pdData[projeto.id] || { title: projeto.title, tag: projeto.tag, price: projeto.price };
               const itemFromData = localizedData[projeto.detailIndex];
-              
+
               return (
                 <div className="pd-card" key={projeto.id} onClick={() => onSelect(itemFromData)}>
                   <div className="pd-image-wrapper">
@@ -216,10 +244,20 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
         </div>
 
         <div className="pd-progress-track">
-          <div 
-            className="pd-progress-fill" 
+          <div
+            className="pd-progress-fill"
             style={{ width: `${scrollProgress * 100}%` }}
           />
+        </div>
+
+        <div className="pd-see-all-container">
+          <button className="pd-see-all-btn" onClick={handleSeeAll}>
+            {t('nav.oportunidades')}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
     </section>

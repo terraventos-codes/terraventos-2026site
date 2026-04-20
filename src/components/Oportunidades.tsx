@@ -13,7 +13,12 @@ type OportunidadesProps = {
 export default function Oportunidades({ onSelect }: OportunidadesProps) {
   const { t, i18n } = useTranslation();
   const opTitles = t('oportunidades.titles', { returnObjects: true }) as string[];
-  const localizedData = getOportunidadesData(i18n.language);
+  const allLocalizedData = getOportunidadesData(i18n.language);
+  
+  // Exibir apenas os 3 primeiros conforme solicitado nesta seção (Venda/Preá, Lançamento/Prabhu, Temporada/Conduru)
+  const displayData = oportunidadesData.slice(0, 3);
+  const localizedData = allLocalizedData.slice(0, 3);
+  
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -26,14 +31,14 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
   }, []);
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev === 0 ? oportunidadesData.length - 1 : prev - 1));
+    setActiveIndex((prev) => (prev === 0 ? displayData.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev === oportunidadesData.length - 1 ? 0 : prev + 1));
+    setActiveIndex((prev) => (prev === displayData.length - 1 ? 0 : prev + 1));
   };
 
-  const activeItem = oportunidadesData[activeIndex];
+  const activeItem = displayData[activeIndex];
 
   return (
     <section id="oportunidades" className="oportunidades-section">
@@ -66,36 +71,39 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
           </p>
 
           <div className="ops-icon">
-            {activeIndex === 0 && (
+            {(activeIndex === 0 || activeIndex === 2 || activeIndex === 3 || activeIndex === 5) && (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <title>Mapa</title>
-                <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
+                <title>Casa</title>
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
               </svg>
             )}
             {activeIndex === 1 && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <title>Casa</title>
-                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-              </svg>
-            )}
-            {activeIndex === 2 && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <title>Casa</title>
-                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-              </svg>
-            )}
-            {activeIndex === 3 && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <title>Folha</title>
-                <path d="M17 8C8 10 5.9 16.19 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C22 3 21 8 17 8Z" />
-              </svg>
-            )}
-            {activeIndex === 4 && (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <title>Arvore</title>
                 <path d="M12 2L4 12H8L4 20H11V24H13V20H20L16 12H20L12 2Z" />
               </svg>
             )}
+            {activeIndex === 4 && (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <title>Folha</title>
+                <path d="M17 8C8 10 5.9 16.19 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C22 3 21 8 17 8Z" />
+              </svg>
+            )}
+          </div>
+
+          <div className="ops-see-all-wrapper">
+             <button 
+               className="ops-see-all-btn" 
+               onClick={() => {
+                 window.dispatchEvent(new CustomEvent('navigate', { detail: '/propriedades' }));
+               }}
+             >
+               Ver todas as propriedades
+               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+             </button>
           </div>
         </div>
 
@@ -103,7 +111,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
           {!isMobile && (
             <>
               <div className="ops-accordion">
-                {oportunidadesData.map((item, index) => {
+                {displayData.map((item, index) => {
                   const isActive = index === activeIndex;
                   const localItem = localizedData[index];
 
@@ -153,7 +161,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
                   </svg>
                 </button>
                 <span className="ops-nav-indicator">
-                  {activeIndex + 1} / {oportunidadesData.length}
+                  {activeIndex + 1} / {displayData.length}
                 </span>
                 <button className="ops-arrow" onClick={handleNext} type="button" aria-label="Proximo">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -166,7 +174,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
 
           {isMobile && (
             <div className="ops-list-mobile">
-              {oportunidadesData.map((item) => (
+              {displayData.map((item) => (
                 <button
                   key={item.id}
                   type="button"

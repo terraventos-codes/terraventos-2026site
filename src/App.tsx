@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import PaginaIndividual from './components/PaginaIndividual';
 import { oportunidadesData, type OportunidadeDetalhe } from './data/oportunidadesData';
 import { getOportunidadesData } from './data/oportunidadesDataI18n';
+import ListagemPropriedades from './components/ListagemPropriedades';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -96,8 +97,17 @@ function App() {
       }
     };
 
+    const handleNavigate = (e: any) => {
+      const nextPath = e.detail;
+      runTransitionTo(nextPath);
+    };
+
     window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    window.addEventListener('navigate', handleNavigate);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('navigate', handleNavigate);
+    };
   }, []);
 
   const scrollToSection = (targetId: string) => {
@@ -121,6 +131,7 @@ function App() {
       if (section.id === 'oportunidades') return 'slide-left';
       if (section.id === 'projetos') return 'slide-right';
       if (section.id === 'regioes') return 'lift';
+      if (section.id === 'propriedades') return 'soft-zoom';
       if (section.id === 'estudo') return 'slide-left';
       if (section.id === 'mapa') return 'soft-zoom';
       if (section.id === 'assessoria') return 'lift';
@@ -189,10 +200,10 @@ function App() {
           </a>
         </div>
 
-        <nav className="nav-links">
-          <a href="#inicio" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('inicio'); } else { runTransitionTo('/'); } }}>{t('nav.inicio')}</a>
-          <a href="#oportunidades" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('oportunidades'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('oportunidades'), 950); } }}>{t('nav.oportunidades')}</a>
-          <a href="#projetos" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('projetos'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('projetos'), 950); } }}>{t('nav.projetos')}</a>
+          <nav className="nav-links">
+          <a href="/" onClick={(e) => { e.preventDefault(); runTransitionTo('/'); }}>{t('nav.inicio')}</a>
+          <a href="/propriedades" onClick={(e) => { e.preventDefault(); runTransitionTo('/propriedades'); }}>{t('nav.oportunidades')}</a>
+          <a href="#projetos" onClick={(e) => { e.preventDefault(); if (currentPath === '/') { scrollToSection('projetos'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('projetos'), 950); } }}>{t('nav.projetos')}</a>
           <a href="#estudo" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('estudo'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('estudo'), 950); } }}>{t('nav.estudo')}</a>
           <a href="#regioes" onClick={(e) => { e.preventDefault(); if (!isPaginaIndividual) { scrollToSection('regioes'); } else { runTransitionTo('/'); window.setTimeout(() => scrollToSection('regioes'), 950); } }}>{t('nav.regioes')}</a>
           <a
@@ -266,6 +277,10 @@ function App() {
         <div className={`page-shell ${transitionClass}`}>
           {isPaginaIndividual ? (
             <PaginaIndividual item={selectedOpportunity} />
+          ) : currentPath === '/propriedades' ? (
+            <div id="propriedades">
+              <ListagemPropriedades items={getOportunidadesData(i18n.language)} onSelect={handleSelectOpportunity} />
+            </div>
           ) : (
             <>
               <div className="hero-background">

@@ -359,6 +359,45 @@
   margin-bottom: 2px;
 }
 
+.ops-icon {
+  color: #c9a050;
+  margin-bottom: 24px;
+}
+
+.ops-see-all-wrapper {
+  margin-top: 10px;
+}
+
+.ops-see-all-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ops-see-all-btn:hover {
+  background: rgba(201, 160, 80, 0.1);
+  border-color: #c9a050;
+  color: #c9a050;
+}
+
+.ops-see-all-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.ops-see-all-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
 .ops-card-property-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.15rem;

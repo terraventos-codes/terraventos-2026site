@@ -1,32 +1,73 @@
-// Localized versions of oportunidadesData.
-// Call getOportunidadesData(lang) to get the data in the correct language.
+import { type OportunidadeDetalhe } from './oportunidadesData';
 
-import type { OportunidadeDetalhe } from './oportunidadesData';
-
-const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
+export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
   pt: [
     {
+      id: '06',
+      slug: 'prea-house', category: 'venda',
+      title: 'VENDA',
+      image: '/Prea House/WhatsApp Image 2026-04-20 at 09.12.53.jpeg',
+      badge: 'Venda',
+      propertyTitle: 'PREÁ HOUSE',
+      location: 'Preá, Ceará, Brasil',
+      rating: 5,
+      exclusiveText: '745 m² | 3 Suítes | Piscina de 68 m²',
+      about: [
+        'Propriedade luxuosa composta por duas construções separadas ligadas por uma piscina central.',
+        'Casa dos Fundos: 2 suítes (32.5 m² cada), móveis planejados, área central de estar e cozinha (32 m²) com ilha e bancadas de madeira, despensa 10 m² e varanda frontal.',
+        'Prédio Frontal: Área Gourmet semiaberta (54 m²), 1 suíte (24 m²), lavabo e depósito/garagem para quadriciclo (8.5 m²).',
+        'Rooftop Terrace: 96 m² com preparação estrutural para expansão e infraestrutura para aquecimento a gás e bombas de pressão.',
+        'Piscina em L: 65.000 litros (10m x 4m) com prainha, assentos embutidos e ionizador automatizado controlado por smartphone.',
+        'Acabamento Premium: Esquadrias em Timborana, estrutura em Maçaranduba e deck em Tatajuba.'
+      ],
+      infra: [
+        'Área Total: 745 m² | Construída: 261 m²',
+        'Sistemas: Aquecimento a gás em todos os pontos e irrigação automatizada no jardim.',
+        'Segurança: Alarme sincronizado em todas as portas e sistema CCTV com 8 câmeras de alta definição (acesso remoto).',
+        'Elétrica: Portões automatizados com interfone e controle remoto.',
+        'Versatilidade: Terraço preparado para construção de novas suítes ou área de lazer superior.'
+      ],
+      facilities: ['3 Suítes', 'Piscina de 68 m²', 'Área Gourmet', 'Rooftop', 'Segurança CCTV', 'Portão Eletrônico'],
+      gallery: {
+        main: '/Prea House/WhatsApp Image 2026-04-20 at 09.13.04.jpeg',
+        sideTop: '/Prea House/WhatsApp Image 2026-04-20 at 09.12.55.jpeg',
+        sideBottom: '/Prea House/WhatsApp Image 2026-04-20 at 09.13.06.jpeg',
+        extra: [
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.12.59.jpeg',
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.13.08.jpeg',
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.13.01.jpeg',
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.12.58.jpeg',
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.12.56.jpeg'
+        ]
+      },
+      mapImage: '/mapa.avif',
+      mapUrl: 'https://maps.google.com/maps?q=-2.812328,-40.428784&z=15&output=embed',
+      priceTag: 'A partir de',
+      price: 'Sob Consulta',
+      installments: 'Consulte condições'
+    },
+    {
       id: '04',
-      slug: 'villa-prabhu',
+      slug: 'villa-prabhu', category: 'lancamento',
       title: 'LANÇAMENTO',
       image: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
       badge: 'LANÇAMENTO',
       propertyTitle: 'VILLA PRABHU — PARACURU-CE',
       location: 'Paracuru, Ceará, Brasil',
       rating: 5,
-      exclusiveText: 'Condomínio Fechado de Lotes em Paracuru-CE com lagoa privativa, lazer completo e a 100m da praia. Alto padrão e exclusividade numa das mais belas praias do Ceará',
+      exclusiveText: 'Loteamento Fechado em Paracuru-CE com lagoa privativa, lazer completo e a 100m da praia. Alto padrão e exclusividade em uma das praias mais belas do Ceará',
       about: [
         'O Villa Prabhu é um empreendimento planejado pela Bianchi Urbanismo, focado em oferecer qualidade de vida e segurança.',
-        'Localizado em uma região privilegiada com ampla área verde e recursos hídricos, o projeto se destaca pelo planejamento urbano inteligente e integração com a natureza.',
-        'Lotes Exclusivos: Unidades amplas com áreas privativas variando de 242 m² a mais de 600 m².',
+        'Situado em uma região privilegiada com ampla área verde e recursos hídricos, o projeto destaca-se pelo planejamento urbano inteligente e integração com a natureza.',
+        'Lotes Exclusivos: Unidades espaçosas com áreas privativas a partir de 242 m² até mais de 600 m².',
         'Planejamento de Etapas: Projeto dividido em fases, com a Etapa 1 já consolidada e unidades disponíveis na Etapa 2.',
-        'Urbanismo de Qualidade: Infraestrutura pensada para o bem-estar, com ruas projetadas como a Av. Prabhu e Rua Azalea.'
+        'Urbanismo de Qualidade: Infraestrutura pensada para o bem-estar, com ruas como a Av. Prabhu e Rua Azalea.',
       ],
       infra: [
-        'Financiamento Direto: Pagamento facilitado em até 120 parcelas mensais.',
-        'Pronto para Investir: Documentação e tabela de vendas atualizadas para 2026.',
+        'Financiamento Direto: Facilidade de pagamento em até 120 parcelas mensais.',
+        'Pronto para Investir: Documentação e tabela de vendas atualizada para 2026.',
         'Localização Estratégica: Quadras planejadas para garantir privacidade e fácil acesso às áreas comuns.',
-        'Cenário Natural: Empreendimento contornado por águas e vegetação preservada.'
+        'Cenário Natural: Loteamento cercado por água e vegetação preservada.',
       ],
       facilities: ['Projeto Urbanístico', 'Parcelamento em 120x', 'Áreas Verdes', 'Pronto para Construir'],
       gallery: {
@@ -46,104 +87,54 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
         'https://player.vimeo.com/video/1179327631?h=2e9d5f80f1'
       ],
       documents: [
-        { 
-          label: 'Tabela de Preços (120 meses) – Atualizada 2026', 
-          url: '/VILLA_PRABHU/Tabela de Preços (120 meses).pdf', 
-          legend: 'Detalhamento de valores, sinal e parcelas mensais.' 
+        {
+          label: 'Tabela de Preços (120 meses) – Atualizada 2026',
+          url: '/VILLA_PRABHU/Tabela de Preços (120 meses).pdf',
+          legend: 'Detalhamento de valores, sinal e parcelas mensais.'
         },
-        { 
-          label: 'Mapa de Disponibilidade (Masterplan)', 
-          url: '/VILLA_PRABHU/Mapa de Disponibilidade (Masterplan).pdf', 
-          legend: 'Visualize a localização exata de cada lote e as áreas verdes.' 
+        {
+          label: 'Mapa de Disponibilidade (Masterplan)',
+          url: '/VILLA_PRABHU/Mapa de Disponibilidade (Masterplan).pdf',
+          legend: 'Visualize a localização exata de cada lote e áreas verdes.'
         }
       ],
       priceTag: 'Consulte',
-      price: 'Conferir',
+      price: 'Sob Consulta',
       installments: 'A partir de 120 parcelas',
     },
     {
-      id: '05',
-      slug: 'casa-matanzas',
-      title: 'TEMPORADA',
-      image: '/Matanzas/3b77d98c-5cd0-4f51-816a-6e42748720d2.avif',
-      badge: 'Temporada',
-      propertyTitle: 'Casa Matanzas com banheira de hidromassagem/vista para o mar e floresta',
-      location: 'Navidad, O\'Higgins, Chile',
-      rating: 5,
-      exclusiveText: 'Descubra Matanzas Paradise 🌊 Casa moderna confortavelmente equipada para 6 hóspedes, vistas panorâmicas espetaculares do mar e da floresta.',
-      about: [
-        'Descubra Matanzas Paradise: Casa moderna confortavelmente equipada para 6 hóspedes.',
-        'Vistas panorâmicas espetaculares do mar e da floresta.',
-        'Ideal para quem busca tranquilidade em um dos destinos mais emblemáticos de kitesurf e windsurf do Chile.',
-        '1. Fora da rede: energia solar, espaço sustentável e em harmonia com a natureza.',
-        '2. Estacionamento privativo no local.',
-        '3. Localização Privilegiada: A apenas 7 min da Praia de Matanzas e La Vega de Pupuya.',
-        '4. Terraço com banheira de hidromassagem (Jacuzzi privativa).',
-        '5. Ambiente tranquilo, perto de restaurantes, supermercados e clubes esportivos.'
-      ],
-      infra: [
-        'Vista para o oceano',
-        'Vista para o vale',
-        'Cozinha completa',
-        'Wi-Fi (Starlink)',
-        'Estacionamento gratuito',
-        'Jacuzzi privativa',
-        'Permitido animais',
-        'Câmeras de segurança externa'
-      ],
-      facilities: ['Vista para o oceano', 'Vista para o vale', 'Cozinha', 'Wi-Fi', 'Estacionamento gratuito', 'Jacuzzi privativa', 'Permitido animais', 'Câmeras de segurança'],
-      gallery: {
-        main: '/Matanzas/3b77d98c-5cd0-4f51-816a-6e42748720d2.avif',
-        sideTop: '/Matanzas/4d4b9c44-ad67-43ad-8f6b-6497f7b6e7ea.avif',
-        sideBottom: '/Matanzas/59c1aa44-cc72-45be-a883-7724e0f27f11.avif',
-        extra: [
-          '/Matanzas/90d53b04-d0e5-4165-8ddc-2aac9dcfc2fb.avif',
-          '/Matanzas/369ef9fe-3cde-4ff2-b972-97dc02848241.avif',
-          '/Matanzas/6645f7b5-7850-4a44-8ff9-2f81fa7ef623.avif',
-          '/Matanzas/cd0910d3-112f-4ef6-ac70-86906d62bd1c.avif',
-          '/Matanzas/f65a0d94-74da-40f4-9cf3-c6a9262e1be6.avif'
-        ]
-      },
-      mapImage: '/mapa.avif',
-      mapUrl: 'https://maps.google.com/maps?q=-33.95,-71.86&z=15&output=embed',
-      priceTag: 'Diária',
-      price: 'Conferir',
-      installments: 'Consulte pacotes',
-      reservationUrl: 'https://www.airbnb.com.br/rooms/1495622230762379698?unique_share_id=e222b343-72c6-400c-bec4-afd4286d8719&viralityEntryPoint=1&s=76&source_impression_id=p3_1775581234_P3rzyIdyGvGibmTw'
-    },
-    {
       id: '01',
-      slug: 'villa-condudu-3',
+      slug: 'villa-condudu-3', category: 'temporada',
       title: 'TEMPORADA',
       image: '/VillaCondutuPaginaInicial/FINAL 14.png',
       badge: 'Temporada',
       propertyTitle: 'VILA CONDURU III',
       location: 'Preá, Ceará, Brasil',
       rating: 5,
-      exclusiveText: '153 m² | 3 SuÍtes | 10 Projetos exclusivos',
+      exclusiveText: '153 m² | 3 Suítes | 10 Projetos Exclusivos',
       about: [
-        'Seu Refúgio Particular Beira-Mar no Preá: A experiência definitiva de luxo rústico e pé na areia.',
-        'A Vila Conduru III é agora o seu camarote privativo para o melhor vento do mundo e eventos exclusivos. Localizada literalmente à beira-mar, esta vila foi desenhada para quem busca a liberdade e exclusividade.',
-        '1. Localização Pé na Areia: Esqueça traslados ou caminhadas longas. Aqui, o quintal é a praia.',
-        '2. Experiência de Condomínio com Lazer Completo: A exclusividade de uma vila com a estrutura de um hotel boutique.',
+        'Seu Refúgio Privado Beira-Mar no Preá: A experiência definitiva de luxo rústico.',
+        'A Vila Conduru III é agora seu palco privado para o melhor vento do mundo e eventos exclusivos. Localizada literalmente à beira-mar.',
+        '1. Localização Beira-Mar: Esqueça transfers ou longas caminhadas. Aqui, o quintal é a praia.',
+        '2. Experiência de Resort: A exclusividade de uma vila com as comodidades de um hotel boutique.',
         '3. Arquitetura que Respira (Design Bioclimático)',
-        '4. Lifestyle e Conectividade Orgânica: A Villa elimina as barreiras entre você e o paraíso.',
-        '5. Suporte Concierge Terra Ventos: Sua única preocupação será o velejo.',
+        '4. Estilo de Vida Orgânico & Conectividade: A vila elimina as barreiras entre você e o paraíso.',
+        '5. Suporte Concierge Terra Ventos: Sua única preocupação será velejar.',
       ],
       infra: [
-        'Piscina no condominio',
-        '3 SuÍtes amplas',
+        'Piscina no condomínio',
+        '3 suítes amplas',
         'Churrasqueira',
         'Beira-mar',
         'Kite-point',
         'Projeto Patricia Mureta',
         'Estacionamento',
-        'Portaria 24h'
+        'Segurança 24h'
       ],
-      facilities: ['3 SuÍtes', 'Beira-mar', 'Pé na areia', 'Piscina', 'Cozinha completa', 'Ar condicionado', 'Lavabo', 'Estacionamento', 'Portaria 24h'],
-      gallery: { 
-        main: '/VillaCondutuPaginaInicial/Final 01 (2).png', 
-        sideTop: '/VillaCondutuPaginaInicial/FINAL 02 (1).png', 
+      facilities: ['3 Suítes', 'Beira-mar', 'Pé na areia', 'Piscina', 'Cozinha Completa', 'Ar-condicionado', 'Lavabo', 'Estacionamento', 'Segurança 24h'],
+      gallery: {
+        main: '/VillaCondutuPaginaInicial/Final 01 (2).png',
+        sideTop: '/VillaCondutuPaginaInicial/FINAL 02 (1).png',
         sideBottom: '/VillaCondutuPaginaInicial/Final 02 (2).png',
         extra: [
           '/VillaCondutuPaginaInicial/FINAL 03 (1).png',
@@ -156,38 +147,38 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
       priceTag: 'Diária',
-      price: 'Conferir',
+      price: 'Sob Consulta',
       installments: 'Consulte pacotes',
       reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
     },
     {
       id: '02',
-      slug: 'terrenos-bitupita',
+      slug: 'terrenos-bitupita', category: 'venda',
       title: 'VENDA',
       image: '/bitupitaPaginaIndividual/DJI_20251020023318_0221_D.jpg',
       badge: 'Venda',
       propertyTitle: 'TERRENOS PÉ NA AREIA EM BITUPITÁ',
       location: 'Bitupitá, Ceará, Brasil',
       rating: 5,
-      exclusiveText: '4300 m² | 10 Projetos Terrenos exclusivos',
+      exclusiveText: '4.300 m² | 10 Projetos de Terrenos Exclusivos',
       about: [
         'A Próxima Fronteira de Valorização: Exclusividade, pé na areia e o m² mais estratégico do Litoral Oeste.',
         'Existem lugares que o mercado ainda não descobriu, mas o vento sim. Bitupitá é o último refúgio intocado na Rota Costa dos Ventos.',
-        'A Nova Rota do Foil: Com ventos constantes durante 6 a 8 meses por ano e águas perfeitas.',
-        'Escassez Real: Um projeto de apenas 10 lotes exclusivos, garantindo baixa densidade e privacidade absoluta.',
-        'Pé na Areia com Acesso Direto: Propriedades com frente mar livre e acesso direto à praia.',
-        'Segurança Jurídica Terra Ventos: Documentação 100% revisada, com matrícula individualizada.',
+        '1. A Nova Rota do Foil: Com ventos constantes durante 6 a 8 meses por ano e águas perfeitas para foil.',
+        '2. Escassez Real: Um projeto de apenas 10 lotes exclusivos, garantindo baixa densidade e privacidade absoluta.',
+        '3. Acesso Direto Beira-Mar: Propriedades com frente mar livre e acesso imediato à praia.',
+        '4. Segurança Jurídica Terra Ventos: Documentação 100% revisada com matrícula individualizada.',
       ],
       infra: [
-        'Localização prime e exclusiva',
-        'Villa privativa com 10 projetos',
-        'Pé na areia ',
-        'Ideal para velejo'
+        'Localização Prime e Exclusiva',
+        'Vila Privativa com 10 projetos',
+        'Pé na areia',
+        'Ideal para o velejo/kite'
       ],
-      facilities: ['Projeto exclusivo', 'Beira-mar', 'Próximo a comodidades'],
-      gallery: { 
-        main: '/bitupitaPaginaIndividual/DJI_20251207012123_0102_D.jpg', 
-        sideTop: '/bitupitaPaginaIndividual/DJI_20251019210638_0111_D.jpg', 
+      facilities: ['Projeto Exclusivo', 'Beira-mar', 'Próximo a serviços'],
+      gallery: {
+        main: '/bitupitaPaginaIndividual/DJI_20251207012123_0102_D.jpg',
+        sideTop: '/bitupitaPaginaIndividual/DJI_20251019210638_0111_D.jpg',
         sideBottom: '/bitupitaPaginaIndividual/DJI_20251020010202_0198_D.jpg',
         extra: [
           '/bitupitaPaginaIndividual/DJI_20251019210524_0108_D.jpg',
@@ -205,28 +196,34 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
     },
     {
       id: '03',
-      slug: 'vila-do-ingles',
+      slug: 'vila-do-ingles', category: 'investimento',
       title: 'INVESTIMENTO',
       image: '/viladoinglesPaginaInicial/Final 04 (1).png',
       badge: 'Investimento',
       propertyTitle: 'VILA DO INGLÊS',
       location: 'Preá, Ceará, Brasil',
       rating: 5,
-      exclusiveText: '2.200 sq.ft | 2 Banheiros | 10 Projetos exclusivos',
+      exclusiveText: '200 m² | 2 Banheiros | 10 Projetos Exclusivos',
       about: [
-        'A Essência do Luxo Sustentável: Uma mistura única de sustentabilidade moderna e tranquilidade.',
-        'Situada no requinte inspirado em um refúgio de Nova York, esta residência oferece 2.200 sq.ft totalmente alimentada por energia solar.',
-        '1. Design Sustentável: Sistemas inteligentes com painéis solares no teto.',
-        '2. Conforto em Estilo Spa: 2 banheiros modernos imersivos.',
+        'La Esencia del Lujo Sostenible: Una mezcla única de sostenibilidad moderna y tranquilidad.',
+        'Inspirada en un refugio de Nueva York, esta residencia ofrece 200 m² alimentados enteriramente por energía solar.',
+        '1. Design Sustentável: Sistemas inteligentes com painéis solares no telhado.',
+        '2. Conforto Estilo Spa: 2 banheiros modernos e imersivos.',
         '3. Transparência Dinâmica: Amplas paredes de vidro do chão ao teto.',
-        '4. Privacidade Panorâmica: Terraço privativo na cobertura.',
-        '5. Conexão Exclusiva: O contraste entre uma localização prime e paz isolada.',
+        '4. Privacidade Panorâmica: Terraço privativo no rooftop.',
+        '5. Conexão Exclusiva: O contraste entre a localização premium e a paz isolada.',
       ],
-      infra: ['Sistema de teto com painéis solares', 'Paredes de vidro do chão ao teto', 'Terraço privativo na cobertura', '2 Banheiros modernos', 'Localização prime isolada'],
-      facilities: ['!Beira-mar', 'Ar-condicionado', '!Máquina de lavar', '!Internet', 'Aquecedor de água', 'Geladeira', 'Sofá', 'Guarda-roupa'],
-      gallery: { 
-        main: '/viladoinglesPaginaInicial/FINAL 09 (1).png', 
-        sideTop: '/viladoinglesPaginaInicial/FINAL 01 (3).png', 
+      infra: [
+        'Sistema de painéis solares no rooftop',
+        'Paredes de vidro do chão ao teto',
+        'Terraço privativo no rooftop',
+        '2 banheiros modernos',
+        'Localização isolada de alto padrão'
+      ],
+      facilities: ['!Beira-mar', 'Ar-condicionado', '!Lavadora', '!Internet', 'Aquecedor de água', 'Geladeira', 'Sofá', 'Armário'],
+      gallery: {
+        main: '/viladoinglesPaginaInicial/FINAL 09 (1).png',
+        sideTop: '/viladoinglesPaginaInicial/FINAL 01 (3).png',
         sideBottom: '/viladoinglesPaginaInicial/Final 02 (2).png',
         extra: [
           '/viladoinglesPaginaInicial/FINAL 08 (1).png',
@@ -237,16 +234,110 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
         ]
       },
       mapImage: '/mapa.avif',
-      mapUrl: 'https://maps.google.com/maps?q=-3.4146184,-39.046461&z=15&output=embed',
+      mapUrl: 'https://maps.google.com/maps?q=40.773565,-73.956555&z=15&output=embed',
       priceTag: 'Status',
       price: 'Em Breve',
       installments: '',
     },
+    {
+      id: '05',
+      slug: 'casa-matanzas', category: 'temporada',
+      title: 'TEMPORADA',
+      image: '/Matanzas/3b77d98c-5cd0-4f51-816a-6e42748720d2.avif',
+      badge: 'Temporada',
+      propertyTitle: 'Casa Matanzas com tinaja / vista mar e bosque',
+      location: 'Navidad, O\'Higgins, Chile',
+      rating: 5,
+      exclusiveText: 'Descubra Matanzas Paradise 🌊 Casa moderna confortavelmente equipada para 6 hóspedes, vistas panorâmicas espetaculares do mar e da floresta.',
+      about: [
+        'Descubra Matanzas Paradise: Casa moderna confortavelmente equipada para 6 hóspedes.',
+        'Vistas panorâmicas espetaculares do mar e da floresta.',
+        'Ideal para quem busca tranquilidade em um dos destinos de kitesurf e windsurf mais icônicos do Chile.',
+        '1. Fora da rede: energia solar, espaço sustentável em harmonia com a natureza.',
+        '2. Estacionamento privado no local.',
+        '3. Localização Privilegiada: Apenas 7 min da Praia de Matanzas e La Vega de Pupuya.',
+        '4. Terraço com hot tub (ofurô privado).',
+        '5. Ambiente tranquilo, próximo a restaurantes, supermercados e clubes esportivos.'
+      ],
+      infra: [
+        'Vista para o mar',
+        'Vista para o vale',
+        'Cozinha completa',
+        'Wi-Fi (Starlink)',
+        'Estacionamento gratuito',
+        'Hot tub privada',
+        'Aceita animais',
+        'Câmeras de segurança externas'
+      ],
+      facilities: ['Vista mar', 'Vista vale', 'Cozinha completa', 'Wi-Fi', 'Estacionamento', 'Hot tub privada', 'Pets allowed', 'CCTV'],
+      gallery: {
+        main: '/Matanzas/3b77d98c-5cd0-4f51-816a-6e42748720d2.avif',
+        sideTop: '/Matanzas/4d4b9c44-ad67-43ad-8f6b-6497f7b6e7ea.avif',
+        sideBottom: '/Matanzas/59c1aa44-cc72-45be-a883-7724e0f27f11.avif',
+        extra: [
+          '/Matanzas/90d53b04-d0e5-4165-8ddc-2aac9dcfc2fb.avif',
+          '/Matanzas/369ef9fe-3cde-4ff2-b972-97dc02848241.avif',
+          '/Matanzas/6645f7b5-7850-4a44-8ff9-2f81fa7ef623.avif',
+          '/Matanzas/cd0910d3-112f-4ef6-ac70-86906d62bd1c.avif',
+          '/Matanzas/f65a0d94-74da-40f4-9cf3-c6a9262e1be6.avif'
+        ]
+      },
+      mapImage: '/mapa.avif',
+      mapUrl: 'https://maps.google.com/maps?q=-33.95,-71.86&z=15&output=embed',
+      priceTag: 'Diária',
+      price: 'Sob Consulta',
+      installments: 'Consulte pacotes',
+      reservationUrl: 'https://www.airbnb.com.br/rooms/1495622230762379698?unique_share_id=e222b343-72c6-400c-bec4-afd4286d8719&viralityEntryPoint=1&s=76&source_impression_id=p3_1775581234_P3rzyIdyGvGibmTw'
+    },
   ],
   en: [
     {
+      id: '06',
+      slug: 'prea-house', category: 'venda',
+      title: 'FOR SALE',
+      image: '/Prea House/WhatsApp Image 2026-04-20 at 09.12.53.jpeg',
+      badge: 'For Sale',
+      propertyTitle: 'PREÁ HOUSE',
+      location: 'Preá, Ceará, Brazil',
+      rating: 5,
+      exclusiveText: '745 m² Land Area | 261 m² Built Area | 68 m² Pool',
+      about: [
+        'Luxury property consisting of two separate buildings with the swimming pool situated in between.',
+        'Rear House: 2 suites (32.5 m² each) with custom furniture, central Kitchen/Living area (32 m²) with island, 10 m² laundry, and front veranda.',
+        'Front Building: Semi-open Gourmet Area (54 m²), 1 Suite (24 m²), powder room, and ATV garage (8.5 m²).',
+        'Rooftop Terrace: 96 m² structurally prepared for future expansion with installed plumbing and infrastructure for gas heating.',
+        'L-shaped Pool: 65,000 liters (10m x 4m) featuring a "prainha" beach area, built-in seating, and smartphone-automated ionizer.',
+        'Premium Finishes: Timborana wood doors/windows, Maçaranduba structure, and Tatajuba wood deck.'
+      ],
+      infra: [
+        'Land Area: 745 m² | Total Built: 261 m²',
+        'Systems: Gas water heater in all faucets/showers and automated garden irrigation system.',
+        'Security: Alarm on all doors and 8-camera CCTV system with DVR (remote access via smartphone).',
+        'Electric: Automated gates with intercom and remote control.',
+        'Expansion: Terrace prepared for sewage, water, and extra tank connections for future suites.'
+      ],
+      facilities: ['3 Suites', '68 m² Pool', 'Gourmet Area', 'Rooftop', 'CCTV Security', 'Automated Gates'],
+      gallery: {
+        main: '/Prea House/WhatsApp Image 2026-04-20 at 09.13.04.jpeg',
+        sideTop: '/Prea House/WhatsApp Image 2026-04-20 at 09.12.55.jpeg',
+        sideBottom: '/Prea House/WhatsApp Image 2026-04-20 at 09.13.06.jpeg',
+        extra: [
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.12.59.jpeg',
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.13.08.jpeg',
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.13.01.jpeg',
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.12.58.jpeg',
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.12.56.jpeg'
+        ]
+      },
+      mapImage: '/mapa.avif',
+      mapUrl: 'https://maps.google.com/maps?q=-2.812328,-40.428784&z=15&output=embed',
+      priceTag: 'Starting at',
+      price: 'On Request',
+      installments: 'Consult conditions'
+    },
+    {
       id: '04',
-      slug: 'villa-prabhu',
+      slug: 'villa-prabhu', category: 'lancamento',
       title: 'LAUNCH',
       image: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
       badge: 'LAUNCH',
@@ -278,33 +369,146 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       },
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=-3.4146184,-39.046461&z=15&output=embed',
-      videoSources: [
-        'https://player.vimeo.com/video/1179327775?h=c94b7f80f1',
-        'https://player.vimeo.com/video/1179327749?h=9d3c5f80f1',
-        'https://player.vimeo.com/video/1179327705?h=7a1b5f80f1',
-        'https://player.vimeo.com/video/1179327631?h=2e9d5f80f1'
-      ],
-      documents: [
-        { 
-          label: 'Price Table (120 months) – Updated 2026', 
-          url: '/VILLA_PRABHU/Tabela de Preços (120 meses).pdf', 
-          legend: 'Detail of values, down payment, and monthly installments.' 
-        },
-        { 
-          label: 'Availability Map (Masterplan)', 
-          url: '/VILLA_PRABHU/Mapa de Disponibilidade (Masterplan).pdf', 
-          legend: 'Visualize the exact location of each lot and green areas.' 
-        }
-      ],
       priceTag: 'Consult',
       price: 'On Request',
       installments: 'From 120 installments',
     },
     {
-      id: '05',
-      slug: 'casa-matanzas',
+      id: '01',
+      slug: 'villa-condudu-3', category: 'temporada',
       title: 'STAY',
-      image: '/Matanzas/b211e036-b276-4446-a3be-7ba65f801a82.avif',
+      image: '/VillaCondutuPaginaInicial/FINAL 14.png',
+      badge: 'Stay',
+      propertyTitle: 'VILA CONDURU III',
+      location: 'Preá, Ceará, Brazil',
+      rating: 5,
+      exclusiveText: '153 m² | 3 Suites | 10 Exclusive Projects',
+      about: [
+        'Your Private Beachfront Retreat in Preá: The ultimate rustic-luxury experience.',
+        'Vila Conduru III is now your private spot for the best wind in the world and exclusive events. Located literally on the beachfront.',
+        '1. Beachfront Location: Forget transfers or long walks. Here, the backyard is the beach.',
+        '2. Resort-Style Experience: The exclusivity of a vila with the amenities of a boutique hotel.',
+        '3. Breathable Architecture (Bioclimatic Design)',
+        '4. Organic Lifestyle & Connectivity: The villa eliminates barriers between you and paradise.',
+        '5. Terra Ventos Concierge Support: Your only concern will be sailing.',
+      ],
+      infra: [
+        'Pool in the condominium',
+        '3 large suites',
+        'Barbecue area',
+        'Beachfront',
+        'Kite-point',
+        'Patricia Mureta Project',
+        'Parking',
+        '24h Security/Portaria'
+      ],
+      facilities: ['3 Suites', 'Beachfront', 'Feet in the sand', 'Pool', 'Full kitchen', 'Air conditioning', 'Powder room', 'Parking', '24h Security'],
+      gallery: {
+        main: '/VillaCondutuPaginaInicial/Final 01 (2).png',
+        sideTop: '/VillaCondutuPaginaInicial/FINAL 02 (1).png',
+        sideBottom: '/VillaCondutuPaginaInicial/Final 02 (2).png',
+        extra: [
+          '/VillaCondutuPaginaInicial/FINAL 03 (1).png',
+          '/VillaCondutuPaginaInicial/FINAL 08.png',
+          '/VillaCondutuPaginaInicial/FINAL 09.png',
+          '/VillaCondutuPaginaInicial/FINAL 12.png',
+          '/VillaCondutuPaginaInicial/FINAL 13.png'
+        ]
+      },
+      mapImage: '/mapa.avif',
+      mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
+      priceTag: 'Daily',
+      price: 'On Request',
+      installments: 'Consult packages',
+      reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
+    },
+    {
+      id: '02',
+      slug: 'terrenos-bitupita', category: 'venda',
+      title: 'FOR SALE',
+      image: '/bitupitaPaginaIndividual/DJI_20251020023318_0221_D.jpg',
+      badge: 'For Sale',
+      propertyTitle: 'BEACHFRONT LAND IN BITUPITÁ',
+      location: 'Bitupitá, Ceará, Brazil',
+      rating: 5,
+      exclusiveText: '4,300 m² | 10 Exclusive Land Projects',
+      about: [
+        'The Next Appreciation Frontier: Exclusivity, beachfront access, and the most strategic m² on the West Coast.',
+        'There are places the market has not yet discovered, but the wind has. Bitupitá is the last untouched refuge on the Costa dos Ventos Route.',
+        'The New Foil Route: With constant winds for 6 to 8 months a year and perfect waters.',
+        'Real Scarcity: A project of only 10 exclusive lots, guaranteeing low density and privacy absolute.',
+        'Direct Beachfront Access: Properties with open sea frontage and direct beach access.',
+        'Terra Ventos Legal Security: 100% reviewed documentation with individual registration.',
+      ],
+      infra: [
+        'Prime and exclusive location',
+        'Private Villa with 10 projects',
+        'Feet in the sand',
+        'Ideal for sailing/kite'
+      ],
+      facilities: ['Exclusive project', 'Beachfront', 'Close to amenities'],
+      gallery: {
+        main: '/bitupitaPaginaIndividual/DJI_20251207012123_0102_D.jpg',
+        sideTop: '/bitupitaPaginaIndividual/DJI_20251019210638_0111_D.jpg',
+        sideBottom: '/bitupitaPaginaIndividual/DJI_20251020010202_0198_D.jpg',
+        extra: [
+          '/bitupitaPaginaIndividual/DJI_20251019210524_0108_D.jpg',
+          '/bitupitaPaginaIndividual/DJI_20251020005753_0185_D.jpg',
+          '/bitupitaPaginaIndividual/DJI_20251020023318_0221_D.jpg',
+          '/bitupitaPaginaIndividual/DJI_20251207012338_0119_D.jpg',
+          '/bitupitaPaginaIndividual/BITUparaiso.jpg'
+        ]
+      },
+      mapImage: '/mapa.avif',
+      mapUrl: 'https://maps.google.com/maps?q=-2.88825,-41.268056&z=15&output=embed',
+      priceTag: 'Starting at',
+      price: 'R$ 120,000',
+      installments: 'Check availability',
+    },
+    {
+      id: '03',
+      slug: 'vila-do-ingles', category: 'investimento',
+      title: 'INVESTMENT',
+      image: '/viladoinglesPaginaInicial/Final 04 (1).png',
+      badge: 'Investment',
+      propertyTitle: 'VILA DO INGLÊS',
+      location: 'Preá, Ceará, Brazil',
+      rating: 5,
+      exclusiveText: '2,200 sq.ft | 2 Bathrooms | 10 Exclusive Projects',
+      about: [
+        'The Essence of Sustainable Luxury: A unique blend of modern sustainability and tranquility.',
+        'Inspired by a New York refuge, this residence offers 2,200 sq.ft entirely powered by solar energy.',
+        '1. Sustainable Design: Smart systems with rooftop solar panels.',
+        '2. Spa-Style Comfort: 2 modern immersive bathrooms.',
+        '3. Dynamic Transparency: Wide floor-to-ceiling glass walls.',
+        '4. Panoramic Privacy: Private rooftop terrace.',
+        '5. Exclusive Connection: The contrast between a prime location and isolated peace.',
+      ],
+      infra: ['Rooftop solar panel system', 'Floor-to-ceiling glass walls', 'Private rooftop terrace', '2 Modern bathrooms', 'Prime isolated location'],
+      facilities: ['!Beachfront', 'Air conditioning', '!Washing machine', '!Internet', 'Water heater', 'Refrigerator', 'Sofa', 'Wardrobe'],
+      gallery: {
+        main: '/viladoinglesPaginaInicial/FINAL 09 (1).png',
+        sideTop: '/viladoinglesPaginaInicial/FINAL 01 (3).png',
+        sideBottom: '/viladoinglesPaginaInicial/Final 02 (2).png',
+        extra: [
+          '/viladoinglesPaginaInicial/FINAL 08 (1).png',
+          '/viladoinglesPaginaInicial/Final 05 (1).png',
+          '/viladoinglesPaginaInicial/Final 06 (1).png',
+          '/viladoinglesPaginaInicial/Final 07 (1).png',
+          '/viladoinglesPaginaInicial/FINAL 02 (3).png'
+        ]
+      },
+      mapImage: '/mapa.avif',
+      mapUrl: 'https://maps.google.com/maps?q=40.773565,-73.956555&z=15&output=embed',
+      priceTag: 'Status',
+      price: 'Coming Soon',
+      installments: '',
+    },
+    {
+      id: '05',
+      slug: 'casa-matanzas', category: 'temporada',
+      title: 'STAY',
+      image: '/Matanzas/3b77d98c-5cd0-4f51-816a-6e42748720d2.avif',
       badge: 'Stay',
       propertyTitle: 'Casa Matanzas with hot tub / mountain and sea view',
       location: 'Navidad, O\'Higgins, Chile',
@@ -350,142 +554,55 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       installments: 'Consult packages',
       reservationUrl: 'https://www.airbnb.com.br/rooms/1495622230762379698?unique_share_id=e222b343-72c6-400c-bec4-afd4286d8719&viralityEntryPoint=1&s=76&source_impression_id=p3_1775581234_P3rzyIdyGvGibmTw'
     },
-    {
-      id: '01',
-      slug: 'villa-condudu-3',
-      title: 'STAY',
-      image: '/VillaCondutuPaginaInicial/FINAL 14.png',
-      badge: 'Stay',
-      propertyTitle: 'VILA CONDURU III',
-      location: 'Preá, Ceará, Brazil',
-      rating: 5,
-      exclusiveText: '153 m² | 3 Suites | 10 Exclusive Projects',
-      about: [
-        'Your Private Beachfront Retreat in Preá: The ultimate rustic-luxury experience.',
-        'Vila Conduru III is now your private spot for the best wind in the world and exclusive events. Located literally on the beachfront.',
-        '1. Beachfront Location: Forget transfers or long walks. Here, the backyard is the beach.',
-        '2. Resort-Style Experience: The exclusivity of a vila with the amenities of a boutique hotel.',
-        '3. Breathable Architecture (Bioclimatic Design)',
-        '4. Organic Lifestyle & Connectivity: The villa eliminates barriers between you and paradise.',
-        '5. Terra Ventos Concierge Support: Your only concern will be sailing.',
-      ],
-      infra: [
-        'Pool in the condominium',
-        '3 large suites',
-        'Barbecue area',
-        'Beachfront',
-        'Kite-point',
-        'Patricia Mureta Project',
-        'Parking',
-        '24h Security/Portaria'
-      ],
-      facilities: ['3 Suites', 'Beachfront', 'Feet in the sand', 'Pool', 'Full kitchen', 'Air conditioning', 'Powder room', 'Parking', '24h Security'],
-      gallery: { 
-        main: '/VillaCondutuPaginaInicial/Final 01 (2).png', 
-        sideTop: '/VillaCondutuPaginaInicial/FINAL 02 (1).png', 
-        sideBottom: '/VillaCondutuPaginaInicial/Final 02 (2).png',
-        extra: [
-          '/VillaCondutuPaginaInicial/FINAL 03 (1).png',
-          '/VillaCondutuPaginaInicial/FINAL 08.png',
-          '/VillaCondutuPaginaInicial/FINAL 09.png',
-          '/VillaCondutuPaginaInicial/FINAL 12.png',
-          '/VillaCondutuPaginaInicial/FINAL 13.png'
-        ]
-      },
-      mapImage: '/mapa.avif',
-      mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
-      priceTag: 'Daily',
-      price: 'On Request',
-      installments: 'Consult packages',
-      reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
-    },
-    {
-      id: '02',
-      slug: 'terrenos-bitupita',
-      title: 'FOR SALE',
-      image: '/bitupitaPaginaIndividual/DJI_20251020023318_0221_D.jpg',
-      badge: 'For Sale',
-      propertyTitle: 'BEACHFRONT LAND IN BITUPITÁ',
-      location: 'Bitupitá, Ceará, Brazil',
-      rating: 5,
-      exclusiveText: '4,300 m² | 10 Exclusive Land Projects',
-      about: [
-        'The Next Appreciation Frontier: Exclusivity, beachfront access, and the most strategic m² on the West Coast.',
-        'There are places the market has not yet discovered, but the wind has. Bitupitá é the last untouched refuge on the Costa dos Ventos Route.',
-        'The New Foil Route: With constant winds for 6 to 8 months a year and perfect waters.',
-        'Real Scarcity: A project of only 10 exclusive lots, guaranteeing low density and privacy absolute.',
-        'Direct Beachfront Access: Properties with open sea frontage and direct beach access.',
-        'Terra Ventos Legal Security: 100% reviewed documentation with individual registration.',
-      ],
-      infra: [
-        'Prime and exclusive location',
-        'Private Villa with 10 projects',
-        'Feet in the sand',
-        'Ideal for sailing/kite'
-      ],
-      facilities: ['Exclusive project', 'Beachfront', 'Close to amenities'],
-      gallery: { 
-        main: '/bitupitaPaginaIndividual/DJI_20251207012123_0102_D.jpg', 
-        sideTop: '/bitupitaPaginaIndividual/DJI_20251019210638_0111_D.jpg', 
-        sideBottom: '/bitupitaPaginaIndividual/DJI_20251020010202_0198_D.jpg',
-        extra: [
-          '/bitupitaPaginaIndividual/DJI_20251019210524_0108_D.jpg',
-          '/bitupitaPaginaIndividual/DJI_20251020005753_0185_D.jpg',
-          '/bitupitaPaginaIndividual/DJI_20251020023318_0221_D.jpg',
-          '/bitupitaPaginaIndividual/DJI_20251207012338_0119_D.jpg',
-          '/bitupitaPaginaIndividual/BITUparaiso.jpg'
-        ]
-      },
-      mapImage: '/mapa.avif',
-      mapUrl: 'https://maps.google.com/maps?q=-2.88825,-41.268056&z=15&output=embed',
-      priceTag: 'Starting at',
-      price: 'R$ 120,000',
-      installments: 'Check availability',
-    },
-    {
-      id: '03',
-      slug: 'vila-do-ingles',
-      title: 'INVESTMENT',
-      image: '/viladoinglesPaginaInicial/Final 04 (1).png',
-      badge: 'Investment',
-      propertyTitle: 'VILA DO INGLÊS',
-      location: 'Preá, Ceará, Brazil',
-      rating: 5,
-      exclusiveText: '2,200 sq.ft | 2 Bathrooms | 10 Exclusive Projects',
-      about: [
-        'The Essence of Sustainable Luxury: A unique blend of modern sustainability and tranquility.',
-        'Inspired by a New York refuge, this residence offers 2,200 sq.ft entirely powered by solar energy.',
-        '1. Sustainable Design: Smart systems with rooftop solar panels.',
-        '2. Spa-Style Comfort: 2 modern immersive bathrooms.',
-        '3. Dynamic Transparency: Wide floor-to-ceiling glass walls.',
-        '4. Panoramic Privacy: Private rooftop terrace.',
-        '5. Exclusive Connection: The contrast between a prime location and isolated peace.',
-      ],
-      infra: ['Rooftop solar panel system', 'Floor-to-ceiling glass walls', 'Private rooftop terrace', '2 Modern bathrooms', 'Prime isolated location'],
-      facilities: ['!Beachfront', 'Air conditioning', '!Washing machine', '!Internet', 'Water heater', 'Refrigerator', 'Sofa', 'Wardrobe'],
-      gallery: { 
-        main: '/viladoinglesPaginaInicial/FINAL 09 (1).png', 
-        sideTop: '/viladoinglesPaginaInicial/FINAL 01 (3).png', 
-        sideBottom: '/viladoinglesPaginaInicial/Final 02 (2).png',
-        extra: [
-          '/viladoinglesPaginaInicial/FINAL 08 (1).png',
-          '/viladoinglesPaginaInicial/Final 05 (1).png',
-          '/viladoinglesPaginaInicial/Final 06 (1).png',
-          '/viladoinglesPaginaInicial/Final 07 (1).png',
-          '/viladoinglesPaginaInicial/FINAL 02 (3).png'
-        ]
-      },
-      mapImage: '/mapa.avif',
-      mapUrl: 'https://maps.google.com/maps?q=40.773565,-73.956555&z=15&output=embed',
-      priceTag: 'Status',
-      price: 'Coming Soon',
-      installments: '',
-    },
   ],
   es: [
     {
+      id: '06',
+      slug: 'prea-house', category: 'venda',
+      title: 'VENTA',
+      image: '/Prea House/WhatsApp Image 2026-04-20 at 09.12.53.jpeg',
+      badge: 'Venta',
+      propertyTitle: 'PREÁ HOUSE',
+      location: 'Preá, Ceará, Brasil',
+      rating: 5,
+      exclusiveText: '745 m² Terreno | 261 m² Construcción | Piscina 68 m²',
+      about: [
+        'Propiedad de lujo que consta de dos dependencias separadas con la piscina situada en el medio.',
+        'Casa Trasera: 2 suites (32.5 m² cada una), muebles a medida, área de cocina/sala (32 m²) con isla, lavandería 10 m² e terraza.',
+        'Edificio Frontal: Área Gourmet semiabierta (54 m²), 1 suite (24 m²), baño de visitas y garaje para ATV (8.5 m²).',
+        'Terraza en la Azotea: 96 m² preparada estructuralmente para futura expansión con fontanería e infraestructura de gas.',
+        'Piscina en L: 65.000 litros (10m x 4m) con área de playa, asientos integrados e ionizador automatizado vía smartphone.',
+        'Acabados Premium: Ventanas y puertas en madera Timborana, estructura de Maçaranduba e deck de Tatajuba.'
+      ],
+      infra: [
+        'Área del Terreno: 745 m² | Construída: 261 m²',
+        'Sistemas: Calentador de agua a gas en todos los puntos e sistema de riego automático en el jardín.',
+        'Seguridad: Alarma en todas las puertas y sistema CCTV con 8 cámaras (acceso remoto por smartphone).',
+        'Eléctrica: Portones automáticos con intercomunicador y control remoto.',
+        'Expansión: Estructura de azotea preparada para futuras suites con todas as conexiones de agua y desagüe.'
+      ],
+      facilities: ['3 Suites', 'Piscina 68 m²', 'Área Gourmet', 'Rooftop', 'Seguridad CCTV', 'Portones Automáticos'],
+      gallery: {
+        main: '/Prea House/WhatsApp Image 2026-04-20 at 09.13.04.jpeg',
+        sideTop: '/Prea House/WhatsApp Image 2026-04-20 at 09.12.55.jpeg',
+        sideBottom: '/Prea House/WhatsApp Image 2026-04-20 at 09.13.06.jpeg',
+        extra: [
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.12.59.jpeg',
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.13.08.jpeg',
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.13.01.jpeg',
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.12.58.jpeg',
+          '/Prea House/WhatsApp Image 2026-04-20 at 09.12.56.jpeg'
+        ]
+      },
+      mapImage: '/mapa.avif',
+      mapUrl: 'https://maps.google.com/maps?q=-2.812328,-40.428784&z=15&output=embed',
+      priceTag: 'Desde',
+      price: 'Bajo Consulta',
+      installments: 'Consulte condiciones'
+    },
+    {
       id: '04',
-      slug: 'villa-prabhu',
+      slug: 'villa-prabhu', category: 'lancamento',
       title: 'LANZAMIENTO',
       image: '/VILLA_PRABHU/WhatsApp Image 2026-04-01 at 14.58.56 (3).jpeg',
       badge: 'LANZAMIENTO',
@@ -498,7 +615,7 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
         'Ubicado en una región privilegiada con amplia área verde y recursos hídricos, el proyecto destaca por su planificación urbana inteligente e integración con la naturaleza.',
         'Lotes Exclusivos: Unidades amplas com áreas privadas de 242 m² a más de 600 m².',
         'Planificación de Etapas: Proyecto dividido en fases, con la Etapa 1 ya consolidada y unidades disponibles en la Etapa 2.',
-        'Urbanismo de Calidad: Infraestructura pensada para el bienestar, con calles diseñadas como Av. Prabhu y Rua Azalea.',
+        'Urbanismo de Calidad: Infraestructura pensada para el bienestar, con calles diseñadas como Av. Prabhu e Rua Azalea.',
       ],
       infra: [
         'Financiamiento Directo: Pago fácil en hasta 120 cuotas mensuales.',
@@ -517,33 +634,146 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       },
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=-3.4146184,-39.046461&z=15&output=embed',
-      videoSources: [
-        'https://player.vimeo.com/video/1179327775?h=c94b7f80f1',
-        'https://player.vimeo.com/video/1179327749?h=9d3c5f80f1',
-        'https://player.vimeo.com/video/1179327705?h=7a1b5f80f1',
-        'https://player.vimeo.com/video/1179327631?h=2e9d5f80f1'
-      ],
-      documents: [
-        { 
-          label: 'Tabla de Precios (120 meses) – Actualizada 2026', 
-          url: '/VILLA_PRABHU/Tabela de Preços (120 meses).pdf', 
-          legend: 'Detalle de valores, señal y cuotas mensuales.' 
-        },
-        { 
-          label: 'Mapa de Disponibilidad (Masterplan)', 
-          url: '/VILLA_PRABHU/Mapa de Disponibilidade (Masterplan).pdf', 
-          legend: 'Visualice la ubicación exacta de cada lote y las áreas verdes.' 
-        }
-      ],
       priceTag: 'Consultar',
       price: 'Bajo Consulta',
       installments: 'A partir de 120 cuotas',
     },
     {
-      id: '05',
-      slug: 'casa-matanzas',
+      id: '01',
+      slug: 'villa-condudu-3', category: 'temporada',
       title: 'ESTANCIA',
-      image: '/Matanzas/b211e036-b276-4446-a3be-7ba65f801a82.avif',
+      image: '/VillaCondutuPaginaInicial/FINAL 14.png',
+      badge: 'Estancia',
+      propertyTitle: 'VILA CONDURU III',
+      location: 'Preá, Ceará, Brasil',
+      rating: 5,
+      exclusiveText: '153 m² | 3 Suites | 10 Proyectos exclusivos',
+      about: [
+        'Tu Refugio Privado Frente al Mar en Preá: La experiencia definitiva de lujo rústico.',
+        'La Vila Conduru III es ahora tu palco privado para el mejor viento del mundo e eventos exclusivos.',
+        '1. Ubicación Frente al Mar: Olvídate de traslados. Aquí, el jardín es la playa.',
+        '2. Experiencia de Complejo Turístico: La exclusividad de una vila com las comodidades de un hotel boutique.',
+        '3. Arquitectura Respirable (Diseño Bioclimático)',
+        '4. Estilo de Vida y Conectividad Orgánica: La villa elimina las barreras entre tú y el paraíso.',
+        '5. Soporte Concierge Terra Ventos: Tu única preocupación será navegar.',
+      ],
+      infra: [
+        'Piscina en el condominio',
+        '3 habitaciones amplias',
+        'Parilla',
+        'Frente al mar',
+        'Kite-point',
+        'Proyecto Patricia Mureta',
+        'Estacionamiento',
+        'Seguridad 24h'
+      ],
+      facilities: ['3 Suites', 'Frente al mar', 'Pies en la arena', 'Piscina', 'Cocina completa', 'Aire acondicionado', 'Aseo', 'Estacionamiento', 'Seguridad 24h'],
+      gallery: {
+        main: '/VillaCondutuPaginaInicial/Final 01 (2).png',
+        sideTop: '/VillaCondutuPaginaInicial/FINAL 02 (1).png',
+        sideBottom: '/VillaCondutuPaginaInicial/Final 02 (2).png',
+        extra: [
+          '/VillaCondutuPaginaInicial/FINAL 03 (1).png',
+          '/VillaCondutuPaginaInicial/FINAL 08.png',
+          '/VillaCondutuPaginaInicial/FINAL 09.png',
+          '/VillaCondutuPaginaInicial/FINAL 12.png',
+          '/VillaCondutuPaginaInicial/FINAL 13.png'
+        ]
+      },
+      mapImage: '/mapa.avif',
+      mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
+      priceTag: 'Diario',
+      price: 'Bajo Consulta',
+      installments: 'Consultar paquetes',
+      reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
+    },
+    {
+      id: '02',
+      slug: 'terrenos-bitupita', category: 'venda',
+      title: 'VENTA',
+      image: '/bitupitaPaginaIndividual/DJI_20251020023318_0221_D.jpg',
+      badge: 'Venta',
+      propertyTitle: 'TERRENOS FRENTE AL MAR EN BITUPITÁ',
+      location: 'Bitupitá, Ceará, Brasil',
+      rating: 5,
+      exclusiveText: '4.300 m² | 10 Proyectos de Terrenos Exclusivos',
+      about: [
+        'Exclusividad, frente al mar y el m² más estratégico de la Costa Oeste.',
+        'Hay lugares que el mercado aún no ha descubierto, pero el viento sí. Bitupitá es el último refugio intacto en la Ruta Costa dos Ventos.',
+        'La Nueva Ruta del Foil: Con vientos constantes durante 6 a 8 meses al año y aguas perfectas.',
+        'Escasez Real: Un proyecto de solo 10 lotes exclusivos, garantizando baja densidad e privacidad absoluta.',
+        'Acceso Directo Frente al Mar: Propiedades con frente al mar libre y acceso directo a la playa.',
+        'Seguridad Legal Terra Ventos: Documentación 100% revisada con matrícula individualizada.',
+      ],
+      infra: [
+        'Ubicación prime y exclusiva',
+        'Villa privada con 10 proyectos',
+        'Pies en la arena',
+        'Ideal para la vela/kite'
+      ],
+      facilities: ['Proyecto exclusivo', 'Frente al mar', 'Cerca de servicios'],
+      gallery: {
+        main: '/bitupitaPaginaIndividual/DJI_20251207012123_0102_D.jpg',
+        sideTop: '/bitupitaPaginaIndividual/DJI_20251019210638_0111_D.jpg',
+        sideBottom: '/bitupitaPaginaIndividual/DJI_20251020010202_0198_D.jpg',
+        extra: [
+          '/bitupitaPaginaIndividual/DJI_20251019210524_0108_D.jpg',
+          '/bitupitaPaginaIndividual/DJI_20251020005753_0185_D.jpg',
+          '/bitupitaPaginaIndividual/DJI_20251020023318_0221_D.jpg',
+          '/bitupitaPaginaIndividual/DJI_20251207012338_0119_D.jpg',
+          '/bitupitaPaginaIndividual/BITUparaiso.jpg'
+        ]
+      },
+      mapImage: '/mapa.avif',
+      mapUrl: 'https://maps.google.com/maps?q=-2.88825,-41.268056&z=15&output=embed',
+      priceTag: 'Desde',
+      price: 'R$ 120 MIL',
+      installments: 'Consulte disponibilidad',
+    },
+    {
+      id: '03',
+      slug: 'vila-do-ingles', category: 'investimento',
+      title: 'INVERSIÓN',
+      image: '/viladoinglesPaginaInicial/Final 04 (1).png',
+      badge: 'Inversión',
+      propertyTitle: 'VILA DO INGLÊS',
+      location: 'Preá, Ceará, Brasil',
+      rating: 5,
+      exclusiveText: '2.200 sq.ft | 2 Baños | 10 Proyectos Exclusivos',
+      about: [
+        'La Esencia del Lujo Sostenible: Una mezcla única de sostenibilidad moderna y tranquilidad.',
+        'Inspirada en un refugio de Nueva York, esta residencia ofrece 2.200 sq.ft completamente alimentada por energía solar.',
+        '1. Diseño Sostenible: Sistemas inteligentes con paneles solares en el techo.',
+        '2. Comodidad Estilo Spa: 2 baños modernos e inmersivos.',
+        '3. Transparencia Dinámica: Amplias paredes de vidrio del suelo al techo.',
+        '4. Privacidad Panorámica: Terraza privada en la azotea.',
+        '5. Conexión Exclusiva: El contraste entre una ubicación premium y paz aislada.',
+      ],
+      infra: ['Sistema de paneles solares en el techo', 'Paredes de vidrio del suelo al techo', 'Terraza privada en la azotea', '2 Baños modernos', 'Ubicación prime aislada'],
+      facilities: ['!Frente al mar', 'Aire acondicionado', '!Lavadora', '!Internet', 'Calentador de agua', 'Refrigerador', 'Sofá', 'Armario'],
+      gallery: {
+        main: '/viladoinglesPaginaInicial/FINAL 09 (1).png',
+        sideTop: '/viladoinglesPaginaInicial/FINAL 01 (3).png',
+        sideBottom: '/viladoinglesPaginaInicial/Final 02 (2).png',
+        extra: [
+          '/viladoinglesPaginaInicial/FINAL 08 (1).png',
+          '/viladoinglesPaginaInicial/Final 05 (1).png',
+          '/viladoinglesPaginaInicial/Final 06 (1).png',
+          '/viladoinglesPaginaInicial/Final 07 (1).png',
+          '/viladoinglesPaginaInicial/FINAL 02 (3).png'
+        ]
+      },
+      mapImage: '/mapa.avif',
+      mapUrl: 'https://maps.google.com/maps?q=-3.4146184,-39.046461&z=15&output=embed',
+      priceTag: 'Status',
+      price: 'Próximamente',
+      installments: '',
+    },
+    {
+      id: '05',
+      slug: 'casa-matanzas', category: 'temporada',
+      title: 'ESTANCIA',
+      image: '/Matanzas/3b77d98c-5cd0-4f51-816a-6e42748720d2.avif',
       badge: 'Estancia',
       propertyTitle: 'Casa Matanzas con tinaja / vista al mar y bosque',
       location: 'Navidad, O\'Higgins, Chile',
@@ -567,7 +797,7 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
         'Estacionamiento gratuito',
         'Tinaja privada',
         'Se permiten mascotas',
-        'Cámaras de segurança exteriores'
+        'Cámaras de seguridad exteriores'
       ],
       facilities: ['Vista al mar', 'Vista al valle', 'Cocina completa', 'Wi-Fi', 'Estacionamiento gratuito', 'Tinaja privada', 'Se permiten mascotas', 'Cámaras de seguridad exteriores'],
       gallery: {
@@ -589,141 +819,25 @@ const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       installments: 'Consultar paquetes',
       reservationUrl: 'https://www.airbnb.com.br/rooms/1495622230762379698?unique_share_id=e222b343-72c6-400c-bec4-afd4286d8719&viralityEntryPoint=1&s=76&source_impression_id=p3_1775581234_P3rzyIdyGvGibmTw'
     },
-    {
-      id: '01',
-      slug: 'villa-condudu-3',
-      title: 'ESTANCIA',
-      image: '/VillaCondutuPaginaInicial/FINAL 14.png',
-      badge: 'Estancia',
-      propertyTitle: 'VILA CONDURU III',
-      location: 'Preá, Ceará, Brasil',
-      rating: 5,
-      exclusiveText: '500 m² | 3 Suites | 10 Proyectos exclusivos',
-      about: [
-        'Tu Refugio Privado Frente al Mar en Preá: La experiencia definitiva de lujo rústico.',
-        'La Vila Conduru III es ahora tu palco privado para el mejor viento del mundo y eventos exclusivos.',
-        '1. Ubicación Frente al Mar: Olvídate de traslados. Aquí, el jardín es la playa.',
-        '2. Experiencia de Complejo Turístico: La exclusividad de una vila com las comodidades de un hotel boutique.',
-        '3. Arquitectura Respirable (Diseño Bioclimático)',
-        '4. Estilo de Vida y Conectividad Orgánica: La villa elimina las barreras entre tú y el paraíso.',
-        '5. Soporte Concierge Terra Ventos: Tu única preocupación será navegar.',
-      ],
-      infra: [
-        'Piscina en el condominio',
-        '3 habitaciones amplias',
-        'Parilla',
-        'Frente al mar',
-        'Kite-point',
-        'Proyecto Patricia Mureta',
-        'Estacionamiento',
-        'Seguridad 24h'
-      ],
-      facilities: ['3 Suites', 'Frente al mar', 'Pies en la arena', 'Piscina', 'Cocina completa', 'Aire acondicionado', 'Aseo', 'Estacionamiento', 'Seguridad 24h'],
-      gallery: { 
-        main: '/VillaCondutuPaginaInicial/Final 01 (2).png', 
-        sideTop: '/VillaCondutuPaginaInicial/FINAL 02 (1).png', 
-        sideBottom: '/VillaCondutuPaginaInicial/Final 02 (2).png',
-        extra: [
-          '/VillaCondutuPaginaInicial/FINAL 03 (1).png',
-          '/VillaCondutuPaginaInicial/FINAL 08.png',
-          '/VillaCondutuPaginaInicial/FINAL 09.png',
-          '/VillaCondutuPaginaInicial/FINAL 12.png',
-          '/VillaCondutuPaginaInicial/FINAL 13.png'
-        ]
-      },
-      mapImage: '/mapa.avif',
-      mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
-      priceTag: 'Diario',
-      price: 'Bajo Consulta',
-      installments: 'Consultar paquetes',
-      reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
-    },
-    {
-      id: '02',
-      slug: 'terrenos-bitupita',
-      title: 'VENTA',
-      image: '/bitupitaPaginaIndividual/DJI_20251020023318_0221_D.jpg',
-      badge: 'Venta',
-      propertyTitle: 'TERRENOS FRENTE AL MAR EN BITUPITÁ',
-      location: 'Bitupitá, Ceará, Brasil',
-      rating: 5,
-      exclusiveText: '4.300 m² | 10 Proyectos de Terrenos Exclusivos',
-      about: [
-        'Exclusividad, frente al mar y el m² más estratégico de la Costa Oeste.',
-        'Hay lugares que el mercado aún no ha descubierto, pero el viento sí. Bitupitá es el último refugio intacto en la Ruta Costa dos Ventos.',
-        'La Nueva Ruta del Foil: Con vientos constantes durante 6 a 8 meses al año y aguas perfectas.',
-        'Escasez Real: Un proyecto de solo 10 lotes exclusivos, garantizando baja densidad y privacidad absoluta.',
-        'Acceso Directo Frente al Mar: Propiedades con frente al mar libre y acceso directo a la playa.',
-        'Seguridad Legal Terra Ventos: Documentación 100% revisada con matrícula individualizada.',
-      ],
-      infra: [
-        'Ubicación prime y exclusiva',
-        'Villa privada con 10 proyectos',
-        'Pies en la arena',
-        'Ideal para la vela/kite'
-      ],
-      facilities: ['Proyecto exclusivo', 'Frente al mar', 'Cerca de servicios'],
-      gallery: { 
-        main: '/bitupitaPaginaIndividual/DJI_20251207012123_0102_D.jpg', 
-        sideTop: '/bitupitaPaginaIndividual/DJI_20251019210638_0111_D.jpg', 
-        sideBottom: '/bitupitaPaginaIndividual/DJI_20251020010202_0198_D.jpg',
-        extra: [
-          '/bitupitaPaginaIndividual/DJI_20251019210524_0108_D.jpg',
-          '/bitupitaPaginaIndividual/DJI_20251020005753_0185_D.jpg',
-          '/bitupitaPaginaIndividual/DJI_20251020023318_0221_D.jpg',
-          '/bitupitaPaginaIndividual/DJI_20251207012338_0119_D.jpg',
-          '/bitupitaPaginaIndividual/BITUparaiso.jpg'
-        ]
-      },
-      mapImage: '/mapa.avif',
-      mapUrl: 'https://maps.google.com/maps?q=-2.88825,-41.268056&z=15&output=embed',
-      priceTag: 'Desde',
-      price: 'R$ 120 MIL',
-      installments: 'Consulte disponibilidad',
-    },
-    {
-      id: '03',
-      slug: 'vila-do-ingles',
-      title: 'INVERSIÓN',
-      image: '/viladoinglesPaginaInicial/Final 04 (1).png',
-      badge: 'Inversión',
-      propertyTitle: 'VILA DO INGLÊS',
-      location: 'Preá, Ceará, Brasil',
-      rating: 5,
-      exclusiveText: '2.200 sq.ft | 2 Baños | 10 Proyectos Exclusivos',
-      about: [
-        'La Esencia del Lujo Sostenible: Una mezcla única de sostenibilidad moderna y tranquilidad.',
-        'Inspirada en un refugio de Nueva York, esta residencia ofrece 2.200 sq.ft completamente alimentada por energía solar.',
-        '1. Diseño Sostenible: Sistemas inteligentes con paneles solares en el techo.',
-        '2. Comodidad Estilo Spa: 2 baños modernos e inmersivos.',
-        '3. Transparencia Dinámica: Amplias paredes de vidrio del suelo al techo.',
-        '4. Privacidad Panorámica: Terraza privada en la azotea.',
-        '5. Conexión Exclusiva: El contraste entre una ubicación premium y paz aislada.',
-      ],
-      infra: ['Sistema de paneles solares en el techo', 'Paredes de vidrio del suelo al techo', 'Terraza privada en la azotea', '2 Baños modernos', 'Ubicación prime aislada'],
-      facilities: ['!Frente al mar', 'Aire acondicionado', '!Lavadora', '!Internet', 'Calentador de agua', 'Refrigerador', 'Sofá', 'Armario'],
-      gallery: { 
-        main: '/viladoinglesPaginaInicial/FINAL 09 (1).png', 
-        sideTop: '/viladoinglesPaginaInicial/FINAL 01 (3).png', 
-        sideBottom: '/viladoinglesPaginaInicial/Final 02 (2).png',
-        extra: [
-          '/viladoinglesPaginaInicial/FINAL 08 (1).png',
-          '/viladoinglesPaginaInicial/Final 05 (1).png',
-          '/viladoinglesPaginaInicial/Final 06 (1).png',
-          '/viladoinglesPaginaInicial/Final 07 (1).png',
-          '/viladoinglesPaginaInicial/FINAL 02 (3).png'
-        ]
-      },
-      mapImage: '/mapa.avif',
-      mapUrl: 'https://maps.google.com/maps?q=-3.4146184,-39.046461&z=15&output=embed',
-      priceTag: 'Status',
-      price: 'Próximamente',
-      installments: '',
-    },
   ],
 };
 
+import { oportunidadesData, type OportunidadeDetalhe } from './oportunidadesData';
+
 export function getOportunidadesData(lang: string): OportunidadeDetalhe[] {
   const baseLang = lang.split('-')[0];
-  return oportunidadesDataByLang[baseLang] ?? oportunidadesDataByLang['pt'];
+  const translated = oportunidadesDataByLang[baseLang] ?? oportunidadesDataByLang['pt'];
+  
+  // Sincroniza as galerias de imagens da fonte mestre (oportunidadesData)
+  // Isso garante que todas as fotos estejam disponíveis em todos os idiomas.
+  return translated.map(tItem => {
+    const master = oportunidadesData.find(m => m.id === tItem.id);
+    if (master) {
+      return {
+        ...tItem,
+        gallery: master.gallery
+      };
+    }
+    return tItem;
+  });
 }

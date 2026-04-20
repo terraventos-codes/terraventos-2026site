@@ -12,8 +12,17 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
   const { t } = useTranslation();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxVideo, setLightboxVideo] = useState<string | null>(null);
+  const [isAlbumOpen, setIsAlbumOpen] = useState(false);
 
-  // Fix: reset body overflow when component unmounts (e.g. navigating away with lightbox open)
+  // Coleta todas as fotos disponíveis para o álbum
+  const allPhotos = [
+    item.gallery.main,
+    item.gallery.sideTop,
+    item.gallery.sideBottom,
+    ...(item.gallery.extra || [])
+  ];
+
+  // Fix: reset body overflow when component unmounts
   useEffect(() => {
     return () => {
       document.body.style.overflow = '';
@@ -28,6 +37,16 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
   const closeLightbox = () => {
     setLightboxImage(null);
     setLightboxVideo(null);
+    document.body.style.overflow = isAlbumOpen ? 'hidden' : '';
+  };
+
+  const openAlbum = () => {
+    setIsAlbumOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeAlbum = () => {
+    setIsAlbumOpen(false);
     document.body.style.overflow = '';
   };
 
@@ -61,9 +80,19 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
           />
         </div>
 
+        <button className="pi-view-all-btn" onClick={openAlbum}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/>
+            <path d="M3 9V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4"/>
+            <path d="M11 13h2"/>
+            <path d="M12 11v4"/>
+          </svg>
+          {t('oportunidades.viewAllPhotos')}
+        </button>
+
         {item.gallery.extra && item.gallery.extra.length > 0 && (
           <div className="pi-gallery-secondary">
-            {item.gallery.extra.map((img, idx) => (
+            {item.gallery.extra.slice(0, 3).map((img, idx) => (
               <img 
                 key={idx}
                 src={img} 
@@ -322,6 +351,42 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
               />
             </div>
           )}
+        </div>,
+        document.body
+      )}
+
+      {isAlbumOpen && createPortal(
+        <div className="pi-album-modal">
+          <div className="pi-album-header">
+            <button className="pi-album-back" onClick={closeAlbum} aria-label="Voltar">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+            <div className="pi-album-info">
+              <h3>{item.propertyTitle}</h3>
+              <span>{allPhotos.length} fotos</span>
+            </div>
+          </div>
+          
+          <div className="pi-album-content">
+            <div className="pi-album-grid">
+              {allPhotos.map((src, idx) => (
+                <div key={idx} className="pi-album-item" onClick={() => openLightbox(src)}>
+                  <img src={src} alt={`Foto ${idx + 1}`} loading="lazy" />
+                  <div className="pi-album-item-overlay">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      <line x1="11" y1="8" x2="11" y2="14"></line>
+                      <line x1="8" y1="11" x2="14" y2="11"></line>
+                    </svg>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>,
         document.body
       )}
