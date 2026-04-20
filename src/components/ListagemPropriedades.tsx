@@ -9,7 +9,7 @@ interface ListagemPropriedadesProps {
 }
 
 const ListagemPropriedades: React.FC<ListagemPropriedadesProps> = ({ items, onSelect }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedFilter, setSelectedFilter] = useState<string>('all');
 

@@ -53,7 +53,7 @@ i18n
               "01": "Residências de alto padrão prontas, com arquitetura contemporânea e integração com a natureza. Ideais para segunda moradia e experiências exclusivas beira-mar.",
               "02": "Terrenos pé na areia no último village planejado do Roteiro Costa dos Ventos. Oportunidade de investimento estratégico com os melhores vetores de valorização.",
               "03": "Empreendimentos boutique para investidores com visão antecipada. Produto com estudo de vento aplicado, personalização arquitetônica e localização de alta escassez.",
-              "05": "Descubra Matanzas Paradise: Casa moderna confortavelmente equipada para 6 hóspedes, vistas panorâmicas espetaculares do mar e da floresta. Equipada com banheira de hidromassagem e Wi-Fi Starlink."
+              "05": "Descube Matanzas Paradise: Casa moderna confortavelmente equipada para 6 hóspedes, vistas panorâmicas espetaculares do mar e da floresta. Equipada com banheira de hidromassagem e Wi-Fi Starlink."
             },
             noResults: "Nenhuma propriedade encontrada para sua busca.",
             viewAllPhotos: "Mostrar todas as fotos"
@@ -79,7 +79,7 @@ i18n
           },
           condudu: {
             badge: "Exclusividade",
-            title: "CASA ALTO PADR\u00C3O 3 SU\u00CDTES<br />FRENTE \u00C0 PRAIA DO PRE\u00C1",
+            title: "CASA ALTO PADRÃO 3 SUÍTES<br />FRENTE À PRAIA DO PREÁ",
             subtitle: "Vila Conduru III — Piscina, churrasqueira, varanda e condomínio de luxo 24 horas.",
             tags: ["Piscina", "3 quartos", "Beira-mar", "Projeto Patricia Mureta"],
             priceNote: "consultar disponibilidade",
@@ -91,7 +91,7 @@ i18n
             cards: {
               "1": { title: "Cumbuco, Ceará", desc: "Infraestrutura completa e proximidade estratégica com Fortaleza. Um mercado maduro, com liquidez imediata e fluxo constante de turistas internacionais o ano todo." },
               "2": { title: "Tatajuba, Ceará", desc: "Conexão profunda com a natureza e ventos lendários. Um destino exclusivo que atrai o público high-end em busca de privacidade e experiências autênticas à beira-mar." },
-              "3": { title: "Ilha do Guajirú, Ceará", desc: "O paraíso das águas paradas e o destino técnico por excelência. Combinação única de ventos constantes com uma lagoa extensa, ideal para performance e hospitalidade." },
+              "3": { title: "Ilha do Guajirú, Ceará", desc: "O paraíso das águas paradas e o destino técnico por excelência. Combinação única de ventos constantes com uma lagoa extensa, ideal for performance e hospitalidade." },
               "4": { title: "Icaraizinho de Amontada, Ceará", desc: "Um dos metros quadrados mais desejados do Ceará. Vila charmosa com gastronomia de alto padrão e uma baía segura, perfeita para o turismo de charme e esportes de vento." },
               "5": { title: "Preá, Ceará", desc: "Epicentro do kitesurf global com infraestrutura consolidada e demanda internacional constante." },
               "6": { title: "Flecheiras, Ceará", desc: "Infraestrutura de luxo consolidada e demanda internacional recorde. Onde o estilo de vida cosmopolita encontra a melhor janela de vento do planeta." },
@@ -137,7 +137,7 @@ i18n
               "\"A assessoria concierge da Terra Ventos é o que realmente diferencia a marca. Eles cuidaram de tudo, do due diligence jurídico à conexão com os melhores arquitetos locais. Sentir que você faz parte de uma comunidade que preserva a essência rústica do Ceará, mas com um padrão internacional, é impagável.\"",
               "\"Como advogada, a minha prioridade sempre foi a segurança documental. No litoral, a informalidade assusta, mas a Terra Ventos entregou um due diligence impecável. Investi em uma propriedade na Praia dos Monteiros com a certeza de que estava a construir um patrimônio sólido e regularizado para a minha família. É uma tranquilidade que não tem preço.\"",
               "\"O que me conquistou foi o Estudo dos Ventos. Como designer, valorizo projetos que respeitam o meio ambiente. Ver como a Terra Ventos utiliza a ciência do clima para orientar a implantação das casas, garantindo frescor natural e luz perfeita, é fascinante. Não é apenas um terreno, é a base para uma arquitetura de alto padrão que conversa com a natureza.\"",
-              "\"Sou movido por dados, e a Terra Ventos fala minha língua. O Estudo dos Ventos não é marketing — é ciência aplicada ao investimento imobiliário, com análise de vetores climáticos, escassez locacional e potencial de valorização. Como CTO, reconheço quando um time domina o que faz. Investi no Ceará porque os números eram irrefutáveis.\""
+              "\"Sou movido por dados, e a Terra Ventos fala minha língua. O Estudo dos Ventos não é marketing — é ciência aplicada ao investimento imobiliário, com análise de vetores climáticos, escassez locacional e potencial de valorização. Como CTO, reconheço quando um tim domina o que faz. Investi no Ceará porque os números eram irrefutáveis.\""
             ]
           },
           form: {
@@ -169,7 +169,7 @@ i18n
             downloadTitle: "Baixar Material",
             downloadDesc: "Acesse os arquivos oficiais do empreendimento.",
             viewPdf: "Visualizar PDF",
-            reservationNotice: "Fa\u00E7a a cota\u00E7\u00E3o direto na plataforma de reserva",
+            reservationNotice: "Faça a cotação direto na plataforma de reserva",
             bookAirbnb: "Link para o Airbnb",
             whatsapp: "Fale conosco"
           }
@@ -335,8 +335,7 @@ i18n
             titles: ["VENTA", "LANZAMIENTO", "ESTANCIA", "VENTA", "INVERSIÓN", "ESTANCIA"],
             cards: {
               "06": "Preá House: Propiedad de lujo con 745 m² de área total, área gourmet y espectacular piscina en L. Infraestructura y acabados de primera para la mejor experiencia en Ceará.",
-              "04": "Villa Prabhu es un desarrollo planificado por Bianchi Urbanismo, enfocado en ofrecer calidad de vida y seguridad en una región privilegiada.",
-              "04": "Villa Prabhu es un desarrollo planificado por Bianchi Urbanismo, focused on offering quality of life and security in a privileged region.",
+              "04": "Villa Prabhu es un emprendimiento planeado por Bianchi Urbanismo, enfocado en ofrecer calidad de vida y seguridad en una región privilegiada.",
               "01": "Residencias de alta gama listas, con arquitectura contemporánea integrada a la naturaleza. Ideales para segunda vivienda y experiencias exclusivas frente al mar.",
               "02": "Terrenos frente al mar en el último pueblo planeado en la Ruta Costa dos Ventos. Oportunidad de inversión estratégica con los mejores vectores de apreciación.",
               "03": "Desarrollos boutique para inversores con visión anticipada. Producto con estudio de vientos aplicado, personalización arquitectónica y ubicaciones de alta escasez.",
@@ -354,7 +353,7 @@ i18n
           },
           projetos: {
             badge: "Proyectos destacados",
-            title: "VENTA, INVERSIONES Y LUGARES DE EVENTOS EN EL LITORAL DE CEARA",
+            title: "VENTA, INVERSIONES Y LUGARES DE EVENTOS IN EL LITORAL DE CEARA",
             cards: {
               "04": { tag: "Lanzamiento", title: "Villa Prabhu — Paracuru-CE", price: "Bajo Consulta" },
               "02": { tag: "Venta", title: "Terrenos frente al mar en Bitupitá", price: "Desde R$ 120 MIL" },
@@ -369,7 +368,7 @@ i18n
             title: "CASA DE ALTO ESTÁNDAR 3 SUITES<br />FRENTE A LA PLAYA DE PREÁ",
             subtitle: "Vila Conduru III — Piscina, parrilla, balcón y condominio de lujo 24 horas.",
             tags: ["Piscina", "3 Habitaciones", "Frente al mar", "Proyecto Patricia Mureta"],
-            priceNote: "consultar disponibilidad",
+            priceNote: "consultar disponibilidade",
             cta: "RESERVAR"
           },
           cidades: {
@@ -379,7 +378,7 @@ i18n
               "1": { title: "Cumbuco, Ceará", desc: "Infraestructura completa y proximidad estratégica con Fortaleza. Un mercado maduro, con liquidez inmediata y un flujo constante de turistas internacionales durante todo el año." },
               "2": { title: "Tatajuba, Ceará", desc: "Profunda conexión con la naturaleza y vientos legendarios. Un destino exclusivo que atrae a un público de alto nivel que busca privacidad y experiencias auténticas junto al mar." },
               "3": { title: "Ilha do Guajirú, Ceará", desc: "El paraíso de las aguas planas y el destino técnico por excelencia. Una combinación única de vientos constantes con una extensa laguna, ideal para el rendimiento y la hospitalidad." },
-              "4": { title: "Icaraizinho de Amontada, Ceará", desc: "Uno de los metros cuadrados más deseados de Ceará. Encantador pueblo con gastronomía de alta gama y una bahía segura, perfecto para turismo con encanto y deportes de viento." },
+              "4": { title: "Icaraizinho de Amontada, Ceará", desc: "Uno de los metros cuadrados mais deseados de Ceará. Encantador pueblo con gastronomía de alta gama y una bahía segura, perfecto para turismo con encanto y deportes de viento." },
               "5": { title: "Preá, Ceará", desc: "Epicentro del kitesurf global con infraestructura consolidada y demanda internacional constante." },
               "6": { title: "Flecheiras, Ceará", desc: "Infraestructura de lujo consolidada y demanda internacional récord. Donde el estilo de vida cosmopolita se encuentra con la mejor ventana de viento del planeta." },
               "7": { title: "Bitupitá, Ceará", desc: "Frente al mar virgen y el secreto mejor guardado de la Ruta de las Emociones. Oportunidad en etapa temprana con alto potencial de apreciación y aguas perfectas para el kite y wingfoil." }
@@ -391,12 +390,12 @@ i18n
             desc: "Terra Ventos presenta: Qué ubicaciones crecen más en valor, dónde está menos explorado y con mayor potencial. <strong>Sumérgete en los datos y análisis de potencial de la Costa Ceará.</strong>",
             stats: { "1": "Ciudades analizadas", "2": "meses de viento constante", "3": "apreciación anual", "4": "áreas técnicas y ambientales" },
             cta: "Ver estudio completo",
-            videoInfo: ["Fundador y CEO Terra Ventos", "Estudio de Vientos - clic para ver", "Reproducir vídeo"],
+            videoInfo: ["Fundador e CEO Terra Ventos", "Estudio de Vientos - clic para ver", "Reproducir vídeo"],
             watchFull: "Ver el vídeo completo"
           },
           mapa: {
             title: "ESTUDIO DE LOS VIENTOS POR EL LITORAL DE CEARA",
-            activateInstructions: "Haz clic para interactuar con el mapa",
+            activateInstructions: "Haz clic para interactuar com o mapa",
             deactivate: "Bloquear mapa para scroll"
           },
           assessoria: {
@@ -418,11 +417,11 @@ i18n
             roles: ["Inversor Internacional", "Propietario de Negocio y Kitesurfista", "Propietaria de Casa de Vacaciones", "Abogada e Inversora", "Diseñadora y Kitesurfista", "CTO Técnico y Kitesurfista"],
             quotes: [
               "\"Lo que me atrajo de Terra Ventos fue su capacidad de anticipación. No solo me ofrecieron un terreno, sino un posicionamiento estratégico en Bitupitá antes de que explotara la apreciación. La seguridad legal y el soporte bilingüe fueron fundamentales para que pudiera invertir con tranquilidad, incluso viviendo en el extranjero.\"",
-              "\"Como practicante de wingfoil, buscaba un lugar donde el viento fuera constante y la comunidad vibrante. En Terra Ventos, encontré una curaduría que entendió lo que necesita un navegante. El Estudio de Vientos aplicado a mi lote aseguró que mi casa estuviera integrada a la naturaleza y perfecta para el deporte.\"",
+              "\"Como practicante de wingfoil, buscaba un lugar donde el viento fuera constante y la comunidad vibrante. En Terra Ventos, encontró una curaduría que entendió lo que necesita un navegante. El Estudio de Vientos aplicado a mi lote aseguró que mi casa estuviera integrada a la naturaleza y perfecta para el deporte.\"",
               "\"La asesoría concierge de Terra Ventos es lo que realmente diferencia a la marca. Se encargaron de todo, desde la debida diligencia legal hasta conectarme con los mejores arquitectos locales. Sentir que eres parte de una comunidad que conserva la esencia rústica de Ceará, pero con un estándar internacional, no tiene precio.\"",
               "\"Como abogada, mi prioridad siempre ha sido la seguridad de los documentos. En la costa, la informalidad asusta, pero Terra Ventos entregó un proceso impecable. Invertí en una propiedad en la Praia dos Monteiros con la certeza de que estaba construyendo un patrimonio sólido y regularizado para mi familia. Es una tranquilidad invaluable.\"",
               "\"Lo que me conquistó fue el Estudio de Vientos. Como diseñadora, valoro proyectos que respetan el medio ambiente. Ver cómo Terra Ventos utiliza la ciencia del clima para guiar la implementación de casas, garantizando frescura natural y luz perfecta, es fascinante. No es solo una parcela, es la base para una arquitectura de alta gama que dialoga con la naturaleza.\"",
-              "\"Me mueven los datos, y Terra Ventos habla mi idioma. El Estudio de Vientos no es marketing — es ciencia aplicada a la inversión inmobiliaria, con análisis de vectores climáticos, escasez locacional y potencial de apreciación. Como CTO, reconozco cuando un equipo domina lo que hace. Invertí en Ceará porque los números eran irrefutables.\""
+              "\"Me mueven los datos, y Terra Ventos habla mi idioma. El Estudio de Vientos no es marketing — es ciencia aplicada a la inversión inmobiliaria, con análisis de vectores climáticos, escasez locacional y potencial de apreciación. Como CTO, reconheço quando um tim domina o que faz. Investi no Ceará porque os números eram irrefutáveis.\""
             ]
           },
           form: {
@@ -441,7 +440,7 @@ i18n
               message: "Por favor, escriba su mensaje."
             }
           },
-          footer: { rights: "© Copyright 2026. Todos los derechos reservados." },
+          footer: { rights: "© Copyright 2026. Todos os direitos reservados." },
           pagina: {
             back: "Volver",
             about: "Sobre la propiedad",
@@ -454,7 +453,7 @@ i18n
             downloadTitle: "Descargar Material",
             downloadDesc: "Acceda a los archivos oficiales del proyecto.",
             viewPdf: "Ver PDF",
-            reservationNotice: "Realice la cotizaci\u00F3n directamente en la plataforma de reservas",
+            reservationNotice: "Realice la cotización directamente en la plataforma de reservas",
             bookAirbnb: "Link al Airbnb",
             whatsapp: "Hable con nosotros"
           }

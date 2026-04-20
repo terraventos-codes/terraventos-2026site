@@ -1,4 +1,4 @@
-import { type OportunidadeDetalhe } from './oportunidadesData';
+import { oportunidadesData, type OportunidadeDetalhe } from './oportunidadesData';
 
 export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
   pt: [
@@ -822,7 +822,6 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
   ],
 };
 
-import { oportunidadesData, type OportunidadeDetalhe } from './oportunidadesData';
 
 export function getOportunidadesData(lang: string): OportunidadeDetalhe[] {
   const baseLang = lang.split('-')[0];
