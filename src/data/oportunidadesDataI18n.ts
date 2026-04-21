@@ -1,6 +1,6 @@
 import { oportunidadesData, type OportunidadeDetalhe } from './oportunidadesData';
 
-export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
+export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe>[]> = {
   pt: [
     {
       id: '07',
@@ -656,8 +656,6 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       price: 'R$ 400.000,00',
       installments: 'Consulte condiciones de mercado',
     },
-  ],
-  es: [
     {
       id: '06',
       slug: 'prea-house', category: 'venda',
@@ -943,6 +941,7 @@ export function getOportunidadesData(lang: string): OportunidadeDetalhe[] {
     const translated = translatedList.find(t => t.id === master.id);
     if (translated) {
       return {
+        ...master,
         ...translated,
         // Garante que galeria e videoSources sempre venham do master (fonte única de imagens)
         gallery: master.gallery,
@@ -951,7 +950,7 @@ export function getOportunidadesData(lang: string): OportunidadeDetalhe[] {
         mapImage: master.mapImage,
         mapUrl: master.mapUrl,
         reservationUrl: master.reservationUrl,
-      };
+      } as OportunidadeDetalhe;
     }
     // Fallback: usa o próprio master (sem tradução)
     return master;
