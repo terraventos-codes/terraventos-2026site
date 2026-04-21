@@ -69,7 +69,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
 
           {/* Subtítulo dinâmico que acompanha o card ativo */}
           <p className="ops-subtitle ops-subtitle--dynamic" key={activeItem.id}>
-            {t(`oportunidades.cards.${activeItem.id}`)}
+            {localizedData[activeIndex].summaryDescription}
           </p>
 
           <div className="ops-icon">
