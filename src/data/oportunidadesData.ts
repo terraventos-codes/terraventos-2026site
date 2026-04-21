@@ -36,6 +36,47 @@ export type OportunidadeDetalhe = {
 
 export const oportunidadesData: OportunidadeDetalhe[] = [
   {
+    id: '07',
+    slug: 'terreno-exclusivo-prea-200m-mar',
+    title: 'VENDA',
+    image: '/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.47.jpeg',
+    badge: 'Oportunidade',
+    propertyTitle: 'TERRENO EXCLUSIVO PREÁ — 200M DO MAR',
+    location: 'Preá, Ceará, Brasil',
+    rating: 5,
+    exclusiveText: '250 m² | 10m x 25m | Apenas 200m da Praia',
+    about: [
+      'Excelente oportunidade de investimento em um dos destinos mais valorizados do litoral cearense.',
+      'Terreno com 250 m² (10m x 25m) localizado em posição estratégica no Preá.',
+      'Situado a apenas 200 metros da praia, vizinho aos prestigiados empreendimentos Botanik e Carnaúba Windhouse.',
+      'Ideal para quem busca construir a casa dos sonhos ou investir em um mercado em plena ascensão.'
+    ],
+    infra: [
+      'Área Total: 250 m²',
+      'Dimensões: 10m x 25m',
+      'Distância da Praia: 200m',
+      'Localização Premium'
+    ],
+    facilities: ['200m da Praia', 'Vizinho Botanik', 'Vizinho Carnaúba', 'Exclusividade'],
+    gallery: {
+      main: '/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.47.jpeg',
+      sideTop: '/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.48.jpeg',
+      sideBottom: '/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.48 (1).jpeg',
+      extra: [
+        '/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.48 (2).jpeg'
+      ]
+    },
+    mapImage: '/mapa.avif',
+    mapUrl: 'https://maps.google.com/maps?q=-2.8156572,-40.4110733&hl=pt-BR&z=15&output=embed',
+    videoSources: [
+      'https://player.vimeo.com/video/1185188271'
+    ],
+    priceTag: 'A partir de',
+    price: 'R$ 400.000,00',
+    installments: 'Consulte condições de mercado',
+    category: 'venda'
+  },
+  {
     id: '06',
     slug: 'prea-house',
     title: 'VENDA',
@@ -91,7 +132,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     },
     mapImage: '/mapa.avif',
     mapUrl: 'https://maps.google.com/maps?q=-2.812328,-40.428784&z=15&output=embed',
-    priceTag: 'A partir de',
+    priceTag: '',
     price: 'R$ 2.700.000,00',
     installments: 'Consulte condições',
     category: 'venda'

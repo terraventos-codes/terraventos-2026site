@@ -46,7 +46,20 @@ i18n
             badge: "Oportunidades exclusivas",
             title1: "ENCONTRE SEU PRÓXIMO",
             title2: "IMÓVEL NO LITORAL DO CEARÁ",
-            title: "VENDA, INVESTIMENTOS E LUGARES DE EVENTOS NO CEARA"
+            title: "VENDA, INVESTIMENTOS E LUGARES DE EVENTOS NO CEARA",
+            viewAllPhotos: "Ver todas as fotos",
+            noResults: "Nenhuma propriedade encontrada."
+          },
+          categorias: {
+            all: "Todas",
+            venda: "Venda",
+            lancamento: "Lançamento",
+            temporada: "Temporada",
+            investimento: "Investimento"
+          },
+          projetos: {
+            badge: "Portfólio de Propriedades",
+            title: "EXPLORE NOSSOS<br />PROJETOS EXCLUSIVOS"
           },
           condudu: {
             badge: "Exclusividade",
@@ -161,7 +174,20 @@ i18n
             badge: "Exclusive Opportunities",
             title1: "FIND YOUR NEXT",
             title2: "PROPERTY ON CEARÁ'S COAST",
-            title: "FOR SALE, INVESTMENTS AND EVENT VENUES IN CEARÁ"
+            title: "FOR SALE, INVESTMENTS AND EVENT VENUES IN CEARÁ",
+            viewAllPhotos: "View all photos",
+            noResults: "No properties found."
+          },
+          categorias: {
+            all: "All",
+            venda: "For Sale",
+            lancamento: "Launch",
+            temporada: "Stay",
+            investimento: "Investment"
+          },
+          projetos: {
+            badge: "Property Portfolio",
+            title: "EXPLORE OUR<br />EXCLUSIVE PROJECTS"
           },
           condudu: {
             badge: "Exclusive",
@@ -284,7 +310,20 @@ i18n
             badge: "Oportunidades exclusivas",
             title1: "ENCUENTRA TU PRÓXIMA",
             title2: "PROPIEDAD EN LA COSTA DE CEARÁ",
-            title: "VENTA, INVERSIONES Y LUGARES DE EVENTOS IN EL LITORAL DE CEARA"
+            title: "VENTA, INVERSIONES Y LUGARES DE EVENTOS IN EL LITORAL DE CEARA",
+            viewAllPhotos: "Ver todas las fotos",
+            noResults: "No se encontraron propiedades."
+          },
+          categorias: {
+            all: "Todas",
+            venda: "Venta",
+            lancamento: "Lanzamiento",
+            temporada: "Estancia",
+            investimento: "Inversión"
+          },
+          projetos: {
+            badge: "Portafolio de Propiedades",
+            title: "EXPLORA NUESTROS<br />PROYECTOS EXCLUSIVOS"
           },
           condudu: {
             badge: "Exclusivo",

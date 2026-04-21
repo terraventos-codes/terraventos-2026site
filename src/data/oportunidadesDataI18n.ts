@@ -3,6 +3,37 @@ import { oportunidadesData, type OportunidadeDetalhe } from './oportunidadesData
 export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
   pt: [
     {
+      id: '07',
+      slug: 'terreno-exclusivo-prea-200m-mar', category: 'venda',
+      title: 'VENDA',
+      image: '/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.47.jpeg',
+      badge: 'Oportunidade',
+      propertyTitle: 'TERRENO EXCLUSIVO PREÁ — 200M DO MAR',
+      location: 'Preá, Ceará, Brasil',
+      rating: 5,
+      exclusiveText: '250 m² | 10m x 25m | Apenas 200m da Praia',
+      summaryDescription: 'Excelente oportunidade no Preá: Terreno de 250m² a apenas 200 metros do mar, vizinho ao Botanik e Carnaúba Windhouse.',
+      about: [
+        'Excelente oportunidade de investimento em um dos destinos mais valorizados do litoral cearense.',
+        'Terreno com 250 m² (10m x 25m) localizado em posição estratégica no Preá.',
+        'Situado a apenas 200 metros da praia, vizinho aos prestigiados empreendimentos Botanik e Carnaúba Windhouse.',
+        'Ideal para quem busca construir a casa dos sonhos ou investir em um mercado em plena ascensão.'
+      ],
+      infra: [
+        'Área Total: 250 m²',
+        'Dimensões: 10m x 25m',
+        'Distância da Praia: 200m',
+        'Localização Premium'
+      ],
+      facilities: ['200m da Praia', 'Vizinho Botanik', 'Vizinho Carnaúba', 'Exclusividade'],
+      videoSources: [
+        'https://player.vimeo.com/video/1185188271'
+      ],
+      priceTag: 'A partir de',
+      price: 'R$ 400.000,00',
+      installments: 'Consulte condições de mercado',
+    },
+    {
       id: '06',
       slug: 'prea-house', category: 'venda',
       title: 'VENDA',
@@ -42,7 +73,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       },
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=-2.812328,-40.428784&z=15&output=embed',
-      priceTag: 'A partir de',
+      priceTag: '',
       price: 'R$ 2.700.000,00',
       installments: 'Consulte condições'
     },
@@ -293,6 +324,37 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
   ],
   en: [
     {
+      id: '07',
+      slug: 'terreno-exclusivo-prea-200m-mar', category: 'venda',
+      title: 'FOR SALE',
+      image: '/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.47.jpeg',
+      badge: 'Opportunity',
+      propertyTitle: 'EXCLUSIVE PREÁ LAND — 200M FROM THE SEA',
+      location: 'Preá, Ceará, Brazil',
+      rating: 5,
+      exclusiveText: '250 sqm | 10m x 25m | Only 200m from the Beach',
+      summaryDescription: 'Excellent opportunity in Preá: 250 sqm lot just 200 meters from the sea, neighboring Botanik and Carnaúba Windhouse.',
+      about: [
+        'Excellent investment opportunity in one of the most valued destinations on the Ceará coast.',
+        'Land with 250 sqm (10m x 25m) located in a strategic position in Preá.',
+        'Situated just 200 meters from the beach, neighboring the prestigious Botanik and Carnaúba Windhouse developments.',
+        'Ideal for those looking to build their dream home or invest in a booming market.'
+      ],
+      infra: [
+        'Total Area: 250 sqm',
+        'Dimensions: 10m x 25m',
+        'Distance to the Beach: 200m',
+        'Premium Location'
+      ],
+      facilities: ['200m from Beach', 'Botanik Neighbor', 'Carnaúba Neighbor', 'Exclusivity'],
+      videoSources: [
+        'https://player.vimeo.com/video/1185188271'
+      ],
+      priceTag: 'Starting at',
+      price: 'R$ 400,000.00',
+      installments: 'Consult market conditions',
+    },
+    {
       id: '06',
       slug: 'prea-house', category: 'venda',
       title: 'FOR SALE',
@@ -333,7 +395,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       },
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=-2.812328,-40.428784&z=15&output=embed',
-      priceTag: 'Starting at',
+      priceTag: '',
       price: 'R$ 2,700,000.00',
       installments: 'Consult conditions'
     },
@@ -564,6 +626,39 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
   ],
   es: [
     {
+      id: '07',
+      slug: 'terreno-exclusivo-prea-200m-mar', category: 'venda',
+      title: 'VENTA',
+      image: '/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.47.jpeg',
+      badge: 'Oportunidad',
+      propertyTitle: 'TERRENO EXCLUSIVO PREÁ — 200M DEL MAR',
+      location: 'Preá, Ceará, Brasil',
+      rating: 5,
+      exclusiveText: '250 m² | 10m x 25m | A solo 200m de la Playa',
+      summaryDescription: 'Excelente oportunidad en Preá: Terreno de 250m² a solo 200 metros del mar, vecino a Botanik y Carnaúba Windhouse.',
+      about: [
+        'Excelente oportunidad de inversión en uno de los destinos más valorados de la costa de Ceará.',
+        'Terreno de 250 m² (10m x 25m) ubicado en una posición estratégica en Preá.',
+        'Situado a solo 200 metros de la playa, vecino a los prestigiosos desarrollos Botanik y Carnaúba Windhouse.',
+        'Ideal para quienes buscan construir la casa de sus sueños o investir en un mercado en pleno auge.'
+      ],
+      infra: [
+        'Área Total: 250 m²',
+        'Dimensiones: 10m x 25m',
+        'Distancia a la Playa: 200m',
+        'Ubicación Premium'
+      ],
+      facilities: ['200m de la Playa', 'Vecino Botanik', 'Vecino Carnaúba', 'Exclusividad'],
+      videoSources: [
+        'https://player.vimeo.com/video/1185188271'
+      ],
+      priceTag: 'Desde',
+      price: 'R$ 400.000,00',
+      installments: 'Consulte condiciones de mercado',
+    },
+  ],
+  es: [
+    {
       id: '06',
       slug: 'prea-house', category: 'venda',
       title: 'VENTA',
@@ -604,7 +699,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       },
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=-2.812328,-40.428784&z=15&output=embed',
-      priceTag: 'Desde',
+      priceTag: '',
       price: 'R$ 2.700.000,00',
       installments: 'Consulte condiciones'
     },
@@ -838,18 +933,27 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
 
 export function getOportunidadesData(lang: string): OportunidadeDetalhe[] {
   const baseLang = lang.split('-')[0];
-  const translated = oportunidadesDataByLang[baseLang] ?? oportunidadesDataByLang['pt'];
-  
-  // Sincroniza as galerias de imagens da fonte mestre (oportunidadesData)
-  // Isso garante que todas as fotos estejam disponíveis em todos os idiomas.
-  return translated.map(tItem => {
-    const master = oportunidadesData.find(m => m.id === tItem.id);
-    if (master) {
+  const translatedList = oportunidadesDataByLang[baseLang] ?? oportunidadesDataByLang['pt'];
+
+  // Itera sempre sobre a fonte mestre (oportunidadesData) para garantir que
+  // toda nova propriedade apareça automaticamente em todas as seções.
+  // Para cada item do master, busca a tradução correspondente e mescla.
+  // Se não houver tradução, cai no item original em português.
+  return oportunidadesData.map(master => {
+    const translated = translatedList.find(t => t.id === master.id);
+    if (translated) {
       return {
-        ...tItem,
-        gallery: master.gallery
+        ...translated,
+        // Garante que galeria e videoSources sempre venham do master (fonte única de imagens)
+        gallery: master.gallery,
+        videoSources: master.videoSources,
+        documents: master.documents,
+        mapImage: master.mapImage,
+        mapUrl: master.mapUrl,
+        reservationUrl: master.reservationUrl,
       };
     }
-    return tItem;
+    // Fallback: usa o próprio master (sem tradução)
+    return master;
   });
 }

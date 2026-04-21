@@ -10,6 +10,18 @@ type ProjetosDestaqueProps = {
 
 const projetos = [
   {
+    id: "07",
+    image: '/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.47.jpeg',
+    tag: 'VENDA',
+    location: 'Preá, Ceará, Brasil',
+    title: 'Terreno Exclusivo Preá',
+    area: '250 m²',
+    beds: null,
+    baths: null,
+    price: 'R$ 400.000',
+    detailIndex: 0,
+  },
+  {
     id: "06",
     image: '/Prea House/WhatsApp Image 2026-04-20 at 09.12.53.jpeg',
     tag: 'VENDA',
@@ -19,7 +31,7 @@ const projetos = [
     beds: 3,
     baths: 3,
     price: 'Conferir',
-    detailIndex: 0,
+    detailIndex: 1,
   },
   {
     id: "04",
