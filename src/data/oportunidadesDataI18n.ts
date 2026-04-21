@@ -43,7 +43,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=-2.812328,-40.428784&z=15&output=embed',
       priceTag: 'A partir de',
-      price: 'Sob Consulta',
+      price: 'R$ 2.700.000,00',
       installments: 'Consulte condições'
     },
     {
@@ -56,6 +56,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       location: 'Paracuru, Ceará, Brasil',
       rating: 5,
       exclusiveText: 'Loteamento Fechado em Paracuru-CE com lagoa privativa, lazer completo e a 100m da praia. Alto padrão e exclusividade em uma das praias mais belas do Ceará',
+      summaryDescription: 'O Villa Prabhu é um empreendimento planejado pela Bianchi Urbanismo, focado em oferecer qualidade de vida e segurança em uma região privilegiada.',
       about: [
         'O Villa Prabhu é um empreendimento planejado pela Bianchi Urbanismo, focado em oferecer qualidade de vida e segurança.',
         'Situado em uma região privilegiada com ampla área verde e recursos hídricos, o projeto destaca-se pelo planejamento urbano inteligente e integração com a natureza.',
@@ -301,6 +302,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       location: 'Preá, Ceará, Brazil',
       rating: 5,
       exclusiveText: '745 m² Land Area | 261 m² Built Area | 68 m² Pool',
+      summaryDescription: 'Preá House: Luxury property with 745 sqm total area, gourmet area and spectacular L-shaped pool. Top-tier infrastructure and finishes for the best experience in Ceará.',
       about: [
         'Luxury property consisting of two separate buildings with the swimming pool situated in between.',
         'Rear House: 2 suites (32.5 m² each) with custom furniture, central Kitchen/Living area (32 m²) with island, 10 m² laundry, and front veranda.',
@@ -332,7 +334,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=-2.812328,-40.428784&z=15&output=embed',
       priceTag: 'Starting at',
-      price: 'On Request',
+      price: 'R$ 2,700,000.00',
       installments: 'Consult conditions'
     },
     {
@@ -345,6 +347,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       location: 'Paracuru, Ceará, Brazil',
       rating: 5,
       exclusiveText: 'Gated Community of Lots in Paracuru-CE with private lagoon, full leisure facilities and 100m from the beach. High standard and exclusivity in one of Ceará\u0027s most beautiful beaches',
+      summaryDescription: 'Villa Prabhu is a development planned by Bianchi Urbanismo, focused on offering quality of life and security in a privileged region.',
       about: [
         'Villa Prabhu is a development planned by Bianchi Urbanismo, focused on offering quality of life and security.',
         'Located in a privileged region with ample green area and water resources, the project stands out for its intelligent urban planning and integration with nature.',
@@ -383,6 +386,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       location: 'Preá, Ceará, Brazil',
       rating: 5,
       exclusiveText: '153 m² | 3 Suites | 10 Exclusive Projects',
+      summaryDescription: 'Ready high-end residences with contemporary architecture integrated into nature. Ideal for a second home and exclusive beachfront experiences.',
       about: [
         'Your Private Beachfront Retreat in Preá: The ultimate rustic-luxury experience.',
         'Vila Conduru III is now your private spot for the best wind in the world and exclusive events. Located literally on the beachfront.',
@@ -432,6 +436,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       location: 'Bitupitá, Ceará, Brazil',
       rating: 5,
       exclusiveText: '4,300 m² | 10 Exclusive Land Projects',
+      summaryDescription: 'Beachfront land in the latest planned village on the Costa dos Ventos Route. Strategic investment opportunity with the best appreciation drivers.',
       about: [
         'The Next Appreciation Frontier: Exclusivity, beachfront access, and the most strategic m² on the West Coast.',
         'There are places the market has not yet discovered, but the wind has. Bitupitá is the last untouched refuge on the Costa dos Ventos Route.',
@@ -475,6 +480,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       location: 'Preá, Ceará, Brazil',
       rating: 5,
       exclusiveText: '2,200 sq.ft | 2 Bathrooms | 10 Exclusive Projects',
+      summaryDescription: 'Boutique developments for early-vision investors. Product featuring applied wind study, architectural customization, and highly scarce locations.',
       about: [
         'The Essence of Sustainable Luxury: A unique blend of modern sustainability and tranquility.',
         'Inspired by a New York refuge, this residence offers 2,200 sq.ft entirely powered by solar energy.',
@@ -514,6 +520,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       location: 'Navidad, O\'Higgins, Chile',
       rating: 5,
       exclusiveText: 'Discover Matanzas Paradise 🌊 Modern house comfortably equipped for 6 guests, spectacular panoramic sea and forest views.',
+      summaryDescription: 'Discover Matanzas Paradise: Modern house comfortably equipped for 6 guests, spectacular panoramic sea and forest views. Equipped with a hot tub and Starlink Wi-Fi.',
       about: [
         'Discover Matanzas Paradise: Modern house comfortably equipped for 6 guests.',
         'Spectacular panoramic sea and forest views.',
@@ -566,20 +573,21 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       location: 'Preá, Ceará, Brasil',
       rating: 5,
       exclusiveText: '745 m² Terreno | 261 m² Construcción | Piscina 68 m²',
+      summaryDescription: 'Preá House: Propiedad de lujo con 745 m² de área total, área gourmet y espectacular piscina en L. Infraestructura y acabados de primera para la mejor experiencia en Ceará.',
       about: [
-        'Propiedad de lujo que consta de dos dependencias separadas con la piscina situada en el medio.',
-        'Casa Trasera: 2 suites (32.5 m² cada una), muebles a medida, área de cocina/sala (32 m²) con isla, lavandería 10 m² e terraza.',
+        'Propiedad de lujo que consta de dos dependencias separadas com la piscina situada en el medio.',
+        'Casa Trasera: 2 suites (32.5 m² cada una), muebles a medida, área de cocina/sala (32 m²) com isla, lavandería 10 m² e terraza.',
         'Edificio Frontal: Área Gourmet semiabierta (54 m²), 1 suite (24 m²), baño de visitas y garaje para ATV (8.5 m²).',
-        'Terraza en la Azotea: 96 m² preparada estructuralmente para futura expansión con fontanería e infraestructura de gas.',
-        'Piscina en L: 65.000 litros (10m x 4m) con área de playa, asientos integrados e ionizador automatizado vía smartphone.',
+        'Terraza en la Azotea: 96 m² preparada estructuralmente para futura expansión com fontanería e infraestructura de gas.',
+        'Piscina en L: 65.000 litros (10m x 4m) com área de playa, asientos integrados e ionizador automatizado vía smartphone.',
         'Acabados Premium: Ventanas y puertas en madera Timborana, estructura de Maçaranduba e deck de Tatajuba.'
       ],
       infra: [
         'Área del Terreno: 745 m² | Construída: 261 m²',
         'Sistemas: Calentador de agua a gas en todos los puntos e sistema de riego automático en el jardín.',
-        'Seguridad: Alarma en todas las puertas y sistema CCTV con 8 cámaras (acceso remoto por smartphone).',
-        'Eléctrica: Portones automáticos con intercomunicador y control remoto.',
-        'Expansión: Estructura de azotea preparada para futuras suites con todas as conexiones de agua y desagüe.'
+        'Seguridad: Alarma en todas las puertas y sistema CCTV com 8 cámaras (acceso remoto por smartphone).',
+        'Eléctrica: Portones automáticos com intercomunicador y control remoto.',
+        'Expansión: Estructura de azotea preparada para futuras suites com todas as conexiones de agua y desagüe.'
       ],
       facilities: ['3 Suites', 'Piscina 68 m²', 'Área Gourmet', 'Rooftop', 'Seguridad CCTV', 'Portones Automáticos'],
       gallery: {
@@ -597,7 +605,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=-2.812328,-40.428784&z=15&output=embed',
       priceTag: 'Desde',
-      price: 'Bajo Consulta',
+      price: 'R$ 2.700.000,00',
       installments: 'Consulte condiciones'
     },
     {
@@ -609,13 +617,14 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       propertyTitle: 'VILLA PRABHU — PARACURU-CE',
       location: 'Paracuru, Ceará, Brasil',
       rating: 5,
-      exclusiveText: 'Condominio Cerrado de Lotes en Paracuru-CE con laguna privada, ocio completo y a 100m de la playa. Alto estándar y exclusividad en una de las playas más hermosas de Ceará',
+      exclusiveText: 'Loteamiento Cerrado de Terrenos en Paracuru-CE com laguna privada, ocio completo y a 100m de la playa. Alto estándar y exclusividad en una de las playas más bellas de Ceará',
+      summaryDescription: 'Villa Prabhu es un emprendimiento planeado por Bianchi Urbanismo, enfocado en ofrecer calidad de vida y seguridad en una región privilegiada.',
       about: [
         'Villa Prabhu es un desarrollo planificado por Bianchi Urbanismo, enfocado en ofrecer calidad de vida y seguridad.',
-        'Ubicado en una región privilegiada con amplia área verde y recursos hídricos, el proyecto destaca por su planificación urbana inteligente e integración con la naturaleza.',
+        'Ubicado en una región privilegiada com amplia área verde y recursos hídricos, el proyecto destaca por su planificación urbana inteligente e integración com la naturaleza.',
         'Lotes Exclusivos: Unidades amplas com áreas privadas de 242 m² a más de 600 m².',
-        'Planificación de Etapas: Proyecto dividido en fases, con la Etapa 1 ya consolidada y unidades disponibles en la Etapa 2.',
-        'Urbanismo de Calidad: Infraestructura pensada para el bienestar, con calles diseñadas como Av. Prabhu e Rua Azalea.',
+        'Planificación de Etapas: Proyecto dividido en fases, com la Etapa 1 ya consolidada y unidades disponibles en la Etapa 2.',
+        'Urbanismo de Calidad: Infraestructura pensada para el bienestar, com calles diseñadas como Av. Prabhu e Rua Azalea.',
       ],
       infra: [
         'Financiamiento Directo: Pago fácil en hasta 120 cuotas mensuales.',
@@ -648,6 +657,7 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       location: 'Preá, Ceará, Brasil',
       rating: 5,
       exclusiveText: '153 m² | 3 Suites | 10 Proyectos exclusivos',
+      summaryDescription: 'Residencias de alta gama listas, com arquitectura contemporánea integrada a la naturaleza. Ideales para segunda vivienda y experiencias exclusivas frente al mar.',
       about: [
         'Tu Refugio Privado Frente al Mar en Preá: La experiencia definitiva de lujo rústico.',
         'La Vila Conduru III es ahora tu palco privado para el mejor viento del mundo e eventos exclusivos.',
@@ -697,17 +707,18 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       location: 'Bitupitá, Ceará, Brasil',
       rating: 5,
       exclusiveText: '4.300 m² | 10 Proyectos de Terrenos Exclusivos',
+      summaryDescription: 'Terrenos frente al mar en el último pueblo planeado en la Ruta Costa dos Ventos. Oportunidad de inversión estratégica com los mejores vectores de apreciación.',
       about: [
         'Exclusividad, frente al mar y el m² más estratégico de la Costa Oeste.',
         'Hay lugares que el mercado aún no ha descubierto, pero el viento sí. Bitupitá es el último refugio intacto en la Ruta Costa dos Ventos.',
-        'La Nueva Ruta del Foil: Con vientos constantes durante 6 a 8 meses al año y aguas perfectas.',
+        'La Nueva Ruta del Foil: Com vientos constantes durante 6 a 8 meses al año y aguas perfectas.',
         'Escasez Real: Un proyecto de solo 10 lotes exclusivos, garantizando baja densidad e privacidad absoluta.',
-        'Acceso Directo Frente al Mar: Propiedades con frente al mar libre y acceso directo a la playa.',
-        'Seguridad Legal Terra Ventos: Documentación 100% revisada con matrícula individualizada.',
+        'Acceso Directo Frente al Mar: Propiedades com frente al mar libre y acceso directo a la playa.',
+        'Seguridad Legal Terra Ventos: Documentación 100% revisada com matrícula individualizada.',
       ],
       infra: [
         'Ubicación prime y exclusiva',
-        'Villa privada con 10 proyectos',
+        'Villa privada com 10 proyectos',
         'Pies en la arena',
         'Ideal para la vela/kite'
       ],
@@ -740,10 +751,11 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       location: 'Preá, Ceará, Brasil',
       rating: 5,
       exclusiveText: '2.200 sq.ft | 2 Baños | 10 Proyectos Exclusivos',
+      summaryDescription: 'Desarrollos boutique para inversores com visión anticipada. Producto com estudio de vientos aplicado, personalización arquitectónica y ubicaciones de alta escasez.',
       about: [
         'La Esencia del Lujo Sostenible: Una mezcla única de sostenibilidad moderna y tranquilidad.',
         'Inspirada en un refugio de Nueva York, esta residencia ofrece 2.200 sq.ft completamente alimentada por energía solar.',
-        '1. Diseño Sostenible: Sistemas inteligentes con paneles solares en el techo.',
+        '1. Diseño Sostenible: Sistemas inteligentes com paneles solares en el techo.',
         '2. Comodidad Estilo Spa: 2 baños modernos e inmersivos.',
         '3. Transparencia Dinámica: Amplias paredes de vidrio del suelo al techo.',
         '4. Privacidad Panorámica: Terraza privada en la azotea.',
@@ -775,15 +787,16 @@ export const oportunidadesDataByLang: Record<string, OportunidadeDetalhe[]> = {
       title: 'ESTANCIA',
       image: '/Matanzas/3b77d98c-5cd0-4f51-816a-6e42748720d2.avif',
       badge: 'Estancia',
-      propertyTitle: 'Casa Matanzas con tinaja / vista al mar y bosque',
+      propertyTitle: 'Casa Matanzas com tinaja / vista al mar y bosque',
       location: 'Navidad, O\'Higgins, Chile',
       rating: 5,
       exclusiveText: 'Descubre Matanzas Paradise 🌊 Casa moderna cómodamente equipada para 6 huéspedes, espectaculares vistas panorámicas al mar y al bosque.',
+      summaryDescription: 'Descubre Matanzas Paradise: Casa moderna cómodamente equipada para 6 huéspedes, espectaculares vistas panorámicas al mar y al bosque. Equipada com tinaja y Wi-Fi Starlink.',
       about: [
         'Descubre Matanzas Paradise: Casa moderna cómodamente equipada para 6 huéspedes.',
         'Espectaculares vistas panorámicas al mar y al bosque.',
         'Ideal para quienes buscan tranquilidad en uno de los destinos de kitesurf y windsurf más emblemáticos de Chile.',
-        '1. Fuera de la red: energía solar, espacio sostenible en armonía con la naturaleza.',
+        '1. Fuera de la red: energía solar, espacio sostenible en armonía com la naturaleza.',
         '2. Estacionamiento privado en el lugar.',
         '3. Ubicación Privilegiada: A solo 7 min de la playa de Matanzas y La Vega de Pupuya.',
         '4. Terraza con tinaja (Jacuzzi privado).',

@@ -12,7 +12,6 @@ type OportunidadesProps = {
 
 export default function Oportunidades({ onSelect }: OportunidadesProps) {
   const { t, i18n } = useTranslation();
-  const opTitles = t('oportunidades.titles', { returnObjects: true }) as string[];
   const allLocalizedData = getOportunidadesData(i18n.language);
   
   // Exibir apenas os 3 primeiros conforme solicitado nesta seção (Venda/Preá, Lançamento/Prabhu, Temporada/Conduru)
@@ -123,15 +122,15 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
                       key={item.id}
                       className={`ops-card ${isActive ? 'active' : ''}`}
                       onClick={() => isActive ? onSelect(localItem) : setActiveIndex(index)}
-                      title={isActive ? undefined : opTitles[index] || item.title}
+                      title={isActive ? undefined : localItem.badge}
                     >
                       {isActive ? (
                         <div className="ops-card-expanded">
-                          <img src={localItem.image} alt={opTitles[index] || localItem.title} className="ops-card-image" />
+                          <img src={localItem.image} alt={localItem.propertyTitle} className="ops-card-image" />
                           <div className="ops-card-cutout ops-card-cutout--rich">
                             <div className="ops-card-cutout-inner">
                               <div className="ops-card-pip" aria-hidden="true" />
-                              <span className="ops-card-label">{opTitles[index] || item.title}</span>
+                              <span className="ops-card-label">{localItem.badge}</span>
                               <span className="ops-card-property-name">{localItem.propertyTitle}</span>
                               <span className="ops-card-price">{localItem.priceTag} {localItem.price}</span>
                             </div>
@@ -151,7 +150,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
                       ) : (
                         <div className="ops-card-collapsed">
                           <div className="ops-collapsed-pip" aria-hidden="true" />
-                          <span className="ops-collapsed-text">{opTitles[index] || item.title}</span>
+                          <span className="ops-collapsed-text">{localItem.title}</span>
                           <span className="ops-collapsed-hint" aria-hidden="true">›</span>
                         </div>
                       )}
@@ -181,7 +180,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
 
           {isMobile && (
             <div className="ops-list-mobile">
-              {displayData.map((item) => (
+              {localizedData.map((item) => (
                 <a
                   key={item.id}
                   href={`/propriedade/${item.slug}`}
@@ -192,7 +191,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
                   }}
                 >
                   <div className="ops-card-mobile-image-wrapper">
-                    <img src={item.image} alt={item.title} className="ops-card-mobile-image" />
+                    <img src={item.image} alt={item.propertyTitle} className="ops-card-mobile-image" />
                   </div>
                   <div className="ops-card-mobile-body">
                     <span className="ops-card-mobile-id">{item.id}</span>

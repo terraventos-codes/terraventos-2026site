@@ -2,12 +2,14 @@ export type OportunidadeDetalhe = {
   id: string;
   slug: string;
   title: string;
+  searchTitle?: string;
   image: string;
   badge: string;
   propertyTitle: string;
   location: string;
   rating: number;
   exclusiveText: string;
+  summaryDescription?: string;
   about: string[];
   infra: string[];
   facilities: string[];
@@ -90,7 +92,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     mapImage: '/mapa.avif',
     mapUrl: 'https://maps.google.com/maps?q=-2.812328,-40.428784&z=15&output=embed',
     priceTag: 'A partir de',
-    price: 'Sob Consulta',
+    price: 'R$ 2.700.000,00',
     installments: 'Consulte condições',
     category: 'venda'
   },

@@ -85,7 +85,6 @@ const projetos = [
 
 export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
   const { t, i18n } = useTranslation();
-  const pdData = t('projetos.cards', { returnObjects: true }) as Record<string, any>;
   const localizedData = getOportunidadesData(i18n.language);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -159,8 +158,7 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
         >
           <div className="pd-slider-track">
             {projetos.map((projeto) => {
-              const cardData = pdData[projeto.id] || { title: projeto.title, tag: projeto.tag, price: projeto.price };
-              const itemFromData = localizedData[projeto.detailIndex];
+              const itemFromData = localizedData.find(d => d.id === projeto.id) || localizedData[projeto.detailIndex];
 
               return (
                 <a 
@@ -173,8 +171,8 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
                   }}
                 >
                   <div className="pd-image-wrapper">
-                    <img src={projeto.image} alt={cardData.title} className="pd-image" />
-                    <div className="pd-tag">{cardData.tag}</div>
+                    <img src={projeto.image} alt={itemFromData.propertyTitle} className="pd-image" />
+                    <div className="pd-tag">{itemFromData.badge}</div>
                   </div>
 
                   <div className="pd-content">
@@ -185,7 +183,7 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
                       <span>{projeto.location}</span>
                     </div>
 
-                    <h3 className="pd-card-title">{cardData.title}</h3>
+                    <h3 className="pd-card-title">{itemFromData.propertyTitle}</h3>
 
                     <div className="pd-amenities">
                       {projeto.beds && (
@@ -219,29 +217,34 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
 
                     <div className="pd-price">
                       {(() => {
-                        const p = cardData.price;
+                        const p = itemFromData.price;
+                        const pTag = itemFromData.priceTag;
                         if (!p) return null;
-                        if (p.toLowerCase().startsWith('a partir de ')) {
+                        
+                        // Combinamos o priceTag com o preço
+                        const fullPrice = pTag ? `${pTag} ${p}` : p;
+                        
+                        if (fullPrice.toLowerCase().startsWith('a partir de ')) {
                           return (
                             <>
                               <span style={{ fontSize: '0.6em', display: 'block', fontWeight: 400, opacity: 0.8, marginBottom: '2px', lineHeight: 1, textTransform: 'lowercase', letterSpacing: '0.5px' }}>
                                 a partir de
                               </span>
-                              {p.substring(12)}
+                              {fullPrice.substring(12)}
                             </>
                           );
                         }
-                        if (p.toLowerCase().startsWith('desde ')) {
+                        if (fullPrice.toLowerCase().startsWith('desde ')) {
                           return (
                             <>
                               <span style={{ fontSize: '0.6em', display: 'block', fontWeight: 400, opacity: 0.8, marginBottom: '2px', lineHeight: 1, textTransform: 'lowercase', letterSpacing: '0.5px' }}>
                                 desde
                               </span>
-                              {p.substring(6)}
+                              {fullPrice.substring(6)}
                             </>
                           );
                         }
-                        return p;
+                        return fullPrice;
                       })()}
                     </div>
                   </div>

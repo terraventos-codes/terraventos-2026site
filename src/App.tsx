@@ -358,7 +358,15 @@ function App() {
                               }
                             }}
                           >
-                            {index === 0 ? t('estudo.cta') : (index === 1 ? t('projetos.cards.1.tag') : (index === 2 ? t('nav.regioes') : t('hero.saberMais')))}
+                            {(() => {
+                              if (index === 0) return t('estudo.cta');
+                              if (index === 1) {
+                                const found = getOportunidadesData(i18n.language).find(o => o.id === '02');
+                                return found ? found.badge : 'Venda';
+                              }
+                              if (index === 2) return t('nav.regioes');
+                              return t('hero.saberMais');
+                            })()}
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                               <line x1="7" y1="17" x2="17" y2="7"></line>
                               <polyline points="7 7 17 7 17 17"></polyline>
