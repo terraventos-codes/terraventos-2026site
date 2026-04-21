@@ -231,7 +231,9 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
                       {(() => {
                         const p = itemFromData.price;
                         const pTag = itemFromData.priceTag;
-                        if (!p) return null;
+                        // Se price está vazio mas priceTag tem valor, exibe só o priceTag
+                        if (!p && !pTag) return null;
+                        if (!p) return pTag;
                         
                         // Combinamos o priceTag com o preço
                         const fullPrice = pTag ? `${pTag} ${p}` : p;
