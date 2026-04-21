@@ -45,10 +45,13 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
       <div className="ops-container">
         <div className="ops-info">
           <div className="ops-badge">{t('oportunidades.badge')}</div>
-          <button
-            type="button"
+          <a
+            href={`/propriedade/${localizedData[activeIndex].slug}`}
             className="ops-title-link"
-            onClick={() => onSelect(localizedData[activeIndex])}
+            onClick={(e) => {
+              e.preventDefault();
+              onSelect(localizedData[activeIndex]);
+            }}
             aria-label="Abrir detalhes do imovel em destaque"
           >
             <h2 className="ops-title">
@@ -63,7 +66,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
                 </span>
               </span>
             </h2>
-          </button>
+          </a>
 
           {/* Subtítulo dinâmico que acompanha o card ativo */}
           <p className="ops-subtitle ops-subtitle--dynamic" key={activeItem.id}>
@@ -132,13 +135,17 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
                               <span className="ops-card-property-name">{localItem.propertyTitle}</span>
                               <span className="ops-card-price">{localItem.priceTag} {localItem.price}</span>
                             </div>
-                            <button
+                            <a
+                              href={`/propriedade/${localItem.slug}`}
                               className="ops-card-cta"
-                              type="button"
-                              onClick={(e) => { e.stopPropagation(); onSelect(localItem); }}
+                              onClick={(e) => { 
+                                e.preventDefault();
+                                e.stopPropagation(); 
+                                onSelect(localItem); 
+                              }}
                             >
                               {t('pagina.cta')} →
-                            </button>
+                            </a>
                           </div>
                         </div>
                       ) : (
@@ -175,11 +182,14 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
           {isMobile && (
             <div className="ops-list-mobile">
               {displayData.map((item) => (
-                <button
+                <a
                   key={item.id}
-                  type="button"
+                  href={`/propriedade/${item.slug}`}
                   className="ops-card-mobile"
-                  onClick={() => onSelect(item)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onSelect(item);
+                  }}
                 >
                   <div className="ops-card-mobile-image-wrapper">
                     <img src={item.image} alt={item.title} className="ops-card-mobile-image" />
@@ -191,7 +201,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
                       <span className="ops-card-mobile-property">{item.propertyTitle}</span>
                     </div>
                   </div>
-                </button>
+                </a>
               ))}
             </div>
           )}

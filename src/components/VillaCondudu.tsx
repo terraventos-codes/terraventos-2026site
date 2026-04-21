@@ -87,13 +87,16 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
             <span className="condudu-price-note">{t('condudu.priceNote')}</span>
           </div>
 
-          <button
-            type="button"
+          <a
+            href={`/propriedade/${conduduLocalized.slug}`}
             className="condudu-cta reveal-cta"
-            onClick={() => onSelect(conduduLocalized)}
+            onClick={(e) => {
+              e.preventDefault();
+              onSelect(conduduLocalized);
+            }}
           >
             {t('condudu.cta')}
-          </button>
+          </a>
         </div>
       </div>
     </section>

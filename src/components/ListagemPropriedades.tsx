@@ -71,7 +71,15 @@ const ListagemPropriedades: React.FC<ListagemPropriedadesProps> = ({ items, onSe
       <div className="listing-grid">
         {filteredItems.length > 0 ? (
           filteredItems.map((item) => (
-            <div key={item.id} className="property-card" onClick={() => onSelect(item)}>
+            <a 
+              key={item.id} 
+              href={`/propriedade/${item.slug}`}
+              className="property-card" 
+              onClick={(e) => {
+                e.preventDefault();
+                onSelect(item);
+              }}
+            >
               <div className="property-card-image" style={{ backgroundImage: `url("${item.image}")` }}>
                 <div className="property-badge">{item.badge}</div>
               </div>
@@ -92,15 +100,15 @@ const ListagemPropriedades: React.FC<ListagemPropriedadesProps> = ({ items, onSe
                     <span className="price-tag">{item.priceTag}</span>
                     <span className="price-value">{item.price}</span>
                   </div>
-                  <button className="view-details-btn">
+                  <div className="view-details-btn">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="7" y1="17" x2="17" y2="7"></line>
                       <polyline points="7 7 17 7 17 17"></polyline>
                     </svg>
-                  </button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
           ))
         ) : (
           <div className="no-results">

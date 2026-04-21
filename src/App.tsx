@@ -22,7 +22,8 @@ function App() {
   const [selectedOpportunity, setSelectedOpportunity] = useState<OportunidadeDetalhe>(() => {
     const path = window.location.pathname.toLowerCase();
     if (path.startsWith('/propriedade/')) {
-      const slug = path.replace('/propriedade/', '');
+      let slug = path.replace('/propriedade/', '').split('?')[0].split('#')[0];
+      if (slug.endsWith('/')) slug = slug.slice(0, -1);
       const found = oportunidadesData.find(o => o.slug === slug);
       if (found) {
         const localized = getOportunidadesData(i18n.language || 'pt');
@@ -57,25 +58,31 @@ function App() {
     if (match) setSelectedOpportunity(match);
   };
 
-  const runTransitionTo = (nextPath: string, selectedItem?: OportunidadeDetalhe, pushHistory = true) => {
+  const runTransitionTo = (nextPath: string, pushHistory = true) => {
     if (isSwitchingRef.current) return;
-
-    if (selectedItem) {
-      // Find the localized version by id
-      const localized = getOportunidadesData(i18n.language);
-      const localizedItem = localized.find((d) => d.id === selectedItem.id) ?? selectedItem;
-      setSelectedOpportunity(localizedItem);
-    }
 
     isSwitchingRef.current = true;
     setTransitionClass('page-exit');
 
     window.setTimeout(() => {
-      if (pushHistory && window.location.pathname.toLowerCase() !== nextPath) {
+      if (pushHistory && window.location.pathname.toLowerCase() !== nextPath.toLowerCase()) {
         window.history.pushState({}, '', nextPath);
       }
 
-      setCurrentPath(nextPath);
+      const normalizedPath = nextPath.toLowerCase();
+      setCurrentPath(normalizedPath);
+
+      if (normalizedPath.startsWith('/propriedade/')) {
+        let slug = normalizedPath.replace('/propriedade/', '').split('?')[0].split('#')[0];
+        if (slug.endsWith('/')) slug = slug.slice(0, -1);
+        const baseItem = oportunidadesData.find(o => o.slug === slug);
+        if (baseItem) {
+          const localized = getOportunidadesData(i18n.language);
+          const localizedItem = localized.find(d => d.id === baseItem.id) || baseItem;
+          setSelectedOpportunity(localizedItem);
+        }
+      }
+
       window.scrollTo({ top: 0, behavior: 'auto' });
       setTransitionClass('page-enter');
 
@@ -87,19 +94,11 @@ function App() {
 
   useEffect(() => {
     const handlePopState = () => {
-      const nextPath = window.location.pathname.toLowerCase();
-      if (nextPath.startsWith('/propriedade/')) {
-        const slug = nextPath.replace('/propriedade/', '');
-        const item = oportunidadesData.find(o => o.slug === slug);
-        runTransitionTo(nextPath, item, false);
-      } else {
-        runTransitionTo(nextPath, undefined, false);
-      }
+      runTransitionTo(window.location.pathname, false);
     };
 
     const handleNavigate = (e: any) => {
-      const nextPath = e.detail;
-      runTransitionTo(nextPath);
+      runTransitionTo(e.detail);
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -108,7 +107,7 @@ function App() {
       window.removeEventListener('popstate', handlePopState);
       window.removeEventListener('navigate', handleNavigate);
     };
-  }, []);
+  }, [i18n.language]); // Re-subscribe if language changes to ensure correct data finding
 
   const scrollToSection = (targetId: string) => {
     const section = document.getElementById(targetId);
@@ -178,7 +177,7 @@ function App() {
   }, []);
 
   const handleSelectOpportunity = (item: OportunidadeDetalhe) => {
-    runTransitionTo(`/propriedade/${item.slug}`, item, true);
+    runTransitionTo(`/propriedade/${item.slug}`);
   };
 
   const isPaginaIndividual = currentPath.startsWith('/propriedade/');

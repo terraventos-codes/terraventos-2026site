@@ -163,7 +163,15 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
               const itemFromData = localizedData[projeto.detailIndex];
 
               return (
-                <div className="pd-card" key={projeto.id} onClick={() => onSelect(itemFromData)}>
+                <a 
+                  key={projeto.id}
+                  href={`/propriedade/${itemFromData.slug}`}
+                  className="pd-card" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onSelect(itemFromData);
+                  }}
+                >
                   <div className="pd-image-wrapper">
                     <img src={projeto.image} alt={cardData.title} className="pd-image" />
                     <div className="pd-tag">{cardData.tag}</div>
@@ -237,7 +245,7 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
                       })()}
                     </div>
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>

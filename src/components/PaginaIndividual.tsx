@@ -3,13 +3,27 @@ import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import './PaginaIndividual.css';
 import type { OportunidadeDetalhe } from '../data/oportunidadesData';
+import { getOportunidadesData } from '../data/oportunidadesDataI18n';
 
 type PaginaIndividualProps = {
-  item: OportunidadeDetalhe;
+  slug?: string;
+  item?: OportunidadeDetalhe; // Permite passar o item via props se já tivermos, mas prioriza o slug
 };
 
-export default function PaginaIndividual({ item }: PaginaIndividualProps) {
-  const { t } = useTranslation();
+export default function PaginaIndividual({ slug, item: propItem }: PaginaIndividualProps) {
+  const { t, i18n } = useTranslation();
+  
+  // Resolve o item com base no slug ou no propItem
+  const resolvedItem = (() => {
+    if (propItem && (!slug || propItem.slug === slug)) return propItem;
+    
+    // Se não tivermos o item ou se o slug for diferente, buscamos pelo slug
+    const currentSlug = slug || window.location.pathname.split('/').pop() || '';
+    const localized = getOportunidadesData(i18n.language);
+    return localized.find(o => o.slug === currentSlug) || localized[0];
+  })();
+
+  const item = resolvedItem;
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxVideo, setLightboxVideo] = useState<string | null>(null);
   const [isAlbumOpen, setIsAlbumOpen] = useState(false);
