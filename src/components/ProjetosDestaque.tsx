@@ -10,6 +10,30 @@ type ProjetosDestaqueProps = {
 
 const projetos = [
   {
+    id: "09",
+    image: 'https://vumbnail.com/1186057204.jpg',
+    tag: 'VENDA',
+    location: 'Tatajuba / Guriú, Brasil',
+    title: 'Área Exclusiva Pé na Areia',
+    area: '100.000 m²',
+    beds: null,
+    baths: null,
+    price: 'R$ 15 MILHÕES',
+    detailIndex: 0,
+  },
+  {
+    id: "08",
+    image: '/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg',
+    tag: 'VENDA',
+    location: 'Tatajuba, Ceará, Brasil',
+    title: 'Terreno Exclusivo Tatajuba',
+    area: '1.000 m²',
+    beds: null,
+    baths: null,
+    price: 'R$ 800.000',
+    detailIndex: 0,
+  },
+  {
     id: "07",
     image: '/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.47.jpeg',
     tag: 'VENDA',
@@ -85,12 +109,12 @@ const projetos = [
     id: "01",
     image: '/VillaCondutuPaginaInicial/FINAL 14.png',
     tag: 'TEMPORADA',
-    location: 'Preá, Ceará, Brasil',
-    title: 'Vila Conduru III',
+    location: 'FRENTE À PRAIA DO PREÁ',
+    title: 'CASA ALTO PADRÃO 3 SUÍTES',
     area: '153 m²',
     beds: 3,
     baths: 3,
-    price: 'Conferir',
+    price: 'Consulte',
     detailIndex: 2,
   },
 ];
@@ -170,13 +194,14 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
         >
           <div className="pd-slider-track">
             {projetos.map((projeto) => {
-              const itemFromData = localizedData.find(d => d.id === projeto.id) || localizedData[projeto.detailIndex];
+              const itemFromData = localizedData.find(d => d.id === projeto.id);
+              if (!itemFromData) return null; // Skip if not found in master data
 
               return (
-                <a 
+                <a
                   key={projeto.id}
                   href={`/propriedade/${itemFromData.slug}`}
-                  className="pd-card" 
+                  className="pd-card"
                   onClick={(e) => {
                     e.preventDefault();
                     onSelect(itemFromData);
@@ -234,10 +259,10 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
                         // Se price está vazio mas priceTag tem valor, exibe só o priceTag
                         if (!p && !pTag) return null;
                         if (!p) return pTag;
-                        
+
                         // Combinamos o priceTag com o preço
                         const fullPrice = pTag ? `${pTag} ${p}` : p;
-                        
+
                         if (fullPrice.toLowerCase().startsWith('a partir de ')) {
                           return (
                             <>

@@ -14,9 +14,9 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
   const { t, i18n } = useTranslation();
   const allLocalizedData = getOportunidadesData(i18n.language);
   
-  // Exibir apenas os 3 primeiros conforme solicitado nesta seção (Venda/Preá, Lançamento/Prabhu, Temporada/Conduru)
-  const displayData = oportunidadesData.slice(0, 3);
-  const localizedData = allLocalizedData.slice(0, 3);
+  const activeIds = ['09', '05', '03'];
+  const displayData = oportunidadesData.filter(item => activeIds.includes(item.id));
+  const localizedData = allLocalizedData.filter(item => activeIds.includes(item.id || ''));
   
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);

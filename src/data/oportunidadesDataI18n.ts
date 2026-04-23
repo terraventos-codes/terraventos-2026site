@@ -3,6 +3,74 @@ import { oportunidadesData, type OportunidadeDetalhe } from './oportunidadesData
 export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe>[]> = {
   pt: [
     {
+      id: '09',
+      slug: 'area-exclusiva-tatajuba-guriu-100000m', category: 'venda',
+      title: 'VENDA',
+      image: 'https://vumbnail.com/1186057204.jpg',
+      badge: 'Oportunidade Única',
+      propertyTitle: 'ÁREA EXCLUSIVA PÉ NA AREIA — 100.000 m²',
+      location: 'Entre Tatajuba e Guriú, Ceará, Brasil',
+      rating: 5,
+      exclusiveText: '100.000 m² | 200m de Frente Mar | Matrícula e Escritura Pública',
+      summaryDescription: 'Área monumental de 10 hectares estrategicamente entre Tatajuba e Guriú, com 200m de frente mar e escritura pública.',
+      about: [
+        'Uma oportunidade monumental no litoral cearense: 10 hectares de área totalmente pé na areia localizada estrategicamente entre as vilas de Tatajuba e Guriú.',
+        'Com 200 metros de frente para o mar, esta propriedade é um dos ativos mais raros e valiosos da região, ideal para o desenvolvimento de resorts de luxo, hotelaria de charme ou um refúgio particular de alto padrão.',
+        'Segurança Jurídica Absoluta: Imóvel com Matrícula e Escritura Pública, garantindo uma transação sólida e proteção patrimonial integral.',
+        'Infraestrutura e Acesso: Acesso facilitado pelos fundos e proximidade estratégica com rede de energia elétrica trifásica (apenas 500 metros), reduzindo significativamente os custos de implementação.'
+      ],
+      infra: [
+        'Área Total: 100.000 m² (10 Hectares)',
+        'Testada: 200 metros de frente mar',
+        'Energia Trifásica a 500m',
+        'Matrícula e Escritura Pública'
+      ],
+      facilities: ['200m Frente Mar', '10 Hectares', 'Energia Trifásica', 'Escritura Pública'],
+      price: 'R$ 15.000.000,00',
+      installments: 'Investimento: R$ 150,00 por m²',
+      priceTag: '',
+    },
+    {
+      id: '08',
+      slug: 'terreno-exclusivo-tatajuba-1000m', category: 'venda',
+      title: 'VENDA',
+      image: '/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg',
+      badge: 'Exclusividade',
+      propertyTitle: 'TERRENO EXCLUSIVO EM TATAJUBA — 1.000 m²',
+      location: 'Tatajuba, Ceará, Brasil',
+      rating: 5,
+      exclusiveText: '1.000 m² | Matrícula Individualizada | Oportunidade Única',
+      summaryDescription: 'Oportunidade exclusiva em Tatajuba: Terreno de 1.000 m² com matrícula individualizada, no coração do paraíso do kitesurf.',
+      about: [
+        'Oportunidade rara em Tatajuba: Meio lote de 1.000 m² localizado em uma das áreas mais cobiçadas do paraíso do kitesurf.',
+        'Segurança Jurídica: Imóvel com matrícula individualizada e processo de desmembramento finalizado, garantindo uma transação segura e transparente.',
+        'Localização Estratégica: Região de alta valorização, ideal para quem busca exclusividade e contato direto com a natureza exuberante de Tatajuba.',
+        'Pronto para Investir: Área retificada e pronta para receber seu projeto dos sonhos ou para compor uma carteira de investimentos sólidos no litoral cearense.'
+      ],
+      infra: [
+        'Área Total: 1.000 m²',
+        'Matrícula Individualizada',
+        'Localização Premium em Tatajuba',
+        'Pronto para Desmembramento'
+      ],
+      facilities: ['1.000 m²', 'Matrícula Pronta', 'Kitesurf Paradise', 'Exclusividade'],
+      price: 'R$ 800.000,00',
+      installments: 'Consulte condições exclusivas',
+      priceTag: '',
+      documents: [
+        {
+          label: 'Tatajuba: O Paraíso Escondido do Kitesurf',
+          url: 'https://blog.terraventos.com/p/tatajuba-the-hidden-kitesurf-paradise',
+          legend: 'Leia mais sobre a localização e o potencial de valorização de Tatajuba.'
+        },
+        {
+          label: 'Veja Planta',
+          url: '/TATAJUBA/3a85c744-9b82-45ca-9042-125872c4e7f1.jpeg',
+          legend: 'Visualize o desmembramento e dimensões exatas da área.'
+        }
+      ],
+    },
+    {
       id: '07',
       slug: 'terreno-exclusivo-prea-200m-mar', category: 'venda',
       title: 'VENDA',
@@ -140,11 +208,12 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       title: 'TEMPORADA',
       image: '/VillaCondutuPaginaInicial/FINAL 14.png',
       badge: 'Temporada',
-      propertyTitle: 'VILA CONDURU III',
-      location: 'Preá, Ceará, Brasil',
+      propertyTitle: 'CASA ALTO PADRÃO 3 SUÍTES',
+      location: 'FRENTE À PRAIA DO PREÁ',
       rating: 5,
-      exclusiveText: '153 m² | 3 Suítes | 10 Projetos Exclusivos',
+      exclusiveText: 'FRENTE À PRAIA DO PREÁ',
       about: [
+        'Vila Conduru III — Piscina, churrasqueira, varanda e condomínio de luxo 24 horas.',
         'Seu Refúgio Privado Beira-Mar no Preá: A experiência definitiva de luxo rústico.',
         'A Vila Conduru III é agora seu palco privado para o melhor vento do mundo e eventos exclusivos. Localizada literalmente à beira-mar.',
         '1. Localização Beira-Mar: Esqueça transfers ou longas caminhadas. Aqui, o quintal é a praia.',
@@ -180,7 +249,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
       priceTag: 'Diária',
       price: 'Consulte',
-      installments: 'Consulte pacotes',
+      installments: 'consultar disponibilidade',
       reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
     },
     {
@@ -324,6 +393,74 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
   ],
   en: [
     {
+      id: '09',
+      slug: 'area-exclusiva-tatajuba-guriu-100000m', category: 'venda',
+      title: 'FOR SALE',
+      image: 'https://vumbnail.com/1186057204.jpg',
+      badge: 'Unique Opportunity',
+      propertyTitle: 'EXCLUSIVE BEACHFRONT AREA — 100,000 sqm',
+      location: 'Between Tatajuba and Guriú, Ceará, Brazil',
+      rating: 5,
+      exclusiveText: '100,000 m² | 200m Beachfront | Title & Public Deed',
+      summaryDescription: 'Monumental 10-hectare area strategically located between Tatajuba and Guriú, with 200m of beachfront and public deed.',
+      about: [
+        'A monumental opportunity on the Ceará coast: 10 hectares of fully beachfront area strategically located between the villages of Tatajuba and Guriú.',
+        'With 200 meters of beachfront, this property is one of the rarest and most valuable assets in the region, ideal for the development of luxury resorts, charming hotels, or a high-end private retreat.',
+        'Absolute Legal Security: Property with Title and Public Deed, ensuring a solid transaction and full asset protection.',
+        'Infrastructure and Access: Easy access from the back and strategic proximity to the three-phase power grid (only 500 meters), significantly reducing implementation costs.'
+      ],
+      infra: [
+        'Total Area: 100,000 m² (10 Hectares)',
+        'Frontage: 200 meters of beachfront',
+        'Three-phase power at 500m',
+        'Title & Public Deed'
+      ],
+      facilities: ['200m Beachfront', '10 Hectares', 'Three-phase Power', 'Public Deed'],
+      price: 'R$ 15,000,000.00',
+      installments: 'Investment: R$ 150.00 per sqm',
+      priceTag: '',
+    },
+    {
+      id: '08',
+      slug: 'terreno-exclusivo-tatajuba-1000m', category: 'venda',
+      title: 'FOR SALE',
+      image: '/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg',
+      badge: 'Exclusivity',
+      propertyTitle: 'EXCLUSIVE LAND IN TATAJUBA — 1,000 m²',
+      location: 'Tatajuba, Ceará, Brazil',
+      rating: 5,
+      exclusiveText: '1,000 m² | Individual Registration | Unique Opportunity',
+      summaryDescription: 'Exclusive opportunity in Tatajuba: 1,000 sqm lot with individual registration, in the heart of the kitesurfing paradise.',
+      about: [
+        'Rare opportunity in Tatajuba: Half lot of 1,000 sqm located in one of the most coveted areas of the kitesurfing paradise.',
+        'Legal Security: Property with individual registration and finalized splitting process, ensuring a safe and transparent transaction.',
+        'Strategic Location: High appreciation region, ideal for those seeking exclusivity and direct contact with the exuberant nature of Tatajuba.',
+        'Ready to Invest: Rectified area ready for your dream project or for a solid investment portfolio on the Ceará coast.'
+      ],
+      infra: [
+        'Total Area: 1,000 sqm',
+        'Individual Registration',
+        'Premium Location in Tatajuba',
+        'Ready for Splitting'
+      ],
+      facilities: ['1,000 sqm', 'Ready Registration', 'Kitesurf Paradise', 'Exclusivity'],
+      price: 'R$ 800,000.00',
+      installments: 'Consult exclusive conditions',
+      priceTag: '',
+      documents: [
+        {
+          label: 'Tatajuba: The Hidden Kitesurf Paradise',
+          url: 'https://blog.terraventos.com/p/tatajuba-the-hidden-kitesurf-paradise',
+          legend: 'Read more about the location and appreciation potential of Tatajuba.'
+        },
+        {
+          label: 'See Floor Plan',
+          url: '/TATAJUBA/3a85c744-9b82-45ca-9042-125872c4e7f1.jpeg',
+          legend: 'View the exact dimensions and subdivision of the area.'
+        }
+      ],
+    },
+    {
       id: '07',
       slug: 'terreno-exclusivo-prea-200m-mar', category: 'venda',
       title: 'FOR SALE',
@@ -444,12 +581,13 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       title: 'STAY',
       image: '/VillaCondutuPaginaInicial/FINAL 14.png',
       badge: 'Stay',
-      propertyTitle: 'VILA CONDURU III',
-      location: 'Preá, Ceará, Brazil',
+      propertyTitle: 'HIGH-END HOUSE 3 SUITES',
+      location: 'BEACHFRONT PREÁ',
       rating: 5,
-      exclusiveText: '153 m² | 3 Suites | 10 Exclusive Projects',
+      exclusiveText: 'BEACHFRONT PREÁ',
       summaryDescription: 'Ready high-end residences with contemporary architecture integrated into nature. Ideal for a second home and exclusive beachfront experiences.',
       about: [
+        'Vila Conduru III — Pool, barbecue, veranda and premium 24h gated community.',
         'Your Private Beachfront Retreat in Preá: The ultimate rustic-luxury experience.',
         'Vila Conduru III is now your private spot for the best wind in the world and exclusive events. Located literally on the beachfront.',
         '1. Beachfront Location: Forget transfers or long walks. Here, the backyard is the beach.',
@@ -485,7 +623,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
       priceTag: 'Daily',
       price: 'On Request',
-      installments: 'Consult packages',
+      installments: 'check availability',
       reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
     },
     {
@@ -626,6 +764,74 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
   ],
   es: [
     {
+      id: '09',
+      slug: 'area-exclusiva-tatajuba-guriu-100000m', category: 'venda',
+      title: 'VENTA',
+      image: 'https://vumbnail.com/1186057204.jpg',
+      badge: 'Oportunidad Única',
+      propertyTitle: 'ÁREA EXCLUSIVA FRENTE AL MAR — 100.000 m²',
+      location: 'Entre Tatajuba y Guriú, Ceará, Brasil',
+      rating: 5,
+      exclusiveText: '100.000 m² | 200m Frente al Mar | Matrícula y Escritura Pública',
+      summaryDescription: 'Área monumental de 10 hectáreas estratégicamente entre Tatajuba y Guriú, con 200 m de frente al mar y escritura pública.',
+      about: [
+        'Una oportunidad monumental en la costa de Ceará: 10 hectáreas de área totalmente frente al mar ubicada estratégicamente entre los pueblos de Tatajuba y Guriú.',
+        'Con 200 metros de frente al mar, esta propiedad es uno de los activos más raros e valiosos de la región, ideal para el desarrollo de resorts de lujo, hoteles con encanto o un refugio privado de alto nivel.',
+        'Seguridad Jurídica Absoluta: Propiedad con Matrícula y Escritura Pública, garantizando una transacción sólida y una protección patrimonial integral.',
+        'Infraestructura y Acceso: Acceso facilitado por la parte trasera y proximidad estratégica con la red de energía eléctrica trifásica (a solo 500 metros), reduciendo significativamente los costos.'
+      ],
+      infra: [
+        'Área Total: 100.000 m² (10 Hectáreas)',
+        'Frente: 200 metros de frente al mar',
+        'Energía Trifásica a 500m',
+        'Matrícula y Escritura Pública'
+      ],
+      facilities: ['200m Frente al Mar', '10 Hectáreas', 'Energía Trifásica', 'Escritura Pública'],
+      price: 'R$ 15.000.000,00',
+      installments: 'Inversión: R$ 150,00 por m²',
+      priceTag: '',
+    },
+    {
+      id: '08',
+      slug: 'terreno-exclusivo-tatajuba-1000m', category: 'venda',
+      title: 'VENTA',
+      image: '/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg',
+      badge: 'Exclusividad',
+      propertyTitle: 'TERRENO EXCLUSIVO EN TATAJUBA — 1.000 m²',
+      location: 'Tatajuba, Ceará, Brasil',
+      rating: 5,
+      exclusiveText: '1.000 m² | Matrícula Individual | Oportunidad Única',
+      summaryDescription: 'Oportunidad exclusiva en Tatajuba: Terreno de 1.000 m² con matrícula individual, en el corazón del paraíso del kitesurf.',
+      about: [
+        'Oportunidad rara en Tatajuba: Medio lote de 1.000 m² ubicado en una de las zonas más codiciadas del paraíso del kitesurf.',
+        'Seguridad Jurídica: Propiedad con matrícula individual y proceso de desmembramento finalizado, garantizando una transacción segura y transparente.',
+        'Ubicación Estratégica: Región de alta valorización, ideal para quienes buscan exclusividad y contacto directo con la naturaleza exuberante de Tatajuba.',
+        'Listo para Invertir: Área rectificada y lista para su proyecto soñado o para una sólida cartera de inversiones en la costa de Ceará.'
+      ],
+      infra: [
+        'Área Total: 1.000 m²',
+        'Matrícula Individual',
+        'Ubicación Premium en Tatajuba',
+        'Listo para Desmembramiento'
+      ],
+      facilities: ['1.000 m²', 'Matrícula Lista', 'Kitesurf Paradise', 'Exclusividad'],
+      price: 'R$ 800.000,00',
+      installments: 'Consulte condiciones exclusivas',
+      priceTag: '',
+      documents: [
+        {
+          label: 'Tatajuba: El Paraíso Escondido del Kitesurf',
+          url: 'https://blog.terraventos.com/p/tatajuba-the-hidden-kitesurf-paradise',
+          legend: 'Lea más sobre la ubicación y el potencial de valorización de Tatajuba.'
+        },
+        {
+          label: 'Ver Planta',
+          url: '/TATAJUBA/3a85c744-9b82-45ca-9042-125872c4e7f1.jpeg',
+          legend: 'Visualice el desmembramiento y las dimensiones exactas del área.'
+        }
+      ],
+    },
+    {
       id: '07',
       slug: 'terreno-exclusivo-prea-200m-mar', category: 'venda',
       title: 'VENTA',
@@ -746,12 +952,13 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       title: 'ESTANCIA',
       image: '/VillaCondutuPaginaInicial/FINAL 14.png',
       badge: 'Estancia',
-      propertyTitle: 'VILA CONDURU III',
-      location: 'Preá, Ceará, Brasil',
+      propertyTitle: 'CASA DE ALTO NIVEL 3 SUITES',
+      location: 'FRENTE A LA PLAYA DE PREÁ',
       rating: 5,
-      exclusiveText: '153 m² | 3 Suites | 10 Proyectos exclusivos',
+      exclusiveText: 'FRENTE A LA PLAYA DE PREÁ',
       summaryDescription: 'Residencias de alta gama listas, com arquitectura contemporánea integrada a la naturaleza. Ideales para segunda vivienda y experiencias exclusivas frente al mar.',
       about: [
+        'Vila Conduru III — Piscina, barbacoa, terraza y comunidad cerrada de lujo las 24 horas.',
         'Tu Refugio Privado Frente al Mar en Preá: La experiencia definitiva de lujo rústico.',
         'La Vila Conduru III es ahora tu palco privado para el mejor viento del mundo e eventos exclusivos.',
         '1. Ubicación Frente al Mar: Olvídate de traslados. Aquí, el jardín es la playa.',
@@ -787,7 +994,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
       priceTag: 'Diario',
       price: 'Bajo Consulta',
-      installments: 'Consultar paquetes',
+      installments: 'consultar disponibilidade',
       reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
     },
     {
@@ -946,7 +1153,7 @@ export function getOportunidadesData(lang: string): OportunidadeDetalhe[] {
         // Garante que galeria e videoSources sempre venham do master (fonte única de imagens)
         gallery: master.gallery,
         videoSources: master.videoSources,
-        documents: master.documents,
+        documents: translated.documents || master.documents,
         mapImage: master.mapImage,
         mapUrl: master.mapUrl,
         reservationUrl: master.reservationUrl,

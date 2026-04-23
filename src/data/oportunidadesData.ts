@@ -22,6 +22,7 @@ export type OportunidadeDetalhe = {
   mapImage: string;
   mapUrl?: string;
   videoSources?: string[];
+  videoGalleryCredits?: string;
   documents?: {
     label: string;
     url: string;
@@ -35,6 +36,106 @@ export type OportunidadeDetalhe = {
 };
 
 export const oportunidadesData: OportunidadeDetalhe[] = [
+  {
+    id: '09',
+    slug: 'area-exclusiva-tatajuba-guriu-100000m',
+    title: 'VENDA',
+    image: 'https://vumbnail.com/1186057204.jpg',
+    badge: 'Oportunidade Única',
+    propertyTitle: 'ÁREA EXCLUSIVA PÉ NA AREIA — 100.000 m²',
+    location: 'Entre Tatajuba e Guriú, Ceará, Brasil',
+    rating: 5,
+    exclusiveText: '100.000 m² | 200m de Frente Mar | Matrícula e Escritura Pública',
+    about: [
+      'Uma oportunidade monumental no litoral cearense: 10 hectares de área totalmente pé na areia localizada estrategicamente entre as vilas de Tatajuba e Guriú.',
+      'Com 200 metros de frente para o mar, esta propriedade é um dos ativos mais raros e valiosos da região, ideal para o desenvolvimento de resorts de luxo, hotelaria de charme ou um refúgio particular de alto padrão.',
+      'Segurança Jurídica Absoluta: Imóvel com Matrícula e Escritura Pública, garantindo uma transação sólida e proteção patrimonial integral.',
+      'Infraestrutura e Acesso: Acesso facilitado pelos fundos e proximidade estratégica com rede de energia elétrica trifásica (apenas 500 metros), reduzindo significativamente os custos de implementação.',
+      'Imagens e Vídeos por: Thiago Faquinel (@thiagofaquinel)'
+    ],
+    infra: [
+      'Área Total: 100.000 m² (10 Hectares)',
+      'Testada: 200 metros de frente mar',
+      'Energia Trifásica a 500m',
+      'Matrícula e Escritura Pública'
+    ],
+    facilities: ['200m Frente Mar', '10 Hectares', 'Energia Trifásica', 'Escritura Pública'],
+    gallery: {
+      main: 'https://vumbnail.com/1186057204.jpg',
+      sideTop: '/GURIU/VS--TATAJUBAfromTerraVentosonVimeo-0’20”.jpg',
+      sideBottom: '/GURIU/VS--Vimeo-TerraVentos-0’38”.jpg',
+      extra: []
+    },
+    videoSources: [
+      'https://player.vimeo.com/video/1186057204',
+      'https://player.vimeo.com/video/1186057221'
+    ],
+    videoGalleryCredits: 'Vídeo por: Thiago Faquinel (@thiagofaquinel)',
+    mapImage: '/mapa.avif',
+    mapUrl: 'https://maps.google.com/maps?q=-2.8477636,-40.6163572&hl=pt-BR&z=15&output=embed',
+    documents: [
+      {
+        label: 'Tatajuba: O Paraíso Escondido do Kitesurf',
+        url: 'https://blog.terraventos.com/p/tatajuba-the-hidden-kitesurf-paradise',
+        legend: 'Leia mais sobre a localização e o potencial de valorização da região.'
+      }
+    ],
+    price: 'R$ 15.000.000,00',
+    installments: 'Investimento: R$ 150,00 por m²',
+    priceTag: '',
+    category: 'venda'
+  },
+  {
+    id: '08',
+    slug: 'terreno-exclusivo-tatajuba-1000m',
+    title: 'VENDA',
+    image: '/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg',
+    badge: 'Exclusividade',
+    propertyTitle: 'TERRENO EXCLUSIVO EM TATAJUBA — 1.000 m²',
+    location: 'Tatajuba, Ceará, Brasil',
+    rating: 5,
+    exclusiveText: '1.000 m² | Matrícula Individualizada | Oportunidade Única',
+    about: [
+      'Descubra a joia de Tatajuba: Um terreno de 1.000 m² no coração da vila que é o novo desejo do kitesurf mundial.',
+      'Segurança Jurídica Total: Imóvel com matrícula individualizada e processo de desmembramento finalizado, oferecendo a tranquilidade que o investidor experiente exige.',
+      'Localização Estratégica: Situado em uma região de altíssima valorização, ideal para quem busca construir um refúgio exclusivo ou realizar um investimento imobiliário estratégico.',
+      'Estilo de Vida Tatajuba: Viva em harmonia com a natureza, em um local reconhecido por sua hospitalidade, ventos constantes e paisagens de tirar o fôlego.'
+    ],
+    infra: [
+      'Área Total: 1.000 m²',
+      'Matrícula Individualizada',
+      'Localização Premium em Tatajuba',
+      'Pronto para Desmembramento'
+    ],
+    facilities: ['1.000 m²', 'Matrícula Pronta', 'Kitesurf Paradise', 'Exclusividade'],
+    gallery: {
+      main: '/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg',
+      sideTop: '/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22 (1).jpeg',
+      sideBottom: '/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.23.jpeg',
+      extra: [
+        '/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.23 (1).jpeg',
+        '/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.23 (2).jpeg'
+      ]
+    },
+    mapImage: '/mapa.avif',
+    mapUrl: 'https://maps.google.com/maps?q=-2.854046,-40.696586&hl=pt-BR&z=15&output=embed',
+    documents: [
+      {
+        label: 'Tatajuba: O Paraíso Escondido do Kitesurf',
+        url: 'https://blog.terraventos.com/p/tatajuba-the-hidden-kitesurf-paradise',
+        legend: 'Leia mais sobre a localização e o potencial de valorização de Tatajuba.'
+      },
+      {
+        label: 'Veja Planta',
+        url: '/TATAJUBA/3a85c744-9b82-45ca-9042-125872c4e7f1.jpeg',
+        legend: 'Visualize o desmembramento e dimensões exatas da área.'
+      }
+    ],
+    priceTag: '',
+    price: 'R$ 800.000,00',
+    installments: 'Consulte condições exclusivas',
+    category: 'venda'
+  },
   {
     id: '07',
     slug: 'terreno-exclusivo-prea-200m-mar',
@@ -200,11 +301,12 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     title: 'TEMPORADA',
     image: '/VillaCondutuPaginaInicial/FINAL 14.png',
     badge: 'Temporada',
-    propertyTitle: 'VILA CONDURU III',
-    location: 'Preá, Ceará, Brasil',
+    propertyTitle: 'CASA ALTO PADRÃO 3 SUÍTES',
+    location: 'FRENTE À PRAIA DO PREÁ',
     rating: 5,
-    exclusiveText: '153 m² | 3 Suítes | 10 Projetos Exclusivos',
+    exclusiveText: 'FRENTE À PRAIA DO PREÁ',
     about: [
+      'Vila Conduru III — Piscina, churrasqueira, varanda e condomínio de luxo 24 horas.',
       'Seu Refúgio Privado Beira-Mar no Preá: A experiência definitiva de luxo rústico.',
       'A Vila Conduru III é agora seu palco privado para o melhor vento do mundo e eventos exclusivos. Localizada literalmente à beira-mar.',
       '1. Localização Beira-Mar: Esqueça transfers ou longas caminhadas. Aqui, o quintal é a praia.',
@@ -247,7 +349,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     mapUrl: 'https://maps.google.com/maps?q=34.100222,-118.450709&z=15&output=embed',
     priceTag: 'Diária',
     price: 'Consulte',
-    installments: 'Consulte pacotes',
+    installments: 'consultar disponibilidade',
     reservationUrl: 'https://www.airbnb.com.br/rooms/1613864657831968386?guests=1&adults=1&s=67&unique_share_id=17ad520f-3f88-4bca-a33f-731c6d077710',
     category: 'temporada',
   },
