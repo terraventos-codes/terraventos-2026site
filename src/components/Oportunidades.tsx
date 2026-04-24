@@ -73,24 +73,29 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
           </p>
 
           <div className="ops-icon">
-            {(activeIndex === 0 || activeIndex === 2 || activeIndex === 3 || activeIndex === 5) && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <title>Casa</title>
-                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-              </svg>
-            )}
-            {activeIndex === 1 && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <title>Arvore</title>
-                <path d="M12 2L4 12H8L4 20H11V24H13V20H20L16 12H20L12 2Z" />
-              </svg>
-            )}
-            {activeIndex === 4 && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <title>Folha</title>
-                <path d="M17 8C8 10 5.9 16.19 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C22 3 21 8 17 8Z" />
-              </svg>
-            )}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              {(() => {
+                const currentId = activeItem?.id;
+                if (currentId === '09') return (
+                  <>
+                    <title>Área</title>
+                    <path d="M12 2L4 12H8L4 20H11V24H13V20H20L16 12H20L12 2Z" />
+                  </>
+                );
+                if (currentId === '03') return (
+                  <>
+                    <title>Investimento</title>
+                    <path d="M17 8C8 10 5.9 16.19 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C22 3 21 8 17 8Z" />
+                  </>
+                );
+                return (
+                  <>
+                    <title>Propriedade</title>
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                  </>
+                );
+              })()}
+            </svg>
           </div>
 
           <div className="ops-see-all-wrapper">

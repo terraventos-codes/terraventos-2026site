@@ -26,7 +26,8 @@ function App() {
       if (slug.endsWith('/')) slug = slug.slice(0, -1);
       const found = oportunidadesData.find(o => o.slug === slug);
       if (found) {
-        const localized = getOportunidadesData(i18n.language || 'pt');
+        const lang = (i18n.language || 'pt').split('-')[0];
+        const localized = getOportunidadesData(lang);
         return localized.find(d => d.id === found.id) || found;
       }
     }
@@ -227,10 +228,10 @@ function App() {
             onClick={() => setIsLangOpen(!isLangOpen)}
             aria-label="Selecionar idioma"
           >
-            {i18n.language.split('-')[0] === 'pt' && <img src="https://flagcdn.com/w20/br.png" alt="BR" className="lang-flag" />}
-            {i18n.language.split('-')[0] === 'en' && <img src="https://flagcdn.com/w20/us.png" alt="US" className="lang-flag" />}
-            {i18n.language.split('-')[0] === 'es' && <img src="https://flagcdn.com/w20/es.png" alt="ES" className="lang-flag" />}
-            <span className="lang-label">{i18n.language.split('-')[0].toUpperCase()}</span>
+            {(i18n.language || 'pt').split('-')[0] === 'pt' && <img src="https://flagcdn.com/w20/br.png" alt="BR" className="lang-flag" />}
+            {(i18n.language || 'pt').split('-')[0] === 'en' && <img src="https://flagcdn.com/w20/us.png" alt="US" className="lang-flag" />}
+            {(i18n.language || 'pt').split('-')[0] === 'es' && <img src="https://flagcdn.com/w20/es.png" alt="ES" className="lang-flag" />}
+            <span className="lang-label">{(i18n.language || 'pt').split('-')[0].toUpperCase()}</span>
             <svg className={`lang-arrow ${isLangOpen ? 'open' : ''}`} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
