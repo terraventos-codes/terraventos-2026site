@@ -15,6 +15,7 @@ import PaginaIndividual from './components/PaginaIndividual';
 import { oportunidadesData, type OportunidadeDetalhe } from './data/oportunidadesData';
 import { getOportunidadesData } from './data/oportunidadesDataI18n';
 import ListagemPropriedades from './components/ListagemPropriedades';
+import BlogSection from './components/BlogSection';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -433,6 +434,7 @@ function App() {
               <Cidades />
 
               <EstudoVentos />
+              <BlogSection />
 
               <Mapa />
 

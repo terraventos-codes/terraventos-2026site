@@ -141,6 +141,12 @@ i18n
             }
           },
           footer: { rights: "© Copyright 2026. Todos os direitos reservados." },
+          blog: {
+            badge: "Insights & Mercado",
+            title: "ACOMPANHE NOSSA<br />CURADORIA NO BLOG",
+            readMore: "Leia mais",
+            viewAll: "Ver todos os artigos"
+          },
           pagina: {
             back: "Voltar",
             about: "Sobre a propriedade",
@@ -267,6 +273,12 @@ i18n
             }
           },
           footer: { rights: "© Copyright 2026. All Rights Reserved." },
+          blog: {
+            badge: "Insights & Market",
+            title: "FOLLOW OUR<br />CURATION ON THE BLOG",
+            readMore: "Read more",
+            viewAll: "View all articles"
+          },
           pagina: {
             back: "Back",
             about: "About the property",
@@ -403,6 +415,12 @@ i18n
             }
           },
           footer: { rights: "© Copyright 2026. Todos os direitos reservados." },
+          blog: {
+            badge: "Insights y Mercado",
+            title: "SIGA NUESTRA<br />CURADURÍA EN EL BLOG",
+            readMore: "Leer más",
+            viewAll: "Ver todos los artículos"
+          },
           pagina: {
             back: "Volver",
             about: "Sobre la propiedad",
