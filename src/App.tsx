@@ -33,6 +33,7 @@ function App() {
     }
     return oportunidadesData[0];
   });
+  const isPaginaIndividual = currentPath.startsWith('/propriedade/');
   const [transitionClass, setTransitionClass] = useState<'page-enter' | 'page-exit'>('page-enter');
   const [heroSlideIndex, setHeroSlideIndex] = useState(0);
   const isSwitchingRef = useRef(false);
@@ -210,7 +211,6 @@ function App() {
     runTransitionTo(`/propriedade/${item.slug}`);
   };
 
-  const isPaginaIndividual = currentPath.startsWith('/propriedade/');
 
   return (
     <div className="app-container">
