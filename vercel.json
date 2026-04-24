@@ -1,7 +1,18 @@
 {
   "rewrites": [
     {
-      "source": "/((?!assets/|favicon.ico|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.svg|.*\\.webp|.*\\.mp4|.*\\.pdf).*)",
+      "source": "/propriedade/:slug",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(WhatsApp|facebookexternalhit|Twitterbot|LinkedInBot|Discordbot|TelegramBot).*"
+        }
+      ],
+      "destination": "/api/seo?slug=:slug"
+    },
+    {
+      "source": "/((?!assets/|favicon.ico|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.svg|.*\\.webp|.*\\.mp4|.*\\.pdf|api/).*)",
       "destination": "/index.html"
     }
   ]
