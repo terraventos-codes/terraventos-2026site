@@ -84,7 +84,7 @@ export default function handler(req, res) {
   const url = property.url || `${baseUrl}/propriedade/${slug}`;
 
   const html = `<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <title>${title}</title>
@@ -93,10 +93,10 @@ export default function handler(req, res) {
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="${url}">
-    <meta property="og:site_name" content="Terra Ventos">
-    <meta property="og:locale" content="pt_BR">
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">
+    <meta property="og:site_name" content="Terra Ventos">
+    <meta property="og:locale" content="pt_BR">
     <meta property="og:image" content="${image}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -117,7 +117,7 @@ export default function handler(req, res) {
 </body>
 </html>`;
 
-  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.setHeader('Cache-Control', 's-maxage=86400');
   return res.status(200).send(html);
 }

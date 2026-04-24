@@ -74,7 +74,7 @@ function generatePage(targetPath, title, desc, img, url, langCode, langId) {
   const displayTitle = title.includes('Terra Ventos') ? title : `${title} | Terra Ventos`;
 
   // Basico
-  html = html.replace(/<html lang=".*?"/g, `<html lang="${langId}"`);
+  html = html.replace(/<html lang=".*?"/g, `<html lang="${langId}" prefix="og: http://ogp.me/ns#"`);
   html = html.replace(/<title>.*?<\/title>/g, `<title>${displayTitle}</title>`);
   html = html.replace(/<meta name="description" content=".*?" ?\/?>/g, `<meta name="description" content="${desc}" />`);
   
