@@ -9,25 +9,25 @@ export default function handler(req, res) {
     {
       slug: 'area-exclusiva-tatajuba-guriu-100000m',
       title: 'ÁREA EXCLUSIVA PÉ NA AREIA — 100.000 m²',
-      description: '100.000 m² | 200m de Frente Mar | Matrícula e Escritura Pública',
+      description: 'Uma oportunidade monumental no litoral cearense: 10 hectares de área totalmente pé na areia localizada estrategicamente entre as vilas de Tatajuba e Guriú.',
       image: 'https://vumbnail.com/1186057204.jpg'
     },
     {
       slug: 'terreno-exclusivo-tatajuba-1000m',
       title: 'TERRENO EXCLUSIVO EM TATAJUBA — 1.000 m²',
-      description: '1.000 m² | Matrícula Individualizada | Oportunidade Única',
+      description: 'Descubra a joia de Tatajuba: Um terreno de 1.000 m² no coração da vila que é o novo desejo do kitesurf mundial. Segurança jurídica total com matrícula individualizada.',
       image: '/TATAJUBA/WhatsApp%20Image%202026-04-23%20at%2018.35.22.jpeg'
     },
     {
       slug: 'terreno-exclusivo-prea-200m-mar',
       title: 'TERRENO EXCLUSIVO PREÁ — 200M DO MAR',
-      description: '250 m² | 10m x 25m | Apenas 200m da Praia',
+      description: 'Excelente oportunidade de investimento no Preá. Terreno com 250 m² localizado a apenas 200 metros da praia, vizinho aos prestigiados empreendimentos Botanik e Carnaúba.',
       image: '/prea%20oportunidade/WhatsApp%20Image%202026-04-21%20at%2009.32.47.jpeg'
     },
     {
       slug: 'prea-house',
       title: 'PREÁ HOUSE',
-      description: '745 m² | 3 Suítes | Piscina de 68 m²',
+      description: 'Propriedade luxuosa composta por duas construções ligadas por uma piscina central. 3 suítes, área gourmet e rooftop terrace com vista privilegiada.',
       image: '/Prea%20House/WhatsApp%20Image%202026-04-20%20at%2009.12.53.jpeg'
     },
     {
@@ -39,25 +39,25 @@ export default function handler(req, res) {
     {
       slug: 'villa-condudu-3',
       title: 'CASA ALTO PADRÃO 3 SUÍTES',
-      description: 'FRENTE À PRAIA DO PREÁ - Piscina, churrasqueira, varanda e condomínio de luxo 24 horas.',
+      description: 'Seu Refúgio Privado Beira-Mar no Preá: A experiência definitiva de luxo rústico com 3 suítes amplas, piscina e segurança 24h.',
       image: '/VillaCondutuPaginaInicial/FINAL%2014.png'
     },
     {
       slug: 'terrenos-bitupita',
       title: 'TERRENOS PÉ NA AREIA EM BITUPITÁ',
-      description: '4.300 m² | 10 Projetos de Terrenos Exclusivos | O m² mais estratégico do Litoral Oeste.',
+      description: 'A Próxima Fronteira de Valorização: Bitupitá é o último refúgio intocado na Rota Costa dos Ventos. Apenas 10 lotes exclusivos com acesso direto beira-mar.',
       image: '/bitupitaPaginaIndividual/DJI_20251020023318_0221_D.jpg'
     },
     {
       slug: 'vila-do-ingles',
       title: 'VILA DO INGLÊS',
-      description: '200 m² | 2 Banheiros | 10 Projetos Exclusivos | Luxo Sustentável no Preá.',
+      description: 'A Essência do Luxo Sustentável: Residência de 200 m² alimentada inteiramente por energia solar, com design moderno e localização premium no Preá.',
       image: '/viladoinglesPaginaInicial/Final%2004%20(1).png'
     },
     {
       slug: 'casa-matanzas',
       title: 'Casa Matanzas com tinaja / vista mar e bosque',
-      description: 'Descubra Matanzas Paradise 🌊 Casa moderna confortavelmente equipada para 6 hóspedes.',
+      description: 'Descubra Matanzas Paradise 🌊 Casa moderna confortavelmente equipada para 6 hóspedes, com vistas panorâmicas espetaculares do mar e da floresta no Chile.',
       image: '/Matanzas/3b77d98c-5cd0-4f51-816a-6e42748720d2.avif'
     }
   ];
@@ -83,9 +83,13 @@ export default function handler(req, res) {
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="${url}">
+    <meta property="og:site_name" content="Terra Ventos">
+    <meta property="og:locale" content="pt_BR">
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">
     <meta property="og:image" content="${image}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
