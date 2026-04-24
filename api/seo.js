@@ -8,9 +8,9 @@ export default function handler(req, res) {
   const data = [
     {
       slug: 'area-exclusiva-tatajuba-guriu-100000m',
-      title: 'ÁREA EXCLUSIVA PÉ NA AREIA — 100.000 m²',
-      description: 'Uma oportunidade monumental no litoral cearense: 10 hectares de área totalmente pé na areia localizada estrategicamente entre as vilas de Tatajuba e Guriú.',
-      image: 'https://vumbnail.com/1186057204.jpg'
+      title: 'Área Exclusiva em Tatajuba/Guriú - 100.000m²',
+      description: 'Oportunidade única de investimento em frente ao mar entre Guriú e Tatajuba. Área de 10 hectares com documentação regularizada.',
+      image: '/GURIU/VS--TATAJUBAfromTerraVentosonVimeo-0%E2%80%9920%E2%80%9D.jpg'
     },
     {
       slug: 'terreno-exclusivo-tatajuba-1000m',
