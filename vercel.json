@@ -1,12 +1,23 @@
 {
   "rewrites": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(WhatsApp|facebook|Twitterbot|LinkedInBot|Discordbot|TelegramBot|google|bot|crawler|spider|slack|vkShare|SkypeShell|Applebot).*"
+        }
+      ],
+      "destination": "/api/seo"
+    },
+    {
       "source": "/propriedade/:slug",
       "has": [
         {
           "type": "header",
           "key": "user-agent",
-          "value": ".*(WhatsApp|facebookexternalhit|Twitterbot|LinkedInBot|Discordbot|TelegramBot).*"
+          "value": ".*(WhatsApp|facebook|Twitterbot|LinkedInBot|Discordbot|TelegramBot|google|bot|crawler|spider|slack|vkShare|SkypeShell|Applebot).*"
         }
       ],
       "destination": "/api/seo?slug=:slug"

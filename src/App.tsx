@@ -182,8 +182,8 @@ function App() {
   useEffect(() => {
     if (isPaginaIndividual) return;
 
-    const title = '~~ Terra Ventos';
-    const description = t('hero.card.experience') || 'Curadoria de imóveis de luxo e oportunidades exclusivas no litoral do Ceará.';
+    const title = 'Terra Ventos | Imóveis de Luxo e Investimentos no Ceará';
+    const description = 'Curadoria exclusiva de imóveis de alto padrão e oportunidades de investimento no litoral cearense (Preá, Tatajuba, Bitupitá).';
     const imageUrl = `${window.location.origin}/banners/2.png`;
     const url = window.location.origin + currentPath;
 

@@ -62,16 +62,26 @@ export default function handler(req, res) {
     }
   ];
 
-  const property = data.find(p => p.slug === slug);
+  let property = data.find(p => p.slug === slug);
+
+  // Se não houver slug, assumimos que é a Home Page
+  if (!slug) {
+    property = {
+      title: 'Terra Ventos | Imóveis de Luxo e Investimentos no Ceará',
+      description: 'Curadoria exclusiva de imóveis de alto padrão e oportunidades de investimento no litoral cearense (Preá, Tatajuba, Bitupitá).',
+      image: '/banners/2.png',
+      url: baseUrl
+    };
+  }
 
   if (!property) {
     return res.redirect('/');
   }
 
-  const title = `${property.title} | Terra Ventos`;
+  const title = property.title.includes('Terra Ventos') ? property.title : `${property.title} | Terra Ventos`;
   const description = property.description;
   const image = property.image.startsWith('http') ? property.image : `${baseUrl}${property.image}`;
-  const url = `${baseUrl}/propriedade/${slug}`;
+  const url = property.url || `${baseUrl}/propriedade/${slug}`;
 
   const html = `<!DOCTYPE html>
 <html lang="pt-BR">
@@ -92,14 +102,15 @@ export default function handler(req, res) {
     <meta property="og:image:height" content="630">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="${url}">
-    <meta property="twitter:title" content="${title}">
-    <meta property="twitter:description" content="${description}">
-    <meta property="twitter:image" content="${image}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" content="terraventos.com">
+    <meta name="twitter:url" content="${url}">
+    <meta name="twitter:title" content="${title}">
+    <meta name="twitter:description" content="${description}">
+    <meta name="twitter:image" content="${image}">
 
-    <meta http-equiv="refresh" content="0;url=/propriedade/${slug}">
-    <script>window.location.href = "/propriedade/${slug}";</script>
+    <meta http-equiv="refresh" content="0;url=${slug ? `/propriedade/${slug}` : '/' }">
+    <script>window.location.href = "${slug ? `/propriedade/${slug}` : '/' }";</script>
 </head>
 <body>
     Redirecionando para ${title}...
