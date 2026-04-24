@@ -36,12 +36,42 @@ export default function PaginaIndividual({ slug, item: propItem }: PaginaIndivid
     ...(item.gallery.extra || [])
   ];
 
-  // Fix: reset body overflow when component unmounts
+  // SEO Update
   useEffect(() => {
+    if (!item) return;
+
+    const title = `${item.propertyTitle} | Terra Ventos`;
+    const description = item.exclusiveText || item.about[0] || '';
+    const imageUrl = item.image.startsWith('http') ? item.image : window.location.origin + item.image;
+    const url = window.location.href;
+
+    document.title = title;
+
+    const updateMeta = (name: string, content: string, isProperty = false) => {
+      const attr = isProperty ? 'property' : 'name';
+      let element = document.querySelector(`meta[${attr}="${name}"]`);
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attr, name);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', content);
+    };
+
+    updateMeta('description', description);
+    updateMeta('og:title', title, true);
+    updateMeta('og:description', description, true);
+    updateMeta('og:image', imageUrl, true);
+    updateMeta('og:url', url, true);
+    updateMeta('twitter:title', title);
+    updateMeta('twitter:description', description);
+    updateMeta('twitter:image', imageUrl);
+
     return () => {
+      // Reset to defaults if needed, though App.tsx will likely handle it
       document.body.style.overflow = '';
     };
-  }, []);
+  }, [item, i18n.language]);
 
   const openLightbox = (src: string) => {
     setLightboxImage(src);

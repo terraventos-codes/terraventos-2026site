@@ -177,6 +177,35 @@ function App() {
     return () => window.clearInterval(intervalId);
   }, []);
 
+  // Global SEO Reset for non-individual pages
+  useEffect(() => {
+    if (isPaginaIndividual) return;
+
+    const title = '~~ Terra Ventos';
+    const description = t('hero.card.experience') || 'Curadoria de imóveis de luxo e oportunidades exclusivas no litoral do Ceará.';
+    const imageUrl = `${window.location.origin}/banners/2.png`;
+    const url = window.location.origin + currentPath;
+
+    document.title = title;
+
+    const updateMeta = (name: string, content: string, isProperty = false) => {
+      const attr = isProperty ? 'property' : 'name';
+      let element = document.querySelector(`meta[${attr}="${name}"]`);
+      if (element) {
+        element.setAttribute('content', content);
+      }
+    };
+
+    updateMeta('description', description);
+    updateMeta('og:title', title, true);
+    updateMeta('og:description', description, true);
+    updateMeta('og:image', imageUrl, true);
+    updateMeta('og:url', url, true);
+    updateMeta('twitter:title', title);
+    updateMeta('twitter:description', description);
+    updateMeta('twitter:image', imageUrl);
+  }, [currentPath, isPaginaIndividual, t]);
+
   const handleSelectOpportunity = (item: OportunidadeDetalhe) => {
     runTransitionTo(`/propriedade/${item.slug}`);
   };
