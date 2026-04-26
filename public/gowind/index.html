@@ -77,26 +77,40 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="tab active" onclick="showTab('discover')">🗺️ Discover</div>
   <div class="tab" onclick="showTab('rankings')">🏆 Rankings</div>
 </div>
-<div id="discoverTab"><div class="cards" id="cards"><div class="loading"><div class="spinner"></div>Fetching live wind data from 11 spots...</div></div></div>
+<div id="discoverTab"><div class="cards" id="cards"><div class="loading"><div class="spinner"></div>Fetching live wind data from 21 spots...</div></div></div>
 <div id="rankingsTab" style="display:none"><div class="rankings" id="rankingsContent"></div></div>
 <div class="overlay" id="overlay" onclick="closePanel()"></div>
 <div class="panel" id="panel"><div class="panel-header"><div style="font-weight:700" id="panelTitle">Destination</div><button class="panel-close" onclick="closePanel()">×</button></div><div class="panel-body" id="panelBody"></div></div>
 <a class="whatsapp-float" href="https://wa.me/5585985572807?text=Hey%20GoWind!%20I%20want%20to%20plan%20a%20kitesurf%20trip." target="_blank">💬</a>
 <div class="toast" id="toast" style="display:none"></div>
+<div style="background:#0f2035;border-top:1px solid #1a3a5c;padding:16px;text-align:center;font-size:12px;color:#94a3b8;margin-top:12px">
+  <div style="margin-bottom:6px">GoWind by <a href="https://terraventos.com" style="color:#c9a96e;text-decoration:none">Terra Ventos</a></div>
+  <a href="mailto:info@terraventos.com?subject=GoWind Partner Inquiry" style="color:#c9a96e;text-decoration:none;font-weight:700">🤝 Become a Featured Partner</a> · <a href="https://terraventos.com" style="color:#94a3b8;text-decoration:none">terraventos.com</a>
+</div>
 
 <script>
 const SPOTS=[
-{name:"Preá",country:"Brazil",lat:-2.79,lng:-40.41,vibe:"World-class flat water, Jericoacoara gateway",reliability:92,flights:{NYC:850,London:780,SP:420,Berlin:820},featured:{name:"Terra Ventos Kite House",price:"from $120/night",desc:"3BR beachfront, 6 guests",link:"https://www.airbnb.com.br/rooms/1613864657831968386"}},
-{name:"Tatajuba",country:"Brazil",lat:-2.85,lng:-40.55,vibe:"Lagoon kiteboarding, downwind corridors",reliability:88,flights:{NYC:880,London:800,SP:440,Berlin:840}},
-{name:"Jericoacoara",country:"Brazil",lat:-2.80,lng:-40.51,vibe:"Iconic village, waves + flat water",reliability:90,flights:{NYC:830,London:760,SP:400,Berlin:800}},
-{name:"Cumbuco",country:"Brazil",lat:-3.63,lng:-38.73,vibe:"Close to Fortaleza, consistent wind",reliability:85,flights:{NYC:700,London:680,SP:350,Berlin:720}},
-{name:"Ilha do Guajiru",country:"Brazil",lat:-2.94,lng:-39.26,vibe:"Flat water lagoon, uncrowded",reliability:87,flights:{NYC:750,London:710,SP:380,Berlin:750}},
-{name:"Cabarete",country:"Dominican Republic",lat:19.76,lng:-70.41,vibe:"Caribbean vibes, waves + flat",reliability:75,flights:{NYC:350,London:550,SP:680,Berlin:600}},
-{name:"Tarifa",country:"Spain",lat:36.01,lng:-5.60,vibe:"Europe's wind capital, Strait of Gibraltar",reliability:82,flights:{NYC:500,London:120,SP:650,Berlin:180}},
-{name:"Aruba",country:"Caribbean",lat:12.51,lng:-69.97,vibe:"Trade winds, turquoise water",reliability:88,flights:{NYC:300,London:600,SP:750,Berlin:650}},
-{name:"Dakhla",country:"Morocco",lat:23.72,lng:-15.93,vibe:"Desert lagoon, epic flat water",reliability:90,flights:{NYC:700,London:350,SP:800,Berlin:400}},
-{name:"Cape Town",country:"South Africa",lat:-33.92,lng:18.42,vibe:"Big waves, Table Mountain backdrop",reliability:78,flights:{NYC:900,London:650,SP:850,Berlin:700}},
-{name:"Los Roques",country:"Venezuela",lat:11.95,lng:-66.67,vibe:"Remote archipelago, crystal water",reliability:80,flights:{NYC:500,London:700,SP:600,Berlin:750}}
+{name:"Preá",country:"Brazil",lat:-2.79,lng:-40.41,vibe:"World-class flat water, Jericoacoara gateway",reliability:92,flights:{NYC:850,London:780,SP:420,Berlin:820,Paris:790,Madrid:750,Amsterdam:800},accom:[{name:"Rancho do Peixe",price:"$180/night"},{name:"Vila Kalango",price:"$150/night"}],featured:{name:"Terra Ventos Kite House",price:"from $120/night",desc:"3BR beachfront, 6 guests",link:"https://www.airbnb.com.br/rooms/1613864657831968386"}},
+{name:"Tatajuba",country:"Brazil",lat:-2.85,lng:-40.55,vibe:"Lagoon kiteboarding, downwind corridors",reliability:88,flights:{NYC:880,London:800,SP:440,Berlin:840,Paris:810,Madrid:770,Amsterdam:830},accom:[{name:"Pousada Tatajuba",price:"$60/night"},{name:"Vila Tatajuba",price:"$80/night"}]},
+{name:"Jericoacoara",country:"Brazil",lat:-2.80,lng:-40.51,vibe:"Iconic village, waves + flat water",reliability:90,flights:{NYC:830,London:760,SP:400,Berlin:800,Paris:770,Madrid:730,Amsterdam:790},accom:[{name:"Blue Residence",price:"$200/night"},{name:"Essenza Hotel",price:"$250/night"}]},
+{name:"Cumbuco",country:"Brazil",lat:-3.63,lng:-38.73,vibe:"Close to Fortaleza, consistent wind",reliability:85,flights:{NYC:700,London:680,SP:350,Berlin:720,Paris:690,Madrid:660,Amsterdam:710},accom:[{name:"Windtown",price:"$120/night"},{name:"Hotel Cumbuco",price:"$80/night"}]},
+{name:"Ilha do Guajiru",country:"Brazil",lat:-2.94,lng:-39.26,vibe:"Flat water lagoon, uncrowded",reliability:87,flights:{NYC:750,London:710,SP:380,Berlin:750,Paris:720,Madrid:690,Amsterdam:740},accom:[{name:"Guajiru Kite House",price:"$70/night"}]},
+{name:"Cabarete",country:"Dominican Republic",lat:19.76,lng:-70.41,vibe:"Caribbean vibes, waves + flat",reliability:75,flights:{NYC:350,London:550,SP:680,Berlin:600,Paris:580,Madrid:520,Amsterdam:570},accom:[{name:"Agualina Kite Resort",price:"$130/night"},{name:"Velero Beach Resort",price:"$160/night"}]},
+{name:"Tarifa",country:"Spain",lat:36.01,lng:-5.60,vibe:"Europe's wind capital, Strait of Gibraltar",reliability:82,flights:{NYC:500,London:120,SP:650,Berlin:180,Paris:150,Madrid:60,Amsterdam:160},accom:[{name:"Hurricane Hotel",price:"$140/night"},{name:"La Torre del Viento",price:"$100/night"}]},
+{name:"Aruba",country:"Caribbean",lat:12.51,lng:-69.97,vibe:"Trade winds, turquoise water",reliability:88,flights:{NYC:300,London:600,SP:750,Berlin:650,Paris:630,Madrid:580,Amsterdam:620},accom:[{name:"Boardwalk Boutique",price:"$180/night"},{name:"The Ritz-Carlton",price:"$350/night"}]},
+{name:"Dakhla",country:"Morocco",lat:23.72,lng:-15.93,vibe:"Desert lagoon, epic flat water",reliability:90,flights:{NYC:700,London:350,SP:800,Berlin:400,Paris:320,Madrid:280,Amsterdam:380},accom:[{name:"Lagon Kitesurf Resort",price:"$90/night"},{name:"PK25",price:"$120/night"},{name:"Lassarga Resort",price:"$100/night"}]},
+{name:"Cape Town",country:"South Africa",lat:-33.92,lng:18.42,vibe:"Big waves, Table Mountain backdrop",reliability:78,flights:{NYC:900,London:650,SP:850,Berlin:700,Paris:680,Madrid:720,Amsterdam:690},accom:[{name:"Kite Mansion",price:"$150/night"},{name:"Dolphin Beach Hotel",price:"$100/night"}]},
+{name:"Los Roques",country:"Venezuela",lat:11.95,lng:-66.67,vibe:"Remote archipelago, crystal water",reliability:80,flights:{NYC:500,London:700,SP:600,Berlin:750,Paris:720,Madrid:680,Amsterdam:730},accom:[{name:"Posada Mediterraneo",price:"$120/night"}],featured:{name:"Fridsland Kite Trips",price:"All-inclusive packages",desc:"13+ yrs leading kite trips to Los Roques",link:"https://fridsland.com.br/trips/los-roques/"}},
+{name:"Zanzibar",country:"Tanzania",lat:-6.16,lng:39.19,vibe:"Paje Beach, trade winds, coral reefs",reliability:82,flights:{NYC:850,London:550,SP:900,Berlin:600,Paris:580,Madrid:620,Amsterdam:590},accom:[{name:"Paje By Night",price:"$80/night"},{name:"Melia Zanzibar",price:"$200/night"}]},
+{name:"El Gouna",country:"Egypt",lat:27.18,lng:33.68,vibe:"Red Sea flat water, year-round wind",reliability:88,flights:{NYC:650,London:350,SP:900,Berlin:300,Paris:320,Madrid:350,Amsterdam:330},accom:[{name:"Mövenpick Resort",price:"$120/night"},{name:"Kiteboarding Club",price:"$90/night"}]},
+{name:"Fuerteventura",country:"Spain",lat:28.36,lng:-14.05,vibe:"Canary Islands, waves + flat water",reliability:80,flights:{NYC:550,London:150,SP:700,Berlin:180,Paris:170,Madrid:100,Amsterdam:160},accom:[{name:"Meliá Fuerteventura",price:"$130/night"},{name:"H10 Ocean Dreams",price:"$100/night"}]},
+{name:"Mui Ne",country:"Vietnam",lat:10.93,lng:108.29,vibe:"SE Asia's kite capital, cheap paradise",reliability:78,flights:{NYC:800,London:600,SP:1100,Berlin:580,Paris:560,Madrid:620,Amsterdam:570},accom:[{name:"Ananda Resort",price:"$50/night"},{name:"Mia Resort",price:"$120/night"}]},
+{name:"Boracay",country:"Philippines",lat:11.97,lng:121.93,vibe:"Bulabog Beach, tropical paradise",reliability:75,flights:{NYC:850,London:650,SP:1200,Berlin:630,Paris:610,Madrid:650,Amsterdam:620},accom:[{name:"7Stones Boracay",price:"$90/night"},{name:"Shangri-La Boracay",price:"$250/night"}]},
+{name:"Mauritius",country:"Indian Ocean",lat:-20.45,lng:57.31,vibe:"Le Morne, waves + lagoon",reliability:82,flights:{NYC:1000,London:700,SP:950,Berlin:720,Paris:680,Madrid:740,Amsterdam:710},accom:[{name:"St. Regis Mauritius",price:"$350/night"},{name:"ION Club Le Morne",price:"$100/night"}]},
+{name:"Essaouira",country:"Morocco",lat:31.51,lng:-9.77,vibe:"Atlantic winds, medina vibes",reliability:76,flights:{NYC:600,London:200,SP:750,Berlin:250,Paris:180,Madrid:150,Amsterdam:220},accom:[{name:"Villa de l'O",price:"$150/night"},{name:"Riad Baladin",price:"$60/night"}]},
+{name:"Maui",country:"Hawaii",lat:20.80,lng:-156.33,vibe:"Kanaha Beach, pro conditions",reliability:80,flights:{NYC:500,London:800,SP:1100,Berlin:850,Paris:830,Madrid:870,Amsterdam:840},accom:[{name:"Maui Seaside Hotel",price:"$180/night"},{name:"Grand Wailea",price:"$450/night"}]},
+{name:"Cauípe Lagoon",country:"Brazil",lat:-3.54,lng:-38.82,vibe:"Near Cumbuco, flat water paradise",reliability:86,flights:{NYC:700,London:680,SP:350,Berlin:720,Paris:690,Madrid:660,Amsterdam:710},accom:[{name:"Cauípe Kite Lodge",price:"$60/night"}]},
+{name:"Barra Grande",country:"Brazil",lat:-2.90,lng:-41.40,vibe:"Piauí delta, remote beauty",reliability:84,flights:{NYC:900,London:820,SP:480,Berlin:860,Paris:830,Madrid:790,Amsterdam:840},accom:[{name:"BGK Pousada",price:"$70/night"},{name:"Pousada Ventos de Barra",price:"$90/night"}]}
 ];
 
 let userLat=null,userLng=null,userCity="Unknown",windData={},map;
@@ -148,7 +162,7 @@ async function fetchWind(){
       windData[s.name]=await r.json();
     }catch(e){windData[s.name]=null;}
     loadedCount++;
-    document.getElementById('liveBadge').innerHTML=`● LIVE — ${loadedCount}/11 spots loaded`;
+    document.getElementById('liveBadge').innerHTML=`● LIVE — ${loadedCount}/${SPOTS.length} spots loaded`;
     renderAll(); // Re-render after each spot loads
   }
 }
@@ -265,7 +279,9 @@ function openPanel(name){
     ${bestDay?`<div style="text-align:center;margin:8px 0;font-size:12px;color:#22c55e">⭐ Best day: ${bestDay.day} ${bestDay.date} — ${bestDay.kiteHours} kite hours</div>`:''}
     <div style="font-weight:700;margin:12px 0 6px">Estimated Flights</div>
     <div class="flight-info">${Object.entries(s.flights).map(([city,price])=>`<div class="flight-card"><div style="color:#94a3b8;font-size:11px">From ${city}</div><div class="price">$${price}</div></div>`).join('')}</div>
-    ${s.featured?`<div class="featured"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-weight:700">${s.featured.name}</span><span class="featured-badge">⭐ FEATURED</span></div><div style="font-size:12px;color:#94a3b8">${s.featured.desc} — ${s.featured.price}</div><div style="font-size:11px;color:#c9a96e;margin-top:4px">Only 2 featured slots remaining for ${s.name}</div></div>`:''}
+    ${s.featured?`<div class="featured"><a href="${s.featured.link}" target="_blank" style="text-decoration:none;color:inherit"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-weight:700">${s.featured.name}</span><span class="featured-badge">⭐ FEATURED PARTNER</span></div><div style="font-size:12px;color:#94a3b8">${s.featured.desc} — ${s.featured.price}</div></a><div style="font-size:11px;color:#c9a96e;margin-top:4px">Only 2 featured slots remaining for ${s.name}</div></div>`:`<div style="background:#0f2035;border:1px dashed #1a3a5c;border-radius:8px;padding:10px;margin:12px 0;text-align:center;font-size:11px"><span style="color:#94a3b8">Want to feature your business here?</span> <a href="mailto:info@terraventos.com?subject=GoWind Partner — ${s.name}" style="color:#c9a96e">Contact us</a></div>`}
+    <div style="font-weight:700;margin:12px 0 6px">Where to Stay</div>
+    ${(s.accom||[]).map(a=>`<div style="background:#0f2035;border:1px solid #1a3a5c;border-radius:6px;padding:8px;margin:4px 0;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px">${a.name}</span><span style="color:#22c55e;font-weight:700;font-size:13px">${a.price}</span></div>`).join('')}
     <button class="whatsapp-btn" onclick="window.open('https://wa.me/5585985572807?text=Hey%20GoWind!%20I%27m%20in%20${encodeURIComponent(userCity)}.%20I%20want%20to%20go%20kitesurfing%20in%20${encodeURIComponent(s.name)}%20next%20week.%20Can%20you%20help%3F','_blank')">💬 Plan This Trip on WhatsApp</button>`;
   document.getElementById('panel').classList.add('open');
   document.getElementById('overlay').classList.add('open');
@@ -284,7 +300,7 @@ setInterval(()=>{const diff=launch-new Date();const d=Math.floor(diff/864e5),h=M
 document.getElementById('countdown').textContent=`🚀 GoWind public launch in 30 days`;
 
 // FOMO toasts
-const toasts=["A kitesurfer from Berlin just searched Preá","A kitesurfer from Paris is looking at Dakhla","A kitesurfer from São Paulo checked Tatajuba","New partner registered in Cabarete","A kitesurfer from London just searched Tarifa","A kitesurfer from Miami is planning Aruba","A rider from Munich checked Cape Town","A kitesurfer from Buenos Aires searched Preá"];
+const toasts=["A kitesurfer from Berlin just searched Preá","A kitesurfer from Paris is looking at Dakhla","A kitesurfer from São Paulo checked Tatajuba","New partner registered in Cabarete","A kitesurfer from London just searched Tarifa","A kitesurfer from Miami is planning Aruba","A rider from Munich checked Cape Town","A kitesurfer from Buenos Aires searched Preá","A wingfoiler from Amsterdam is looking at El Gouna","A kitesurfer from Madrid checked Fuerteventura","A rider from Tokyo just discovered Mui Ne","Fridsland Kite Trips booked for Los Roques","A kitesurfer from Rome is planning Zanzibar","A rider from Lisbon checked Barra Grande"];
 let ti=0;
 setInterval(()=>{const el=document.getElementById('toast');el.textContent='🔔 '+toasts[ti%toasts.length];el.style.display='block';setTimeout(()=>el.style.display='none',5000);ti++;},8000);
 
