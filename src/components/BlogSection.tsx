@@ -17,92 +17,92 @@ const BlogSection: React.FC = () => {
   const posts: Record<string, BlogPost[]> = {
     pt: [
       {
-        title: "Carnaúba, Hidrogênio Verde e a Corrida por Terras no Ceará",
-        summary: "O Ceará exporta 74% da cera de carnaúba do Brasil e está construindo sua maior planta de hidrogênio verde. A terra é finita — investidores estrangeiros já estão se movimentando.",
-        url: "https://blog.terraventos.com/p/carnauba-green-hydrogen-and-the-ceara",
-        image: "/terrenos.avif",
+        title: "BREAKING — Tatajuba finalmente vai ser titulada",
+        summary: "O IDACE publicou regras oficiais para a titulação de terras em Tatajuba. O artigo detalha os caminhos para a posse e a cláusula de não transferência de 5 anos.",
+        url: "https://blog.terraventos.com/p/breaking-tatajuba-is-finally-getting",
+        image: "/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg",
         date: "24 Abr 2026"
       },
       {
-        title: "Globo Repórter coloca o Ceará no Mapa — E investidores atentos já estão comprando",
-        summary: "O Globo Repórter destacou a costa do Ceará, seus jangadeiros e os Lençóis Paracuruenses. Quando um estado ganha destaque no horário nobre, a janela de preços locais começa a fechar.",
-        url: "https://blog.terraventos.com/p/globo-reporter-puts-ceara-on-the",
-        image: "/imgbeach.avif",
-        date: "15 Abr 2026"
+        title: "TikTok, Huawei e a onda de Data Centers no Ceará",
+        summary: "O complexo do Pecém garantiu cinco grandes projetos de data centers, incluindo o site hiperescala do TikTok. Investimento de R$ 450B até 2035 redefinindo o mercado.",
+        url: "https://blog.terraventos.com/p/tiktok-huawei-and-the-ceara-data",
+        image: "/blog/datacenter.png",
+        date: "25 Abr 2026"
       },
       {
-        title: "Tatajuba: O Paraíso Escondido do Kitesurf onde Investidores Inteligentes compram terra",
-        summary: "Kitesurf em lagoas, corredores de downwind e terras beira-mar a preços pré-boom — por que este canto tranquilo do Ceará é o próximo grande investimento em kite.",
-        url: "https://blog.terraventos.com/p/tatajuba-the-hidden-kitesurf-paradise",
-        image: "/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg",
-        date: "02 Abr 2026"
+        title: "Terreno de Marinha Explicado: A linha dos 33 metros",
+        summary: "Um guia completo sobre a faixa de terra federal de 33 metros na costa brasileira. Entenda o SPU, foro e laudêmio para investimentos seguros beira-mar.",
+        url: "https://blog.terraventos.com/p/terreno-de-marinha-explained-the",
+        image: "/blog/marinha.png",
+        date: "26 Abr 2026"
       },
       {
-        title: "Preá - o melhor destino de kitesurf para 2026?",
-        summary: "A 20 minutos do aeroporto de Jericoacoara, a meca dos pro-riders. Ventos constantes fazem deste o principal destino de kitesurf da América do Sul.",
-        url: "https://blog.terraventos.com/p/prea-the-best-kitesurf-destination",
-        image: "/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.47.jpeg",
-        date: "20 Mar 2026"
+        title: "O Playbook do Comprador Estrangeiro no Ceará",
+        summary: "Guia estratégico para investidores internacionais. Saiba por que o CPF é o principal requisito e conheça o 'Visto Gold' via investimento imobiliário.",
+        url: "https://blog.terraventos.com/p/the-foreign-buyer-playbook-in-ceara",
+        image: "/blog/foreign_buyer.png",
+        date: "27 Abr 2026"
       }
     ],
     en: [
       {
-        title: "Carnaúba, Green Hydrogen, and the Ceará Land Crunch",
-        summary: "Ceará exports 74% of Brazil's carnaúba wax, is building its biggest green hydrogen plant, and attracted R$9.4B investment. Land is finite — foreign buyers are moving.",
-        url: "https://blog.terraventos.com/p/carnauba-green-hydrogen-and-the-ceara",
-        image: "/terrenos.avif",
+        title: "BREAKING — Tatajuba Is Finally Getting Titled: IDACE",
+        summary: "IDACE has published official rules for land titling in Tatajuba. The article details paths to ownership and the critical 5-year non-transferability clause.",
+        url: "https://blog.terraventos.com/p/breaking-tatajuba-is-finally-getting",
+        image: "/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg",
         date: "Apr 24, 2026"
       },
       {
-        title: "Globo Repórter Puts Ceará on the Map — And Smart Investors Are Already Buying In",
-        summary: "Globo Repórter spotlights Ceará's coast and the otherworldly Lençóis Paracuruenses. When a state gets prime-time spotlight, the window for local prices starts to close.",
-        url: "https://blog.terraventos.com/p/globo-reporter-puts-ceara-on-the",
-        image: "/imgbeach.avif",
-        date: "Apr 15, 2026"
+        title: "TikTok, Huawei, and the Ceará Data Center Wave",
+        summary: "Pecém secured five major data center projects, including TikTok's hyperscale site. R$450B investment by 2035 is rapidly repricing real estate.",
+        url: "https://blog.terraventos.com/p/tiktok-huawei-and-the-ceara-data",
+        image: "/blog/datacenter.png",
+        date: "Apr 25, 2026"
       },
       {
-        title: "Tatajuba: The Hidden Kitesurf Paradise Where Smart Investors Are Buying Land",
-        summary: "Lagoon kiteboarding, downwind corridors, and prime beachfront land at pre-boom prices — why this quiet corner is the next big kite investment.",
-        url: "https://blog.terraventos.com/p/tatajuba-the-hidden-kitesurf-paradise",
-        image: "/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg",
-        date: "Apr 02, 2026"
+        title: "Terreno de Marinha Explained: The 33-Meter Federal Line",
+        summary: "A comprehensive guide to the 33-meter federal land strip along the Brazilian coast. Understand SPU, foro, and laudêmio for secure beachfront investments.",
+        url: "https://blog.terraventos.com/p/terreno-de-marinha-explained-the",
+        image: "/blog/marinha.png",
+        date: "Apr 26, 2026"
       },
       {
-        title: "Preá - the best kitesurf destination for 2026?",
-        summary: "20 minutes from Jericoacoara airport, a pro-rider mecca. Consistent trade winds make this South America’s premier kitesurf destination.",
-        url: "https://blog.terraventos.com/p/prea-the-best-kitesurf-destination",
-        image: "/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.47.jpeg",
-        date: "Mar 20, 2026"
+        title: "The Foreign Buyer Playbook in Ceará",
+        summary: "Strategic guide for international investors. Learn why CPF is the primary requirement and explore the 'Golden Visa' path through Northeast real estate.",
+        url: "https://blog.terraventos.com/p/the-foreign-buyer-playbook-in-ceara",
+        image: "/blog/foreign_buyer.png",
+        date: "Apr 27, 2026"
       }
     ],
     es: [
       {
-        title: "Carnaúba, Hidrógeno Verde y la Carrera por la Tierra en Ceará",
-        summary: "Ceará exporta el 74% de la cera de carnaúba de Brasil y está construyendo su mayor planta de hidrógeno verde. La tierra es finita — los inversores extranjeros ya se están moviendo.",
-        url: "https://blog.terraventos.com/p/carnauba-green-hydrogen-and-the-ceara",
-        image: "/terrenos.avif",
+        title: "ÚLTIMA HORA — Tatajuba finalmente será titulada",
+        summary: "IDACE ha publicado reglas oficiales para la titulación de tierras en Tatajuba. El artículo detalla las vías de propiedad y la cláusula de no transferencia de 5 años.",
+        url: "https://blog.terraventos.com/p/breaking-tatajuba-is-finally-getting",
+        image: "/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg",
         date: "24 Abr 2026"
       },
       {
-        title: "Globo Repórter pone a Ceará en el mapa — Y los inversores atentos ya están comprando",
-        summary: "Globo Repórter destacó la costa de Ceará y los Lençóis Paracuruenses. Cuando un estado gana protagonismo en horario estelar, la ventana de precios locales comienza a cerrarse.",
-        url: "https://blog.terraventos.com/p/globo-reporter-puts-ceara-on-the",
-        image: "/imgbeach.avif",
-        date: "15 Abr 2026"
+        title: "TikTok, Huawei y la ola de Data Centers en Ceará",
+        summary: "Pecém aseguró cinco grandes proyectos de centros de datos, incluido el sitio de TikTok. La inversión de R$ 450B para 2035 revaloriza el mercado.",
+        url: "https://blog.terraventos.com/p/tiktok-huawei-and-the-ceara-data",
+        image: "/blog/datacenter.png",
+        date: "25 Abr 2026"
       },
       {
-        title: "Tatajuba: El paraíso oculto del kitesurf donde inversores inteligentes compran tierras",
-        summary: "Kitesurf en lagunas, corredores de downwind y tierras frente al mar a precios pre-boom — por qué este rincón tranquilo es la próxima gran inversión en kite.",
-        url: "https://blog.terraventos.com/p/tatajuba-the-hidden-kitesurf-paradise",
-        image: "/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg",
-        date: "02 Abr 2026"
+        title: "Terreno de Marinha Explicado: La línea federal de 33 metros",
+        summary: "Una guía completa sobre la franja de tierra federal de 33 metros en la costa brasileña. Entienda SPU, foro y laudêmio para inversiones seguras.",
+        url: "https://blog.terraventos.com/p/terreno-de-marinha-explained-the",
+        image: "/blog/marinha.png",
+        date: "26 Abr 2026"
       },
       {
-        title: "Preá - ¿el mejor destino de kitesurf para 2026?",
-        summary: "A 20 minutos del aeropuerto de Jericoacoara, la meca de los pro-riders. Vientos constantes hacen de este el principal destino de kitesurf de América del Sur.",
-        url: "https://blog.terraventos.com/p/prea-the-best-kitesurf-destination",
-        image: "/prea oportunidade/WhatsApp Image 2026-04-21 at 09.32.47.jpeg",
-        date: "20 Mar 2026"
+        title: "El Playbook del Comprador Extranjero en Ceará",
+        summary: "Guía estratégica para inversores internacionales. Sepa por qué el CPF es el requisito principal y conozca la 'Visa Gold' vía inversión inmobiliaria.",
+        url: "https://blog.terraventos.com/p/the-foreign-buyer-playbook-in-ceara",
+        image: "/blog/foreign_buyer.png",
+        date: "27 Abr 2026"
       }
     ]
   };

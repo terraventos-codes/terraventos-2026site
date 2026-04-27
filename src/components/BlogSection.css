@@ -30,6 +30,7 @@
 }
 
 .blog-title {
+  font-family: 'Avenir', sans-serif;
   font-size: clamp(32px, 5vw, 48px);
   font-weight: 300;
   line-height: 1.1;
