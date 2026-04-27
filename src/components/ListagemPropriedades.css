@@ -246,6 +246,27 @@
   transform: rotate(-10deg);
 }
 
+.share-property-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+}
+
+.share-property-btn:hover {
+  background: #c9a050;
+  border-color: #c9a050;
+  color: #000;
+  transform: scale(1.1);
+}
+
 .no-results {
   grid-column: 1 / -1;
   text-align: center;

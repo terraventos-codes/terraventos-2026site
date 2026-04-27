@@ -9,6 +9,11 @@ i18n
     resources: {
       pt: {
         translation: {
+          common: {
+            share: "Compartilhar",
+            linkCopied: "Link copiado!",
+            shareText: "Confira esta propriedade na Terra Ventos: "
+          },
           nav: {
             inicio: "Início",
             oportunidades: "Oportunidades",
@@ -167,6 +172,11 @@ i18n
       },
       en: {
         translation: {
+          common: {
+            share: "Share",
+            linkCopied: "Link copied!",
+            shareText: "Check out this property on Terra Ventos: "
+          },
           nav: { inicio: "Home", oportunidades: "Opportunities", projetos: "Projects", estudo: "Wind Study", regioes: "Regions", contato: "Contact Us" },
           hero: {
             cta: "View Projects",
@@ -299,6 +309,11 @@ i18n
       },
       es: {
         translation: {
+          common: {
+            share: "Compartir",
+            linkCopied: "¡Enlace copiado!",
+            shareText: "Mira esta propiedad en Terra Ventos: "
+          },
           nav: { inicio: "Inicio", oportunidades: "Oportunidades", projetos: "Proyectos", estudo: "Estudio de los Vientos", regioes: "Regiones", contato: "Contáctenos" },
           hero: {
             cta: "Ver Proyectos",

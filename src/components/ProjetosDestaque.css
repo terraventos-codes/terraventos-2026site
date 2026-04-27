@@ -172,6 +172,48 @@
   color: #C4B096;
 }
 
+.pd-price {
+  font-size: 1.2rem;
+  color: #111;
+  font-weight: 700;
+  font-family: 'Manrope', sans-serif;
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+.pd-share-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.pd-card:hover .pd-share-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pd-share-btn:hover {
+  background: #C4B096;
+  border-color: #C4B096;
+  color: #111;
+  transform: scale(1.1) !important;
+}
+
 .pd-card-title {
   font-family: 'Manrope', sans-serif;
   font-size: 1.35rem;
