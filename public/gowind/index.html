@@ -3,819 +3,798 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GoWind | Where to Kitesurf Next Week — Real-Time Wind &amp; Travel Planner</title>
-<meta name="description" content="GoWind v3 — Discover 23 best kitesurf destinations worldwide with real-time wind data, 7-day forecasts, travel planning, and accommodation. Plan your next kite trip now.">
-<meta property="og:title" content="GoWind | Real-Time Wind & Kitesurf Travel Planner">
-<meta property="og:description" content="Discover 23 world-class kitesurf spots with live wind data, monthly calendars, flights & accommodation.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>GoWind — Find Your Perfect Kite Spot</title>
+<meta name="description" content="Discover the world's best kitesurfing destinations with real-time wind data, monthly rankings, and trip planning tools.">
+<link rel="canonical" href="https://gowind.co">
+<meta property="og:title" content="GoWind — Best Kitesurfing Destinations Worldwide">
+<meta property="og:description" content="Real-time wind data for 23 premier kite spots. Plan your next session.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://terraventos.com/gowind">
-<meta property="og:image" content="https://terraventos.com/gowind/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GoWind | Real-Time Wind & Kitesurf Travel Planner">
-<meta name="twitter:description" content="23 kitesurf spots, real-time wind, travel planner.">
-<link rel="canonical" href="https://terraventos.com/gowind">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"GoWind","url":"https://terraventos.com/gowind","description":"Real-time wind and kitesurf travel planner with 23 world-class destinations.","applicationCategory":"TravelApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Terra Ventos Kite House","url":"https://terraventos.com"}}
-</script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"GoWind",
+  "description":"Discover the best kitesurfing spots worldwide with real-time wind conditions.",
+  "url":"https://gowind.co",
+  "applicationCategory":"TravelApplication",
+  "operatingSystem":"Web"
+}
+</script>
 <style>
+/* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0a1628;--bg2:#0f2035;--bg3:#162a45;--gold:#c9a96e;--gold2:#e8c97a;--blue:#3b82f6;--green:#22c55e;--red:#ef4444;--orange:#f97316;--cyan:#06b6d4;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--border:#1e3a5f;--card:#0d1f35;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,.4)}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-a{color:var(--gold);text-decoration:none}
-a:hover{color:var(--gold2)}
-.container{max-width:1280px;margin:0 auto;padding:0 16px}
-
-/* HEADER */
-header{background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;backdrop-filter:blur(12px)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;max-width:1280px;margin:0 auto}
-.logo{font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.logo span{font-weight:300;font-size:.9rem;-webkit-text-fill-color:var(--text2);margin-left:6px}
-.live-counter{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--text2)}
-.live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.whatsapp-btn{background:#25d366;color:#fff;padding:8px 16px;border-radius:20px;font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:6px;transition:transform .2s}
-.whatsapp-btn:hover{transform:scale(1.05);color:#fff}
-
-/* HERO */
-.hero{text-align:center;padding:48px 16px 24px;background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%)}
-.hero h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;margin-bottom:8px}
-.hero h1 em{font-style:normal;color:var(--gold)}
-.hero p{color:var(--text2);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
-
-/* FILTERS */
-.filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:0 16px 24px}
-.filter-btn{padding:8px 18px;border-radius:20px;border:1px solid var(--border);background:var(--bg2);color:var(--text2);font-size:.85rem;cursor:pointer;transition:all .2s}
-.filter-btn:hover,.filter-btn.active{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:600}
-.filter-group{display:flex;gap:6px;align-items:center}
-.filter-label{font-size:.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-right:4px}
-
-/* TABS */
-.tabs{display:flex;gap:0;justify-content:center;margin:0 16px 24px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.tab-btn{flex:1;padding:12px;text-align:center;background:var(--bg2);color:var(--text2);font-size:.9rem;font-weight:600;cursor:pointer;border:none;transition:all .2s}
-.tab-btn.active{background:var(--gold);color:var(--bg)}
-.tab-content{display:none}.tab-content.active{display:block}
-
-/* MAP */
-#map{height:420px;border-radius:var(--radius);margin:0 16px 24px;border:1px solid var(--border)}
-
-/* LOADING */
-.loading-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--cyan));z-index:9999;transition:width .3s}
-#wind-status{text-align:center;padding:8px;font-size:.85rem;color:var(--text2)}
-
-/* CARDS */
-.spots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;padding:0 16px 40px}
-.spot-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform .2s,box-shadow .2s;position:relative}
-.spot-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.spot-card.featured{border-color:var(--gold);box-shadow:0 0 20px rgba(201,169,110,.15)}
-.featured-badge{position:absolute;top:12px;right:12px;background:var(--gold);color:var(--bg);padding:4px 10px;border-radius:12px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;z-index:2}
-.trending-badge{position:absolute;top:12px;left:12px;background:var(--orange);color:#fff;padding:4px 10px;border-radius:12px;font-size:.7rem;font-weight:700;z-index:2}
-.card-header{padding:20px 20px 12px;display:flex;justify-content:space-between;align-items:flex-start}
-.card-header h3{font-size:1.2rem;font-weight:700}
-.card-header h3 small{display:block;font-size:.75rem;color:var(--text3);font-weight:400;margin-top:2px}
-.wind-now{text-align:right}
-.wind-speed{font-size:1.6rem;font-weight:800;color:var(--green)}
-.wind-speed.medium{color:var(--orange)}
-.wind-speed.strong{color:var(--red)}
-.wind-label{font-size:.7rem;color:var(--text3);text-transform:uppercase}
-.wind-dir{font-size:.8rem;color:var(--text2)}
-
-/* TAGS */
-.card-tags{padding:0 20px 12px;display:flex;gap:6px;flex-wrap:wrap}
-.tag{padding:3px 10px;border-radius:10px;font-size:.72rem;font-weight:600;border:1px solid var(--border);color:var(--text2)}
-.tag.flat{border-color:#06b6d4;color:#06b6d4}
-.tag.waves{border-color:#8b5cf6;color:#8b5cf6}
-.tag.choppy{border-color:#f97316;color:#f97316}
-.tag.lagoon{border-color:#22c55e;color:#22c55e}
-.tag.mixed{border-color:#eab308;color:#eab308}
-.tag.beg{border-color:#22c55e;color:#22c55e}
-.tag.int{border-color:#3b82f6;color:#3b82f6}
-.tag.adv{border-color:#ef4444;color:#ef4444}
-.tag.all{border-color:#a78bfa;color:#a78bfa}
-
-/* WIND FORECAST BAR */
-.forecast-bar{padding:0 20px 12px}
-.forecast-bar label{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:6px}
-.forecast-hours{display:flex;gap:2px;overflow-x:auto;padding-bottom:4px}
-.fh{display:flex;flex-direction:column;align-items:center;min-width:28px;font-size:.6rem;color:var(--text3)}
-.fh .bar{width:16px;border-radius:3px;margin:2px 0;transition:height .3s}
-.fh .val{font-size:.65rem;font-weight:600;color:var(--text)}
-
-/* MONTHLY CALENDAR */
-.monthly-cal{padding:0 20px 16px}
-.monthly-cal label{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:6px}
-.months-row{display:grid;grid-template-columns:repeat(12,1fr);gap:3px}
-.month-cell{text-align:center;padding:4px 0;border-radius:4px;font-size:.6rem;background:var(--bg2);position:relative}
-.month-cell .mname{display:block;color:var(--text3);font-weight:600}
-.month-cell .mval{display:block;font-weight:700;font-size:.7rem}
-.month-cell.peak{background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3)}
-.month-cell.peak .mval{color:var(--green)}
-.month-cell.good{background:rgba(201,169,110,.1)}
-.month-cell.good .mval{color:var(--gold)}
-.month-cell.low .mval{color:var(--text3)}
-
-/* ACCOMMODATION */
-.accom-section{padding:0 20px 16px}
-.accom-section label{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:6px}
-.accom-item{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.82rem}
-.accom-item:last-child{border:none}
-.accom-name{color:var(--text)}
-.accom-price{color:var(--gold);font-weight:600}
-.accom-item.sponsor{background:linear-gradient(90deg,rgba(201,169,110,.08),transparent);padding:6px 8px;border-radius:6px;margin:-2px -8px}
-.accom-item.sponsor .accom-name{color:var(--gold)}
-
-/* FLIGHTS */
-.flights-section{padding:0 20px 16px}
-.flights-section label{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:6px}
-.flight-row{display:flex;justify-content:space-between;font-size:.78rem;padding:3px 0;color:var(--text2)}
-.flight-price{color:var(--cyan);font-weight:600}
-
-/* HAZARDS */
-.hazards{padding:0 20px 12px;font-size:.78rem;color:var(--text3)}
-.hazards span{color:var(--orange)}
-
-/* CARD ACTIONS */
-.card-actions{padding:12px 20px;border-top:1px solid var(--border);display:flex;gap:8px}
-.card-actions a{flex:1;text-align:center;padding:8px;border-radius:8px;font-size:.82rem;font-weight:600;transition:all .2s}
-.btn-primary{background:var(--gold);color:var(--bg)}
-.btn-primary:hover{background:var(--gold2);color:var(--bg)}
-.btn-secondary{border:1px solid var(--border);color:var(--text2)}
-.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
-.btn-whatsapp{background:#25d366;color:#fff}
-.btn-whatsapp:hover{background:#20bd5a;color:#fff}
-
-/* DISTANCE */
-.distance-tag{font-size:.72rem;color:var(--cyan);margin-top:2px}
-
-/* RANKINGS TAB */
-.rankings-table{width:100%;border-collapse:collapse;margin:0 0 40px}
-.rankings-table th{text-align:left;padding:12px 16px;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--text3);border-bottom:1px solid var(--border)}
-.rankings-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.88rem}
-.rankings-table tr:hover{background:rgba(201,169,110,.05)}
-.rank-num{font-weight:800;color:var(--gold);font-size:1.1rem}
-.rank-wind{font-weight:700}
-
-/* TOAST */
-.toast-container{position:fixed;bottom:80px;right:16px;z-index:9000}
-.toast{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-top:8px;font-size:.82rem;color:var(--text);box-shadow:var(--shadow);animation:slideIn .4s ease-out;max-width:300px}
-@keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
-.toast .toast-name{color:var(--gold);font-weight:600}
-
-/* COUNTDOWN */
-.countdown{text-align:center;padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);margin:0 16px 24px}
-.countdown h3{color:var(--gold);font-size:.9rem;margin-bottom:6px}
-.countdown-timer{display:flex;gap:12px;justify-content:center}
-.countdown-timer div{text-align:center}
-.countdown-timer .num{font-size:1.6rem;font-weight:800;color:var(--text)}
-.countdown-timer .lbl{font-size:.65rem;color:var(--text3);text-transform:uppercase}
-
-/* FOOTER */
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 16px;text-align:center;margin-top:40px}
-footer h3{color:var(--gold);margin-bottom:8px;font-size:1.1rem}
-footer p{color:var(--text2);font-size:.88rem;max-width:500px;margin:0 auto 16px}
-footer a.partner-btn{display:inline-block;background:var(--gold);color:var(--bg);padding:10px 24px;border-radius:8px;font-weight:700;margin-bottom:24px}
-footer .footer-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;font-size:.8rem;color:var(--text3)}
-footer .copy{margin-top:16px;font-size:.75rem;color:var(--text3)}
-
-/* WHATSAPP CONCIERGE */
-.wa-concierge{position:fixed;bottom:20px;right:20px;z-index:8000;display:flex;align-items:flex-end;gap:10px;cursor:pointer;text-decoration:none}
-.wa-concierge:hover .wa-bubble{transform:translateY(-2px)}
-.wa-bubble{background:var(--bg3);border:1px solid var(--border);border-radius:16px 16px 4px 16px;padding:10px 16px;box-shadow:var(--shadow);transition:transform .2s;max-width:200px}
-.wa-bubble-text{font-size:.85rem;color:var(--text);font-weight:500;line-height:1.3}
-.wa-bubble-sub{font-size:.7rem;color:var(--text3);margin-top:2px}
-.wa-avatar{width:56px;height:56px;border-radius:50%;overflow:hidden;border:3px solid #25d366;box-shadow:0 4px 16px rgba(37,211,102,.3);flex-shrink:0;position:relative;background:#25d366;display:flex;align-items:center;justify-content:center}
-.wa-avatar svg{width:28px;height:28px}
-.wa-avatar-img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.wa-online{position:absolute;bottom:2px;right:2px;width:12px;height:12px;border-radius:50%;background:#25d366;border:2px solid var(--bg);z-index:1}
-@media(max-width:480px){.wa-bubble{display:none}}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .spots-grid{grid-template-columns:1fr}
-  .months-row{grid-template-columns:repeat(6,1fr)}
-  #map{height:300px}
-  .header-inner{flex-wrap:wrap;gap:8px}
-  .whatsapp-btn span.desk{display:none}
+:root{
+  --navy:#0a1628;--navy-light:#0f1f3a;--navy-mid:#162a4a;
+  --gold:#c9a96e;--gold-light:#ddc08a;--gold-dim:rgba(201,169,110,.15);
+  --white:#f0ece4;--white-pure:#fff;--gray:#8a94a6;--gray-light:#b0b8c8;
+  --green:#34d399;--red:#f87171;--orange:#fbbf24;
+  --card-bg:#111d32;--card-border:rgba(201,169,110,.12);
+  --radius:12px;--radius-sm:8px;
+  --font:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --transition:all .25s ease;
 }
-@media(max-width:480px){
-  .filters{gap:4px}
-  .filter-btn{padding:6px 12px;font-size:.78rem}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--navy);color:var(--white);line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:72px}
+a{color:var(--gold);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--gold-light)}
+img{max-width:100%;display:block}
+button{cursor:pointer;font-family:var(--font);border:none;background:none;color:inherit}
+
+/* ===== HEADER ===== */
+.header{position:sticky;top:0;z-index:1000;background:rgba(10,22,40,.96);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--card-border);padding:0 16px}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;
+  justify-content:space-between;height:56px}
+.logo{font-size:1.4rem;font-weight:700;letter-spacing:-.5px;color:var(--white)}
+.logo span{color:var(--gold)}
+.header-right{display:flex;align-items:center;gap:12px}
+.lang-select{display:flex;align-items:center;gap:6px;background:var(--navy-mid);
+  border:1px solid var(--card-border);border-radius:var(--radius-sm);padding:6px 10px;
+  font-size:.8rem;color:var(--gray-light);cursor:pointer;position:relative}
+.lang-select svg{width:16px;height:16px;opacity:.7}
+.lang-select select{appearance:none;background:none;border:none;color:var(--white);
+  font-size:.8rem;font-family:var(--font);cursor:pointer;padding-right:4px}
+.lang-select select option{background:var(--navy);color:var(--white)}
+
+/* ===== MAP ===== */
+.map-container{width:100%;height:35vh;min-height:200px;position:relative}
+#map{width:100%;height:100%;z-index:1}
+.leaflet-container{background:var(--navy)!important}
+.map-overlay{position:absolute;bottom:12px;left:12px;z-index:500;
+  background:rgba(10,22,40,.85);backdrop-filter:blur(8px);
+  border-radius:var(--radius-sm);padding:8px 12px;display:flex;gap:12px;
+  font-size:.75rem;color:var(--gray-light)}
+.map-legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:middle}
+
+/* ===== MAIN CONTENT ===== */
+.main{max-width:1200px;margin:0 auto;padding:16px}
+.section-title{font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:12px;
+  display:flex;align-items:center;gap:8px}
+.section-title svg{color:var(--gold);width:20px;height:20px}
+
+/* ===== BEST THIS MONTH ===== */
+.best-month-header{display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:16px;flex-wrap:wrap;gap:8px}
+.best-month-header h2{font-size:1.25rem;font-weight:700;color:var(--white)}
+.best-month-header h2 span{color:var(--gold)}
+.month-nav{display:flex;gap:4px}
+.month-nav button{padding:6px 12px;border-radius:var(--radius-sm);font-size:.75rem;
+  font-weight:600;background:var(--navy-mid);color:var(--gray-light);
+  border:1px solid transparent;transition:var(--transition)}
+.month-nav button.active{background:var(--gold-dim);color:var(--gold);
+  border-color:var(--gold)}
+
+/* ===== HORIZONTAL SCROLL CARDS ===== */
+.hscroll{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;padding-bottom:8px;margin:0 -16px;padding-left:16px;padding-right:16px}
+.hscroll::-webkit-scrollbar{display:none}
+.hscroll .spot-card{min-width:280px;max-width:300px;scroll-snap-align:start;flex-shrink:0}
+
+/* ===== SPOT CARDS ===== */
+.spot-card{background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:var(--radius);overflow:hidden;transition:var(--transition);cursor:pointer}
+.spot-card:hover{border-color:rgba(201,169,110,.3);transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.card-header{padding:16px 16px 12px;position:relative}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.tag{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+  padding:3px 8px;border-radius:4px}
+.tag-trending{background:rgba(251,191,36,.15);color:var(--orange)}
+.tag-featured{background:rgba(52,211,153,.15);color:var(--green)}
+.tag-partner{background:var(--gold-dim);color:var(--gold)}
+.card-name{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:2px}
+.card-country{font-size:.8rem;color:var(--gray)}
+.card-wind-score{display:flex;align-items:center;gap:8px;margin-top:10px}
+.wind-bar-bg{flex:1;height:6px;background:var(--navy);border-radius:3px;overflow:hidden}
+.wind-bar-fill{height:100%;border-radius:3px;transition:width .6s ease}
+.wind-score-num{font-size:.85rem;font-weight:700;min-width:32px;text-align:right}
+.card-meta{display:flex;gap:12px;padding:0 16px 12px;font-size:.75rem;color:var(--gray)}
+.card-meta-item{display:flex;align-items:center;gap:4px}
+.card-meta-item svg{width:14px;height:14px;opacity:.6}
+
+/* ===== EXPANDED CARD / DETAIL ===== */
+.card-detail{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.card-detail.open{max-height:1200px}
+.detail-inner{padding:0 16px 16px;border-top:1px solid var(--card-border);margin-top:8px;padding-top:12px}
+.detail-section{margin-bottom:14px}
+.detail-section h4{font-size:.8rem;font-weight:600;color:var(--gold);
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.detail-section p{font-size:.85rem;color:var(--gray-light);line-height:1.5}
+
+/* Monthly calendar */
+.month-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.month-cell{text-align:center;padding:6px 2px;border-radius:4px;font-size:.65rem;font-weight:600}
+.month-cell .mlabel{display:block;color:var(--gray);margin-bottom:2px;font-weight:400}
+.mwind-good{background:rgba(52,211,153,.12);color:var(--green)}
+.mwind-ok{background:rgba(251,191,36,.12);color:var(--orange)}
+.mwind-bad{background:rgba(248,113,113,.1);color:var(--red)}
+.mwind-current{outline:2px solid var(--gold);outline-offset:-1px}
+
+/* Action buttons */
+.action-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.action-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;
+  border-radius:var(--radius-sm);font-size:.8rem;font-weight:600;transition:var(--transition)}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:var(--gold-light)}
+.btn-outline{background:transparent;border:1px solid var(--card-border);color:var(--gray-light)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ===== REGION SECTIONS ===== */
+.region{margin-top:28px}
+.region-header{display:flex;align-items:center;justify-content:space-between;
+  padding:12px 0;border-bottom:1px solid var(--card-border);cursor:pointer;
+  user-select:none;-webkit-tap-highlight-color:transparent}
+.region-header h3{font-size:1rem;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px}
+.region-header .region-count{font-size:.75rem;color:var(--gray);font-weight:400}
+.region-chevron{width:20px;height:20px;color:var(--gray);transition:transform .3s ease}
+.region-header.open .region-chevron{transform:rotate(180deg)}
+.region-spots{display:grid;grid-template-columns:1fr;gap:12px;padding-top:12px;
+  overflow:hidden;transition:max-height .4s ease,opacity .3s ease}
+.region-spots.collapsed{max-height:0!important;opacity:0;padding-top:0;overflow:hidden}
+
+@media(min-width:640px){
+  .region-spots{grid-template-columns:repeat(2,1fr)}
 }
+@media(min-width:960px){
+  .region-spots{grid-template-columns:repeat(3,1fr)}
+  .map-container{height:40vh}
+}
+
+/* ===== TERRA VENTOS CTA ===== */
+.tv-cta{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));
+  border:1px solid var(--gold);border-radius:var(--radius);padding:24px;
+  margin:28px 0;text-align:center;position:relative;overflow:hidden}
+.tv-cta::before{content:'';position:absolute;top:-50%;right:-30%;width:200px;height:200px;
+  background:radial-gradient(circle,rgba(201,169,110,.08),transparent 70%);pointer-events:none}
+.tv-cta h3{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:6px}
+.tv-cta p{font-size:.85rem;color:var(--gray-light);margin-bottom:16px;max-width:500px;margin-left:auto;margin-right:auto}
+.tv-cta .btn-gold{padding:12px 28px;font-size:.9rem;border-radius:var(--radius-sm);display:inline-flex}
+
+/* ===== WHATSAPP WIDGET ===== */
+.wa-widget{position:fixed;bottom:80px;right:16px;z-index:900;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.wa-bubble{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);
+  padding:12px;max-width:220px;box-shadow:0 8px 24px rgba(0,0,0,.4);animation:waSlide .4s ease;
+  display:none;position:relative}
+.wa-bubble.show{display:block}
+.wa-bubble-close{position:absolute;top:6px;right:8px;font-size:.75rem;color:var(--gray);cursor:pointer}
+.wa-bubble img{width:40px;height:40px;border-radius:50%;object-fit:cover;margin-bottom:6px}
+.wa-bubble p{font-size:.8rem;color:var(--white);margin-bottom:8px;line-height:1.4}
+.wa-bubble .btn-gold{padding:8px 14px;font-size:.75rem;border-radius:6px;width:100%;justify-content:center}
+.wa-fab{width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;
+  align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);
+  transition:transform .2s ease}
+.wa-fab:hover{transform:scale(1.08)}
+.wa-fab svg{width:28px;height:28px;fill:white}
+@keyframes waSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== BOTTOM NAV (MOBILE) ===== */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:1000;
+  background:rgba(10,22,40,.97);backdrop-filter:blur(12px);
+  border-top:1px solid var(--card-border);display:flex;height:64px}
+.bottom-nav button{flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3px;font-size:.65rem;font-weight:600;color:var(--gray);
+  transition:var(--transition);-webkit-tap-highlight-color:transparent}
+.bottom-nav button.active{color:var(--gold)}
+.bottom-nav button svg{width:22px;height:22px}
+@media(min-width:960px){.bottom-nav{display:none}body{padding-bottom:0}}
+
+/* ===== FOMO TOAST ===== */
+.fomo-toast{position:fixed;bottom:80px;left:16px;z-index:800;background:var(--card-bg);
+  border:1px solid var(--card-border);border-radius:var(--radius-sm);padding:10px 14px;
+  font-size:.78rem;color:var(--gray-light);box-shadow:0 4px 20px rgba(0,0,0,.4);
+  transform:translateY(20px);opacity:0;transition:all .4s ease;pointer-events:none;max-width:300px}
+.fomo-toast.show{transform:translateY(0);opacity:1}
+.fomo-toast strong{color:var(--white)}
+
+/* ===== FOOTER ===== */
+.footer{border-top:1px solid var(--card-border);margin-top:40px;padding:24px 16px;text-align:center}
+.footer p{font-size:.78rem;color:var(--gray);margin-bottom:4px}
+.footer a{color:var(--gold);font-weight:600}
+
+/* ===== LOADING ===== */
+.wind-loading{display:inline-block;width:10px;height:10px;border:2px solid var(--gray);
+  border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ===== VIEW TOGGLE ===== */
+.view-tabs{display:flex;gap:2px;background:var(--navy-mid);border-radius:var(--radius-sm);
+  padding:2px;margin-bottom:16px;overflow-x:auto}
+.view-tab{padding:8px 16px;border-radius:6px;font-size:.8rem;font-weight:600;
+  color:var(--gray);white-space:nowrap;transition:var(--transition);
+  -webkit-tap-highlight-color:transparent}
+.view-tab.active{background:var(--gold-dim);color:var(--gold)}
+
+/* ===== DISTANCE BADGE ===== */
+.dist-badge{font-size:.7rem;color:var(--gray);background:var(--navy);padding:2px 8px;
+  border-radius:10px;display:inline-flex;align-items:center;gap:3px;margin-top:6px}
+
+/* ===== REAL-TIME WIND DISPLAY ===== */
+.rt-wind{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:.78rem}
+.rt-wind-val{font-weight:700}
+.rt-wind-label{color:var(--gray);font-size:.7rem}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
-<header>
+<header class="header">
   <div class="header-inner">
-    <div class="logo">GoWind<span>v3</span></div>
-    <div class="live-counter"><div class="live-dot"></div><span id="liveCount">847 kitesurfers planning trips</span></div>
-    <a class="whatsapp-btn" href="https://wa.me/5585985572807" target="_blank" rel="noopener">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.609l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.372 0-4.567-.82-6.293-2.192l-.44-.368-3.065 1.028 1.028-3.065-.368-.44A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
-      <span class="desk">Book Now</span>
-    </a>
+    <div class="logo">Go<span>Wind</span></div>
+    <div class="header-right">
+      <div class="lang-select">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg>
+        <select id="langSelect" onchange="setLanguage(this.value)">
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+          <option value="es">ES</option>
+        </select>
+      </div>
+    </div>
   </div>
 </header>
 
-<!-- LOADING BAR -->
-<div class="loading-bar" id="loadingBar" style="width:0%"></div>
-
-<!-- HERO -->
-<section class="hero">
-  <h1>Where to <em>Kitesurf</em> Next Week</h1>
-  <p>Real-time wind data, 23 world-class spots, flights, accommodation &mdash; everything you need to plan your next kite trip.</p>
-</section>
-
-<!-- FILTERS -->
-<div class="filters" id="filters">
-  <div class="filter-group">
-    <span class="filter-label">Skill</span>
-    <button class="filter-btn active" data-filter="skill" data-val="all" onclick="setFilter(this)">All</button>
-    <button class="filter-btn" data-filter="skill" data-val="beg" onclick="setFilter(this)">Beginner</button>
-    <button class="filter-btn" data-filter="skill" data-val="int" onclick="setFilter(this)">Intermediate</button>
-    <button class="filter-btn" data-filter="skill" data-val="adv" onclick="setFilter(this)">Advanced</button>
-  </div>
-  <div class="filter-group">
-    <span class="filter-label">Water</span>
-    <button class="filter-btn active" data-filter="water" data-val="all" onclick="setFilter(this)">All</button>
-    <button class="filter-btn" data-filter="water" data-val="flat" onclick="setFilter(this)">Flat</button>
-    <button class="filter-btn" data-filter="water" data-val="waves" onclick="setFilter(this)">Waves</button>
-    <button class="filter-btn" data-filter="water" data-val="lagoon" onclick="setFilter(this)">Lagoon</button>
-    <button class="filter-btn" data-filter="water" data-val="choppy" onclick="setFilter(this)">Choppy</button>
-    <button class="filter-btn" data-filter="water" data-val="mixed" onclick="setFilter(this)">Mixed</button>
-  </div>
-</div>
-
-<!-- TABS -->
-<nav class="tabs" role="tablist">
-  <button class="tab-btn active" onclick="switchTab('discover')" role="tab">Discover</button>
-  <button class="tab-btn" onclick="switchTab('rankings')" role="tab">Rankings</button>
-  <button class="tab-btn" onclick="switchTab('bestmonth')" role="tab">Best This Month</button>
-</nav>
-
-<!-- COUNTDOWN -->
-<div class="countdown">
-  <h3>Next Perfect Wind Window in</h3>
-  <div class="countdown-timer" id="countdown">
-    <div><div class="num" id="cd-days">--</div><div class="lbl">Days</div></div>
-    <div><div class="num" id="cd-hours">--</div><div class="lbl">Hours</div></div>
-    <div><div class="num" id="cd-mins">--</div><div class="lbl">Mins</div></div>
-    <div><div class="num" id="cd-secs">--</div><div class="lbl">Secs</div></div>
-  </div>
-</div>
-
 <!-- MAP -->
-<div id="map"></div>
-<div id="wind-status">Initializing wind data...</div>
-
-<!-- DISCOVER TAB -->
-<div class="tab-content active" id="tab-discover">
-  <main class="container">
-    <div class="spots-grid" id="spotsGrid"></div>
-  </main>
-</div>
-
-<!-- RANKINGS TAB -->
-<div class="tab-content" id="tab-rankings">
-  <div class="container" style="overflow-x:auto;padding-bottom:40px">
-    <table class="rankings-table" id="rankingsTable">
-      <thead><tr><th>#</th><th>Spot</th><th>Wind Now (kn)</th><th>Gusts</th><th>Temp</th><th>Wind Prob.</th><th>Skill</th></tr></thead>
-      <tbody id="rankingsBody"></tbody>
-    </table>
+<div class="map-container">
+  <div id="map"></div>
+  <div class="map-overlay">
+    <span><span class="map-legend-dot" style="background:var(--green)"></span> <span data-i18n="legend_good">Good wind</span></span>
+    <span><span class="map-legend-dot" style="background:var(--red)"></span> <span data-i18n="legend_low">Low wind</span></span>
   </div>
 </div>
 
-<!-- BEST THIS MONTH TAB -->
-<div class="tab-content" id="tab-bestmonth">
-  <div class="container">
-    <div class="spots-grid" id="bestMonthGrid"></div>
-  </div>
-</div>
+<!-- MAIN -->
+<main class="main" id="mainContent">
+  <!-- Best This Month -->
+  <section id="bestMonth">
+    <div class="best-month-header">
+      <h2>🌊 <span data-i18n="best_title">Best Spots in</span> <span id="currentMonthName"></span></h2>
+    </div>
+    <div class="hscroll" id="bestCards"></div>
+  </section>
 
-<!-- TOAST -->
-<div class="toast-container" id="toastContainer"></div>
+  <!-- All Regions -->
+  <section id="allRegions" style="margin-top:24px">
+    <h2 class="section-title" style="margin-bottom:16px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span data-i18n="all_dest">All Destinations</span>
+    </h2>
+    <div id="regionsList"></div>
+  </section>
+</main>
 
-<!-- WHATSAPP CONCIERGE -->
-<a class="wa-concierge" href="https://wa.me/5585985572807?text=Hi!%20I%20want%20to%20plan%20my%20next%20kite%20trip!" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <div class="wa-bubble">
-    <div class="wa-bubble-text">Let's book your trip!</div>
-    <div class="wa-bubble-sub">Online now — reply in &lt;5min</div>
-  </div>
-  <div class="wa-avatar">
-    <img class="wa-avatar-img" src="https://images.unsplash.com/photo-1591280063444-d3c514eb6e13?w=120&h=120&fit=crop&crop=face" alt="Kite concierge" onerror="this.style.display='none';this.parentElement.innerHTML+='<svg viewBox=&quot;0 0 36 36&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><circle cx=&quot;18&quot; cy=&quot;12&quot; r=&quot;7&quot; fill=&quot;#fff&quot;/><ellipse cx=&quot;18&quot; cy=&quot;28&quot; rx=&quot;12&quot; ry=&quot;8&quot; fill=&quot;#fff&quot;/></svg>'">
-    <div class="wa-online"></div>
-  </div>
-</a>
+<!-- TERRA VENTOS CTA (injected after Brazil NE) -->
 
 <!-- FOOTER -->
-<footer>
-  <h3>Become a Featured Partner</h3>
-  <p>Get your kite school, accommodation, or service featured in GoWind and reach thousands of kitesurfers planning their next trip.</p>
-  <a class="partner-btn" href="mailto:info@terraventos.com">Contact info@terraventos.com</a>
-  <div class="footer-links">
-    <a href="https://terraventos.com" target="_blank">Terra Ventos</a>
-    <a href="https://wa.me/5585985572807" target="_blank">WhatsApp</a>
-    <a href="mailto:info@terraventos.com">Email</a>
-  </div>
-  <p class="copy">&copy; 2026 GoWind by Terra Ventos Kite House. Real-time data powered by Open-Meteo.</p>
+<footer class="footer">
+  <p>&copy; 2026 GoWind — <span data-i18n="footer_tagline">Find your perfect kite spot</span></p>
+  <p><a href="mailto:info@terraventos.com" data-i18n="become_partner">Become a Partner</a> · info@terraventos.com</p>
 </footer>
 
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav" id="bottomNav">
+  <button class="active" data-view="discover" onclick="switchView('discover')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+    <span data-i18n="nav_discover">Discover</span>
+  </button>
+  <button data-view="rankings" onclick="switchView('rankings')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+    <span data-i18n="nav_rankings">Rankings</span>
+  </button>
+  <button onclick="document.getElementById('langSelect').focus()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg>
+    <span data-i18n="nav_language">Language</span>
+  </button>
+</nav>
+
+<!-- WHATSAPP WIDGET -->
+<div class="wa-widget" id="waWidget">
+  <div class="wa-bubble" id="waBubble">
+    <span class="wa-bubble-close" onclick="document.getElementById('waBubble').classList.remove('show')">✕</span>
+    <p data-i18n="wa_msg">Planning a kite trip? Let's book your perfect session! 🪁</p>
+    <a href="https://wa.me/5585985572807?text=Hi!%20I%20found%20GoWind%20and%20want%20to%20plan%20a%20kite%20trip!" target="_blank" rel="noopener" class="action-btn btn-gold" data-i18n="wa_cta">Let's book your trip!</a>
+  </div>
+  <button class="wa-fab" onclick="toggleWaBubble()" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </button>
+</div>
+
+<!-- FOMO TOAST -->
+<div class="fomo-toast" id="fomoToast"></div>
+
 <script>
-// ========== DATA ==========
+// ===== DATA: 23 DESTINATIONS =====
 const SPOTS = [
-  {id:'prea',name:'Preá',country:'Brazil',lat:-2.79,lng:-40.41,water:'flat',skill:'adv',prob:92,
-    months:[60,55,40,30,20,15,75,90,95,95,90,80],
-    hazards:'Strong currents, shallow reef at low tide',
-    trending:true,featured:true,
-    sponsor:{name:'Terra Ventos Kite House',url:'https://airbnb.com.br/rooms/1613864657831968386',price:'$120/night',desc:'3BR beachfront villa'},
-    accom:[
-      {name:'Terra Ventos Kite House',price:'$120/night',sponsor:true,url:'https://airbnb.com.br/rooms/1613864657831968386'},
-      {name:'Rancho do Peixe',price:'$95/night'},
-      {name:'Vila Boa Vida',price:'$65/night'}
-    ],
-    flights:{NYC:'$680',London:'$820',SP:'$450',Berlin:'$850',Paris:'$790',Madrid:'$750',Amsterdam:'$830'}
-  },
-  {id:'tatajuba',name:'Tatajuba',country:'Brazil',lat:-2.85,lng:-40.55,water:'lagoon',skill:'int',prob:88,
-    months:[55,50,35,25,18,12,70,85,92,92,85,75],hazards:'Remote access, tidal lagoon changes',
-    accom:[{name:'Pousada Tatajuba',price:'$55/night'},{name:'Kite Camp Tatajuba',price:'$80/night'}],
-    flights:{NYC:'$700',London:'$840',SP:'$470',Berlin:'$870',Paris:'$810',Madrid:'$770',Amsterdam:'$850'}
-  },
-  {id:'jeri',name:'Jericoacoara',country:'Brazil',lat:-2.80,lng:-40.51,water:'mixed',skill:'all',prob:90,
-    months:[58,52,38,28,18,14,72,88,93,93,88,78],hazards:'Rocks near shore, strong afternoon wind',trending:true,
-    accom:[{name:'Blue Residence',price:'$110/night'},{name:'Pousada Jeriba',price:'$75/night'},{name:'Hostel Jeri',price:'$25/night'}],
-    flights:{NYC:'$670',London:'$810',SP:'$440',Berlin:'$840',Paris:'$780',Madrid:'$740',Amsterdam:'$820'}
-  },
-  {id:'cumbuco',name:'Cumbuco',country:'Brazil',lat:-3.63,lng:-38.73,water:'flat',skill:'all',prob:85,
-    months:[55,50,35,28,20,15,70,85,90,90,85,72],hazards:'Shallow areas, busy beach',
-    accom:[{name:'Hotel Windtown',price:'$90/night'},{name:'Pousada Mar e Sol',price:'$55/night'},{name:'Cumbuco Hostel',price:'$20/night'}],
-    flights:{NYC:'$620',London:'$780',SP:'$380',Berlin:'$810',Paris:'$750',Madrid:'$710',Amsterdam:'$790'}
-  },
-  {id:'guajiru',name:'Guajiru',country:'Brazil',lat:-2.94,lng:-39.26,water:'flat',skill:'beg',prob:87,
-    months:[52,48,33,25,17,13,68,83,90,90,83,70],hazards:'Shallow flat water, safe for beginners',
-    accom:[{name:'Guajiru Kite Village',price:'$60/night'},{name:'Pousada Guajiru',price:'$45/night'}],
-    flights:{NYC:'$650',London:'$800',SP:'$420',Berlin:'$830',Paris:'$770',Madrid:'$730',Amsterdam:'$810'}
-  },
-  {id:'cabarete',name:'Cabarete',country:'Dominican Rep.',lat:19.76,lng:-70.41,water:'choppy',skill:'int',prob:75,
-    months:[65,68,60,55,50,72,75,70,55,50,55,60],hazards:'Reef breaks, crowded kite beach',
-    accom:[{name:'Kite Beach Hotel',price:'$85/night'},{name:'Cabarete Surf Camp',price:'$50/night'},{name:'Hostel Cabarete',price:'$22/night'}],
-    flights:{NYC:'$320',London:'$620',SP:'$550',Berlin:'$650',Paris:'$580',Madrid:'$490',Amsterdam:'$600'}
-  },
-  {id:'tarifa',name:'Tarifa',country:'Spain',lat:36.01,lng:-5.60,water:'choppy',skill:'adv',prob:82,
-    months:[50,55,60,65,70,80,85,82,75,60,52,48],hazards:'Strong Levante/Poniente, shipping lanes',trending:true,
-    accom:[{name:'Hotel Tarifa Lances',price:'$95/night'},{name:'Hostal Africa',price:'$55/night'},{name:'Camping Tarifa',price:'$20/night'}],
-    flights:{NYC:'$550',London:'$120',SP:'$620',Berlin:'$150',Paris:'$130',Madrid:'$60',Amsterdam:'$140'}
-  },
-  {id:'aruba',name:'Aruba',country:'Caribbean',lat:12.51,lng:-69.97,water:'flat',skill:'int',prob:88,
-    months:[80,82,78,72,68,85,90,88,75,70,72,78],hazards:'Trade wind gusts, coral reef',
-    accom:[{name:'Boardwalk Hotel',price:'$180/night'},{name:'Aruba Surf Club',price:'$120/night'},{name:'Hostelling Aruba',price:'$40/night'}],
-    flights:{NYC:'$380',London:'$680',SP:'$600',Berlin:'$720',Paris:'$650',Madrid:'$580',Amsterdam:'$620'}
-  },
-  {id:'dakhla',name:'Dakhla',country:'Morocco',lat:23.72,lng:-15.93,water:'flat',skill:'all',prob:90,
-    months:[65,68,72,78,85,90,92,90,85,78,70,65],hazards:'Remote area, strong afternoon thermals',trending:true,
-    accom:[{name:'Dakhla Attitude',price:'$110/night'},{name:'Westpoint Dakhla',price:'$85/night'},{name:'Camp Dakhla',price:'$45/night'}],
-    flights:{NYC:'$750',London:'$350',SP:'$820',Berlin:'$380',Paris:'$320',Madrid:'$250',Amsterdam:'$370'}
-  },
-  {id:'capetown',name:'Cape Town',country:'South Africa',lat:-33.92,lng:18.42,water:'waves',skill:'adv',prob:78,
-    months:[85,82,75,60,45,35,30,35,50,65,78,82],hazards:'Great white sharks, cold water, strong currents',
-    accom:[{name:'Kite Mansion CT',price:'$70/night'},{name:'Big Bay Beach House',price:'$120/night'},{name:'Cape Town Backpackers',price:'$18/night'}],
-    flights:{NYC:'$850',London:'$680',SP:'$720',Berlin:'$700',Paris:'$680',Madrid:'$650',Amsterdam:'$690'}
-  },
-  {id:'losroques',name:'Los Roques',country:'Venezuela',lat:11.95,lng:-66.67,water:'flat',skill:'int',prob:80,
-    months:[75,78,80,72,60,55,65,68,58,55,65,72],hazards:'Limited medical facilities, remote archipelago',
-    featured:true,
-    sponsor:{name:'Fridsland Kite Trips',url:'https://fridsland.com.br',price:'All-inclusive',desc:'Premium kite trip packages'},
-    accom:[
-      {name:'Fridsland Kite Trips',price:'All-inclusive',sponsor:true,url:'https://fridsland.com.br'},
-      {name:'Posada Acuarela',price:'$140/night'},
-      {name:'Posada Mediterraneo',price:'$100/night'}
-    ],
-    flights:{NYC:'$580',London:'$780',SP:'$520',Berlin:'$820',Paris:'$750',Madrid:'$680',Amsterdam:'$790'}
-  },
-  {id:'zanzibar',name:'Zanzibar',country:'Tanzania',lat:-6.16,lng:39.19,water:'flat',skill:'int',prob:82,
-    months:[80,78,55,35,25,60,75,82,80,55,45,70],hazards:'Tidal changes, sea urchins',
-    accom:[{name:'Paje by Night',price:'$75/night'},{name:'Zanzibar Kite Paradise',price:'$55/night'},{name:'Dorm Paje',price:'$15/night'}],
-    flights:{NYC:'$820',London:'$550',SP:'$900',Berlin:'$580',Paris:'$560',Madrid:'$600',Amsterdam:'$570'}
-  },
-  {id:'elgouna',name:'El Gouna',country:'Egypt',lat:27.18,lng:33.68,water:'flat',skill:'beg',prob:88,
-    months:[45,50,60,72,85,92,95,95,88,78,58,48],hazards:'Shallow lagoon, coral edges',
-    accom:[{name:'Steigenberger',price:'$130/night'},{name:'Kite Bubble',price:'$70/night'},{name:'Downtown Hostel',price:'$22/night'}],
-    flights:{NYC:'$650',London:'$380',SP:'$780',Berlin:'$350',Paris:'$320',Madrid:'$340',Amsterdam:'$360'}
-  },
-  {id:'fuerte',name:'Fuerteventura',country:'Canary Islands',lat:28.36,lng:-14.05,water:'mixed',skill:'int',prob:80,
-    months:[60,62,68,72,78,85,90,88,82,72,62,58],hazards:'Rocky shore breaks, strong currents at Flag Beach',
-    accom:[{name:'H10 Ocean Suites',price:'$110/night'},{name:'Surf Riders Fuerte',price:'$65/night'},{name:'Fuerteventura Hostel',price:'$25/night'}],
-    flights:{NYC:'$580',London:'$180',SP:'$650',Berlin:'$200',Paris:'$170',Madrid:'$100',Amsterdam:'$190'}
-  },
-  {id:'muine',name:'Mui Ne',country:'Vietnam',lat:10.93,lng:108.29,water:'waves',skill:'int',prob:78,
-    months:[55,60,50,40,35,42,48,52,55,72,80,68],hazards:'Fishing boats, strong shore break',
-    accom:[{name:'Coco Sand Hotel',price:'$45/night'},{name:'Mui Ne Backpackers',price:'$12/night'},{name:'Sailing Club',price:'$90/night'}],
-    flights:{NYC:'$750',London:'$650',SP:'$950',Berlin:'$680',Paris:'$640',Madrid:'$700',Amsterdam:'$660'}
-  },
-  {id:'boracay',name:'Boracay',country:'Philippines',lat:11.97,lng:121.93,water:'flat',skill:'beg',prob:75,
-    months:[72,70,65,55,40,35,38,42,45,58,68,72],hazards:'Crowded beach, seasonal monsoon',
-    accom:[{name:'Nigi Nigi Too',price:'$55/night'},{name:'Boracay Kite Resort',price:'$80/night'},{name:'Mad Monkey Hostel',price:'$15/night'}],
-    flights:{NYC:'$800',London:'$700',SP:'$1000',Berlin:'$730',Paris:'$690',Madrid:'$740',Amsterdam:'$710'}
-  },
-  {id:'mauritius',name:'Mauritius',country:'Indian Ocean',lat:-20.45,lng:57.31,water:'waves',skill:'adv',prob:82,
-    months:[70,72,65,55,60,75,82,85,80,72,68,65],hazards:'Reef breaks, strong offshore currents',
-    accom:[{name:'Le Morne Kite Center',price:'$95/night'},{name:'Beachcomber Hotel',price:'$180/night'},{name:'Guesthouse Le Morne',price:'$50/night'}],
-    flights:{NYC:'$950',London:'$720',SP:'$880',Berlin:'$750',Paris:'$700',Madrid:'$730',Amsterdam:'$740'}
-  },
-  {id:'essaouira',name:'Essaouira',country:'Morocco',lat:31.51,lng:-9.77,water:'choppy',skill:'int',prob:76,
-    months:[50,52,58,65,72,82,88,85,78,62,55,48],hazards:'Cold water, gusty wind, rocky coastline',
-    accom:[{name:'Villa de l\'O',price:'$120/night'},{name:'Riad Essaouira',price:'$60/night'},{name:'Hostel Essaouira',price:'$18/night'}],
-    flights:{NYC:'$620',London:'$200',SP:'$700',Berlin:'$230',Paris:'$180',Madrid:'$150',Amsterdam:'$220'}
-  },
-  {id:'maui',name:'Maui',country:'Hawaii, USA',lat:20.80,lng:-156.33,water:'waves',skill:'adv',prob:80,
-    months:[65,68,72,78,82,88,90,88,82,75,68,62],hazards:'Reef, strong currents, large surf',
-    accom:[{name:'Maui Kite Hotel',price:'$200/night'},{name:'Kihei Surfside',price:'$150/night'},{name:'Maui Hostel',price:'$45/night'}],
-    flights:{NYC:'$480',London:'$850',SP:'$1100',Berlin:'$880',Paris:'$860',Madrid:'$820',Amsterdam:'$870'}
-  },
-  {id:'cauipe',name:'Cauípe',country:'Brazil',lat:-3.54,lng:-38.82,water:'flat',skill:'beg',prob:86,
-    months:[53,48,34,26,19,14,69,84,91,91,84,71],hazards:'Shallow lagoon, safe for beginners',
-    accom:[{name:'Cauipe Kite Lodge',price:'$50/night'},{name:'Pousada Cauipe',price:'$35/night'}],
-    flights:{NYC:'$630',London:'$790',SP:'$390',Berlin:'$820',Paris:'$760',Madrid:'$720',Amsterdam:'$800'}
-  },
-  {id:'barragrande',name:'Barra Grande',country:'Brazil',lat:-2.90,lng:-41.40,water:'flat',skill:'int',prob:84,
-    months:[55,50,35,25,18,12,70,85,90,90,85,72],hazards:'Remote, tidal flat changes',
-    accom:[{name:'BGK Pousada',price:'$75/night'},{name:'Barra Grande Beach Hotel',price:'$95/night'},{name:'Camping Barra',price:'$15/night'}],
-    flights:{NYC:'$700',London:'$840',SP:'$470',Berlin:'$870',Paris:'$810',Madrid:'$770',Amsterdam:'$850'}
-  },
-  {id:'bahiasalinas',name:'Bahía Salinas',country:'Costa Rica',lat:10.95,lng:-85.73,water:'flat',skill:'int',prob:78,
-    months:[82,80,78,72,40,25,30,28,25,35,60,78],hazards:'Pacific bay, Papagayo wind gusts, wildlife area',
-    accom:[{name:'Blue Dream Hotel',price:'$100/night'},{name:'Ecoplaya Beach Resort',price:'$130/night'}],
-    flights:{NYC:'$380',London:'$650',SP:'$700',Berlin:'$680',Paris:'$670',Madrid:'$620',Amsterdam:'$660'}
-  },
-  {id:'puntachame',name:'Punta Chame',country:'Panama',lat:8.62,lng:-79.72,water:'flat',skill:'all',prob:75,
-    months:[80,82,85,78,35,20,22,25,22,30,55,72],hazards:'Strong thermals, flat lagoon, 1hr from Panama City',
-    accom:[{name:'Nitro City Resort',price:'$90/night'},{name:'Punta Chame Kite Hotel',price:'$70/night'}],
-    flights:{NYC:'$320',London:'$600',SP:'$550',Berlin:'$650',Paris:'$640',Madrid:'$580',Amsterdam:'$630'}
-  }
+  // BRAZIL NORTHEAST
+  {id:'prea',name:'Preá',country:'Brazil',region:'brazil_ne',lat:-2.79,lng:-40.41,airport:'JJD',
+   waterType:'Flat lagoon + ocean',accommodation:[{n:'Vila Kalango',featured:false},{n:'Rancho do Peixe',featured:false},{n:'Terra Ventos',featured:true}],
+   desc:{en:'World-class flat-water lagoons and consistent trade winds. Paradise for freestyle.',pt:'Lagoas de água plana e ventos alísios consistentes. Paraíso do freestyle.',es:'Lagunas de agua plana y vientos alisios. Paraíso del freestyle.'},
+   wind:[75,80,70,55,30,20,60,85,90,85,70,65],tags:['featured','partner']},
+  {id:'tatajuba',name:'Tatajuba',country:'Brazil',region:'brazil_ne',lat:-2.86,lng:-40.53,airport:'JJD',
+   waterType:'Lagoon',accommodation:[{n:'Tatajuba Kite Lodge',featured:false}],
+   desc:{en:'Secluded lagoon with butter-flat water. The secret spot.',pt:'Lagoa isolada com água ultra-plana. O spot secreto.',es:'Laguna aislada con agua ultra plana. El spot secreto.'},
+   wind:[70,75,65,50,25,15,55,80,85,80,65,60],tags:[]},
+  {id:'jericoacoara',name:'Jericoacoara',country:'Brazil',region:'brazil_ne',lat:-2.80,lng:-40.51,airport:'JJD',
+   waterType:'Ocean + lagoons',accommodation:[{n:'Blue Residence',featured:false},{n:'Essenza Hotel',featured:false}],
+   desc:{en:'Legendary beach town with strong winds and vibrant nightlife.',pt:'Lendária vila de praia com ventos fortes e vida noturna vibrante.',es:'Legendaria villa playera con vientos fuertes y vida nocturna.'},
+   wind:[72,78,68,52,28,18,58,83,88,83,68,62],tags:['trending']},
+  {id:'cumbuco',name:'Cumbuco',country:'Brazil',region:'brazil_ne',lat:-3.63,lng:-38.73,airport:'FOR',
+   waterType:'Ocean + Cauípe Lagoon nearby',accommodation:[{n:'Hotel Windtown',featured:false},{n:'Cumbuco Guesthouse',featured:false}],
+   desc:{en:'Close to Fortaleza. Ocean waves and the famous Cauípe lagoon.',pt:'Perto de Fortaleza. Ondas e a famosa lagoa do Cauípe.',es:'Cerca de Fortaleza. Olas y la famosa laguna de Cauípe.'},
+   wind:[70,75,65,50,30,20,60,80,85,80,65,60],tags:[]},
+  {id:'guajiru',name:'Ilha do Guajiru',country:'Brazil',region:'brazil_ne',lat:-2.92,lng:-40.17,airport:'JJD',
+   waterType:'Flat lagoon',accommodation:[{n:'Guajiru Kite School & Lodge',featured:false}],
+   desc:{en:'Massive flat-water lagoon ideal for beginners and freeriders.',pt:'Lagoa enorme de água plana, ideal para iniciantes e freeriders.',es:'Laguna enorme de agua plana, ideal para principiantes y freeriders.'},
+   wind:[68,72,62,48,25,15,55,78,82,78,62,58],tags:[]},
+  {id:'cauipe',name:'Cauípe Lagoon',country:'Brazil',region:'brazil_ne',lat:-3.55,lng:-38.80,airport:'FOR',
+   waterType:'Flat lagoon',accommodation:[{n:'Windtown Cauípe',featured:false}],
+   desc:{en:'Mirror-flat lagoon just outside Fortaleza. Perfect for progression.',pt:'Lagoa espelho perto de Fortaleza. Perfeita para evolução.',es:'Laguna espejo cerca de Fortaleza. Perfecta para progresión.'},
+   wind:[68,73,63,48,28,18,58,78,83,78,63,58],tags:[]},
+  {id:'barragrande',name:'Barra Grande',country:'Brazil',region:'brazil_ne',lat:-2.91,lng:-41.40,airport:'PHB',
+   waterType:'Flat water bay',accommodation:[{n:'Pousada BGK',featured:false},{n:'Barra Grande Kite Resort',featured:false}],
+   desc:{en:'Shallow bay with warm water and steady wind. Chill vibe.',pt:'Baía rasa com água quente e vento constante. Vibe tranquila.',es:'Bahía poco profunda con agua cálida y viento constante.'},
+   wind:[72,76,66,50,26,16,56,80,84,80,66,62],tags:[]},
+
+  // CARIBBEAN & CENTRAL AMERICA
+  {id:'cabarete',name:'Cabarete',country:'Dominican Republic',region:'caribbean',lat:19.76,lng:-70.41,airport:'POP',
+   waterType:'Ocean waves',accommodation:[{n:'Millennium Resort',featured:false},{n:'Kite Beach Hotel',featured:false}],
+   desc:{en:'Caribbean kite capital. Consistent thermal winds and warm water.',pt:'Capital caribenha do kite. Ventos térmicos e água quente.',es:'Capital caribeña del kite. Vientos térmicos constantes.'},
+   wind:[65,70,68,60,55,75,80,78,55,50,55,60],tags:['trending']},
+  {id:'aruba',name:'Aruba',country:'Aruba',region:'caribbean',lat:12.51,lng:-69.97,airport:'AUA',
+   waterType:'Flat + chop',accommodation:[{n:'Boardwalk Boutique Hotel',featured:false}],
+   desc:{en:'Year-round trade winds in a tropical paradise.',pt:'Ventos alísios o ano todo em paraíso tropical.',es:'Vientos alisios todo el año en paraíso tropical.'},
+   wind:[78,80,82,75,65,72,80,78,60,55,60,70],tags:[]},
+  {id:'losroques',name:'Los Roques',country:'Venezuela',region:'caribbean',lat:11.95,lng:-66.67,airport:'LRV',
+   waterType:'Flat turquoise lagoon',accommodation:[{n:'Posada Acuarela',featured:false},{n:'Fridsland Kite Village',featured:true}],
+   desc:{en:'Pristine archipelago with crystal-clear flat water. Exclusive.',pt:'Arquipélago pristino com água cristalina e plana. Exclusivo.',es:'Archipiélago prístino con agua cristalina y plana. Exclusivo.'},
+   wind:[80,82,78,65,45,50,65,70,50,48,55,72],tags:['featured','partner']},
+  {id:'bahiasalinas',name:'Bahía Salinas',country:'Costa Rica',region:'caribbean',lat:11.06,lng:-85.60,airport:'LIR',
+   waterType:'Ocean + chop',accommodation:[{n:'Blue Dream Hotel',featured:false}],
+   desc:{en:'Powerful Papagayo winds in a wild, natural setting.',pt:'Ventos Papagayo poderosos em cenário selvagem.',es:'Vientos Papagayo poderosos en entorno natural.'},
+   wind:[85,82,75,50,25,20,25,30,25,35,70,82],tags:[]},
+  {id:'puntachame',name:'Punta Chame',country:'Panama',region:'caribbean',lat:8.63,lng:-79.72,airport:'PTY',
+   waterType:'Flat water bay',accommodation:[{n:'Nitro City Resort',featured:false}],
+   desc:{en:'Flat-water bay near Panama City with thermal afternoon winds.',pt:'Baía de água plana perto da Cidade do Panamá.',es:'Bahía de agua plana cerca de Ciudad de Panamá.'},
+   wind:[82,80,75,45,20,15,20,25,20,30,60,78],tags:[]},
+
+  // EUROPE & MEDITERRANEAN
+  {id:'tarifa',name:'Tarifa',country:'Spain',region:'europe',lat:36.01,lng:-5.60,airport:'AGP',
+   waterType:'Ocean waves + chop',accommodation:[{n:'Hurricane Hotel',featured:false},{n:'La Codorniz',featured:false}],
+   desc:{en:'Wind capital of Europe. Levante and Poniente deliver epic sessions.',pt:'Capital do vento na Europa. Levante e Poniente trazem sessões épicas.',es:'Capital del viento de Europa. Levante y Poniente traen sesiones épicas.'},
+   wind:[50,55,65,70,75,85,90,88,75,60,50,45],tags:['trending']},
+  {id:'fuerteventura',name:'Fuerteventura',country:'Spain',region:'europe',lat:28.36,lng:-14.05,airport:'FUE',
+   waterType:'Ocean waves',accommodation:[{n:'Meliá Fuerteventura',featured:false}],
+   desc:{en:'Canary Islands gem with warm trade winds and volcanic landscapes.',pt:'Joia das Ilhas Canárias com ventos quentes e paisagens vulcânicas.',es:'Joya de Canarias con vientos cálidos y paisajes volcánicos.'},
+   wind:[65,68,72,70,75,82,88,85,72,60,58,60],tags:[]},
+  {id:'essaouira',name:'Essaouira',country:'Morocco',region:'europe',lat:31.51,lng:-9.77,airport:'ESU',
+   waterType:'Ocean waves',accommodation:[{n:'Riad Baladin',featured:false},{n:'WindCity Hotel',featured:false}],
+   desc:{en:'Morocco\'s wind city. Strong Alizé winds and historic medina.',pt:'Cidade do vento do Marrocos. Ventos Alizé fortes e medina histórica.',es:'Ciudad del viento de Marruecos. Fuertes vientos alisios y medina.'},
+   wind:[55,60,65,72,80,88,92,90,78,60,50,48],tags:[]},
+
+  // AFRICA
+  {id:'dakhla',name:'Dakhla',country:'Morocco',region:'africa',lat:23.72,lng:-15.93,airport:'VIL',
+   waterType:'Flat lagoon',accommodation:[{n:'Dakhla Attitude',featured:false},{n:'PK25',featured:false}],
+   desc:{en:'Saharan lagoon with ultra-consistent wind. World-class flat water.',pt:'Lagoa saariana com vento ultra-consistente. Água plana de classe mundial.',es:'Laguna sahariana con viento ultra-consistente. Agua plana.'},
+   wind:[65,70,75,82,88,90,85,80,72,60,58,60],tags:['featured']},
+  {id:'capetown',name:'Cape Town',country:'South Africa',region:'africa',lat:-33.92,lng:18.42,airport:'CPT',
+   waterType:'Ocean waves + flat spots',accommodation:[{n:'Kite Mansion',featured:false}],
+   desc:{en:'The Doctor delivers legendary summer winds. Big Bay and Langebaan.',pt:'O Doctor traz ventos lendários no verão. Big Bay e Langebaan.',es:'El Doctor trae vientos legendarios en verano. Big Bay y Langebaan.'},
+   wind:[88,85,75,55,35,25,25,35,55,70,80,85],tags:['trending']},
+  {id:'zanzibar',name:'Zanzibar',country:'Tanzania',region:'africa',lat:-6.16,lng:39.19,airport:'ZNZ',
+   waterType:'Flat + shallow',accommodation:[{n:'White Sand Luxury Villas',featured:false}],
+   desc:{en:'Turquoise shallow waters and warm Kaskazi/Kusi winds.',pt:'Águas rasas turquesa e ventos quentes Kaskazi/Kusi.',es:'Aguas turquesas poco profundas y vientos Kaskazi/Kusi.'},
+   wind:[75,72,50,35,40,65,78,80,70,45,40,65],tags:[]},
+
+  // ASIA & PACIFIC
+  {id:'muine',name:'Mui Ne',country:'Vietnam',region:'asia',lat:10.93,lng:108.29,airport:'SGN',
+   waterType:'Ocean waves + flat',accommodation:[{n:'Sailing Club Resort',featured:false}],
+   desc:{en:'Southeast Asia\'s top spot. Strong monsoon winds Oct–Mar.',pt:'Melhor spot do Sudeste Asiático. Ventos de monção fortes Out–Mar.',es:'Mejor spot del sudeste asiático. Vientos monzónicos Oct–Mar.'},
+   wind:[82,78,65,45,30,30,35,40,50,72,82,85],tags:[]},
+  {id:'boracay',name:'Boracay',country:'Philippines',region:'asia',lat:11.97,lng:121.93,airport:'KLO',
+   waterType:'Flat reef lagoon',accommodation:[{n:'Nami Boracay',featured:false}],
+   desc:{en:'Amihan season (Nov–Apr) brings steady winds to Bulabog Beach.',pt:'Temporada Amihan (Nov–Abr) traz ventos constantes a Bulabog Beach.',es:'Temporada Amihan (Nov–Abr) trae vientos constantes a Bulabog Beach.'},
+   wind:[80,82,78,65,35,20,20,25,30,50,72,78],tags:[]},
+  {id:'mauritius',name:'Mauritius',country:'Mauritius',region:'asia',lat:-20.35,lng:57.55,airport:'MRU',
+   waterType:'Flat lagoon + reef',accommodation:[{n:'Preskil Island Resort',featured:false}],
+   desc:{en:'Indian Ocean paradise. Le Morne\'s lagoon is flat-water heaven.',pt:'Paraíso do Oceano Índico. Lagoa de Le Morne é o paraíso da água plana.',es:'Paraíso del Océano Índico. La laguna de Le Morne es agua plana.'},
+   wind:[70,68,55,45,55,72,80,82,78,65,55,62],tags:[]},
+  {id:'maui',name:'Maui',country:'USA',region:'asia',lat:20.80,lng:-156.33,airport:'OGG',
+   waterType:'Ocean waves',accommodation:[{n:'Maui Seaside Hotel',featured:false}],
+   desc:{en:'Kite Beach legends. Consistent trades and world-class waves.',pt:'Lendas de Kite Beach. Ventos alísios e ondas de classe mundial.',es:'Leyendas de Kite Beach. Alisios constantes y olas épicas.'},
+   wind:[65,68,72,75,80,85,88,85,78,70,62,60],tags:[]},
+  {id:'elgouna',name:'El Gouna',country:'Egypt',region:'asia',lat:27.18,lng:33.68,airport:'HRG',
+   waterType:'Flat lagoon',accommodation:[{n:'Steigenberger Golf Resort',featured:false}],
+   desc:{en:'Red Sea flat water with thermal winds. Warm year-round.',pt:'Água plana do Mar Vermelho com ventos térmicos. Quente o ano todo.',es:'Agua plana del Mar Rojo con vientos térmicos. Cálido todo el año.'},
+   wind:[55,60,70,78,85,90,92,88,80,65,55,50],tags:[]}
 ];
 
-const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const TOAST_MESSAGES = [
-  {name:'Marcelo from SP',msg:'just booked 5 days in Preá'},
-  {name:'Lisa from Berlin',msg:'checking wind in Dakhla'},
-  {name:'Jake from NYC',msg:'comparing flights to Tarifa'},
-  {name:'Sophie from Paris',msg:'booked Los Roques trip'},
-  {name:'Kai from Amsterdam',msg:'viewing Jericoacoara forecast'},
-  {name:'Anna from London',msg:'planning Fuerteventura trip'},
-  {name:'Pedro from Madrid',msg:'checking Cumbuco wind'},
-  {name:'Yuki from Tokyo',msg:'discovered Mui Ne'},
-  {name:'Lucas from Rio',msg:'booked Tatajuba transfer'},
-  {name:'Emma from Sydney',msg:'comparing El Gouna hotels'},
-  {name:'Carlos from Bogotá',msg:'exploring Bahía Salinas'},
-  {name:'Maria from Lima',msg:'booked Punta Chame trip'}
+const REGIONS = [
+  {id:'brazil_ne',name:{en:'Brazil Northeast',pt:'Nordeste do Brasil',es:'Noreste de Brasil'},emoji:'🇧🇷'},
+  {id:'caribbean',name:{en:'Caribbean & Central America',pt:'Caribe & América Central',es:'Caribe & Centroamérica'},emoji:'🌴'},
+  {id:'europe',name:{en:'Europe & Mediterranean',pt:'Europa & Mediterrâneo',es:'Europa & Mediterráneo'},emoji:'🇪🇺'},
+  {id:'africa',name:{en:'Africa',pt:'África',es:'África'},emoji:'🌍'},
+  {id:'asia',name:{en:'Asia & Pacific',pt:'Ásia & Pacífico',es:'Asia & Pacífico'},emoji:'🌏'}
 ];
 
-let map, userLat, userLng, activeFilters = {skill:'all',water:'all'}, windData = {};
+const MONTH_NAMES = {
+  en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+  pt:['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+  es:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
+};
+const MONTH_FULL = {
+  en:['January','February','March','April','May','June','July','August','September','October','November','December'],
+  pt:['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+  es:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
+};
 
-// ========== INIT ==========
+const I18N = {
+  en:{best_title:'Best Spots in',all_dest:'All Destinations',legend_good:'Good wind',legend_low:'Low wind',
+    nav_discover:'Discover',nav_rankings:'Rankings',nav_language:'Language',wa_msg:'Planning a kite trip? Let\'s book your perfect session! 🪁',
+    wa_cta:'Let\'s book your trip!',footer_tagline:'Find your perfect kite spot',become_partner:'Become a Partner',
+    search_flights:'Search flights',book_stay:'Book a stay',wind_score:'Wind score',water:'Water',
+    monthly_cal:'Monthly Calendar',where_stay:'Where to Stay',fly_there:'Getting There',
+    from_you:'from you',no_location:'Enable location for distance',tv_cta_title:'Own Property in Ceará\'s Kite Paradise',
+    tv_cta_text:'Interested in beachfront real estate near the world\'s best kite lagoons?',tv_cta_btn:'Explore Terra Ventos',
+    featured_at:'Featured partner',knots:'kts now',spots:'spots'},
+  pt:{best_title:'Melhores Spots em',all_dest:'Todos os Destinos',legend_good:'Bom vento',legend_low:'Pouco vento',
+    nav_discover:'Explorar',nav_rankings:'Rankings',nav_language:'Idioma',wa_msg:'Planejando uma viagem de kite? Vamos reservar! 🪁',
+    wa_cta:'Vamos reservar!',footer_tagline:'Encontre seu spot perfeito',become_partner:'Seja Parceiro',
+    search_flights:'Buscar voos',book_stay:'Reservar hospedagem',wind_score:'Score de vento',water:'Água',
+    monthly_cal:'Calendário Mensal',where_stay:'Onde Ficar',fly_there:'Como Chegar',
+    from_you:'de você',no_location:'Ative localização para distância',tv_cta_title:'Propriedades no Paraíso do Kite no Ceará',
+    tv_cta_text:'Interessado em imóveis à beira-mar perto das melhores lagoas de kite?',tv_cta_btn:'Conheça a Terra Ventos',
+    featured_at:'Parceiro destaque',knots:'kts agora',spots:'spots'},
+  es:{best_title:'Mejores Spots en',all_dest:'Todos los Destinos',legend_good:'Buen viento',legend_low:'Poco viento',
+    nav_discover:'Explorar',nav_rankings:'Rankings',nav_language:'Idioma',wa_msg:'¿Planeas un viaje de kite? ¡Reservemos! 🪁',
+    wa_cta:'¡Reserva tu viaje!',footer_tagline:'Encuentra tu spot perfecto',become_partner:'Ser Socio',
+    search_flights:'Buscar vuelos',book_stay:'Reservar estadía',wind_score:'Score de viento',water:'Agua',
+    monthly_cal:'Calendario Mensual',where_stay:'Dónde Hospedarse',fly_there:'Cómo Llegar',
+    from_you:'de ti',no_location:'Activa ubicación para distancia',tv_cta_title:'Propiedades en el Paraíso del Kite en Ceará',
+    tv_cta_text:'¿Interesado en bienes raíces frente al mar cerca de las mejores lagunas de kite?',tv_cta_btn:'Explora Terra Ventos',
+    featured_at:'Socio destacado',knots:'kts ahora',spots:'spots'}
+};
+
+// ===== STATE =====
+let lang = localStorage.getItem('gowind_lang') || 'en';
+let userLat = null, userLng = null, userAirport = null;
+let map, markers = [];
+let windData = {};
+const now = new Date();
+const currentMonth = now.getMonth();
+
+// ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('langSelect').value = lang;
   initMap();
   getUserLocation();
-  renderSpots();
+  render();
   fetchAllWind();
-  startToasts();
-  startCountdown();
-  animateLiveCounter();
+  setTimeout(showWaBubble, 8000);
+  startFomo();
 });
 
-// ========== MAP ==========
-function initMap() {
-  map = L.map('map',{zoomControl:false}).setView([15,0],2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
-    attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:18
-  }).addTo(map);
-  L.control.zoom({position:'bottomright'}).addTo(map);
+function t(key) { return (I18N[lang] && I18N[lang][key]) || (I18N.en[key]) || key; }
 
-  SPOTS.forEach(s => {
-    const color = s.skill==='beg'?'#22c55e':s.skill==='int'?'#3b82f6':s.skill==='adv'?'#ef4444':'#a78bfa';
-    const icon = L.divIcon({
-      className:'',
-      html:`<div style="width:14px;height:14px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 0 8px ${color}80;cursor:pointer"></div>`,
-      iconSize:[14,14],iconAnchor:[7,7]
-    });
-    const marker = L.marker([s.lat,s.lng],{icon}).addTo(map);
-    marker.bindPopup(`<div style="font-family:Inter,sans-serif;min-width:160px">
-      <strong>${s.name}</strong><br>
-      <span style="font-size:.85em;color:#666">${s.country} · ${s.water} · ${s.skill}</span><br>
-      <span style="font-size:.85em" id="popup-wind-${s.id}">Loading wind...</span>
-    </div>`);
-    marker.spotId = s.id;
+function setLanguage(l) {
+  lang = l;
+  localStorage.setItem('gowind_lang', l);
+  render();
+  // Update i18n spans
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (I18N[lang][k]) el.textContent = I18N[lang][k];
   });
 }
 
-// ========== GEOLOCATION ==========
-function getUserLocation() {
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(pos => {
-      userLat = pos.coords.latitude;
-      userLng = pos.coords.longitude;
-      renderSpots();
-    }, () => {});
-  }
+// ===== MAP =====
+function initMap() {
+  map = L.map('map', {zoomControl:false, attributionControl:false}).setView([15, 0], 2);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    maxZoom:18, subdomains:'abcd'
+  }).addTo(map);
+  L.control.zoom({position:'topright'}).addTo(map);
 }
 
-function haversine(lat1,lng1,lat2,lng2) {
-  const R=6371,dLat=(lat2-lat1)*Math.PI/180,dLng=(lng2-lng1)*Math.PI/180;
-  const a=Math.sin(dLat/2)**2+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLng/2)**2;
+function updateMapDots() {
+  markers.forEach(m => map.removeLayer(m));
+  markers = [];
+  SPOTS.forEach(spot => {
+    const score = spot.wind[currentMonth];
+    const color = score >= 50 ? '#34d399' : '#f87171';
+    const marker = L.circleMarker([spot.lat, spot.lng], {
+      radius: 7, fillColor: color, fillOpacity: 0.9,
+      color: 'rgba(255,255,255,0.3)', weight: 1
+    }).addTo(map);
+    marker.bindTooltip(`<b>${spot.name}</b><br>${score}/100`, {
+      className:'custom-tooltip', direction:'top', offset:[0,-8]
+    });
+    marker.on('click', () => {
+      const el = document.getElementById('card-' + spot.id);
+      if (el) { el.scrollIntoView({behavior:'smooth',block:'center'}); toggleCard(spot.id); }
+    });
+    markers.push(marker);
+  });
+}
+
+// ===== GEOLOCATION =====
+function getUserLocation() {
+  if (!navigator.geolocation) return;
+  navigator.geolocation.getCurrentPosition(pos => {
+    userLat = pos.coords.latitude;
+    userLng = pos.coords.longitude;
+    guessAirport();
+    render();
+  }, () => {});
+}
+
+function guessAirport() {
+  // Simple nearest major hub
+  const airports = [
+    {code:'GRU',lat:-23.43,lng:-46.47},{code:'JFK',lat:40.64,lng:-73.78},
+    {code:'MIA',lat:25.79,lng:-80.29},{code:'LHR',lat:51.47,lng:-0.46},
+    {code:'CDG',lat:49.01,lng:2.55},{code:'FRA',lat:50.03,lng:8.57},
+    {code:'DXB',lat:25.25,lng:55.36},{code:'SIN',lat:1.35,lng:103.99},
+    {code:'LAX',lat:33.94,lng:-118.41},{code:'FOR',lat:-3.78,lng:-38.53},
+    {code:'LIS',lat:38.77,lng:-9.13},{code:'MAD',lat:40.47,lng:-3.57},
+    {code:'EZE',lat:-34.82,lng:-58.54},{code:'BOG',lat:4.70,lng:-74.15},
+    {code:'MEX',lat:19.44,lng:-99.07},{code:'YYZ',lat:43.68,lng:-79.63},
+    {code:'SYD',lat:-33.95,lng:151.18},{code:'NRT',lat:35.77,lng:140.39}
+  ];
+  if (!userLat) return;
+  let best = airports[0], bestDist = Infinity;
+  airports.forEach(a => {
+    const d = haversine(userLat, userLng, a.lat, a.lng);
+    if (d < bestDist) { bestDist = d; best = a; }
+  });
+  userAirport = best.code;
+}
+
+function haversine(lat1,lon1,lat2,lon2) {
+  const R=6371,dLat=(lat2-lat1)*Math.PI/180,dLon=(lon2-lon1)*Math.PI/180;
+  const a=Math.sin(dLat/2)**2+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
   return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
 }
 
-// ========== WIND DATA ==========
+function getDistance(spot) {
+  if (!userLat) return null;
+  return Math.round(haversine(userLat, userLng, spot.lat, spot.lng));
+}
+
+// ===== WIND API =====
 async function fetchAllWind() {
-  const bar = document.getElementById('loadingBar');
-  const status = document.getElementById('wind-status');
-  for(let i=0;i<SPOTS.length;i++) {
-    const s=SPOTS[i];
-    bar.style.width = ((i+1)/SPOTS.length*100)+'%';
-    status.textContent = `Fetching wind: ${s.name} (${i+1}/${SPOTS.length})...`;
-    try {
-      const url=`https://api.open-meteo.com/v1/forecast?latitude=${s.lat}&longitude=${s.lng}&hourly=windspeed_10m,winddirection_10m,windgusts_10m,temperature_2m&windspeed_unit=kn&forecast_days=7&timezone=auto`;
-      const res = await fetch(url);
-      const data = await res.json();
-      windData[s.id] = data.hourly;
-      updateSpotWind(s.id);
-      updatePopupWind(s.id);
-    } catch(e) {
-      console.warn('Wind fetch failed for',s.name,e);
-    }
-    await new Promise(r=>setTimeout(r,200));
+  const batches = [];
+  for (let i = 0; i < SPOTS.length; i += 5) {
+    batches.push(SPOTS.slice(i, i + 5));
   }
-  bar.style.width='100%';
-  setTimeout(()=>{bar.style.opacity='0'},500);
-  status.textContent = 'All wind data loaded — live from Open-Meteo';
-  renderRankings();
+  for (const batch of batches) {
+    await Promise.all(batch.map(async spot => {
+      try {
+        const r = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${spot.lat}&longitude=${spot.lng}&current=wind_speed_10m,wind_gusts_10m,wind_direction_10m&wind_speed_unit=kn&timezone=auto`);
+        const d = await r.json();
+        if (d.current) {
+          windData[spot.id] = {
+            speed: Math.round(d.current.wind_speed_10m),
+            gusts: Math.round(d.current.wind_gusts_10m),
+            dir: d.current.wind_direction_10m
+          };
+          updateWindDisplay(spot.id);
+        }
+      } catch(e) {}
+    }));
+  }
+  updateMapDots();
 }
 
-function getCurrentWindForSpot(id) {
-  const d=windData[id];
-  if(!d) return null;
-  const now=new Date();
-  const times=d.time.map(t=>new Date(t));
-  let closest=0,minDiff=Infinity;
-  times.forEach((t,i)=>{const diff=Math.abs(t-now);if(diff<minDiff){minDiff=diff;closest=i}});
-  return {
-    speed:Math.round(d.windspeed_10m[closest]||0),
-    dir:Math.round(d.winddirection_10m[closest]||0),
-    gust:Math.round(d.windgusts_10m[closest]||0),
-    temp:Math.round(d.temperature_2m[closest]||0),
-    hourly:d
-  };
-}
-
-function updateSpotWind(id) {
-  const el=document.getElementById('wind-'+id);
-  if(!el) return;
-  const w=getCurrentWindForSpot(id);
-  if(!w) return;
-  const cls=w.speed>=25?'strong':w.speed>=15?'medium':'';
-  el.innerHTML=`<div class="wind-speed ${cls}">${w.speed}kn</div>
-    <div class="wind-dir">${degToCompass(w.dir)} · Gust ${w.gust}kn</div>
-    <div class="wind-label">${w.temp}°C</div>`;
-
-  // Update forecast bars
-  const barsEl=document.getElementById('bars-'+id);
-  if(barsEl&&w.hourly) {
-    let html='';
-    const hrs=w.hourly.windspeed_10m.slice(0,48);
-    const times=w.hourly.time.slice(0,48);
-    hrs.forEach((v,i)=>{
-      if(i%3!==0)return;
-      const h=new Date(times[i]).getHours();
-      const val=Math.round(v||0);
-      const height=Math.max(4,val*1.8);
-      const c=val>=25?'var(--red)':val>=15?'var(--green)':val>=8?'var(--cyan)':'var(--text3)';
-      html+=`<div class="fh"><span>${h}h</span><div class="bar" style="height:${height}px;background:${c}"></div><span class="val">${val}</span></div>`;
-    });
-    barsEl.innerHTML=html;
+function updateWindDisplay(id) {
+  const el = document.querySelector(`[data-wind-id="${id}"]`);
+  if (el && windData[id]) {
+    el.innerHTML = `<span class="rt-wind-val" style="color:${windData[id].speed>=15?'var(--green)':'var(--gray-light)'}">${windData[id].speed}</span> <span class="rt-wind-label">${t('knots')} · G${windData[id].gusts}</span>`;
   }
 }
 
-function updatePopupWind(id) {
-  const el=document.getElementById('popup-wind-'+id);
-  if(!el) return;
-  const w=getCurrentWindForSpot(id);
-  if(!w) return;
-  el.innerHTML=`<strong>${w.speed}kn</strong> ${degToCompass(w.dir)} · Gust ${w.gust}kn · ${w.temp}°C`;
-}
-
-function degToCompass(d){const dirs=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];return dirs[Math.round(d/22.5)%16]}
-
-// ========== RENDER SPOTS ==========
-function renderSpots() {
-  const grid=document.getElementById('spotsGrid');
-  const currentMonth = new Date().getMonth();
-  let html='';
-
-  const filtered = SPOTS.filter(s=>{
-    if(activeFilters.skill!=='all'&&s.skill!==activeFilters.skill&&s.skill!=='all') return false;
-    if(activeFilters.water!=='all'&&s.water!==activeFilters.water) return false;
-    return true;
-  });
-
-  filtered.forEach(s=>{
-    const dist = (userLat!=null)?Math.round(haversine(userLat,userLng,s.lat,s.lng))+'km away':'';
-    const isFeatured = s.featured;
-    const isTrending = s.trending;
-
-    html+=`<article class="spot-card${isFeatured?' featured':''}" id="card-${s.id}">
-      ${isFeatured?'<div class="featured-badge">Featured</div>':''}
-      ${isTrending?'<div class="trending-badge">Trending</div>':''}
-      <div class="card-header">
-        <h3>${s.name}<small>${s.country}${dist?' · '+dist:''}</small></h3>
-        <div class="wind-now" id="wind-${s.id}">
-          <div class="wind-speed">--</div>
-          <div class="wind-label">Loading...</div>
-        </div>
-      </div>
-      <div class="card-tags">
-        <span class="tag ${s.water}">${s.water}</span>
-        <span class="tag ${s.skill}">${s.skill==='beg'?'Beginner':s.skill==='int'?'Intermediate':s.skill==='adv'?'Advanced':'All Levels'}</span>
-        <span class="tag">${s.prob}% wind prob</span>
-      </div>
-      <div class="forecast-bar">
-        <label>48h Wind Forecast</label>
-        <div class="forecast-hours" id="bars-${s.id}"><span style="color:var(--text3);font-size:.75rem">Loading forecast...</span></div>
-      </div>
-      <div class="monthly-cal">
-        <label>Monthly Wind Calendar</label>
-        <div class="months-row">${renderMonths(s.months,currentMonth)}</div>
-      </div>
-      ${s.hazards?`<div class="hazards"><span>⚠</span> ${s.hazards}</div>`:''}
-      <div class="accom-section">
-        <label>Accommodation</label>
-        ${renderAccom(s)}
-      </div>
-      <div class="flights-section">
-        <label>Flights From</label>
-        ${renderFlights(s.flights)}
-      </div>
-      ${isFeatured&&s.sponsor?renderSponsor(s.sponsor):''}
-      <div class="card-actions">
-        <a class="btn-whatsapp" href="https://wa.me/5585985572807?text=${encodeURIComponent('Hi! I want to plan a kite trip to '+s.name)}" target="_blank">WhatsApp</a>
-        ${s.sponsor?`<a class="btn-primary" href="${s.sponsor.url}" target="_blank">Book Now</a>`:`<a class="btn-secondary" href="mailto:info@terraventos.com?subject=Feature my business at ${s.name}">Partner Here</a>`}
-      </div>
-    </article>`;
-  });
-  grid.innerHTML=html;
-
-  // Re-apply wind data for already loaded spots
-  Object.keys(windData).forEach(id=>updateSpotWind(id));
+// ===== RENDER =====
+function render() {
+  document.getElementById('currentMonthName').textContent = MONTH_FULL[lang][currentMonth];
   renderBestMonth();
+  renderRegions();
+  updateMapDots();
 }
 
-function renderMonths(months,current) {
-  const peak = Math.max(...months);
-  return months.map((v,i)=>{
-    const cls = v>=80?'peak':v>=50?'good':'low';
-    const isCurrent = i===current?' style="outline:2px solid var(--gold);outline-offset:-1px"':'';
-    return `<div class="month-cell ${cls}"${isCurrent}><span class="mname">${MONTH_NAMES[i]}</span><span class="mval">${v}%</span></div>`;
-  }).join('');
-}
-
-function renderAccom(s) {
-  if(!s.accom) return '<div style="font-size:.82rem;color:var(--text3)">Contact for options</div>';
-  return s.accom.map(a=>
-    `<div class="accom-item${a.sponsor?' sponsor':''}">
-      <span class="accom-name">${a.url?`<a href="${a.url}" target="_blank">${a.name}</a>`:a.name}${a.sponsor?' ★':''}</span>
-      <span class="accom-price">${a.price}</span>
-    </div>`
-  ).join('');
-}
-
-function renderFlights(flights) {
-  if(!flights) return '';
-  return Object.entries(flights).map(([city,price])=>
-    `<div class="flight-row"><span>${city}</span><span class="flight-price">~${price}</span></div>`
-  ).join('');
-}
-
-function renderSponsor(sp) {
-  return `<div style="padding:0 20px 12px">
-    <div style="background:linear-gradient(135deg,rgba(201,169,110,.12),rgba(201,169,110,.04));border:1px solid var(--gold);border-radius:8px;padding:12px">
-      <div style="font-size:.72rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">★ Featured Partner</div>
-      <div style="font-weight:700;color:var(--gold);font-size:1rem">${sp.name}</div>
-      <div style="font-size:.85rem;color:var(--text2);margin:4px 0">${sp.desc} — <strong>${sp.price}</strong></div>
-      <a href="${sp.url}" target="_blank" style="font-size:.85rem;color:var(--gold);font-weight:600">View & Book →</a>
-    </div>
-  </div>`;
-}
-
-// ========== FILTERS ==========
-function setFilter(btn) {
-  const filterType = btn.dataset.filter;
-  const val = btn.dataset.val;
-  activeFilters[filterType] = val;
-  document.querySelectorAll(`.filter-btn[data-filter="${filterType}"]`).forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderSpots();
-}
-
-// ========== TABS ==========
-function switchTab(tab) {
-  document.querySelectorAll('.tab-btn').forEach((b,i)=>{
-    b.classList.toggle('active',['discover','rankings','bestmonth'][i]===tab);
-  });
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.getElementById('tab-'+tab).classList.add('active');
-}
-
-// ========== RANKINGS ==========
-function renderRankings() {
-  const body=document.getElementById('rankingsBody');
-  const ranked = SPOTS.map(s=>{
-    const w=getCurrentWindForSpot(s.id);
-    return {...s,windNow:w?w.speed:0,gustNow:w?w.gust:0,tempNow:w?w.temp:0};
-  }).sort((a,b)=>b.windNow-a.windNow);
-
-  body.innerHTML=ranked.map((s,i)=>`<tr>
-    <td class="rank-num">${i+1}</td>
-    <td><strong>${s.name}</strong><br><span style="font-size:.78rem;color:var(--text3)">${s.country}</span></td>
-    <td class="rank-wind" style="color:${s.windNow>=25?'var(--red)':s.windNow>=15?'var(--green)':'var(--text2)'}">${s.windNow}kn</td>
-    <td>${s.gustNow}kn</td>
-    <td>${s.tempNow}°C</td>
-    <td>${s.prob}%</td>
-    <td><span class="tag ${s.skill}" style="font-size:.72rem">${s.skill==='beg'?'Beg':s.skill==='int'?'Int':s.skill==='adv'?'Adv':'All'}</span></td>
-  </tr>`).join('');
-}
-
-// ========== BEST THIS MONTH ==========
 function renderBestMonth() {
-  const grid=document.getElementById('bestMonthGrid');
-  const m = new Date().getMonth();
-  const best = [...SPOTS].sort((a,b)=>b.months[m]-a.months[m]).slice(0,8);
-  grid.innerHTML = best.map(s=>{
-    const w=getCurrentWindForSpot(s.id);
-    const ws=w?w.speed:'--';
-    return `<div class="spot-card" style="padding:20px">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <h3 style="font-size:1.1rem">${s.name}<small style="display:block;font-size:.75rem;color:var(--text3);font-weight:400">${s.country}</small></h3>
-        <div style="text-align:right">
-          <div style="font-size:1.4rem;font-weight:800;color:var(--gold)">${s.months[m]}%</div>
-          <div style="font-size:.7rem;color:var(--text3)">wind probability</div>
+  const sorted = [...SPOTS].sort((a,b) => b.wind[currentMonth] - a.wind[currentMonth]);
+  const best = sorted.filter(s => s.wind[currentMonth] >= 50).slice(0, 8);
+  const container = document.getElementById('bestCards');
+  container.innerHTML = best.map(spot => buildCard(spot, true)).join('');
+}
+
+function renderRegions() {
+  const container = document.getElementById('regionsList');
+  let html = '';
+  REGIONS.forEach((region, ri) => {
+    const spots = SPOTS.filter(s => s.region === region.id);
+    const avgScore = Math.round(spots.reduce((s,sp) => s + sp.wind[currentMonth], 0) / spots.length);
+    html += `
+      <div class="region" id="region-${region.id}">
+        <div class="region-header open" onclick="toggleRegion('${region.id}')">
+          <h3>${region.emoji} ${region.name[lang]} <span class="region-count">${spots.length} ${t('spots')} · avg ${avgScore}/100</span></h3>
+          <svg class="region-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="region-spots" id="spots-${region.id}" style="max-height:2000px">
+          ${spots.map(s => buildCard(s, false)).join('')}
+        </div>
+      </div>`;
+    // Insert Terra Ventos CTA after Brazil NE
+    if (region.id === 'brazil_ne') {
+      html += `
+        <div class="tv-cta">
+          <h3 data-i18n="tv_cta_title">${t('tv_cta_title')}</h3>
+          <p data-i18n="tv_cta_text">${t('tv_cta_text')}</p>
+          <a href="https://terraventos.com" target="_blank" rel="noopener" class="action-btn btn-gold" data-i18n="tv_cta_btn">${t('tv_cta_btn')}</a>
+        </div>`;
+    }
+  });
+  container.innerHTML = html;
+}
+
+function buildCard(spot, isHorizontal) {
+  const score = spot.wind[currentMonth];
+  const barColor = score >= 70 ? 'var(--green)' : score >= 50 ? 'var(--orange)' : 'var(--red)';
+  const dist = getDistance(spot);
+  const distHtml = dist ? `<div class="dist-badge">✈ ${dist.toLocaleString()} km ${t('from_you')}</div>` : '';
+
+  const tagsHtml = spot.tags.map(tag => {
+    if (tag === 'trending') return `<span class="tag tag-trending">Trending</span>`;
+    if (tag === 'featured') return `<span class="tag tag-featured">Featured</span>`;
+    if (tag === 'partner') return `<span class="tag tag-partner">Partner</span>`;
+    return '';
+  }).join('');
+
+  // Monthly calendar
+  const monthsHtml = spot.wind.map((w, i) => {
+    const cls = w >= 70 ? 'mwind-good' : w >= 50 ? 'mwind-ok' : 'mwind-bad';
+    const cur = i === currentMonth ? ' mwind-current' : '';
+    return `<div class="month-cell ${cls}${cur}"><span class="mlabel">${MONTH_NAMES[lang][i]}</span>${w}</div>`;
+  }).join('');
+
+  // Accommodation
+  const accHtml = spot.accommodation.map(a => {
+    const url = `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(a.n + ' ' + spot.name)}`;
+    const badge = a.featured ? ` <span class="tag tag-partner" style="font-size:.6rem;vertical-align:middle">${t('featured_at')}</span>` : '';
+    return `<a href="${url}" target="_blank" rel="noopener" style="display:block;margin-bottom:4px;font-size:.85rem">${a.n}${badge}</a>`;
+  }).join('');
+
+  // Flights
+  const flightUrl = userAirport
+    ? `https://www.google.com/travel/flights?q=flights+from+${userAirport}+to+${spot.airport}`
+    : `https://www.google.com/travel/flights?q=flights+to+${spot.airport}`;
+  const flightLabel = userAirport ? `${t('search_flights')} (${userAirport} → ${spot.airport})` : `${t('search_flights')} → ${spot.airport}`;
+
+  return `
+    <div class="spot-card" id="card-${spot.id}">
+      <div class="card-header" onclick="toggleCard('${spot.id}')">
+        ${tagsHtml ? `<div class="card-tags">${tagsHtml}</div>` : ''}
+        <div class="card-name">${spot.name}</div>
+        <div class="card-country">${spot.country}</div>
+        <div class="card-wind-score">
+          <div class="wind-bar-bg"><div class="wind-bar-fill" style="width:${score}%;background:${barColor}"></div></div>
+          <div class="wind-score-num" style="color:${barColor}">${score}</div>
+        </div>
+        <div class="rt-wind" data-wind-id="${spot.id}">
+          ${windData[spot.id] ? `<span class="rt-wind-val" style="color:${windData[spot.id].speed>=15?'var(--green)':'var(--gray-light)'}">${windData[spot.id].speed}</span> <span class="rt-wind-label">${t('knots')} · G${windData[spot.id].gusts}</span>` : `<span class="wind-loading"></span>`}
+        </div>
+        ${distHtml}
+      </div>
+      <div class="card-detail" id="detail-${spot.id}">
+        <div class="detail-inner">
+          <div class="detail-section">
+            <p>${spot.desc[lang] || spot.desc.en}</p>
+          </div>
+          <div class="detail-section">
+            <h4>${t('water')}</h4>
+            <p>${spot.waterType}</p>
+          </div>
+          <div class="detail-section">
+            <h4>${t('monthly_cal')}</h4>
+            <div class="month-grid">${monthsHtml}</div>
+          </div>
+          <div class="detail-section">
+            <h4>${t('where_stay')}</h4>
+            ${accHtml}
+          </div>
+          <div class="action-btns">
+            <a href="${flightUrl}" target="_blank" rel="noopener" class="action-btn btn-gold">✈ ${flightLabel}</a>
+            <a href="https://www.booking.com/searchresults.html?ss=${encodeURIComponent(spot.name + ' ' + spot.country)}" target="_blank" rel="noopener" class="action-btn btn-outline">🏨 ${t('book_stay')}</a>
+          </div>
         </div>
       </div>
-      <div style="display:flex;gap:6px;margin-bottom:8px">
-        <span class="tag ${s.water}">${s.water}</span>
-        <span class="tag ${s.skill}">${s.skill==='beg'?'Beginner':s.skill==='int'?'Intermediate':s.skill==='adv'?'Advanced':'All'}</span>
-      </div>
-      <div style="font-size:.85rem;color:var(--text2)">Current wind: <strong style="color:var(--green)">${ws}kn</strong></div>
-      <div style="margin-top:10px"><a class="btn-whatsapp" style="display:inline-block;padding:6px 14px;border-radius:6px;font-size:.8rem" href="https://wa.me/5585985572807?text=${encodeURIComponent('I want to go to '+s.name+' this month!')}" target="_blank">Plan Trip</a></div>
     </div>`;
-  }).join('');
 }
 
-// ========== TOASTS ==========
-function startToasts() {
-  let idx=0;
-  setInterval(()=>{
-    const t=TOAST_MESSAGES[idx%TOAST_MESSAGES.length];
-    const container=document.getElementById('toastContainer');
-    const toast=document.createElement('div');
-    toast.className='toast';
-    toast.innerHTML=`<span class="toast-name">${t.name}</span> ${t.msg}`;
-    container.appendChild(toast);
-    setTimeout(()=>toast.remove(),5000);
-    idx++;
-  },8000);
+// ===== INTERACTIONS =====
+function toggleCard(id) {
+  const el = document.getElementById('detail-' + id);
+  if (el) el.classList.toggle('open');
 }
 
-// ========== COUNTDOWN ==========
-function startCountdown() {
-  // Countdown to 30 days from now
-  const target=new Date();
-  target.setDate(target.getDate()+30);
-  function tick(){
-    const now=new Date(),diff=target-now;
-    if(diff<=0) return;
-    const d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),
-          m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
-    document.getElementById('cd-days').textContent=d;
-    document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
-    document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
-    document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+function toggleRegion(id) {
+  const header = document.querySelector(`#region-${id} .region-header`);
+  const spots = document.getElementById('spots-' + id);
+  header.classList.toggle('open');
+  spots.classList.toggle('collapsed');
+}
+
+function switchView(view) {
+  document.querySelectorAll('.bottom-nav button').forEach(b => {
+    b.classList.toggle('active', b.dataset.view === view);
+  });
+  if (view === 'rankings') {
+    document.getElementById('bestMonth').scrollIntoView({behavior:'smooth'});
+  } else {
+    window.scrollTo({top:0,behavior:'smooth'});
   }
-  tick();
-  setInterval(tick,1000);
 }
 
-// ========== LIVE COUNTER ==========
-function animateLiveCounter() {
-  const el=document.getElementById('liveCount');
-  let count=847;
-  setInterval(()=>{
-    count+=Math.floor(Math.random()*3)-1;
-    count=Math.max(820,Math.min(900,count));
-    el.textContent=count+' kitesurfers planning trips';
-  },12000);
+// ===== WHATSAPP =====
+function toggleWaBubble() {
+  document.getElementById('waBubble').classList.toggle('show');
 }
+function showWaBubble() {
+  document.getElementById('waBubble').classList.add('show');
+  setTimeout(() => document.getElementById('waBubble').classList.remove('show'), 8000);
+}
+
+// ===== FOMO TOASTS =====
+const fomoMessages = [
+  {en:'Sarah from Berlin just booked Preá for August 🪁',pt:'Sarah de Berlim reservou Preá para Agosto 🪁',es:'Sarah de Berlín reservó Preá para Agosto 🪁'},
+  {en:'12 kiters checked Dakhla conditions in the last hour',pt:'12 kiters checaram condições em Dakhla na última hora',es:'12 kiters revisaron Dakhla en la última hora'},
+  {en:'Wind alert! Tarifa hitting 30kts right now 💨',pt:'Alerta! Tarifa com 30kts agora 💨',es:'¡Alerta! Tarifa con 30kts ahora 💨'},
+  {en:'Marco from São Paulo booked Los Roques 🌊',pt:'Marco de São Paulo reservou Los Roques 🌊',es:'Marco de São Paulo reservó Los Roques 🌊'},
+  {en:'Cabarete is trending — 8 bookings today',pt:'Cabarete em alta — 8 reservas hoje',es:'Cabarete en tendencia — 8 reservas hoy'},
+  {en:'Cape Town just hit 25kts. Perfect session! 🏄',pt:'Cape Town chegou a 25kts. Sessão perfeita! 🏄',es:'Ciudad del Cabo llegó a 25kts. ¡Sesión perfecta! 🏄'}
+];
+let fomoIdx = 0;
+function startFomo() {
+  setInterval(() => {
+    const toast = document.getElementById('fomoToast');
+    const msg = fomoMessages[fomoIdx % fomoMessages.length];
+    toast.innerHTML = msg[lang] || msg.en;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+    fomoIdx++;
+  }, 25000);
+}
+
+// ===== TOOLTIP STYLE =====
+const tooltipStyle = document.createElement('style');
+tooltipStyle.textContent = `.custom-tooltip{background:rgba(10,22,40,.92)!important;border:1px solid rgba(201,169,110,.2)!important;
+  color:#f0ece4!important;font-family:var(--font)!important;font-size:.78rem!important;padding:6px 10px!important;
+  border-radius:6px!important;box-shadow:0 4px 12px rgba(0,0,0,.3)!important}
+  .custom-tooltip .leaflet-tooltip-tip{display:none!important}`;
+document.head.appendChild(tooltipStyle);
 </script>
 </body>
 </html>
