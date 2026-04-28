@@ -4,860 +4,661 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GoWind v8 — Kitesurfing Travel Guide</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<title>SeaPilot — Your Ocean Sports Travel Companion</title>
+<meta name="description" content="SeaPilot: Find the best kite, wing, foil & surf spots worldwide. Live wind & swell data, spot guides, accommodation & booking.">
+<meta name="keywords" content="SeaPilot, kitesurfing spots, surfing spots, wing foiling, surf travel, kite travel, ocean sports">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
+:root{--navy:#0a1628;--navy-light:#101f3c;--navy-mid:#162544;--gold:#c9a96e;--gold-light:#e0c992;--green:#2ecc71;--red:#e74c3c;--orange:#f39c12;--white:#f0f0f0;--grey:#8899aa;--card-bg:#0f1d35;--card-border:#1a2d50;--surf-blue:#3498db;--kite-green:#2ecc71}
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
---bg:#0a0a0f;--card:#0f1923;--card-hover:#141e2b;--accent:#00d4ff;--gold:#ffd700;
---text:#e0e0e0;--text-muted:#7a8a9a;--text-bright:#ffffff;
---border:rgba(0,212,255,0.15);--glass:rgba(15,25,35,0.85);
---success:#00e676;--danger:#ff5252;--purple:#a855f7;
-}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-light)}
 
-/* Scrollbar */
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+/* Header */
+.header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);padding:8px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--card-border);height:50px;position:sticky;top:0;z-index:1000}
+.logo{font-size:1.5rem;font-weight:800;letter-spacing:1px}
+.logo-sea{color:var(--gold)}
+.logo-pilot{color:var(--white)}
+.tagline{font-size:0.65rem;color:var(--grey);margin-left:8px;letter-spacing:2px;text-transform:uppercase}
+.header-right{display:flex;align-items:center;gap:12px}
+.lang-select{background:var(--navy-mid);color:var(--white);border:1px solid var(--card-border);padding:4px 8px;border-radius:6px;font-size:0.75rem;cursor:pointer}
+.whatsapp-btn{background:#25d366;color:#fff;padding:4px 10px;border-radius:20px;font-size:0.7rem;font-weight:600;display:flex;align-items:center;gap:4px;cursor:pointer;border:none}
 
-/* Hero */
-.hero{position:relative;padding:60px 20px 40px;text-align:center;background:linear-gradient(135deg,#0a0a0f 0%,#0d1520 50%,#0a0a0f 100%);overflow:hidden}
-.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(0,212,255,0.05) 0%,transparent 50%),radial-gradient(circle at 70% 50%,rgba(255,215,0,0.03) 0%,transparent 50%);animation:heroGlow 8s ease-in-out infinite alternate}
-@keyframes heroGlow{0%{transform:rotate(0deg)}100%{transform:rotate(3deg)}}
-.hero-content{position:relative;z-index:1}
-.logo{font-size:3rem;font-weight:900;letter-spacing:-1px;background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.logo-sub{display:inline-block;font-size:0.7rem;background:var(--accent);color:var(--bg);padding:2px 8px;border-radius:10px;font-weight:700;vertical-align:super;margin-left:4px}
-.tagline{font-size:1.1rem;color:var(--text-muted);margin-top:8px;font-weight:300}
-.hero-stats{display:flex;justify-content:center;gap:30px;margin-top:24px;flex-wrap:wrap}
-.hero-stat{text-align:center}
-.hero-stat-num{font-size:1.8rem;font-weight:800;color:var(--accent)}
-.hero-stat-label{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px}
-
-/* Filter Bar */
-.filter-bar{position:sticky;top:0;z-index:1000;background:rgba(10,10,15,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px 16px}
-.filter-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;-ms-overflow-style:none;scrollbar-width:none}
-.filter-row::-webkit-scrollbar{display:none}
-.filter-btn{white-space:nowrap;padding:8px 16px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text-muted);font-size:0.8rem;font-family:inherit;cursor:pointer;transition:all 0.3s}
-.filter-btn:hover,.filter-btn.active{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:600}
-.filter-btn.active-gold{background:var(--gold);color:var(--bg);border-color:var(--gold)}
-.filter-section{margin-bottom:8px}
-.filter-label{font-size:0.65rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:6px;padding-left:4px}
-.filters-container{max-width:1200px;margin:0 auto}
+/* Sport Toggle */
+.sport-toggle{display:flex;justify-content:center;gap:8px;padding:10px 20px;background:var(--navy)}
+.sport-tab{padding:8px 20px;border-radius:25px;cursor:pointer;font-size:0.85rem;font-weight:600;border:2px solid var(--card-border);background:var(--navy-light);color:var(--grey);transition:all .3s}
+.sport-tab.active{border-color:var(--gold);color:var(--gold);background:rgba(201,169,110,0.1)}
+.sport-tab:hover{border-color:var(--gold);color:var(--gold-light)}
+.sport-tab .emoji{margin-right:4px}
 
 /* Map */
-.map-section{padding:0 16px 20px}
-.map-container{max-width:1200px;margin:0 auto}
-#map{height:400px;border-radius:16px;border:1px solid var(--border);z-index:1}
-.leaflet-popup-content-wrapper{background:var(--card)!important;color:var(--text)!important;border-radius:12px!important;border:1px solid var(--border)!important;box-shadow:0 8px 32px rgba(0,0,0,0.5)!important}
-.leaflet-popup-tip{background:var(--card)!important}
-.leaflet-popup-content{margin:12px!important;font-family:'Inter',system-ui!important}
-.popup-title{font-weight:700;font-size:0.95rem;color:var(--accent)}
-.popup-wind{font-size:0.8rem;color:var(--text-muted);margin-top:4px}
-.popup-btn{display:inline-block;margin-top:8px;padding:4px 12px;background:var(--accent);color:var(--bg);border-radius:8px;font-size:0.75rem;font-weight:600;cursor:pointer}
+.map-container{position:relative;height:45vh;min-height:300px}
+#map{height:100%;width:100%;z-index:1}
+.map-filters{position:absolute;top:10px;right:10px;z-index:500;display:flex;gap:6px}
+.map-filter-btn{padding:5px 12px;border-radius:20px;font-size:0.7rem;font-weight:600;cursor:pointer;border:none;transition:all .3s}
+.map-filter-btn.kite-filter{background:var(--kite-green);color:#fff}
+.map-filter-btn.surf-filter{background:var(--surf-blue);color:#fff}
+.map-filter-btn.all-filter{background:var(--gold);color:var(--navy)}
+.map-filter-btn.inactive{opacity:0.4}
 
-/* Section Title */
-.section-title{text-align:center;padding:30px 20px 20px;font-size:1.5rem;font-weight:800;color:var(--text-bright)}
-.section-title span{color:var(--accent)}
+/* Section titles */
+.section-title{font-size:1.3rem;font-weight:700;padding:20px 20px 10px;color:var(--gold)}
+.section-subtitle{font-size:0.8rem;color:var(--grey);padding:0 20px 15px}
 
-/* Destinations Grid */
-.destinations{max-width:1200px;margin:0 auto;padding:0 16px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
-@media(max-width:400px){.destinations{grid-template-columns:1fr}}
+/* Best This Month */
+.best-month{padding:0 15px 15px}
+.best-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}
+.best-scroll::-webkit-scrollbar{height:4px}
+.best-scroll::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
 
-/* Destination Card */
-.dest-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;position:relative}
-.dest-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,212,255,0.1)}
-.dest-card.hidden{display:none}
-.card-header{padding:20px 20px 12px;cursor:pointer}
-.card-region-badge{font-size:0.65rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);font-weight:600;margin-bottom:6px}
-.card-name{font-size:1.3rem;font-weight:800;color:var(--text-bright);margin-bottom:2px}
-.card-country{font-size:0.85rem;color:var(--text-muted)}
-.card-tags{display:flex;flex-wrap:wrap;gap:6px;padding:0 20px 12px}
-.card-tag{font-size:0.7rem;padding:4px 10px;border-radius:12px;font-weight:600}
-.tag-wind{background:rgba(0,212,255,0.15);color:var(--accent)}
-.tag-discipline{background:rgba(168,85,247,0.15);color:var(--purple)}
-.tag-budget{background:rgba(255,215,0,0.15);color:var(--gold)}
+/* Cards */
+.spot-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;min-width:260px;max-width:260px;scroll-snap-align:start;overflow:hidden;transition:transform .2s,border-color .2s;cursor:pointer;flex-shrink:0}
+.spot-card:hover{transform:translateY(-2px);border-color:var(--gold)}
+.card-header{padding:10px 12px 6px;display:flex;justify-content:space-between;align-items:flex-start}
+.card-name{font-size:0.9rem;font-weight:700;line-height:1.2}
+.card-country{font-size:0.7rem;color:var(--grey);margin-top:2px}
+.card-badge{font-size:0.6rem;padding:2px 8px;border-radius:10px;font-weight:700;white-space:nowrap}
+.badge-live{background:rgba(46,204,113,0.2);color:var(--green);border:1px solid var(--green)}
+.badge-off{background:rgba(231,76,60,0.15);color:var(--red);border:1px solid rgba(231,76,60,0.3)}
+.badge-season{background:rgba(136,153,170,0.15);color:var(--grey);border:1px solid rgba(136,153,170,0.3);margin-left:4px}
+.card-body{padding:6px 12px 10px}
+.card-stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.card-stat{font-size:0.7rem;color:var(--grey);display:flex;align-items:center;gap:3px}
+.card-stat .val{color:var(--white);font-weight:600}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap}
+.card-tag{font-size:0.6rem;padding:2px 6px;border-radius:8px;background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.2)}
+.surf-tag{background:rgba(52,152,219,0.1);color:var(--surf-blue);border:1px solid rgba(52,152,219,0.2)}
+.card-type-indicator{width:100%;height:3px}
+.card-type-kite{background:linear-gradient(90deg,var(--kite-green),transparent)}
+.card-type-surf{background:linear-gradient(90deg,var(--surf-blue),transparent)}
 
-/* Wind Bar */
-.wind-bar-container{padding:0 20px 12px}
-.wind-bar-label{font-size:0.7rem;color:var(--text-muted);margin-bottom:4px;display:flex;justify-content:space-between}
-.wind-bar{height:6px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden}
-.wind-bar-fill{height:100%;border-radius:3px;transition:width 1s ease;background:linear-gradient(90deg,var(--accent),var(--gold))}
-.live-wind{font-size:0.8rem;color:var(--success);padding:0 20px 8px;font-weight:500}
-.live-wind .loading{color:var(--text-muted);font-style:italic}
+/* Region sections */
+.region{margin:0 15px 15px;border:1px solid var(--card-border);border-radius:12px;overflow:hidden}
+.region-header{padding:12px 15px;background:var(--navy-light);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.region-header h3{font-size:0.95rem;font-weight:600}
+.region-count{font-size:0.7rem;color:var(--grey)}
+.region-arrow{color:var(--gold);transition:transform .3s;font-size:0.8rem}
+.region-arrow.open{transform:rotate(180deg)}
+.region-body{display:none;padding:10px;background:var(--navy)}
+.region-body.open{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
 
-/* Calendar */
-.card-calendar{padding:0 20px 12px}
-.calendar-row{display:flex;gap:3px}
-.cal-month{flex:1;text-align:center;padding:4px 0;font-size:0.6rem;font-weight:600;border-radius:4px;color:var(--text-muted);background:rgba(255,255,255,0.03)}
-.cal-month.active{background:rgba(0,212,255,0.2);color:var(--accent)}
-.cal-month.peak{background:rgba(0,212,255,0.4);color:var(--text-bright)}
+/* Spot detail modal */
+.modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:2000;overflow-y:auto;padding:20px}
+.modal-overlay.open{display:flex;justify-content:center;align-items:flex-start}
+.modal{background:var(--navy-light);border:1px solid var(--card-border);border-radius:16px;max-width:600px;width:100%;margin:20px auto;overflow:hidden}
+.modal-close{position:absolute;top:12px;right:15px;font-size:1.5rem;color:var(--grey);cursor:pointer;z-index:10}
+.modal-header{padding:20px;position:relative;border-bottom:1px solid var(--card-border)}
+.modal-header h2{font-size:1.3rem;font-weight:700;padding-right:30px}
+.modal-header .card-country{font-size:0.85rem}
+.modal-section{padding:15px 20px;border-bottom:1px solid var(--card-border)}
+.modal-section h4{font-size:0.8rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.modal-stat{font-size:0.8rem}
+.modal-stat .label{color:var(--grey)}
+.modal-stat .value{color:var(--white);font-weight:600}
+.modal-wind-chart{display:flex;align-items:flex-end;gap:3px;height:60px;margin-top:8px}
+.wind-bar{flex:1;border-radius:3px 3px 0 0;transition:height .3s}
+.wind-bar.good{background:var(--green)}
+.wind-bar.ok{background:var(--orange)}
+.wind-bar.low{background:var(--red)}
+.wind-month{font-size:0.55rem;color:var(--grey);text-align:center;margin-top:2px}
+.modal-actions{padding:15px 20px;display:flex;gap:8px;flex-wrap:wrap}
+.modal-btn{padding:8px 16px;border-radius:25px;font-size:0.75rem;font-weight:600;cursor:pointer;border:none;transition:all .3s}
+.btn-primary{background:var(--gold);color:var(--navy)}
+.btn-secondary{background:var(--navy-mid);color:var(--white);border:1px solid var(--card-border)}
+.btn-whatsapp{background:#25d366;color:#fff}
+.btn-surfcam{background:var(--surf-blue);color:#fff}
 
-/* Expand Area */
-.card-expand{max-height:0;overflow:hidden;transition:max-height 0.5s ease}
-.card-expand.open{max-height:2000px}
-.expand-toggle{display:flex;justify-content:center;padding:8px;cursor:pointer;color:var(--text-muted);font-size:0.8rem;border-top:1px solid rgba(255,255,255,0.05);transition:color 0.3s}
-.expand-toggle:hover{color:var(--accent)}
-
-/* Accommodation */
-.accom-section{padding:16px 20px}
-.accom-title{font-size:0.85rem;font-weight:700;color:var(--text-bright);margin-bottom:8px}
-.direct-badge{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,rgba(255,215,0,0.2),rgba(255,215,0,0.05));border:1px solid rgba(255,215,0,0.3);padding:6px 12px;border-radius:8px;font-size:0.75rem;color:var(--gold);margin-bottom:8px;font-weight:600}
-.direct-msg{font-size:0.73rem;color:var(--text-muted);margin-bottom:12px;font-style:italic}
-.accom-item{background:rgba(255,255,255,0.03);border-radius:10px;padding:12px;margin-bottom:8px}
-.accom-name{font-weight:600;font-size:0.85rem;color:var(--text-bright)}
-.accom-price{font-size:0.8rem;color:var(--gold);margin:4px 0 8px}
-.accom-btns{display:flex;gap:8px;flex-wrap:wrap}
-.btn-direct{padding:6px 14px;border-radius:8px;border:none;font-family:inherit;font-size:0.75rem;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--gold),#ffaa00);color:#1a1a1a;transition:all 0.3s;box-shadow:0 2px 8px rgba(255,215,0,0.2)}
-.btn-direct:hover{transform:scale(1.05);box-shadow:0 4px 16px rgba(255,215,0,0.3)}
-.btn-compare{padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:transparent;font-family:inherit;font-size:0.72rem;color:var(--text-muted);cursor:pointer;transition:all 0.3s}
-.btn-compare:hover{border-color:var(--text-muted);color:var(--text)}
-
-/* Teachers */
-.teachers-section{padding:0 20px 16px}
-.teachers-title{font-size:0.85rem;font-weight:700;color:var(--text-bright);margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.teacher-card{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.03);border-radius:10px;padding:10px 12px;margin-bottom:6px}
-.teacher-info{flex:1}
-.teacher-name{font-weight:600;font-size:0.83rem;color:var(--text-bright)}
-.teacher-badge{font-size:0.65rem;color:var(--gold);font-weight:600}
-.teacher-link{padding:4px 12px;border-radius:8px;background:rgba(0,212,255,0.15);color:var(--accent);font-size:0.72rem;font-weight:600;white-space:nowrap}
-.teacher-link:hover{background:rgba(0,212,255,0.3);text-decoration:none}
-
-/* Partner Section */
-.partner-section{max-width:900px;margin:0 auto;padding:40px 20px 60px}
-.partner-card{background:linear-gradient(135deg,var(--card),#1a1a2e);border:1px solid rgba(255,215,0,0.2);border-radius:20px;padding:40px 30px;position:relative;overflow:hidden}
-.partner-card::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(255,215,0,0.08),transparent);border-radius:50%}
-.partner-headline{font-size:1.6rem;font-weight:800;color:var(--text-bright);margin-bottom:8px;position:relative}
-.partner-headline span{color:var(--gold)}
-.partner-sub{color:var(--text-muted);margin-bottom:24px;font-size:0.95rem;position:relative}
-.partner-block{margin-bottom:24px;position:relative}
-.partner-block h3{font-size:1rem;font-weight:700;color:var(--gold);margin-bottom:8px}
-.partner-block p,.partner-block li{font-size:0.88rem;color:var(--text);line-height:1.7}
-.partner-block ul{padding-left:20px}
-.partner-block li{margin-bottom:4px}
-.partner-block li::marker{color:var(--gold)}
-
-/* Pricing Tiers */
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:20px 0}
-.pricing-tier{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center;transition:all 0.3s}
-.pricing-tier.featured{border-color:var(--gold);background:rgba(255,215,0,0.05);transform:scale(1.03)}
-.tier-name{font-size:0.8rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);font-weight:700}
-.tier-price{font-size:2rem;font-weight:900;color:var(--text-bright);margin:8px 0}
-.tier-price span{font-size:0.85rem;font-weight:400;color:var(--text-muted)}
-.tier-features{list-style:none;padding:0;text-align:left}
-.tier-features li{font-size:0.8rem;color:var(--text);padding:4px 0;padding-left:18px;position:relative}
-.tier-features li::before{content:'✓';position:absolute;left:0;color:var(--success)}
-
-.btn-cta{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;border:none;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--gold),#ffaa00);color:#1a1a1a;transition:all 0.3s;margin-top:16px;box-shadow:0 4px 16px rgba(255,215,0,0.2)}
-.btn-cta:hover{transform:scale(1.05);box-shadow:0 6px 24px rgba(255,215,0,0.3)}
-.btn-cta-secondary{background:transparent;border:1px solid var(--accent);color:var(--accent);box-shadow:none;margin-left:12px}
-.btn-cta-secondary:hover{background:rgba(0,212,255,0.1)}
+/* Find a teacher / surf school */
+.cta-section{margin:15px;padding:20px;border-radius:12px;background:linear-gradient(135deg,var(--navy-mid),var(--card-bg));border:1px solid var(--card-border);text-align:center}
+.cta-section h3{font-size:1rem;margin-bottom:5px}
+.cta-section p{font-size:0.75rem;color:var(--grey);margin-bottom:12px}
+.cta-buttons{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 
 /* Footer */
-.footer{background:var(--card);border-top:1px solid var(--border);padding:30px 20px;text-align:center}
-.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
-.footer-links a{color:var(--text-muted);font-size:0.85rem;transition:color 0.3s}
-.footer-links a:hover{color:var(--accent)}
-.footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.3)}
-
-/* Animations */
-@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.dest-card{animation:fadeInUp 0.5s ease both}
-.dest-card:nth-child(2){animation-delay:0.05s}
-.dest-card:nth-child(3){animation-delay:0.1s}
-.dest-card:nth-child(4){animation-delay:0.15s}
-
-/* Wind direction arrow */
-.wind-dir{display:inline-block;transition:transform 0.5s ease}
+.footer{padding:20px;text-align:center;border-top:1px solid var(--card-border);margin-top:20px}
+.footer-links{display:flex;gap:15px;justify-content:center;margin-bottom:10px;flex-wrap:wrap}
+.footer-links a{font-size:0.75rem;color:var(--grey)}
+.footer-copy{font-size:0.65rem;color:var(--grey)}
 
 /* Responsive */
-@media(max-width:768px){
-.hero{padding:40px 16px 30px}
-.logo{font-size:2.2rem}
-.destinations{grid-template-columns:1fr}
-#map{height:300px}
-.partner-card{padding:24px 20px}
-.partner-headline{font-size:1.3rem}
-.pricing-grid{grid-template-columns:1fr}
+@media(max-width:600px){
+  .header{padding:8px 12px}
+  .tagline{display:none}
+  .map-container{height:35vh;min-height:250px}
+  .spot-card{min-width:220px;max-width:220px}
+  .modal{margin:10px}
+  .region-body.open{grid-template-columns:1fr}
 }
 
-/* Partner CTA Banner */
-.partner-cta-banner{max-width:1200px;margin:0 auto 20px;padding:0 16px}
-.partner-cta-inner{background:linear-gradient(135deg,rgba(255,215,0,0.08),rgba(255,215,0,0.02));border:1px solid rgba(255,215,0,0.2);border-radius:12px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.partner-cta-text{font-size:0.88rem;color:var(--text)}
-.partner-cta-text strong{color:var(--gold)}
-.partner-cta-btn{padding:8px 18px;border-radius:8px;background:var(--gold);color:#1a1a1a;font-weight:700;font-size:0.8rem;border:none;cursor:pointer;font-family:inherit}
+/* Loading */
+.loading-pulse{animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:0.5}50%{opacity:1}}
 
-/* Custom marker */
-.custom-marker{background:var(--accent);width:12px;height:12px;border-radius:50%;border:2px solid var(--text-bright);box-shadow:0 0 10px rgba(0,212,255,0.5)}
+/* Leaflet custom */
+.leaflet-popup-content-wrapper{background:var(--navy-light)!important;color:var(--white)!important;border:1px solid var(--card-border)!important;border-radius:10px!important}
+.leaflet-popup-tip{background:var(--navy-light)!important}
+.leaflet-popup-content{margin:8px 12px!important;font-size:0.8rem}
+.leaflet-popup-content .popup-name{font-weight:700;font-size:0.85rem}
+.leaflet-popup-content .popup-live{font-size:0.7rem;margin-top:4px}
+.kite-marker{background:var(--kite-green);border:2px solid #fff;border-radius:50%;width:12px;height:12px;display:flex;align-items:center;justify-content:center;font-size:8px;color:#fff;box-shadow:0 0 6px rgba(46,204,113,0.5)}
+.surf-marker{background:var(--surf-blue);border:2px solid #fff;border-radius:50%;width:12px;height:12px;display:flex;align-items:center;justify-content:center;font-size:8px;color:#fff;box-shadow:0 0 6px rgba(52,152,219,0.5)}
+.marker-live{box-shadow:0 0 10px rgba(46,204,113,0.8)}
+.marker-off{opacity:0.6}
 </style>
 </head>
 <body>
 
-<!-- Hero -->
-<section class="hero">
-<div class="hero-content">
-<div class="logo">GoWind <span class="logo-sub">v8</span></div>
-<p class="tagline">Find Your Perfect Wind</p>
-<div class="hero-stats">
-<div class="hero-stat"><div class="hero-stat-num">23</div><div class="hero-stat-label">Destinations</div></div>
-<div class="hero-stat"><div class="hero-stat-num">6</div><div class="hero-stat-label">Regions</div></div>
-<div class="hero-stat"><div class="hero-stat-num">15-35</div><div class="hero-stat-label">Knots Avg</div></div>
-</div>
-</div>
-</section>
-
-<!-- Filters -->
-<div class="filter-bar">
-<div class="filters-container">
-<div class="filter-section">
-<div class="filter-label">Region</div>
-<div class="filter-row" id="regionFilters">
-<button class="filter-btn active" data-region="all">All Regions</button>
-<button class="filter-btn" data-region="brazil">Brazil NE</button>
-<button class="filter-btn" data-region="caribbean">Caribbean</button>
-<button class="filter-btn" data-region="europe">Europe</button>
-<button class="filter-btn" data-region="africa">Africa</button>
-<button class="filter-btn" data-region="middleeast">Middle East</button>
-<button class="filter-btn" data-region="asia">Asia</button>
-<button class="filter-btn" data-region="indianocean">Indian Ocean</button>
-</div>
-</div>
-<div class="filter-section">
-<div class="filter-label">Discipline & Budget</div>
-<div class="filter-row" id="otherFilters">
-<button class="filter-btn" data-discipline="kite">🪁 Kite</button>
-<button class="filter-btn" data-discipline="foil">🏄 Foil</button>
-<button class="filter-btn" data-discipline="wing">🦅 Wing</button>
-<button class="filter-btn" data-budget="$">$ Budget</button>
-<button class="filter-btn" data-budget="$$">$$ Mid</button>
-<button class="filter-btn" data-budget="$$$">$$$ Premium</button>
-<button class="filter-btn" data-wind="strong">💨 20+ kt</button>
-</div>
-</div>
-</div>
+<!-- HEADER -->
+<div class="header">
+  <div style="display:flex;align-items:center">
+    <div class="logo"><span class="logo-sea">Sea</span><span class="logo-pilot">Pilot</span></div>
+    <span class="tagline">Your ocean sports travel companion</span>
+  </div>
+  <div class="header-right">
+    <select class="lang-select" id="langSelect" onchange="changeLang(this.value)">
+      <option value="en">EN</option>
+      <option value="pt">PT</option>
+      <option value="es">ES</option>
+    </select>
+    <button class="whatsapp-btn" onclick="window.open('https://wa.me/5585985572807','_blank')">💬 WhatsApp</button>
+  </div>
 </div>
 
-<!-- Map -->
-<div class="section-title">🗺️ <span>Explore</span> Destinations</div>
-<div class="map-section">
+<!-- SPORT TOGGLE -->
+<div class="sport-toggle">
+  <div class="sport-tab active" data-sport="all" onclick="setSport('all')"><span class="emoji">🌊</span> All Spots</div>
+  <div class="sport-tab" data-sport="kite" onclick="setSport('kite')"><span class="emoji">🪁</span> Kite / Wing / Foil</div>
+  <div class="sport-tab" data-sport="surf" onclick="setSport('surf')"><span class="emoji">🏄</span> Surf</div>
+</div>
+
+<!-- MAP -->
 <div class="map-container">
-<div id="map"></div>
-</div>
-</div>
-
-<!-- Partner CTA -->
-<div class="partner-cta-banner">
-<div class="partner-cta-inner">
-<div class="partner-cta-text"><strong>Own a kite pousada?</strong> Get direct bookings — zero commission.</div>
-<button class="partner-cta-btn" onclick="document.getElementById('partner-section').scrollIntoView({behavior:'smooth'})">Partner Here</button>
-</div>
+  <div id="map"></div>
+  <div class="map-filters">
+    <button class="map-filter-btn kite-filter" onclick="toggleMapFilter('kite')" id="mapFilterKite">🪁 Kite</button>
+    <button class="map-filter-btn surf-filter" onclick="toggleMapFilter('surf')" id="mapFilterSurf">🏄 Surf</button>
+  </div>
 </div>
 
-<!-- Destinations -->
-<div class="section-title">🌊 <span>Destinations</span></div>
-<div class="destinations" id="destinations"></div>
-
-<!-- List Your Property -->
-<div id="partner-section">
-<div class="section-title">🏠 <span>List Your</span> Property</div>
-<div class="partner-section">
-<div class="partner-card">
-<div class="partner-headline">Why Kite Pousadas Choose <span>GoWind</span> Over Booking.com</div>
-<p class="partner-sub">Stop paying 15-20% commission. Send kitesurfers directly to YOUR website.</p>
-
-<div class="partner-block">
-<h3>❌ The Problem</h3>
-<ul>
-<li>Booking.com charges 15-20% commission per booking</li>
-<li>Airbnb takes 3-5% from hosts + 14% from guests</li>
-<li>You lose margin AND your guests pay more</li>
-</ul>
+<!-- BEST THIS MONTH -->
+<div class="section-title" id="bestTitle">🔥 Best Spots This Month</div>
+<div class="section-subtitle" id="bestSubtitle">Top picks based on current conditions</div>
+<div class="best-month">
+  <div class="best-scroll" id="bestScroll"></div>
 </div>
 
-<div class="partner-block">
-<h3>✅ The GoWind Solution</h3>
-<ul>
-<li>Send qualified kitesurfers directly to YOUR website or WhatsApp</li>
-<li>Keep 100% of booking revenue</li>
-<li>Guests save 10-15% vs Booking prices</li>
-<li>Featured listing: $49/month (vs Booking's 15-20% per booking)</li>
-</ul>
+<!-- REGIONS -->
+<div class="section-title">📍 Spots by Region</div>
+<div id="regions"></div>
+
+<!-- CTA: Find a Teacher / Surf School -->
+<div class="cta-section">
+  <h3>🎓 Learn from the Best</h3>
+  <p>Find certified instructors and surf schools at your destination</p>
+  <div class="cta-buttons">
+    <button class="modal-btn btn-primary" onclick="window.open('https://wa.me/5585985572807?text=I%20want%20to%20find%20a%20kite%20instructor','_blank')">🪁 Find a Kite Teacher</button>
+    <button class="modal-btn btn-surfcam" onclick="window.open('https://wa.me/5585985572807?text=I%20want%20to%20find%20a%20surf%20school','_blank')">🏄 Find a Surf School</button>
+  </div>
 </div>
 
-<div class="partner-block">
-<h3>🎁 What You Get</h3>
-<ul>
-<li>Featured placement in GoWind search results</li>
-<li>Direct booking links to YOUR site</li>
-<li>Exposure to 10,000+ kitesurfers planning trips monthly</li>
-<li>"Recommended by GoWind" trust badge</li>
-<li>Zero commission — flat monthly fee</li>
-</ul>
+<!-- CTA: Booking -->
+<div class="cta-section">
+  <h3>🏠 Direct Booking</h3>
+  <p>Book accommodation directly with local hosts — no middleman fees</p>
+  <div class="cta-buttons">
+    <button class="modal-btn btn-primary" onclick="window.open('https://wa.me/5585985572807?text=I%20need%20accommodation','_blank')">Book Now</button>
+    <button class="modal-btn btn-secondary" onclick="window.open('https://wa.me/5585985572807?text=I%20want%20to%20list%20my%20property','_blank')">List Your Property</button>
+  </div>
 </div>
 
-<div class="partner-block">
-<h3>💰 Pricing</h3>
-<div class="pricing-grid">
-<div class="pricing-tier">
-<div class="tier-name">Basic</div>
-<div class="tier-price">Free</div>
-<ul class="tier-features">
-<li>Name + price listed</li>
-<li>Booking.com fallback links</li>
-<li>Basic destination card</li>
-</ul>
-</div>
-<div class="pricing-tier featured">
-<div class="tier-name">Featured</div>
-<div class="tier-price">$49<span>/mo</span></div>
-<ul class="tier-features">
-<li>Direct link to YOUR site</li>
-<li>Gold badge highlight</li>
-<li>Priority placement</li>
-<li>WhatsApp integration</li>
-</ul>
-</div>
-<div class="pricing-tier">
-<div class="tier-name">Premium</div>
-<div class="tier-price">$149<span>/mo</span></div>
-<ul class="tier-features">
-<li>Everything in Featured</li>
-<li>Weekly social mention</li>
-<li>Blog feature article</li>
-<li>Analytics dashboard</li>
-</ul>
-</div>
-</div>
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal"></div>
 </div>
 
-<div style="text-align:center;margin-top:20px">
-<a href="https://wa.me/5585985572807?text=Hi!%20I%20want%20to%20list%20my%20property%20on%20GoWind" target="_blank" class="btn-cta">📲 Claim Your Listing</a>
-<a href="mailto:info@terraventos.com?subject=GoWind%20Listing%20Inquiry" class="btn-cta btn-cta-secondary">✉️ Email Us</a>
-</div>
-</div>
-</div>
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-links">
+    <a href="#" onclick="setSport('kite')">Kite Spots</a>
+    <a href="#" onclick="setSport('surf')">Surf Spots</a>
+    <a href="https://wa.me/5585985572807" target="_blank">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 SeaPilot — Your ocean sports travel companion</div>
 </div>
 
-<!-- Footer -->
-<footer class="footer">
-<div class="footer-links">
-<a href="#" onclick="document.querySelector('.hero').scrollIntoView({behavior:'smooth'});return false">Home</a>
-<a href="#" onclick="document.getElementById('destinations').scrollIntoView({behavior:'smooth'});return false">Destinations</a>
-<a href="#" onclick="document.getElementById('partner-section').scrollIntoView({behavior:'smooth'});return false">For Properties</a>
-<a href="https://wa.me/5585985572807" target="_blank">Contact</a>
-<a href="mailto:info@terraventos.com">info@terraventos.com</a>
-</div>
-<div class="footer-copy">© 2026 GoWind by Terra Ventos. All rights reserved. Built for kitesurfers, by kitesurfers.</div>
-</footer>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-// ===== DESTINATIONS DATA =====
-const destinations = [
-{
-id:'prea',name:'Preá / Jericoacoara',country:'Ceará, Brazil',region:'brazil',
-lat:-2.797,lon:-40.408,
-windSeason:[7,8,9,10,11,12],peakMonths:[8,9,10,11],
-windRange:'20-30kt',windAvg:25,
-disciplines:['kite','foil','wing'],budget:'$$',
-currency:'R$',accomType:'Pousadas',priceRange:'150-400/night',
-accommodation:[
-{name:'Pousada Rancho do Peixe',price:'R$250-400/night'},
-{name:'Vila Kalango',price:'R$300-500/night'}
-],
-teachers:[
-{name:'Sunset Kiteboarding',badge:true,url:'https://sunsetkiteboarding.com',note:'IKO certified, top rated'},
-{name:'Prea Kite Club',badge:true,url:'https://preakiteclub.com.br',note:'IKO qualified, Paolo instructor'},
-{name:'Blu Kitesurfing',badge:true,url:'https://blukitesurfing.com',note:'Experienced team'}
-]
-},
-{
-id:'tatajuba',name:'Tatajuba',country:'Ceará, Brazil',region:'brazil',
-lat:-2.850,lon:-40.530,
-windSeason:[7,8,9,10,11,12],peakMonths:[8,9,10,11],
-windRange:'18-28kt',windAvg:23,
-disciplines:['kite','foil'],budget:'$',
-currency:'R$',accomType:'Rustic Pousadas',priceRange:'100-250/night',
-accommodation:[{name:'Pousada Tatajuba',price:'R$100-250/night'}],
-teachers:[
-{name:'North Kite Center',badge:true,url:'https://northkitecenter-preabeachexperience.com',note:'Certified, North Sails equipment'},
-{name:'Barrinha Kiteschool',badge:true,url:'https://barrinhakiteschool.com',note:'Local expertise'}
-]
-},
-{
-id:'cumbuco',name:'Cumbuco',country:'Ceará, Brazil',region:'brazil',
-lat:-3.622,lon:-38.733,
-windSeason:[7,8,9,10,11,12,1],peakMonths:[8,9,10,11],
-windRange:'15-25kt',windAvg:20,
-disciplines:['kite','foil','wing'],budget:'$$',
-currency:'R$',accomType:'Hotels',priceRange:'200-500/night',
-accommodation:[
-{name:'Windtown Hotel',price:'R$200-350/night'},
-{name:'Hotel Cumbuco',price:'R$250-500/night'}
-],
-teachers:[
-{name:'Windtown Kite School',badge:true,url:'https://windtown.com',note:'Professional setup'},
-{name:'ProKite Cumbuco',badge:false,url:'https://www.google.com/search?q=ProKite+Cumbuco+kitesurf+school',note:'Experienced instructors'}
-]
-},
-{
-id:'icarai',name:'Icaraí de Amontada',country:'Ceará, Brazil',region:'brazil',
-lat:-3.119,lon:-39.669,
-windSeason:[7,8,9,10,11,12],peakMonths:[8,9,10,11],
-windRange:'18-25kt',windAvg:21,
-disciplines:['kite'],budget:'$',
-currency:'R$',accomType:'Pousadas',priceRange:'120-300/night',
-accommodation:[{name:'Pousada Icaraí',price:'R$120-300/night'}],
-teachers:null
-},
-{
-id:'paracuru',name:'Paracuru',country:'Ceará, Brazil',region:'brazil',
-lat:-3.395,lon:-39.032,
-windSeason:[7,8,9,10,11,12],peakMonths:[8,9,10,11],
-windRange:'18-28kt',windAvg:23,
-disciplines:['kite','foil'],budget:'$',
-currency:'R$',accomType:'Pousadas',priceRange:'100-250/night',
-accommodation:[{name:'Pousada Paracuru',price:'R$100-250/night'}],
-teachers:null
-},
-{
-id:'barragrande',name:'Barra Grande',country:'Piauí, Brazil',region:'brazil',
-lat:-2.903,lon:-41.407,
-windSeason:[7,8,9,10,11,12],peakMonths:[8,9,10,11],
-windRange:'20-30kt',windAvg:25,
-disciplines:['kite','foil'],budget:'$',
-currency:'R$',accomType:'Pousadas',priceRange:'100-300/night',
-accommodation:[{name:'Pousada Barra Grande',price:'R$100-300/night'}],
-teachers:null
-},
-{
-id:'gostoso',name:'São Miguel do Gostoso',country:'Rio Grande do Norte, Brazil',region:'brazil',
-lat:-5.124,lon:-35.635,
-windSeason:[8,9,10,11,12,1,2],peakMonths:[9,10,11,12],
-windRange:'18-28kt',windAvg:23,
-disciplines:['kite','foil','wing'],budget:'$$',
-currency:'R$',accomType:'Pousadas',priceRange:'150-400/night',
-accommodation:[
-{name:'Pousada Gostoso',price:'R$150-350/night'},
-{name:'Kauli Seadi Pousada',price:'R$200-400/night'}
-],
-teachers:null
-},
-{
-id:'galinhos',name:'Galinhos',country:'Rio Grande do Norte, Brazil',region:'brazil',
-lat:-5.093,lon:-36.278,
-windSeason:[9,10,11,12,1,2],peakMonths:[10,11,12,1],
-windRange:'15-25kt',windAvg:20,
-disciplines:['kite'],budget:'$',
-currency:'R$',accomType:'Pousadas',priceRange:'100-250/night',
-accommodation:[{name:'Pousada Galinhos',price:'R$100-250/night'}],
-teachers:null
-},
-{
-id:'guajiru',name:'Guajiru',country:'Ceará, Brazil',region:'brazil',
-lat:-3.177,lon:-39.244,
-windSeason:[7,8,9,10,11,12],peakMonths:[8,9,10,11],
-windRange:'18-25kt',windAvg:21,
-disciplines:['kite'],budget:'$',
-currency:'R$',accomType:'Pousadas',priceRange:'80-200/night',
-accommodation:[{name:'Pousada Guajiru',price:'R$80-200/night'}],
-teachers:null
-},
-{
-id:'atins',name:'Atins / Lençóis',country:'Maranhão, Brazil',region:'brazil',
-lat:-2.572,lon:-42.745,
-windSeason:[7,8,9,10,11,12],peakMonths:[8,9,10,11],
-windRange:'18-25kt',windAvg:21,
-disciplines:['kite'],budget:'$',
-currency:'R$',accomType:'Pousadas',priceRange:'100-300/night',
-accommodation:[{name:'Pousada Atins',price:'R$100-300/night'}],
-teachers:null
-},
-{
-id:'ilhaguajiru',name:'Ilha do Guajiru',country:'Ceará, Brazil',region:'brazil',
-lat:-3.128,lon:-39.260,
-windSeason:[7,8,9,10,11,12],peakMonths:[8,9,10,11],
-windRange:'20-28kt',windAvg:24,
-disciplines:['kite','foil'],budget:'$',
-currency:'R$',accomType:'Pousadas',priceRange:'100-250/night',
-accommodation:[{name:'Pousada Ilha do Guajiru',price:'R$100-250/night'}],
-teachers:null
-},
-{
-id:'cauipe',name:'Cauípe Lagoon',country:'Ceará, Brazil',region:'brazil',
-lat:-3.630,lon:-38.770,
-windSeason:[7,8,9,10,11,12,1],peakMonths:[8,9,10,11],
-windRange:'15-25kt',windAvg:20,
-disciplines:['kite','foil'],budget:'$',
-currency:'R$',accomType:'Near Cumbuco',priceRange:'150-300/night',
-accommodation:[{name:'Accommodations near Cumbuco',price:'R$150-300/night'}],
-teachers:null
-},
-{
-id:'cabarete',name:'Cabarete',country:'Dominican Republic',region:'caribbean',
-lat:19.758,lon:-70.410,
-windSeason:[6,7,8,9],peakMonths:[7,8],
-windRange:'15-25kt',windAvg:20,
-disciplines:['kite','foil','wing'],budget:'$$',
-currency:'$',accomType:'Hotels',priceRange:'50-150/night',
-accommodation:[
-{name:'Kite Beach Hotel',price:'$50-100/night'},
-{name:'Cabarete Beachfront',price:'$80-150/night'}
-],
-teachers:[
-{name:'Kite Club Cabarete',badge:true,url:'https://kiteclub.com',note:'Premier kite school'},
-{name:'GoKite Cabarete',badge:false,url:'https://www.google.com/search?q=GoKite+Cabarete+kitesurf+school',note:'Professional instruction'}
-]
-},
-{
-id:'tarifa',name:'Tarifa',country:'Spain',region:'europe',
-lat:36.014,lon:-5.601,
-windSeason:[4,5,6,7,8,9,10],peakMonths:[6,7,8,9],
-windRange:'20-35kt',windAvg:27,
-disciplines:['kite','foil','wing'],budget:'$$',
-currency:'€',accomType:'Hotels',priceRange:'60-150/night',
-accommodation:[
-{name:'Hotel Tarifa',price:'€60-100/night'},
-{name:'Beach Resort Tarifa',price:'€100-150/night'}
-],
-teachers:[
-{name:'Addict Kite School',badge:true,url:'https://addictschool.com',note:'Top-rated in Tarifa'},
-{name:'Free Your Mind Kite',badge:true,url:'https://freeyourmind.es',note:'Expert instructors'}
-]
-},
-{
-id:'lefkada',name:'Lefkada',country:'Greece',region:'europe',
-lat:38.834,lon:20.710,
-windSeason:[5,6,7,8,9],peakMonths:[6,7,8],
-windRange:'15-25kt',windAvg:20,
-disciplines:['kite','wing'],budget:'$$',
-currency:'€',accomType:'Hotels',priceRange:'50-120/night',
-accommodation:[{name:'Lefkada Kite Hotel',price:'€50-120/night'}],
-teachers:null
-},
-{
-id:'rhodes',name:'Rhodes',country:'Greece',region:'europe',
-lat:36.434,lon:28.218,
-windSeason:[5,6,7,8,9,10],peakMonths:[6,7,8,9],
-windRange:'15-25kt',windAvg:20,
-disciplines:['kite','wing'],budget:'$$',
-currency:'€',accomType:'Hotels',priceRange:'40-100/night',
-accommodation:[{name:'Rhodes Beach Hotel',price:'€40-100/night'}],
-teachers:null
-},
-{
-id:'dakhla',name:'Dakhla',country:'Morocco',region:'africa',
-lat:23.685,lon:-15.957,
-windSeason:[4,5,6,7,8,9,10],peakMonths:[6,7,8,9],
-windRange:'20-30kt',windAvg:25,
-disciplines:['kite','foil'],budget:'$$',
-currency:'€',accomType:'Hotels',priceRange:'40-100/night',
-accommodation:[
-{name:'Dakhla Attitude',price:'€60-100/night'},
-{name:'Dakhla Club Hotel',price:'€40-80/night'}
-],
-teachers:[
-{name:'Dakhla Attitude',badge:true,url:'https://dakhla-attitude.com',note:'All-inclusive kite camp'},
-{name:'PK25 Kitesurf School',badge:false,url:'https://www.google.com/search?q=PK25+Kitesurf+School+Dakhla',note:'On the lagoon'}
-]
-},
-{
-id:'capetown',name:'Cape Town',country:'South Africa',region:'africa',
-lat:-33.918,lon:18.423,
-windSeason:[10,11,12,1,2,3],peakMonths:[11,12,1,2],
-windRange:'20-35kt',windAvg:27,
-disciplines:['kite','foil','wing'],budget:'$$$',
-currency:'$',accomType:'Hotels',priceRange:'60-200/night',
-accommodation:[
-{name:'Blouberg Beach Lodge',price:'$60-120/night'},
-{name:'Kite Mansion Cape Town',price:'$100-200/night'}
-],
-teachers:[
-{name:'High Five Kite',badge:true,url:'https://highfive.co.za',note:'Cape Town specialists'},
-{name:'Cabrinha CT',badge:false,url:'https://www.google.com/search?q=Cabrinha+Kitesurfing+Cape+Town+school',note:'Brand experience center'}
-]
-},
-{
-id:'zanzibar',name:'Zanzibar',country:'Tanzania',region:'africa',
-lat:-6.165,lon:39.198,
-windSeason:[6,7,8,9,10],peakMonths:[7,8,9],
-windRange:'15-25kt',windAvg:20,
-disciplines:['kite'],budget:'$',
-currency:'$',accomType:'Hotels',priceRange:'30-80/night',
-accommodation:[{name:'Paje Beach Hotel',price:'$30-80/night'}],
-teachers:null
-},
-{
-id:'elgouna',name:'El Gouna',country:'Egypt',region:'middleeast',
-lat:27.182,lon:33.837,
-windSeason:[4,5,6,7,8,9,10],peakMonths:[6,7,8,9],
-windRange:'15-25kt',windAvg:20,
-disciplines:['kite','foil','wing'],budget:'$$',
-currency:'$',accomType:'Hotels',priceRange:'40-120/night',
-accommodation:[
-{name:'Mövenpick El Gouna',price:'$80-120/night'},
-{name:'El Gouna Kite Hotel',price:'$40-80/night'}
-],
-teachers:[
-{name:'Element Watersports',badge:true,url:'https://element-watersports.com',note:'Premier El Gouna school'},
-{name:'Kiteboarding Club El Gouna',badge:false,url:'https://www.google.com/search?q=Kiteboarding+Club+El+Gouna',note:'On the lagoon'}
-]
-},
-{
-id:'muine',name:'Mui Ne',country:'Vietnam',region:'asia',
-lat:10.933,lon:108.287,
-windSeason:[11,12,1,2,3,4],peakMonths:[12,1,2,3],
-windRange:'15-25kt',windAvg:20,
-disciplines:['kite'],budget:'$',
-currency:'$',accomType:'Hotels',priceRange:'20-60/night',
-accommodation:[{name:'Mui Ne Beach Resort',price:'$20-60/night'}],
-teachers:null
-},
-{
-id:'boracay',name:'Boracay',country:'Philippines',region:'asia',
-lat:11.967,lon:121.925,
-windSeason:[11,12,1,2,3,4],peakMonths:[12,1,2,3],
-windRange:'15-20kt',windAvg:17,
-disciplines:['kite'],budget:'$',
-currency:'$',accomType:'Hotels',priceRange:'30-80/night',
-accommodation:[{name:'Boracay Kite Resort',price:'$30-80/night'}],
-teachers:null
-},
-{
-id:'mauritius',name:'Mauritius',country:'Mauritius',region:'indianocean',
-lat:-20.348,lon:57.552,
-windSeason:[6,7,8,9,10,11],peakMonths:[7,8,9,10],
-windRange:'15-25kt',windAvg:20,
-disciplines:['kite','foil'],budget:'$$$',
-currency:'€',accomType:'Hotels',priceRange:'80-200/night',
-accommodation:[{name:'Le Morne Kite Hotel',price:'€80-150/night'},{name:'Mauritius Beach Resort',price:'€120-200/night'}],
-teachers:null
-}
+// ======================== SPOT DATA ========================
+const KITE_SPOTS = [
+  // ORIGINAL 23
+  {id:"k1",name:"Cumbuco",country:"Brazil",region:"Brazil NE",lat:-3.63,lng:-38.73,type:"kite",style:"flat/waves",level:"all",bestMonths:[7,8,9,10,11,12],wind:{jan:15,feb:14,mar:12,apr:11,may:13,jun:18,jul:22,aug:25,sep:27,oct:26,nov:22,dec:18},waterTemp:28,airport:"FOR",accommodation:["Windtown","Hotel Cumbuco"],description:"Brazil's kite capital. Consistent SE trade winds Jun-Dec, flat lagoon + ocean waves."},
+  {id:"k2",name:"Jericoacoara",country:"Brazil",region:"Brazil NE",lat:-2.80,lng:-40.51,type:"kite",style:"flat/waves",level:"all",bestMonths:[7,8,9,10,11],wind:{jan:12,feb:11,mar:10,apr:10,may:14,jun:19,jul:24,aug:26,sep:27,oct:25,nov:20,dec:15},waterTemp:28,airport:"JJD/FOR",accommodation:["Rancho do Peixe","Pousada Jeriba"],description:"Iconic beach village with world-class downwinders and stunning dunes."},
+  {id:"k3",name:"Preá",country:"Brazil",region:"Brazil NE",lat:-2.79,lng:-40.42,type:"kite",style:"flat/waves",level:"int-adv",bestMonths:[8,9,10,11],wind:{jan:13,feb:11,mar:10,apr:11,may:15,jun:20,jul:24,aug:27,sep:28,oct:26,nov:21,dec:16},waterTemp:28,airport:"JJD/FOR",accommodation:["Pousada Morada do Mar","Rancho do Peixe"],description:"Next to Jeri, some of the strongest winds in Brazil. Perfect for advanced riders."},
+  {id:"k4",name:"Cauípe Lagoon",country:"Brazil",region:"Brazil NE",lat:-3.58,lng:-38.76,type:"kite",style:"flat water",level:"beginner",bestMonths:[8,9,10,11],wind:{jan:14,feb:13,mar:11,apr:11,may:14,jun:19,jul:23,aug:26,sep:27,oct:25,nov:21,dec:17},waterTemp:28,airport:"FOR",accommodation:["Windtown","Local pousadas"],description:"Butter-flat lagoon right next to Cumbuco. Best flat water in Ceará."},
+  {id:"k5",name:"Barra Grande",country:"Brazil",region:"Brazil NE",lat:-2.90,lng:-41.40,type:"kite",style:"flat/waves",level:"all",bestMonths:[8,9,10,11],wind:{jan:13,feb:12,mar:10,apr:11,may:14,jun:19,jul:23,aug:25,sep:27,oct:25,nov:20,dec:15},waterTemp:28,airport:"PHB/THE",accommodation:["Pousada BGK","Casa de Maria"],description:"Remote paradise between Jeri and the Lençóis. Incredible downwinders."},
+  {id:"k6",name:"Ilha do Guajirú",country:"Brazil",region:"Brazil NE",lat:-2.92,lng:-39.82,type:"kite",style:"flat water",level:"beginner",bestMonths:[9,10,11],wind:{jan:12,feb:11,mar:10,apr:10,may:13,jun:18,jul:22,aug:24,sep:26,oct:24,nov:19,dec:14},waterTemp:28,airport:"FOR",accommodation:["Kite Village Guajiru","Vila Selvagem"],description:"Sheltered lagoon with waist-deep water. Perfect for beginners."},
+  {id:"k7",name:"Prea to Jeri Downwind",country:"Brazil",region:"Brazil NE",lat:-2.79,lng:-40.46,type:"kite",style:"downwind",level:"int-adv",bestMonths:[8,9,10,11],wind:{jan:13,feb:11,mar:10,apr:11,may:15,jun:20,jul:24,aug:27,sep:28,oct:26,nov:21,dec:16},waterTemp:28,airport:"JJD/FOR",accommodation:["Rancho do Peixe"],description:"The legendary downwind route through turquoise waters and dune landscapes."},
+  {id:"k8",name:"Dakhla",country:"Morocco",region:"Africa",lat:23.68,lng:-15.95,type:"kite",style:"flat water",level:"all",bestMonths:[3,4,5,6,7,8,9,10],wind:{jan:18,feb:18,mar:22,apr:24,may:25,jun:26,jul:25,aug:24,sep:22,oct:20,nov:18,dec:17},waterTemp:22,airport:"VIL",accommodation:["Dakhla Attitude","Westpoint"],description:"Saharan lagoon with year-round wind. One of the world's most consistent kite spots."},
+  {id:"k9",name:"Tarifa",country:"Spain",region:"Europe",lat:36.01,lng:-5.60,type:"kite",style:"waves",level:"int-adv",bestMonths:[6,7,8,9],wind:{jan:16,feb:16,mar:17,apr:18,may:20,jun:24,jul:27,aug:26,sep:22,oct:18,nov:16,dec:15},waterTemp:20,airport:"AGP/JER",accommodation:["Hurricane Hotel","Arte Vida"],description:"Europe's wind capital. Levante and Poniente winds funnel through the Strait of Gibraltar."},
+  {id:"k10",name:"Cape Town",country:"South Africa",region:"Africa",lat:-33.96,lng:18.47,type:"kite",style:"waves",level:"int-adv",bestMonths:[11,12,1,2,3],wind:{jan:22,feb:22,mar:20,apr:16,may:12,jun:10,jul:11,aug:13,sep:16,oct:18,nov:21,dec:22},waterTemp:16,airport:"CPT",accommodation:["Kite Mansion","Dolphin Beach Hotel"],description:"Table Mountain backdrop with howling SE trade winds. Big Bay and Blouberg are legendary."},
+  {id:"k11",name:"Zanzibar",country:"Tanzania",region:"Africa",lat:-6.16,lng:39.19,type:"kite",style:"flat/waves",level:"all",bestMonths:[6,7,8,9,1,2],wind:{jan:18,feb:18,mar:14,apr:10,may:10,jun:18,jul:20,aug:20,sep:18,oct:14,nov:12,dec:15},waterTemp:27,airport:"ZNZ",accommodation:["White Sand Villas","Paje by Night"],description:"Paje Beach: knee-deep turquoise lagoon at low tide, waves at high tide."},
+  {id:"k12",name:"Cabarete",country:"Dominican Republic",region:"Caribbean",lat:19.76,lng:-70.41,type:"kite",style:"waves",level:"all",bestMonths:[5,6,7,8],wind:{jan:15,feb:16,mar:17,apr:18,may:22,jun:24,jul:24,aug:22,sep:18,oct:15,nov:14,dec:14},waterTemp:27,airport:"POP",accommodation:["Millennium Resort","Carib Wind Cabarete"],description:"Caribbean kite mecca. Kite Beach gets thermal winds every afternoon."},
+  {id:"k13",name:"Le Morne",country:"Mauritius",region:"Indian Ocean",lat:-20.45,lng:57.31,type:"kite",style:"flat/waves",level:"all",bestMonths:[5,6,7,8,9,10,11],wind:{jan:14,feb:14,mar:14,apr:16,may:20,jun:22,jul:24,aug:24,sep:22,oct:20,nov:18,dec:15},waterTemp:25,airport:"MRU",accommodation:["St Regis","JW Marriott"],description:"UNESCO World Heritage backdrop. Flat lagoon inside the reef, waves outside."},
+  {id:"k14",name:"Hamata",country:"Egypt",region:"Middle East",lat:24.33,lng:35.30,type:"kite",style:"flat water",level:"all",bestMonths:[4,5,6,7,8,9,10],wind:{jan:14,feb:16,mar:18,apr:22,may:24,jun:26,jul:26,aug:24,sep:22,oct:19,nov:15,dec:13},waterTemp:26,airport:"MRQ/HRG",accommodation:["Wadi Lahami Village","Kiteloop Camp"],description:"Remote Red Sea paradise. Crystal-clear flat water and pristine reef."},
+  {id:"k15",name:"Boracay",country:"Philippines",region:"Asia",lat:11.97,lng:121.93,type:"kite",style:"flat/waves",level:"all",bestMonths:[11,12,1,2,3,4],wind:{jan:18,feb:18,mar:17,apr:16,may:12,jun:10,jul:10,aug:10,sep:10,oct:12,nov:16,dec:18},waterTemp:28,airport:"KLO/MPH",accommodation:["Nigi Nigi","Red Coconut"],description:"Bulabog Beach: consistent NE monsoon winds from November to April."},
+  {id:"k16",name:"Mui Ne",country:"Vietnam",region:"Asia",lat:10.93,lng:108.29,type:"kite",style:"waves",level:"all",bestMonths:[11,12,1,2,3,4],wind:{jan:20,feb:20,mar:18,apr:16,may:12,jun:10,jul:10,aug:10,sep:10,oct:14,nov:18,dec:20},waterTemp:27,airport:"SGN",accommodation:["Full Moon Village","Mia Resort"],description:"Vietnam's kite capital. Strong NE monsoon wind and warm water all winter."},
+  {id:"k17",name:"Fuerteventura",country:"Spain",region:"Europe",lat:28.36,lng:-14.05,type:"kite",style:"waves",level:"int-adv",bestMonths:[5,6,7,8,9],wind:{jan:17,feb:18,mar:20,apr:20,may:22,jun:24,jul:26,aug:26,sep:22,oct:18,nov:17,dec:16},waterTemp:20,airport:"FUE",accommodation:["Melia","Surfing Colors"],description:"Canary Islands wave riding. Flag Beach and Sotavento are world-famous kite spots."},
+  {id:"k18",name:"Sal Island",country:"Cape Verde",region:"Africa",lat:16.73,lng:-22.93,type:"kite",style:"waves/flat",level:"all",bestMonths:[11,12,1,2,3,4,5],wind:{jan:22,feb:22,mar:22,apr:20,may:18,jun:16,jul:16,aug:14,sep:13,oct:14,nov:18,dec:20},waterTemp:24,airport:"SID",accommodation:["Morabeza","Melia Dunas"],description:"Year-round trade winds, warm water, flat water at Santa Maria + waves at Ponta Preta."},
+  {id:"k19",name:"Leucate",country:"France",region:"Europe",lat:42.91,lng:3.06,type:"kite",style:"flat water",level:"all",bestMonths:[3,4,5,6,7,8,9,10],wind:{jan:16,feb:18,mar:20,apr:22,may:22,jun:22,jul:22,aug:22,sep:20,oct:18,nov:16,dec:15},waterTemp:20,airport:"MPL/PGF",accommodation:["Hotel du Port","Camping Le Moulin"],description:"Tramontane wind corridor. Flat lagoon + Mediterranean sea spots."},
+  {id:"k20",name:"Lo Stagnone",country:"Italy",region:"Europe",lat:37.87,lng:12.44,type:"kite",style:"flat water",level:"beginner",bestMonths:[5,6,7,8,9],wind:{jan:12,feb:14,mar:16,apr:18,may:20,jun:22,jul:22,aug:22,sep:20,oct:16,nov:13,dec:12},waterTemp:24,airport:"TPS",accommodation:["Kitesurf Club Hotel","I Mulini Resort"],description:"Sicily's best flat water lagoon. Knee-deep turquoise water, perfect for learning."},
+  {id:"k21",name:"Essaouira",country:"Morocco",region:"Africa",lat:31.51,lng:-9.77,type:"kite",style:"waves",level:"int-adv",bestMonths:[4,5,6,7,8,9],wind:{jan:14,feb:15,mar:17,apr:20,may:22,jun:24,jul:24,aug:24,sep:22,oct:18,nov:15,dec:13},waterTemp:19,airport:"ESU/RAK",accommodation:["Villa de l'O","WindCity Hotel"],description:"Morocco's windy city. Strong alizé winds funnel along the coast."},
+  {id:"k22",name:"Diani Beach",country:"Kenya",region:"Africa",lat:-4.35,lng:39.58,type:"kite",style:"flat/waves",level:"all",bestMonths:[1,2,7,8,9],wind:{jan:18,feb:18,mar:14,apr:10,may:10,jun:14,jul:18,aug:18,sep:16,oct:12,nov:12,dec:15},waterTemp:27,airport:"MBA/UKA",accommodation:["Waterlovers","Flamboyant"],description:"Two kite seasons: NE monsoon (Jan-Feb) and SE monsoon (Jul-Sep)."},
+  {id:"k23",name:"Soma Bay",country:"Egypt",region:"Middle East",lat:26.85,lng:33.98,type:"kite",style:"flat water",level:"all",bestMonths:[4,5,6,7,8,9],wind:{jan:13,feb:14,mar:16,apr:20,may:22,jun:24,jul:24,aug:23,sep:21,oct:18,nov:14,dec:12},waterTemp:25,airport:"HRG",accommodation:["The Breakers","Robinson Club"],description:"Red Sea luxury kite spot. Flat shallow lagoon with thermal wind acceleration."},
+  // 20 NEW KITE SPOTS
+  {id:"k24",name:"São Miguel do Gostoso",country:"Brazil",region:"Brazil NE",lat:-5.12,lng:-35.63,type:"kite",style:"flat water",level:"all",bestMonths:[8,9,10,11,12],wind:{jan:16,feb:15,mar:13,apr:12,may:14,jun:19,jul:23,aug:26,sep:28,oct:27,nov:23,dec:19},waterTemp:28,airport:"NAT",accommodation:["Kauli Seadi Pro Center","Clube Kauli Seadi"],description:"Flat water paradise powered by NE trade winds. One of the windiest spots in Brazil."},
+  {id:"k25",name:"Galinhos",country:"Brazil",region:"Brazil NE",lat:-5.09,lng:-36.27,type:"kite",style:"flat water",level:"all",bestMonths:[8,9,10,11],wind:{jan:15,feb:14,mar:12,apr:11,may:14,jun:18,jul:22,aug:25,sep:27,oct:26,nov:22,dec:17},waterTemp:28,airport:"NAT",accommodation:["Pousada Galinhos","Casa do Kite"],description:"Remote lagoon accessible only by boat. Pristine flat water and zero crowds."},
+  {id:"k26",name:"Paracuru",country:"Brazil",region:"Brazil NE",lat:-3.40,lng:-39.01,type:"kite",style:"waves",level:"int-adv",bestMonths:[8,9,10,11],wind:{jan:14,feb:13,mar:11,apr:11,may:14,jun:19,jul:23,aug:26,sep:27,oct:25,nov:21,dec:17},waterTemp:28,airport:"FOR",accommodation:["Paracuru Beach Hotel","Pousada Maíra"],description:"Near Fortaleza. Start point for the famous downwind route to Jericoacoara."},
+  {id:"k27",name:"Icaraí de Amontada",country:"Brazil",region:"Brazil NE",lat:-2.94,lng:-39.73,type:"kite",style:"flat water",level:"all",bestMonths:[8,9,10,11],wind:{jan:13,feb:12,mar:10,apr:10,may:14,jun:19,jul:23,aug:25,sep:27,oct:25,nov:20,dec:15},waterTemp:28,airport:"FOR",accommodation:["Vila Mango","Pousada Solar"],description:"Uncrowded flat water with consistent trade winds. The hidden gem of Ceará."},
+  {id:"k28",name:"Macapá",country:"Brazil",region:"Brazil NE",lat:-2.91,lng:-41.43,type:"kite",style:"flat water",level:"int-adv",bestMonths:[8,9,10,11],wind:{jan:13,feb:12,mar:10,apr:11,may:14,jun:19,jul:23,aug:25,sep:27,oct:25,nov:20,dec:15},waterTemp:28,airport:"PHB",accommodation:["Pousada Jerimum","Camp Delta"],description:"Delta do Parnaíba — remote, wild, and incredibly windy. For adventurous riders."},
+  {id:"k29",name:"Atins",country:"Brazil",region:"Brazil NE",lat:-2.57,lng:-42.78,type:"kite",style:"flat/waves",level:"int-adv",bestMonths:[7,8,9,10,11],wind:{jan:12,feb:11,mar:10,apr:11,may:14,jun:18,jul:22,aug:24,sep:26,oct:24,nov:19,dec:14},waterTemp:28,airport:"SLZ",accommodation:["Pousada Porto Preguiças","Atins Lodge"],description:"Gateway to Lençóis Maranhenses. Kite over the dunes and freshwater lagoons."},
+  {id:"k30",name:"Barra do Cunhaú",country:"Brazil",region:"Brazil NE",lat:-6.36,lng:-35.04,type:"kite",style:"flat water",level:"beginner",bestMonths:[9,10,11,12],wind:{jan:15,feb:14,mar:12,apr:12,may:14,jun:18,jul:22,aug:24,sep:26,oct:25,nov:22,dec:18},waterTemp:28,airport:"NAT",accommodation:["Manary Praia Hotel","Pousada Cunhaú"],description:"River mouth with butter-flat water. Perfect for beginners and freestyle."},
+  {id:"k31",name:"Pontal de Maceió",country:"Brazil",region:"Brazil NE",lat:-3.53,lng:-39.03,type:"kite",style:"flat water",level:"beginner",bestMonths:[8,9,10,11],wind:{jan:13,feb:12,mar:11,apr:11,may:14,jun:18,jul:22,aug:25,sep:26,oct:24,nov:20,dec:16},waterTemp:28,airport:"FOR",accommodation:["Pontal Beach Hotel","Pousada Lagoon"],description:"Protected lagoon ideal for beginners. Shallow warm water and steady winds."},
+  {id:"k32",name:"Taíba",country:"Brazil",region:"Brazil NE",lat:-3.51,lng:-38.90,type:"kite",style:"waves/flat",level:"all",bestMonths:[8,9,10,11],wind:{jan:14,feb:13,mar:11,apr:11,may:14,jun:19,jul:23,aug:26,sep:27,oct:25,nov:21,dec:17},waterTemp:28,airport:"FOR",accommodation:["Taíba Beach Resort","Kite House Taíba"],description:"Close to Fortaleza with both wave riding and flat water lagoon options."},
+  {id:"k33",name:"Uruaú",country:"Brazil",region:"Brazil NE",lat:-3.56,lng:-38.86,type:"kite",style:"flat water",level:"all",bestMonths:[8,9,10,11],wind:{jan:14,feb:13,mar:11,apr:11,may:14,jun:19,jul:23,aug:25,sep:27,oct:25,nov:21,dec:17},waterTemp:28,airport:"FOR",accommodation:["Uruaú Kite Lodge","Paradise Beach"],description:"Lagoon paradise near Fortaleza. Crystal-clear flat water surrounded by dunes."},
+  {id:"k34",name:"Isla Margarita",country:"Venezuela",region:"Caribbean",lat:11.00,lng:-63.86,type:"kite",style:"flat/waves",level:"all",bestMonths:[1,2,3,4,5,6],wind:{jan:22,feb:22,mar:22,apr:20,may:18,jun:18,jul:16,aug:14,sep:12,oct:12,nov:16,dec:20},waterTemp:27,airport:"PMV",accommodation:["Hesperia Playa el Agua","Lidotel Boutique"],description:"Caribbean trade winds blast through from December to July. Reliable and warm."},
+  {id:"k35",name:"Coche Island",country:"Venezuela",region:"Caribbean",lat:10.98,lng:-63.97,type:"kite",style:"flat water",level:"all",bestMonths:[1,2,3,4,5,6],wind:{jan:24,feb:24,mar:24,apr:22,may:20,jun:18,jul:16,aug:14,sep:12,oct:14,nov:18,dec:22},waterTemp:27,airport:"PMV",accommodation:["Coche Speed Paradise","Hotel Coche"],description:"Flat water lagoon with some of the most consistent wind in the Caribbean."},
+  {id:"k36",name:"Coveñas",country:"Colombia",region:"Caribbean",lat:9.40,lng:-75.67,type:"kite",style:"flat water",level:"all",bestMonths:[12,1,2,3],wind:{jan:20,feb:20,mar:18,apr:14,may:10,jun:10,jul:14,aug:12,sep:10,oct:10,nov:14,dec:18},waterTemp:28,airport:"MTR/CVE",accommodation:["Hotel Coveñas","Playa Blanca Resort"],description:"Colombia's Caribbean coast with consistent NE trade winds in winter months."},
+  {id:"k37",name:"Salinas",country:"Ecuador",region:"South America",lat:-2.21,lng:-80.97,type:"kite",style:"waves",level:"int-adv",bestMonths:[7,8,9,10,11],wind:{jan:10,feb:10,mar:10,apr:10,may:14,jun:18,jul:20,aug:22,sep:22,oct:20,nov:16,dec:12},waterTemp:23,airport:"GYE",accommodation:["Barceló Colón","Hotel Salinas"],description:"Pacific coast winds pick up from June to November. Ecuador's best kite spot."},
+  {id:"k38",name:"Paracas",country:"Peru",region:"South America",lat:-13.86,lng:-76.27,type:"kite",style:"waves",level:"int-adv",bestMonths:[1,2,3,4,11,12],wind:{jan:20,feb:20,mar:18,apr:16,may:12,jun:10,jul:10,aug:12,sep:14,oct:16,nov:18,dec:20},waterTemp:18,airport:"LIM",accommodation:["DoubleTree Paracas","Hotel Paracas"],description:"Desert coast with strong Paracas winds. One of the windiest places in South America."},
+  {id:"k39",name:"La Ventana",country:"Mexico",region:"North America",lat:24.05,lng:-109.99,type:"kite",style:"flat/waves",level:"all",bestMonths:[11,12,1,2,3],wind:{jan:22,feb:22,mar:20,apr:16,may:10,jun:8,jul:8,aug:8,sep:8,oct:12,nov:18,dec:22},waterTemp:22,airport:"SJD",accommodation:["Playa Central","Captain Kirk's"],description:"Sea of Cortez world-class kite spot. El Norte winds blow strong all winter."},
+  {id:"k40",name:"Isla Blanca",country:"Mexico",region:"North America",lat:21.35,lng:-86.79,type:"kite",style:"flat water",level:"all",bestMonths:[11,12,1,2,3,4],wind:{jan:18,feb:18,mar:18,apr:16,may:12,jun:10,jul:10,aug:10,sep:10,oct:14,nov:16,dec:18},waterTemp:26,airport:"CUN",accommodation:["Ikarus Kiteboarding","Isla Blanca Kite House"],description:"Near Cancún — flat lagoon and Caribbean waves. NE trade winds Nov-Apr."},
+  {id:"k41",name:"Jiquilisco Bay",country:"El Salvador",region:"Central America",lat:13.25,lng:-88.55,type:"kite",style:"flat water",level:"all",bestMonths:[11,12,1,2,3],wind:{jan:16,feb:16,mar:16,apr:14,may:10,jun:8,jul:10,aug:10,sep:8,oct:10,nov:14,dec:16},waterTemp:28,airport:"SAL",accommodation:["Local guesthouses","Eco Lodge Jiquilisco"],description:"Pacific estuary with flat water and offshore winds. Uncrowded and unspoiled."},
+  {id:"k42",name:"Playa El Yaque",country:"Venezuela",region:"Caribbean",lat:10.93,lng:-63.97,type:"kite",style:"flat water",level:"all",bestMonths:[1,2,3,4,5,6],wind:{jan:24,feb:24,mar:22,apr:20,may:18,jun:18,jul:16,aug:14,sep:12,oct:14,nov:18,dec:22},waterTemp:27,airport:"PMV",accommodation:["Yaque Motion","Surf Paradise Hotel"],description:"Legendary Venezuelan spot. Flat shallow water and nuclear trade winds."},
+  {id:"k43",name:"San Andrés",country:"Colombia",region:"Caribbean",lat:12.55,lng:-81.72,type:"kite",style:"flat/waves",level:"all",bestMonths:[12,1,2,3,4],wind:{jan:20,feb:20,mar:18,apr:16,may:12,jun:12,jul:14,aug:12,sep:10,oct:12,nov:16,dec:18},waterTemp:28,airport:"ADZ",accommodation:["Hotel Casablanca","GHL Relax"],description:"Island paradise with seven-color sea. Trade winds from December to April."},
 ];
 
-const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const regionLabels = {brazil:'Brazil NE',caribbean:'Caribbean',europe:'Europe',africa:'Africa',middleeast:'Middle East',asia:'Asia',indianocean:'Indian Ocean'};
+const SURF_SPOTS = [
+  {id:"s1",name:"Pipeline",country:"Hawaii, USA",region:"Pacific Islands",lat:21.67,lng:-158.05,type:"surf",waveType:"reef",swellDir:"NW",idealSize:"6-15ft",level:"expert",waterTemp:25,bestMonths:[11,12,1,2],crowdLevel:"crowded",surfCam:"https://www.surfline.com/surf-report/pipeline/584204214e65fad6a77093e4",accommodation:["Turtle Bay Resort","Ke Iki Beach Bungalows"],airport:"HNL",description:"The most famous wave on earth. Heavy, hollow, shallow reef barrels on the North Shore."},
+  {id:"s2",name:"Teahupo'o",country:"Tahiti, French Polynesia",region:"Pacific Islands",lat:-17.85,lng:-149.26,type:"surf",waveType:"reef",swellDir:"SW",idealSize:"4-12ft",level:"expert",waterTemp:27,bestMonths:[4,5,6,7,8,9,10],crowdLevel:"moderate",surfCam:"",accommodation:["Vanira Lodge","Pension Bonjouir"],airport:"PPT",description:"The heaviest wave in the world. Thick, powerful barrels over razor-sharp reef."},
+  {id:"s3",name:"Jeffreys Bay",country:"South Africa",region:"Africa",lat:-33.96,lng:25.52,type:"surf",waveType:"point",swellDir:"SW",idealSize:"4-8ft",level:"all",waterTemp:18,bestMonths:[6,7,8,9],crowdLevel:"moderate",surfCam:"https://www.surfline.com/surf-report/jeffreys-bay/584204204e65fad6a77089c1",accommodation:["African Perfection","On the Point"],airport:"PLZ",description:"One of the world's best right-hand point breaks. Long, fast, mechanical walls."},
+  {id:"s4",name:"Uluwatu",country:"Bali, Indonesia",region:"Asia",lat:-8.81,lng:115.09,type:"surf",waveType:"reef",swellDir:"SW",idealSize:"4-8ft",level:"int-adv",waterTemp:27,bestMonths:[4,5,6,7,8,9,10],crowdLevel:"crowded",surfCam:"https://www.surfline.com/surf-report/uluwatu/584204204e65fad6a7708a16",accommodation:["Single Fin Hotel","Uluwatu Surf Villas"],airport:"DPS",description:"Bali's premier reef break. Long left-hand barrels with a cliff-top temple backdrop."},
+  {id:"s5",name:"Hossegor",country:"France",region:"Europe",lat:43.66,lng:-1.44,type:"surf",waveType:"beach",swellDir:"W",idealSize:"3-8ft",level:"all",waterTemp:18,bestMonths:[9,10,11],crowdLevel:"crowded",surfCam:"https://www.surfline.com/surf-report/la-graviere/584204204e65fad6a77088b0",accommodation:["Les Hortensias du Lac","Rip Curl House"],airport:"BIQ",description:"Europe's heaviest beach break. La Gravière pumps powerful barrels when conditions align."},
+  {id:"s6",name:"Peniche / Supertubos",country:"Portugal",region:"Europe",lat:39.35,lng:-9.37,type:"surf",waveType:"beach",swellDir:"NW",idealSize:"3-8ft",level:"all",waterTemp:17,bestMonths:[9,10,11,12,1,2,3],crowdLevel:"moderate",surfCam:"https://www.surfline.com/surf-report/supertubos/584204204e65fad6a770892e",accommodation:["Peniche Surf Lodge","MH Peniche"],airport:"LIS",description:"Portugal's tube capital. Supertubos delivers heavy beach break barrels. WSL CT venue."},
+  {id:"s7",name:"Nazaré",country:"Portugal",region:"Europe",lat:39.60,lng:-9.07,type:"surf",waveType:"beach",swellDir:"NW",idealSize:"15-80ft",level:"expert",waterTemp:16,bestMonths:[10,11,12,1,2,3],crowdLevel:"moderate",surfCam:"https://www.surfline.com/surf-report/nazare/584204204e65fad6a7708924",accommodation:["Hotel Magic","The Lighthouse"],airport:"LIS",description:"Home of the biggest waves ever surfed. The Nazaré Canyon amplifies swells to 80ft+."},
+  {id:"s8",name:"Chicama",country:"Peru",region:"South America",lat:-7.84,lng:-79.44,type:"surf",waveType:"point",swellDir:"SW",idealSize:"3-6ft",level:"all",waterTemp:19,bestMonths:[3,4,5,6,7,8,9,10],crowdLevel:"uncrowded",surfCam:"",accommodation:["Chicama Surf Hotel","Hotel El Hombre"],airport:"TRU",description:"The longest left-hand wave in the world. Up to 2km+ rides on a good day."},
+  {id:"s9",name:"Mentawai Islands",country:"Indonesia",region:"Asia",lat:-2.00,lng:99.00,type:"surf",waveType:"reef",swellDir:"SW",idealSize:"4-10ft",level:"int-adv",waterTemp:28,bestMonths:[4,5,6,7,8,9,10],crowdLevel:"uncrowded",surfCam:"",accommodation:["Kandui Resort","Hollow Tree's Resort"],airport:"PDG",description:"Remote island chain with dozens of world-class reef breaks. Surf charter paradise."},
+  {id:"s10",name:"Gold Coast",country:"Australia",region:"Oceania",lat:-28.00,lng:153.43,type:"surf",waveType:"point",swellDir:"E",idealSize:"3-6ft",level:"all",waterTemp:22,bestMonths:[2,3,4,5],crowdLevel:"crowded",surfCam:"https://www.surfline.com/surf-report/snapper-rocks/584204204e65fad6a7708754",accommodation:["QT Gold Coast","Sheraton Grand Mirage"],airport:"OOL",description:"Superbank: Snapper Rocks to Kirra. Long sand-bottom points created by the Tweed sand bypass."},
+  {id:"s11",name:"Rincón",country:"Puerto Rico",region:"Caribbean",lat:18.34,lng:-67.25,type:"surf",waveType:"point",swellDir:"NW",idealSize:"3-8ft",level:"all",waterTemp:26,bestMonths:[11,12,1,2,3,4],crowdLevel:"moderate",surfCam:"https://www.surfline.com/surf-report/rincon/584204214e65fad6a77093dc",accommodation:["Villa Cofresi","Rincon of the Seas"],airport:"BQN/AGU",description:"Caribbean's best surf town. Multiple breaks from mellow to hollow, warm water year-round."},
+  {id:"s12",name:"Taghazout",country:"Morocco",region:"Africa",lat:30.54,lng:-9.71,type:"surf",waveType:"point",swellDir:"NW",idealSize:"3-8ft",level:"all",waterTemp:18,bestMonths:[11,12,1,2,3],crowdLevel:"moderate",surfCam:"",accommodation:["Surf Maroc","Amouage Hotel"],airport:"AGA",description:"Morocco's surf mecca. Anchor Point, Hash Point, and more world-class points along the coast."},
+  {id:"s13",name:"Ericeira",country:"Portugal",region:"Europe",lat:38.96,lng:-9.42,type:"surf",waveType:"reef",swellDir:"NW",idealSize:"3-8ft",level:"all",waterTemp:17,bestMonths:[9,10,11,12,1,2,3],crowdLevel:"moderate",surfCam:"https://www.surfline.com/surf-report/ribeira-dilhas/584204204e65fad6a7708936",accommodation:["Aethos Ericeira","Blue Buddha Hostel"],airport:"LIS",description:"World Surfing Reserve. Multiple reef breaks and points within walking distance of the village."},
+  {id:"s14",name:"Cloudbreak",country:"Fiji",region:"Pacific Islands",lat:-17.85,lng:177.18,type:"surf",waveType:"reef",swellDir:"SW",idealSize:"4-12ft",level:"expert",waterTemp:27,bestMonths:[4,5,6,7,8,9,10],crowdLevel:"uncrowded",surfCam:"",accommodation:["Namotu Island Resort","Tavarua Island Resort"],airport:"NAN",description:"Fiji's crown jewel. A long, powerful left over coral reef, accessible by boat only."},
+  {id:"s15",name:"Maldives",country:"Maldives",region:"Indian Ocean",lat:3.20,lng:73.22,type:"surf",waveType:"reef",swellDir:"SW",idealSize:"3-6ft",level:"all",waterTemp:29,bestMonths:[3,4,5,6,7,8,9,10],crowdLevel:"uncrowded",surfCam:"",accommodation:["Six Senses Laamu","Cinnamon Dhonveli"],airport:"MLE",description:"Tropical reef breaks scattered across atolls. Perfect waves in warm, crystal-clear water."},
+  {id:"s16",name:"Pavones",country:"Costa Rica",region:"Central America",lat:8.39,lng:-83.15,type:"surf",waveType:"point",swellDir:"SW",idealSize:"4-8ft",level:"int-adv",waterTemp:28,bestMonths:[4,5,6,7,8,9,10],crowdLevel:"uncrowded",surfCam:"",accommodation:["Tiskita Jungle Lodge","Riviera Riverside"],airport:"SJO",description:"One of the longest lefts in the Americas. Remote jungle setting on the Golfo Dulce."},
+  {id:"s17",name:"Santa Teresa",country:"Costa Rica",region:"Central America",lat:9.64,lng:-85.17,type:"surf",waveType:"beach",swellDir:"SW",idealSize:"2-6ft",level:"all",waterTemp:28,bestMonths:[4,5,6,7,8,9,10],crowdLevel:"moderate",surfCam:"",accommodation:["Nantipa Hotel","Pranamar Villas"],airport:"SJO",description:"Consistent beach break with warm water and vibrant surf culture. Great for all levels."},
+  {id:"s18",name:"Siargao (Cloud 9)",country:"Philippines",region:"Asia",lat:9.86,lng:126.15,type:"surf",waveType:"reef",swellDir:"E",idealSize:"4-8ft",level:"int-adv",waterTemp:28,bestMonths:[9,10,11],crowdLevel:"moderate",surfCam:"",accommodation:["Siargao Bleu Resort","Harana Surf Resort"],airport:"IAO",description:"Cloud 9: one of the best right-hand barrels in Asia. Thick, hollow reef break."},
+  {id:"s19",name:"Nosara",country:"Costa Rica",region:"Central America",lat:9.98,lng:-85.66,type:"surf",waveType:"beach",swellDir:"SW",idealSize:"2-5ft",level:"all",waterTemp:28,bestMonths:[4,5,6,7,8,9,10],crowdLevel:"moderate",surfCam:"",accommodation:["The Harmony Hotel","Bodhi Tree Yoga Resort"],airport:"SJO",description:"Playa Guiones: consistent beach break, great for learning and longboarding."},
+  {id:"s20",name:"Raglan",country:"New Zealand",region:"Oceania",lat:-37.80,lng:174.88,type:"surf",waveType:"point",swellDir:"SW",idealSize:"3-6ft",level:"all",waterTemp:16,bestMonths:[3,4,5,6,7,8,9],crowdLevel:"moderate",surfCam:"",accommodation:["Raglan Backpackers","Solscape Eco Retreat"],airport:"AKL",description:"NZ's most famous left-hand point. Manu Bay and Indicators offer long, rideable walls."},
+  {id:"s21",name:"Saquarema",country:"Brazil",region:"Brazil SE",lat:-22.92,lng:-42.50,type:"surf",waveType:"beach",swellDir:"S",idealSize:"3-8ft",level:"all",waterTemp:22,bestMonths:[4,5,6,7,8,9],crowdLevel:"moderate",surfCam:"",accommodation:["Selina Saquarema","Itaúna Hostel"],airport:"GIG",description:"Brazil's surfing capital. Itaúna beach hosts WSL events with powerful beach break."},
+  {id:"s22",name:"Florianópolis",country:"Brazil",region:"Brazil SE",lat:-27.60,lng:-48.55,type:"surf",waveType:"beach",swellDir:"S",idealSize:"3-6ft",level:"all",waterTemp:20,bestMonths:[4,5,6,7,8],crowdLevel:"moderate",surfCam:"",accommodation:["Maui Maresias","Pousada Natur Campeche"],airport:"FLN",description:"Island city with dozens of beaches. Joaquina and Campeche pick up consistent S swells."},
+  {id:"s23",name:"Itacaré",country:"Brazil",region:"Brazil NE",lat:-14.27,lng:-38.99,type:"surf",waveType:"point",swellDir:"E",idealSize:"3-6ft",level:"all",waterTemp:26,bestMonths:[4,5,6,7,8,9],crowdLevel:"uncrowded",surfCam:"",accommodation:["Txai Resort","Itacaré Eco Resort"],airport:"IOS",description:"Bahian tropical surf paradise. Multiple breaks hidden in the Atlantic Forest coastline."},
+  {id:"s24",name:"Fernando de Noronha",country:"Brazil",region:"Brazil NE",lat:-3.85,lng:-32.42,type:"surf",waveType:"reef",swellDir:"SE",idealSize:"3-8ft",level:"int-adv",waterTemp:27,bestMonths:[12,1,2,3],crowdLevel:"uncrowded",surfCam:"",accommodation:["Pousada Maravilha","Solar dos Ventos"],airport:"REC/FEN",description:"UNESCO World Heritage island. Cacimba do Padre faces the open Atlantic — powerful swells."},
+  {id:"s25",name:"Maresias",country:"Brazil",region:"Brazil SE",lat:-23.78,lng:-45.56,type:"surf",waveType:"beach",swellDir:"S",idealSize:"3-6ft",level:"all",waterTemp:22,bestMonths:[4,5,6,7,8,9],crowdLevel:"crowded",surfCam:"",accommodation:["Amora Hotel","Pousada Port Louis"],airport:"GRU",description:"São Paulo's best beach break. Consistent and powerful, home of Gabriel Medina."},
+  {id:"s26",name:"Witches Rock",country:"Costa Rica",region:"Central America",lat:10.95,lng:-85.78,type:"surf",waveType:"beach",swellDir:"SW",idealSize:"3-8ft",level:"int-adv",waterTemp:28,bestMonths:[4,5,6,7,8,9,10],crowdLevel:"uncrowded",surfCam:"",accommodation:["Witch's Rock Surf Camp","Hotel & Tamarindo Diria"],airport:"LIR",description:"Remote beach break inside Santa Rosa National Park. Boat access from Tamarindo."},
+  {id:"s27",name:"Puerto Escondido",country:"Mexico",region:"North America",lat:15.86,lng:-97.07,type:"surf",waveType:"beach",swellDir:"S",idealSize:"4-15ft",level:"expert",waterTemp:28,bestMonths:[5,6,7,8],crowdLevel:"moderate",surfCam:"https://www.surfline.com/surf-report/puerto-escondido/584204214e65fad6a77094c4",accommodation:["Casa Losodeli","Hotel Escondido"],airport:"PXM",description:"The Mexican Pipeline. Zicatela beach delivers heavy, powerful barrels. Not for beginners."},
+  {id:"s28",name:"Todos Santos",country:"Mexico",region:"North America",lat:23.45,lng:-110.22,type:"surf",waveType:"beach",swellDir:"NW",idealSize:"3-6ft",level:"int-adv",waterTemp:22,bestMonths:[11,12,1,2,3],crowdLevel:"uncrowded",surfCam:"",accommodation:["Hotel San Cristóbal","Rancho Pescadero"],airport:"SJD",description:"Baja's Pacific coast gem. Beach breaks and points in a charming desert town."},
+  {id:"s29",name:"Bundoran",country:"Ireland",region:"Europe",lat:54.47,lng:-8.28,type:"surf",waveType:"reef",swellDir:"NW",idealSize:"3-8ft",level:"all",waterTemp:12,bestMonths:[9,10,11,12,1,2,3],crowdLevel:"uncrowded",surfCam:"",accommodation:["Great Northern Hotel","Maddens Bridge Bar B&B"],airport:"SNN/KNO",description:"Ireland's surf capital. The Peak is a world-class reef break. Cold water, big rewards."},
+  {id:"s30",name:"Thurso East",country:"Scotland, UK",region:"Europe",lat:58.60,lng:-3.52,type:"surf",waveType:"reef",swellDir:"N",idealSize:"3-8ft",level:"int-adv",waterTemp:10,bestMonths:[10,11,12,1,2,3],crowdLevel:"uncrowded",surfCam:"",accommodation:["Forss House Hotel","Sandra's Hostel"],airport:"WIC",description:"Scotland's premier reef break. Cold, powerful, remote. One of Britain's best waves."},
+  {id:"s31",name:"Lofoten",country:"Norway",region:"Europe",lat:68.15,lng:14.40,type:"surf",waveType:"beach",swellDir:"N",idealSize:"3-6ft",level:"all",waterTemp:8,bestMonths:[9,10,11,12,1,2,3],crowdLevel:"uncrowded",surfCam:"",accommodation:["Unstad Arctic Surf","Lofoten Beach Camp"],airport:"SVJ/EVE",description:"Arctic surfing under the Northern Lights. Unstad Beach is the world's northernmost surf spot."},
+  {id:"s32",name:"Skeleton Bay",country:"Namibia",region:"Africa",lat:-24.73,lng:14.53,type:"surf",waveType:"beach",swellDir:"SW",idealSize:"4-8ft",level:"expert",waterTemp:15,bestMonths:[6,7,8,9],crowdLevel:"uncrowded",surfCam:"",accommodation:["Desert Breeze Lodge","Lüderitz Nest Hotel"],airport:"LUD",description:"The longest sand-bottom barrel in the world. Remote desert coastline, powerful waves."},
+  {id:"s33",name:"Anchor Point",country:"Morocco",region:"Africa",lat:30.53,lng:-9.82,type:"surf",waveType:"point",swellDir:"NW",idealSize:"4-10ft",level:"all",waterTemp:18,bestMonths:[11,12,1,2,3],crowdLevel:"moderate",surfCam:"",accommodation:["Surf Maroc","Munga Guesthouse"],airport:"AGA",description:"Morocco's best right-hand point break. Long, fast walls with barrel sections."},
+  {id:"s34",name:"Safi",country:"Morocco",region:"Africa",lat:32.28,lng:-9.24,type:"surf",waveType:"point",swellDir:"NW",idealSize:"4-8ft",level:"int-adv",waterTemp:18,bestMonths:[11,12,1,2,3],crowdLevel:"uncrowded",surfCam:"",accommodation:["Riad Asfi","Safi Surf Camp"],airport:"RAK/ESU",description:"Long right-hand point with barrel sections. Less crowded alternative to Anchor Point."},
+  {id:"s35",name:"Mundaka",country:"Spain",region:"Europe",lat:43.40,lng:-2.69,type:"surf",waveType:"reef",swellDir:"NW",idealSize:"4-8ft",level:"int-adv",waterTemp:16,bestMonths:[9,10,11,12,1,2,3],crowdLevel:"moderate",surfCam:"",accommodation:["Urdaibai Hotel","Hotel El Puerto"],airport:"BIO",description:"Basque Country river-mouth left. One of Europe's best barrels when the sandbar lines up."},
+  {id:"s36",name:"Trestles",country:"California, USA",region:"North America",lat:33.38,lng:-117.59,type:"surf",waveType:"point",swellDir:"SW",idealSize:"3-6ft",level:"all",waterTemp:18,bestMonths:[4,5,6,7,8,9,10],crowdLevel:"crowded",surfCam:"https://www.surfline.com/surf-report/lowers-trestles/5842041f4e65fad6a7708814",accommodation:["Ritz-Carlton Laguna","San Clemente Inn"],airport:"SNA",description:"Southern California's high-performance wave. Cobblestone point breaks, WSL CT venue."},
+  {id:"s37",name:"Mavericks",country:"California, USA",region:"North America",lat:37.49,lng:-122.50,type:"surf",waveType:"reef",swellDir:"NW",idealSize:"15-60ft",level:"expert",waterTemp:12,bestMonths:[11,12,1,2,3],crowdLevel:"uncrowded",surfCam:"",accommodation:["Oceano Hotel","HI Hostel Montara"],airport:"SFO",description:"NorCal big wave spot. Massive, cold, sharky. One of the most dangerous waves in the world."},
+  {id:"s38",name:"Outer Banks",country:"North Carolina, USA",region:"North America",lat:35.90,lng:-75.60,type:"surf",waveType:"beach",swellDir:"E",idealSize:"3-8ft",level:"all",waterTemp:20,bestMonths:[9,10,11],crowdLevel:"uncrowded",surfCam:"",accommodation:["Sanderling Resort","First Colony Inn"],airport:"ORF",description:"East Coast hurricane swell magnet. Miles of empty beach breaks and sand-bottom points."},
+  {id:"s39",name:"Montauk",country:"New York, USA",region:"North America",lat:41.07,lng:-71.94,type:"surf",waveType:"beach",swellDir:"E",idealSize:"3-6ft",level:"all",waterTemp:18,bestMonths:[8,9,10,11],crowdLevel:"moderate",surfCam:"",accommodation:["Gurney's Montauk","The Montauk Beach House"],airport:"ISP/JFK",description:"New York's surf capital. Ditch Plains delivers consistent beach break waves."},
+  {id:"s40",name:"Barbados",country:"Barbados",region:"Caribbean",lat:13.07,lng:-59.52,type:"surf",waveType:"reef",swellDir:"NE",idealSize:"3-6ft",level:"all",waterTemp:27,bestMonths:[11,12,1,2,3,4],crowdLevel:"moderate",surfCam:"",accommodation:["Hilton Barbados","Surfer's Point"],airport:"BGI",description:"Soup Bowl: a powerful right reef break on the east coast. Caribbean's most consistent surf."},
+  {id:"s41",name:"Arugam Bay",country:"Sri Lanka",region:"Asia",lat:6.84,lng:81.83,type:"surf",waveType:"point",swellDir:"SW",idealSize:"3-6ft",level:"all",waterTemp:28,bestMonths:[4,5,6,7,8,9,10],crowdLevel:"moderate",surfCam:"",accommodation:["Kottukal Beach House","Siam View Hotel"],airport:"CMB",description:"Sri Lanka's surf mecca. Long right-hand point break with warm, tropical water."},
+  {id:"s42",name:"Desert Point",country:"Lombok, Indonesia",region:"Asia",lat:-8.75,lng:115.83,type:"surf",waveType:"reef",swellDir:"SW",idealSize:"4-8ft",level:"expert",waterTemp:27,bestMonths:[5,6,7,8,9],crowdLevel:"uncrowded",surfCam:"",accommodation:["Desert Point Lodge","Bangko-Bangko Bungalows"],airport:"LOP",description:"One of the longest, most hollow lefts in the world. When it's on, it's perfection."},
+  {id:"s43",name:"Nias",country:"Indonesia",region:"Asia",lat:1.10,lng:97.55,type:"surf",waveType:"reef",swellDir:"SW",idealSize:"4-10ft",level:"int-adv",waterTemp:28,bestMonths:[4,5,6,7,8,9,10],crowdLevel:"uncrowded",surfCam:"",accommodation:["Sorake Beach Resort","KaBoNi Surf Camp"],airport:"GNS",description:"Lagundri Bay: a perfect right-hand barrel. Remote island off Sumatra's west coast."},
+  {id:"s44",name:"Huanchaco",country:"Peru",region:"South America",lat:-8.08,lng:-79.12,type:"surf",waveType:"beach",swellDir:"SW",idealSize:"2-5ft",level:"all",waterTemp:18,bestMonths:[3,4,5,6,7,8,9,10],crowdLevel:"uncrowded",surfCam:"",accommodation:["Hotel Bracamonte","Naylamp Hostel"],airport:"TRU",description:"Ancient surf culture — fishermen still ride caballitos de totora. Consistent, mellow waves."},
+  {id:"s45",name:"Punta de Lobos",country:"Chile",region:"South America",lat:-34.42,lng:-72.05,type:"surf",waveType:"point",swellDir:"SW",idealSize:"4-12ft",level:"int-adv",waterTemp:14,bestMonths:[4,5,6,7,8,9],crowdLevel:"moderate",surfCam:"",accommodation:["Pichilemu Surf Hostel","Hotel Agustina"],airport:"SCL",description:"Chile's premier big wave spot. Powerful left-hand point break south of Pichilemu."},
+  {id:"s46",name:"Mar del Plata",country:"Argentina",region:"South America",lat:-38.05,lng:-57.54,type:"surf",waveType:"beach",swellDir:"SE",idealSize:"3-6ft",level:"all",waterTemp:15,bestMonths:[4,5,6,7,8,9],crowdLevel:"moderate",surfCam:"",accommodation:["Hotel Costa Galana","NH Mar del Plata"],airport:"MDQ",description:"Argentina's surf capital. Multiple beach breaks and jetty setups along the coast."},
+  {id:"s47",name:"Bocas del Toro",country:"Panama",region:"Central America",lat:9.35,lng:-82.24,type:"surf",waveType:"reef",swellDir:"NE",idealSize:"3-8ft",level:"int-adv",waterTemp:28,bestMonths:[12,1,2,3],crowdLevel:"uncrowded",surfCam:"",accommodation:["Red Frog Beach Resort","Selina Bocas del Toro"],airport:"BOC",description:"Caribbean reef breaks in a tropical archipelago. Silverbacks is the standout wave."},
+  {id:"s48",name:"Dominical",country:"Costa Rica",region:"Central America",lat:9.25,lng:-83.86,type:"surf",waveType:"beach",swellDir:"SW",idealSize:"3-8ft",level:"all",waterTemp:28,bestMonths:[4,5,6,7,8,9,10],crowdLevel:"moderate",surfCam:"",accommodation:["Villas Alturas","Hotel Diuwak"],airport:"SJO",description:"Powerful beach break on Costa Rica's Pacific coast. Fun, warm, and consistent."},
+  {id:"s49",name:"Lobitos",country:"Peru",region:"South America",lat:-4.45,lng:-81.28,type:"surf",waveType:"point",swellDir:"SW",idealSize:"3-6ft",level:"all",waterTemp:20,bestMonths:[3,4,5,6,7,8,9,10],crowdLevel:"uncrowded",surfCam:"",accommodation:["Lobitos Eco Lodge","Hotel Punta Lobitos"],airport:"PIU",description:"Remote left-hand point in northern Peru. Ex-oil town turned surf paradise."},
+  {id:"s50",name:"Pichilemu",country:"Chile",region:"South America",lat:-34.38,lng:-72.00,type:"surf",waveType:"point",swellDir:"SW",idealSize:"3-8ft",level:"all",waterTemp:14,bestMonths:[4,5,6,7,8,9],crowdLevel:"moderate",surfCam:"",accommodation:["Hotel Chile Lindo","Pichilemu Hostel"],airport:"SCL",description:"Chile's surf capital. La Puntilla for beginners, Punta de Lobos for experts."},
+];
 
-// ===== STATE =====
-let activeRegion = 'all';
-let activeDisciplines = new Set();
-let activeBudget = null;
-let activeWindStrong = false;
+const ALL_SPOTS = [...KITE_SPOTS, ...SURF_SPOTS];
 
-// ===== MAP =====
-const map = L.map('map',{zoomControl:true,scrollWheelZoom:true}).setView([10,0],2);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
-attribution:'© OpenStreetMap © CARTO',subdomains:'abcd',maxZoom:19
-}).addTo(map);
+// ======================== STATE ========================
+let currentSport = 'all';
+let mapFilterKite = true;
+let mapFilterSurf = true;
+let map, kiteLayerGroup, surfLayerGroup;
+let liveData = {};
 
-const markers = {};
-destinations.forEach(d => {
-const icon = L.divIcon({className:'',html:`<div style="background:${d.budget==='$$$'?'#ffd700':d.budget==='$$'?'#00d4ff':'#00e676'};width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 10px ${d.budget==='$$$'?'rgba(255,215,0,0.5)':d.budget==='$$'?'rgba(0,212,255,0.5)':'rgba(0,230,118,0.5)'}"></div>`,iconSize:[12,12],iconAnchor:[6,6]});
-const marker = L.marker([d.lat,d.lon],{icon}).addTo(map);
-marker.bindPopup(`<div class="popup-title">${d.name}</div><div class="popup-wind">${d.windRange} · ${d.disciplines.join('/')}</div><div class="popup-btn" onclick="scrollToCard('${d.id}')">View Details</div>`);
-markers[d.id] = marker;
+// ======================== TRANSLATIONS ========================
+const i18n = {
+  en: {bestTitle:"🔥 Best Spots This Month",bestSub:"Top picks based on current conditions",regionTitle:"📍 Spots by Region",learnTitle:"🎓 Learn from the Best",learnSub:"Find certified instructors and surf schools at your destination",bookTitle:"🏠 Direct Booking",bookSub:"Book accommodation directly with local hosts — no middleman fees",bookNow:"Book Now",listProp:"List Your Property",findKite:"🪁 Find a Kite Teacher",findSurf:"🏄 Find a Surf School",wind:"Wind",swell:"Swell",temp:"Temp",season:"Season",live:"LIVE",highSeason:"HIGH SEASON",offSeason:"OFF SEASON",allSpots:"🌊 All Spots",kiteSpots:"🪁 Kite / Wing / Foil",surfSpots:"🏄 Surf",airport:"Airport",accommodation:"Stay",waveType:"Wave",swellDir:"Swell",size:"Size",level:"Level",crowd:"Crowd",surfCam:"🎥 Live Cam",details:"Details",bookWhatsApp:"💬 Book via WhatsApp"},
+  pt: {bestTitle:"🔥 Melhores Spots Este Mês",bestSub:"Melhores escolhas baseadas nas condições atuais",regionTitle:"📍 Spots por Região",learnTitle:"🎓 Aprenda com os Melhores",learnSub:"Encontre instrutores certificados e escolas de surf no seu destino",bookTitle:"🏠 Reserva Direta",bookSub:"Reserve hospedagem diretamente com anfitriões locais",bookNow:"Reservar",listProp:"Anuncie sua Propriedade",findKite:"🪁 Encontrar Professor de Kite",findSurf:"🏄 Encontrar Escola de Surf",wind:"Vento",swell:"Ondulação",temp:"Temp",season:"Temporada",live:"AO VIVO",highSeason:"ALTA TEMPORADA",offSeason:"FORA TEMPORADA",allSpots:"🌊 Todos os Spots",kiteSpots:"🪁 Kite / Wing / Foil",surfSpots:"🏄 Surf",airport:"Aeroporto",accommodation:"Hospedagem",waveType:"Onda",swellDir:"Direção",size:"Tamanho",level:"Nível",crowd:"Lotação",surfCam:"🎥 Câmera Ao Vivo",details:"Detalhes",bookWhatsApp:"💬 Reservar via WhatsApp"},
+  es: {bestTitle:"🔥 Mejores Spots Este Mes",bestSub:"Mejores opciones basadas en condiciones actuales",regionTitle:"📍 Spots por Región",learnTitle:"🎓 Aprende de los Mejores",learnSub:"Encuentra instructores certificados y escuelas de surf",bookTitle:"🏠 Reserva Directa",bookSub:"Reserva alojamiento directamente con anfitriones locales",bookNow:"Reservar",listProp:"Publica tu Propiedad",findKite:"🪁 Encontrar Profesor de Kite",findSurf:"🏄 Encontrar Escuela de Surf",wind:"Viento",swell:"Oleaje",temp:"Temp",season:"Temporada",live:"EN VIVO",highSeason:"ALTA TEMPORADA",offSeason:"FUERA TEMPORADA",allSpots:"🌊 Todos los Spots",kiteSpots:"🪁 Kite / Wing / Foil",surfSpots:"🏄 Surf",airport:"Aeropuerto",accommodation:"Alojamiento",waveType:"Ola",swellDir:"Dirección",size:"Tamaño",level:"Nivel",crowd:"Multitud",surfCam:"🎥 Cámara en Vivo",details:"Detalles",bookWhatsApp:"💬 Reservar via WhatsApp"}
+};
+let lang = 'en';
+function t(key){ return (i18n[lang] && i18n[lang][key]) || i18n.en[key] || key; }
+
+// ======================== INIT ========================
+document.addEventListener('DOMContentLoaded', () => {
+  initMap();
+  fetchLiveData();
+  renderBestMonth();
+  renderRegions();
 });
 
-function scrollToCard(id){
-const el = document.getElementById('card-'+id);
-if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.style.boxShadow='0 0 30px rgba(0,212,255,0.4)';setTimeout(()=>el.style.boxShadow='',2000)}
+// ======================== MAP ========================
+function initMap(){
+  map = L.map('map',{zoomControl:false}).setView([10,-20],2);
+  L.control.zoom({position:'bottomright'}).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+    attribution:'© CartoDB © OSM',maxZoom:18
+  }).addTo(map);
+  kiteLayerGroup = L.layerGroup().addTo(map);
+  surfLayerGroup = L.layerGroup().addTo(map);
+  addMarkers();
 }
 
-// ===== RENDER CARDS =====
-function renderCards(){
-const container = document.getElementById('destinations');
-container.innerHTML = '';
-destinations.forEach(d => {
-const card = document.createElement('div');
-card.className = 'dest-card';
-card.id = 'card-'+d.id;
-card.dataset.region = d.region;
-card.dataset.disciplines = d.disciplines.join(',');
-card.dataset.budget = d.budget;
-card.dataset.windavg = d.windAvg;
-
-const calendarHtml = monthNames.map((m,i) => {
-const monthNum = i+1;
-const isPeak = d.peakMonths.includes(monthNum);
-const isActive = d.windSeason.includes(monthNum);
-return `<div class="cal-month ${isPeak?'peak':isActive?'active':''}">${m}</div>`;
-}).join('');
-
-const teachersHtml = buildTeachersHtml(d);
-const accomHtml = buildAccomHtml(d);
-
-card.innerHTML = `
-<div class="card-header" onclick="toggleCard('${d.id}')">
-<div class="card-region-badge">${regionLabels[d.region]||d.region}</div>
-<div class="card-name">${d.name}</div>
-<div class="card-country">${d.country}</div>
-</div>
-<div class="card-tags">
-<span class="card-tag tag-wind">💨 ${d.windRange}</span>
-${d.disciplines.map(disc=>`<span class="card-tag tag-discipline">${disc==='kite'?'🪁':''}${disc==='foil'?'🏄':''}${disc==='wing'?'🦅':''} ${disc}</span>`).join('')}
-<span class="card-tag tag-budget">${d.budget}</span>
-</div>
-<div class="wind-bar-container">
-<div class="wind-bar-label"><span>Wind Strength</span><span>${d.windAvg}kt avg</span></div>
-<div class="wind-bar"><div class="wind-bar-fill" style="width:${Math.min(100,(d.windAvg/35)*100)}%"></div></div>
-</div>
-<div class="live-wind" id="wind-${d.id}"><span class="loading">Fetching live wind...</span></div>
-<div class="card-calendar">
-<div class="calendar-row">${calendarHtml}</div>
-</div>
-<div class="expand-toggle" onclick="toggleCard('${d.id}')"><span id="toggle-text-${d.id}">▼ Details, Book & Teachers</span></div>
-<div class="card-expand" id="expand-${d.id}">
-${accomHtml}
-${teachersHtml}
-</div>
-`;
-container.appendChild(card);
-});
-applyFilters();
-fetchAllWind();
+function addMarkers(){
+  kiteLayerGroup.clearLayers();
+  surfLayerGroup.clearLayers();
+  const month = new Date().getMonth()+1;
+  KITE_SPOTS.forEach(s => {
+    const isHigh = s.bestMonths.includes(month);
+    const icon = L.divIcon({className:'',html:`<div class="${isHigh?'kite-marker marker-live':'kite-marker marker-off'}" title="${s.name}">🪁</div>`,iconSize:[16,16],iconAnchor:[8,8]});
+    const m = L.marker([s.lat,s.lng],{icon}).bindPopup(`<div class="popup-name">🪁 ${s.name}</div><div style="color:#8899aa;font-size:0.7rem">${s.country}</div><div class="popup-live" style="color:${isHigh?'#2ecc71':'#e74c3c'}">${isHigh?'● In Season':'○ Off Season'}</div>`);
+    m.on('click',()=>openModal(s));
+    kiteLayerGroup.addLayer(m);
+  });
+  SURF_SPOTS.forEach(s => {
+    const isHigh = s.bestMonths.includes(month);
+    const icon = L.divIcon({className:'',html:`<div class="${isHigh?'surf-marker marker-live':'surf-marker marker-off'}" title="${s.name}">🏄</div>`,iconSize:[16,16],iconAnchor:[8,8]});
+    const m = L.marker([s.lat,s.lng],{icon}).bindPopup(`<div class="popup-name">🏄 ${s.name}</div><div style="color:#8899aa;font-size:0.7rem">${s.country}</div><div class="popup-live" style="color:${isHigh?'#3498db':'#e74c3c'}">${isHigh?'● In Season':'○ Off Season'}</div>`);
+    m.on('click',()=>openModal(s));
+    surfLayerGroup.addLayer(m);
+  });
 }
 
-function buildAccomHtml(d){
-const bookingUrl = `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(d.name+' '+d.country)}`;
-const items = d.accommodation.map(a => `
-<div class="accom-item">
-<div class="accom-name">${a.name}</div>
-<div class="accom-price">${a.price}</div>
-<div class="accom-btns">
-<a href="https://wa.me/5585985572807?text=${encodeURIComponent('Hi! I want to book '+a.name+' in '+d.name)}" target="_blank" class="btn-direct">📲 Book Direct</a>
-<a href="${bookingUrl}" target="_blank" class="btn-compare">Compare on Booking</a>
-</div>
-</div>
-`).join('');
-return `
-<div class="accom-section">
-<div class="accom-title">🏨 Accommodation</div>
-<div class="direct-badge">💰 Book Direct & Save 10-15%</div>
-<div class="direct-msg">Skip the middleman. Book directly with the property and save.</div>
-${items}
-</div>`;
+function toggleMapFilter(type){
+  if(type==='kite'){mapFilterKite=!mapFilterKite;mapFilterKite?map.addLayer(kiteLayerGroup):map.removeLayer(kiteLayerGroup);document.getElementById('mapFilterKite').classList.toggle('inactive',!mapFilterKite);}
+  if(type==='surf'){mapFilterSurf=!mapFilterSurf;mapFilterSurf?map.addLayer(surfLayerGroup):map.removeLayer(surfLayerGroup);document.getElementById('mapFilterSurf').classList.toggle('inactive',!mapFilterSurf);}
 }
 
-function buildTeachersHtml(d){
-if(d.teachers && d.teachers.length > 0){
-const items = d.teachers.map(t => `
-<div class="teacher-card">
-<div class="teacher-info">
-<div class="teacher-name">${t.name}</div>
-${t.badge ? '<div class="teacher-badge">⭐ Top Rated</div>' : ''}
-<div style="font-size:0.7rem;color:var(--text-muted)">${t.note||''}</div>
-</div>
-<a href="${t.url}" target="_blank" class="teacher-link">${t.badge?'Visit Site':'Search'} →</a>
-</div>
-`).join('');
-return `<div class="teachers-section"><div class="teachers-title">🎓 Find a Teacher</div>${items}</div>`;
-} else {
-const searchUrl = `https://www.google.com/search?q=kitesurf+school+${encodeURIComponent(d.name)}`;
-return `<div class="teachers-section"><div class="teachers-title">🎓 Find a Teacher</div>
-<div class="teacher-card">
-<div class="teacher-info"><div class="teacher-name">Search kite schools in ${d.name}</div></div>
-<a href="${searchUrl}" target="_blank" class="teacher-link">Search →</a>
-</div></div>`;
-}
-}
-
-function toggleCard(id){
-const el = document.getElementById('expand-'+id);
-const txt = document.getElementById('toggle-text-'+id);
-el.classList.toggle('open');
-txt.textContent = el.classList.contains('open') ? '▲ Close' : '▼ Details, Book & Teachers';
+// ======================== LIVE DATA ========================
+async function fetchLiveData(){
+  const spots = ALL_SPOTS.slice(0,20); // Fetch first 20 to avoid rate limits
+  for(const s of spots){
+    try{
+      if(s.type==='kite'){
+        const r = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${s.lat}&longitude=${s.lng}&current=wind_speed_10m,wind_direction_10m,temperature_2m&timezone=auto`);
+        const d = await r.json();
+        if(d.current) liveData[s.id] = {wind:Math.round(d.current.wind_speed_10m),windDir:d.current.wind_direction_10m,temp:Math.round(d.current.temperature_2m)};
+      } else {
+        const r = await fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${s.lat}&longitude=${s.lng}&hourly=wave_height,wave_direction,wave_period&forecast_days=1`);
+        const d = await r.json();
+        if(d.hourly && d.hourly.wave_height){
+          const wh = d.hourly.wave_height;
+          const maxH = Math.max(...wh.filter(v=>v!==null));
+          const avgH = (wh.filter(v=>v!==null).reduce((a,b)=>a+b,0)/wh.filter(v=>v!==null).length);
+          liveData[s.id] = {waveHeight:avgH.toFixed(1),maxWave:maxH.toFixed(1),waveDir:d.hourly.wave_direction?d.hourly.wave_direction[0]:0,wavePeriod:d.hourly.wave_period?d.hourly.wave_period[0]:0};
+        }
+      }
+    }catch(e){}
+  }
+  renderBestMonth();
+  renderRegions();
 }
 
-// ===== FILTERS =====
-document.querySelectorAll('#regionFilters .filter-btn').forEach(btn => {
-btn.addEventListener('click', () => {
-document.querySelectorAll('#regionFilters .filter-btn').forEach(b=>b.classList.remove('active'));
-btn.classList.add('active');
-activeRegion = btn.dataset.region;
-applyFilters();
-});
-});
-
-document.querySelectorAll('#otherFilters .filter-btn').forEach(btn => {
-btn.addEventListener('click', () => {
-if(btn.dataset.discipline){
-btn.classList.toggle('active');
-const disc = btn.dataset.discipline;
-if(activeDisciplines.has(disc)) activeDisciplines.delete(disc); else activeDisciplines.add(disc);
-} else if(btn.dataset.budget){
-if(btn.classList.contains('active-gold')){
-btn.classList.remove('active-gold');
-activeBudget = null;
-} else {
-document.querySelectorAll('#otherFilters .filter-btn[data-budget]').forEach(b=>b.classList.remove('active-gold'));
-btn.classList.add('active-gold');
-activeBudget = btn.dataset.budget;
-}
-} else if(btn.dataset.wind){
-btn.classList.toggle('active');
-activeWindStrong = btn.classList.contains('active');
-}
-applyFilters();
-});
-});
-
-function applyFilters(){
-document.querySelectorAll('.dest-card').forEach(card => {
-let show = true;
-if(activeRegion !== 'all' && card.dataset.region !== activeRegion) show = false;
-if(activeDisciplines.size > 0){
-const cardDiscs = card.dataset.disciplines.split(',');
-let hasAll = true;
-activeDisciplines.forEach(d => { if(!cardDiscs.includes(d)) hasAll = false; });
-if(!hasAll) show = false;
-}
-if(activeBudget && card.dataset.budget !== activeBudget) show = false;
-if(activeWindStrong && parseInt(card.dataset.windavg) < 20) show = false;
-card.classList.toggle('hidden', !show);
-
-// Also toggle map markers
-const id = card.id.replace('card-','');
-if(markers[id]){
-if(show) markers[id].addTo(map); else map.removeLayer(markers[id]);
-}
-});
+// ======================== SPORT TOGGLE ========================
+function setSport(sport){
+  currentSport = sport;
+  document.querySelectorAll('.sport-tab').forEach(t => t.classList.toggle('active',t.dataset.sport===sport));
+  if(sport==='kite'){mapFilterKite=true;mapFilterSurf=false;}
+  else if(sport==='surf'){mapFilterKite=false;mapFilterSurf=true;}
+  else{mapFilterKite=true;mapFilterSurf=true;}
+  mapFilterKite?map.addLayer(kiteLayerGroup):map.removeLayer(kiteLayerGroup);
+  mapFilterSurf?map.addLayer(surfLayerGroup):map.removeLayer(surfLayerGroup);
+  document.getElementById('mapFilterKite').classList.toggle('inactive',!mapFilterKite);
+  document.getElementById('mapFilterSurf').classList.toggle('inactive',!mapFilterSurf);
+  renderBestMonth();
+  renderRegions();
 }
 
-// ===== WIND API =====
-function fetchAllWind(){
-destinations.forEach(d => {
-const url = `https://api.open-meteo.com/v1/forecast?latitude=${d.lat}&longitude=${d.lon}&current=wind_speed_10m,wind_direction_10m&wind_speed_unit=kn`;
-fetch(url).then(r=>r.json()).then(data => {
-const el = document.getElementById('wind-'+d.id);
-if(data.current){
-const speed = Math.round(data.current.wind_speed_10m);
-const dir = data.current.wind_direction_10m;
-const arrow = getWindArrow(dir);
-el.innerHTML = `🌬️ Live: <strong>${speed}kt</strong> <span class="wind-dir" style="transform:rotate(${dir}deg)">${arrow}</span> ${getCardinalDir(dir)}`;
-} else {
-el.innerHTML = `<span style="color:var(--text-muted)">Wind data unavailable</span>`;
-}
-}).catch(() => {
-const el = document.getElementById('wind-'+d.id);
-el.innerHTML = `<span style="color:var(--text-muted)">Wind data unavailable</span>`;
-});
-});
+// ======================== BEST THIS MONTH ========================
+function renderBestMonth(){
+  const month = new Date().getMonth()+1;
+  let spots = ALL_SPOTS.filter(s => s.bestMonths.includes(month));
+  if(currentSport==='kite') spots = spots.filter(s=>s.type==='kite');
+  if(currentSport==='surf') spots = spots.filter(s=>s.type==='surf');
+  spots.sort((a,b) => {
+    const aLive = liveData[a.id];
+    const bLive = liveData[b.id];
+    if(aLive && !bLive) return -1;
+    if(!aLive && bLive) return 1;
+    return 0;
+  });
+  const scroll = document.getElementById('bestScroll');
+  scroll.innerHTML = spots.slice(0,15).map(s => createCard(s,true)).join('');
 }
 
-function getWindArrow(deg){return '↑'}
-function getCardinalDir(deg){
-const dirs = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
-return dirs[Math.round(deg/22.5)%16];
+function createCard(s, isBest){
+  const month = new Date().getMonth()+1;
+  const inSeason = s.bestMonths.includes(month);
+  const live = liveData[s.id];
+  const typeClass = s.type==='kite'?'card-type-kite':'card-type-surf';
+  const emoji = s.type==='kite'?'🪁':'🏄';
+
+  let liveHTML = '';
+  if(live){
+    if(s.type==='kite' && live.wind){
+      const good = live.wind >= 15;
+      liveHTML = `<span class="card-badge ${good?'badge-live':'badge-off'}">${good?'●':'○'} ${live.wind} km/h</span>`;
+    } else if(s.type==='surf' && live.waveHeight){
+      const ft = (parseFloat(live.waveHeight)*3.28).toFixed(1);
+      const good = parseFloat(live.waveHeight) >= 1.0;
+      liveHTML = `<span class="card-badge ${good?'badge-live':'badge-off'}">${good?'●':'○'} ${ft}ft</span>`;
+    }
+  }
+  if(!liveHTML){
+    liveHTML = `<span class="card-badge ${inSeason?'badge-live':'badge-off'}">${inSeason?'● IN SEASON':'○ OFF'}</span>`;
+  }
+
+  let statsHTML = '';
+  if(s.type==='kite'){
+    const avgWind = s.wind ? Math.round(Object.values(s.wind).reduce((a,b)=>a+b,0)/12) : '?';
+    statsHTML = `<span class="card-stat">💨 <span class="val">${live&&live.wind?live.wind:avgWind} km/h</span></span>
+      <span class="card-stat">🌡️ <span class="val">${s.waterTemp}°C</span></span>
+      <span class="card-stat">✈️ <span class="val">${s.airport}</span></span>`;
+  } else {
+    const wt = {beach:'🏖️ Beach',point:'🔄 Point',reef:'🪸 Reef'}[s.waveType]||s.waveType;
+    statsHTML = `<span class="card-stat">${wt}</span>
+      <span class="card-stat">📏 <span class="val">${s.idealSize}</span></span>
+      <span class="card-stat">🌡️ <span class="val">${s.waterTemp}°C</span></span>`;
+  }
+
+  let tagsHTML = '';
+  if(s.type==='kite'){
+    tagsHTML = `<span class="card-tag">${s.style}</span><span class="card-tag">${s.level}</span>`;
+  } else {
+    tagsHTML = `<span class="card-tag surf-tag">${s.level}</span>`;
+    if(s.crowdLevel) tagsHTML += `<span class="card-tag surf-tag">${s.crowdLevel}</span>`;
+  }
+
+  return `<div class="spot-card" onclick="openModal(ALL_SPOTS.find(x=>x.id==='${s.id}'))">
+    <div class="${typeClass}" style="height:3px"></div>
+    <div class="card-header">
+      <div><div class="card-name">${emoji} ${s.name}</div><div class="card-country">${s.country}</div></div>
+      <div style="display:flex;gap:4px;flex-wrap:wrap">${liveHTML}</div>
+    </div>
+    <div class="card-body">
+      <div class="card-stats">${statsHTML}</div>
+      <div class="card-tags">${tagsHTML}</div>
+    </div>
+  </div>`;
 }
 
-// ===== INIT =====
-renderCards();
+// ======================== REGIONS ========================
+function renderRegions(){
+  const spots = currentSport==='kite'?KITE_SPOTS:currentSport==='surf'?SURF_SPOTS:ALL_SPOTS;
+  const regions = {};
+  spots.forEach(s => {
+    const r = s.region||'Other';
+    if(!regions[r]) regions[r] = [];
+    regions[r].push(s);
+  });
+  const regionOrder = ['Brazil NE','Brazil SE','Caribbean','Central America','North America','South America','Europe','Africa','Middle East','Asia','Indian Ocean','Oceania','Pacific Islands'];
+  const sorted = regionOrder.filter(r=>regions[r]).map(r=>[r,regions[r]]);
+  Object.keys(regions).filter(r=>!regionOrder.includes(r)).forEach(r=>sorted.push([r,regions[r]]));
+
+  const container = document.getElementById('regions');
+  container.innerHTML = sorted.map(([name,spots]) => `
+    <div class="region">
+      <div class="region-header" onclick="toggleRegion(this)">
+        <h3>${name}</h3>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span class="region-count">${spots.length} spots</span>
+          <span class="region-arrow">▼</span>
+        </div>
+      </div>
+      <div class="region-body">${spots.map(s=>createCard(s,false)).join('')}</div>
+    </div>
+  `).join('');
+}
+
+function toggleRegion(el){
+  const body = el.nextElementSibling;
+  const arrow = el.querySelector('.region-arrow');
+  body.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+
+// ======================== MODAL ========================
+function openModal(spot){
+  if(!spot) return;
+  const month = new Date().getMonth()+1;
+  const inSeason = spot.bestMonths.includes(month);
+  const live = liveData[spot.id];
+  const emoji = spot.type==='kite'?'🪁':'🏄';
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const seasonMonths = spot.bestMonths.map(m=>months[m-1]).join(', ');
+
+  let liveSection = '';
+  if(live && spot.type==='kite' && live.wind){
+    liveSection = `<div class="modal-section"><h4>Live Conditions</h4>
+      <div class="modal-grid">
+        <div class="modal-stat"><span class="label">Wind: </span><span class="value">${live.wind} km/h</span></div>
+        <div class="modal-stat"><span class="label">Direction: </span><span class="value">${live.windDir}°</span></div>
+        <div class="modal-stat"><span class="label">Air Temp: </span><span class="value">${live.temp}°C</span></div>
+      </div></div>`;
+  } else if(live && spot.type==='surf' && live.waveHeight){
+    const ft = (parseFloat(live.waveHeight)*3.28).toFixed(1);
+    const maxFt = (parseFloat(live.maxWave)*3.28).toFixed(1);
+    liveSection = `<div class="modal-section"><h4>Live Swell</h4>
+      <div class="modal-grid">
+        <div class="modal-stat"><span class="label">Avg Wave: </span><span class="value">${ft}ft (${live.waveHeight}m)</span></div>
+        <div class="modal-stat"><span class="label">Max Wave: </span><span class="value">${maxFt}ft</span></div>
+        <div class="modal-stat"><span class="label">Period: </span><span class="value">${live.wavePeriod}s</span></div>
+        <div class="modal-stat"><span class="label">Direction: </span><span class="value">${live.waveDir}°</span></div>
+      </div></div>`;
+  }
+
+  let windChart = '';
+  if(spot.type==='kite' && spot.wind){
+    const maxW = Math.max(...Object.values(spot.wind));
+    windChart = `<div class="modal-section"><h4>Monthly Wind (avg knots)</h4>
+      <div class="modal-wind-chart">${months.map((m,i)=>{
+        const v = Object.values(spot.wind)[i];
+        const pct = (v/maxW*100);
+        const cls = v>=20?'good':v>=15?'ok':'low';
+        return `<div style="flex:1;text-align:center"><div class="wind-bar ${cls}" style="height:${pct}%;margin:0 auto;width:80%"></div><div class="wind-month">${m}</div></div>`;
+      }).join('')}</div></div>`;
+  }
+
+  let surfDetails = '';
+  if(spot.type==='surf'){
+    const wt = {beach:'🏖️ Beach Break',point:'🔄 Point Break',reef:'🪸 Reef Break'}[spot.waveType]||spot.waveType;
+    surfDetails = `<div class="modal-section"><h4>Wave Details</h4>
+      <div class="modal-grid">
+        <div class="modal-stat"><span class="label">Type: </span><span class="value">${wt}</span></div>
+        <div class="modal-stat"><span class="label">Best Swell: </span><span class="value">${spot.swellDir}</span></div>
+        <div class="modal-stat"><span class="label">Ideal Size: </span><span class="value">${spot.idealSize}</span></div>
+        <div class="modal-stat"><span class="label">Level: </span><span class="value">${spot.level}</span></div>
+        <div class="modal-stat"><span class="label">Water Temp: </span><span class="value">${spot.waterTemp}°C</span></div>
+        <div class="modal-stat"><span class="label">Crowd: </span><span class="value">${spot.crowdLevel||'—'}</span></div>
+      </div></div>`;
+  }
+
+  let surfCamBtn = '';
+  if(spot.surfCam){
+    surfCamBtn = `<button class="modal-btn btn-surfcam" onclick="window.open('${spot.surfCam}','_blank')">🎥 Live Cam</button>`;
+  }
+
+  const html = `
+    <div class="modal-header">
+      <span class="modal-close" onclick="closeModal()">✕</span>
+      <h2>${emoji} ${spot.name}</h2>
+      <div class="card-country">${spot.country} · ${spot.region}</div>
+      <div style="margin-top:8px;display:flex;gap:6px">
+        <span class="card-badge ${inSeason?'badge-live':'badge-off'}">${inSeason?'● IN SEASON':'○ OFF SEASON'}</span>
+        <span class="card-badge badge-season">Best: ${seasonMonths}</span>
+      </div>
+    </div>
+    <div class="modal-section">
+      <p style="font-size:0.85rem;line-height:1.5;color:var(--grey)">${spot.description}</p>
+    </div>
+    ${liveSection}
+    ${surfDetails}
+    ${windChart}
+    <div class="modal-section"><h4>Travel Info</h4>
+      <div class="modal-grid">
+        <div class="modal-stat"><span class="label">Airport: </span><span class="value">${spot.airport}</span></div>
+        <div class="modal-stat"><span class="label">Water Temp: </span><span class="value">${spot.waterTemp}°C</span></div>
+        ${spot.accommodation?`<div class="modal-stat" style="grid-column:1/-1"><span class="label">Stay: </span><span class="value">${spot.accommodation.join(', ')}</span></div>`:''}
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="modal-btn btn-primary" onclick="window.open('https://wa.me/5585985572807?text=I%20want%20to%20visit%20${encodeURIComponent(spot.name)}','_blank')">💬 Book via WhatsApp</button>
+      ${surfCamBtn}
+      <button class="modal-btn btn-secondary" onclick="map.setView([${spot.lat},${spot.lng}],10);closeModal()">📍 View on Map</button>
+    </div>`;
+  document.getElementById('modal').innerHTML = html;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ======================== LANGUAGE ========================
+function changeLang(l){
+  lang = l;
+  document.getElementById('bestTitle').textContent = t('bestTitle');
+  document.getElementById('bestSubtitle').textContent = t('bestSub');
+  document.querySelectorAll('.sport-tab').forEach(tab => {
+    const s = tab.dataset.sport;
+    if(s==='all') tab.innerHTML = t('allSpots');
+    if(s==='kite') tab.innerHTML = t('kiteSpots');
+    if(s==='surf') tab.innerHTML = t('surfSpots');
+  });
+  renderBestMonth();
+  renderRegions();
+}
+
+// Close modal on Escape
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
 </script>
 </body>
 </html>
