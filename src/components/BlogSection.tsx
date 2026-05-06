@@ -17,11 +17,11 @@ const BlogSection: React.FC = () => {
   const posts: Record<string, BlogPost[]> = {
     pt: [
       {
-        title: "BREAKING — Tatajuba finalmente vai ser titulada",
-        summary: "O IDACE publicou regras oficiais para a titulação de terras em Tatajuba. O artigo detalha os caminhos para a posse e a cláusula de não transferência de 5 anos.",
-        url: "https://blog.terraventos.com/p/breaking-tatajuba-is-finally-getting",
-        image: "/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg",
-        date: "24 Abr 2026"
+        title: "Tatajuba Kite Real Estate: O Jogo das Lagoas do Ceará em 2026",
+        summary: "Tatajuba, a 25 km de Jeri, combina 99% de confiabilidade de vento com preços de terra de fronteira. A realidade jurídica, ecológica e de investimento para compradores de kite em 2026.",
+        url: "https://blog.terraventos.com/p/tatajuba-kite-real-estate-cearas",
+        image: "/TATAJUBA/Image_from_Image.png (4).png",
+        date: "6 Mai 2026"
       },
       {
         title: "TikTok, Huawei e a onda de Data Centers no Ceará",
@@ -47,11 +47,11 @@ const BlogSection: React.FC = () => {
     ],
     en: [
       {
-        title: "BREAKING — Tatajuba Is Finally Getting Titled: IDACE",
-        summary: "IDACE has published official rules for land titling in Tatajuba. The article details paths to ownership and the critical 5-year non-transferability clause.",
-        url: "https://blog.terraventos.com/p/breaking-tatajuba-is-finally-getting",
-        image: "/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg",
-        date: "Apr 24, 2026"
+        title: "Tatajuba Kite Real Estate: Ceará's 2026 Lagoon Play",
+        summary: "Tatajuba, 25 km from Jeri, blends 99% wind reliability with frontier land prices. Inside the legal, ecological and investment reality for kite buyers in 2026.",
+        url: "https://blog.terraventos.com/p/tatajuba-kite-real-estate-cearas",
+        image: "/TATAJUBA/Image_from_Image.png (4).png",
+        date: "May 6, 2026"
       },
       {
         title: "TikTok, Huawei, and the Ceará Data Center Wave",
@@ -77,11 +77,11 @@ const BlogSection: React.FC = () => {
     ],
     es: [
       {
-        title: "ÚLTIMA HORA — Tatajuba finalmente será titulada",
-        summary: "IDACE ha publicado reglas oficiales para la titulación de tierras en Tatajuba. El artículo detalla las vías de propiedad y la cláusula de no transferencia de 5 años.",
-        url: "https://blog.terraventos.com/p/breaking-tatajuba-is-finally-getting",
-        image: "/TATAJUBA/WhatsApp Image 2026-04-23 at 18.35.22.jpeg",
-        date: "24 Abr 2026"
+        title: "Tatajuba Kite Real Estate: El Juego de las Lagunas de Ceará 2026",
+        summary: "Tatajuba, a 25 km de Jeri, combina 99% de confiabilidad de viento con precios de tierra de frontera. La realidad jurídica, ecológica e inversora para compradores de kite en 2026.",
+        url: "https://blog.terraventos.com/p/tatajuba-kite-real-estate-cearas",
+        image: "/TATAJUBA/Image_from_Image.png (4).png",
+        date: "6 May 2026"
       },
       {
         title: "TikTok, Huawei y la ola de Data Centers en Ceará",
@@ -119,7 +119,13 @@ const BlogSection: React.FC = () => {
 
         <div className="blog-grid">
           {displayPosts.map((post, index) => (
-            <div className="blog-card" key={index}>
+            <a
+              key={index}
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="blog-card"
+            >
               <div className="blog-card-image">
                 <img src={post.image} alt={post.title} loading="lazy" />
                 <div className="blog-card-date">{post.date}</div>
@@ -127,14 +133,14 @@ const BlogSection: React.FC = () => {
               <div className="blog-card-content">
                 <h3 className="blog-card-title">{post.title}</h3>
                 <p className="blog-card-summary">{post.summary}</p>
-                <a href={post.url} target="_blank" rel="noopener noreferrer" className="blog-read-more">
+                <span className="blog-read-more">
                   {t('blog.readMore', 'Leia mais')}
                   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                </a>
+                </span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
@@ -149,3 +155,4 @@ const BlogSection: React.FC = () => {
 };
 
 export default BlogSection;
+
