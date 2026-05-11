@@ -232,6 +232,10 @@ body {
   display: flex; flex-direction: column;
   position: relative;
 }
+.card-image {
+  width: 100%; height: 160px; object-fit: cover;
+  display: block;
+}
 .content-card:hover { box-shadow: var(--shadow-md); }
 .card-header {
   padding: 16px 16px 12px;
@@ -827,6 +831,7 @@ function renderCard(item) {
   const feedbackData = item.feedback ? `value="${item.feedback.replace(/"/g, '&quot;')}"` : '';
   return `
     <div class="content-card" data-id="${item.id}">
+      ${item.image ? '<img class="card-image" src="' + item.image + '" alt="' + item.title + '" loading="lazy">' : ''}
       <div class="card-header">
         <div class="card-category-icon" style="background:${cat.bg};color:${cat.color}">${cat.icon}</div>
         <div class="card-header-text">
