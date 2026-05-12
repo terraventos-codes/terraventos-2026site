@@ -268,6 +268,7 @@ body {
 .card-status.aprovado { background: var(--green-light); color: #1E8449; }
 .card-status.publicado { background: var(--blue-light); color: #1A5276; }
 .card-status.rejeitado { background: var(--red-light); color: #C0392B; }
+    .card-status.backlog { background: #EDE7F6; color: #5E35B1; }
 .new-dot {
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--red); display: inline-block;
@@ -844,6 +845,9 @@ body {
     <a href="#" onclick="navigate('publicados', this)" data-page="publicados">
       <span class="icon">🚀</span> Publicados
     </a>
+    <a href="#" onclick="navigate('backlog', this)" data-page="backlog">
+      <span class="icon">💬</span> Backlog WhatsApp <span class="badge" id="backlogCount">0</span>
+    </a>
     <div class="sidebar-section">Equipe</div>
     <a href="#" onclick="navigate('agentes', this)" data-page="agentes">
       <span class="icon">🤖</span> Agentes
@@ -906,6 +910,11 @@ body {
         <div class="stat-icon">🚫</div>
         <div class="stat-value" id="statRejected">0</div>
         <div class="stat-label">Rejeitados</div>
+      <div class="stat-card" style="border-left:3px solid #5E35B1">
+        <div class="stat-icon" style="background:#EDE7F6;color:#5E35B1">💬</div>
+        <div class="stat-number" id="statBacklog">0</div>
+        <div class="stat-label">Backlog</div>
+      </div>
       </div>
     </div>
 
@@ -951,7 +960,11 @@ body {
   </div>
 
   <!-- ===== AGENTES PAGE ===== -->
-  <div class="page" id="page-agentes">
+  <div class="page" id="page-backlog" style="display:none">
+      <div class="cards-grid" id="backlogCards"></div>
+      <div class="empty-state" id="backlogEmpty" style="display:none"><div class="empty-icon">💬</div>Nenhuma ideia no backlog ainda.</div>
+    </div>
+    <div class="page" id="page-agentes">
     <div class="agents-grid" id="agentsGrid"></div>
   </div>
 </div>
@@ -1054,7 +1067,22 @@ const DEFAULT_CONTENT = [
   { id: 45, title: 'IDACE Tatajuba: a instrucao que muda tudo', category: 'mercado', status: 'pendente', agent: 'market-analyst', date: '2026-05-11', desc: 'Análise IDACE-DPU titulação terras Tatajuba. Elevação distrito Dez/2025.', tags: ['idace', 'tatajuba', 'titulação'], highlights: ['Instrução normativa IDACE', 'Titulação de terras em Tatajuba', 'Elevação a distrito em Dez/2025'], format: 'blog', driveLink: '' , image: 'https://terraventos.com/TATAJUBA/Image_from_Image.png%20(4).png'},
   { id: 46, title: 'Por que larguei Londres e vim investir no Ceara', category: 'founder', status: 'pendente', agent: 'content-strategist', date: '2026-05-11', desc: 'Founder story: Bloomberg Londres, The Bridge, GI Group exit, tese Costa dos Ventos.', tags: ['founder', 'história', 'investimento'], highlights: ['De Bloomberg Londres ao Ceará', 'Tese Costa dos Ventos', 'Visão do fundador'], format: 'blog', driveLink: '' , image: '/contenthub/images/post_46.png'},
   { id: 47, title: 'FAQ: 5 perguntas de estrangeiros antes de comprar', category: 'entrevistas', status: 'pendente', agent: 'content-strategist', date: '2026-05-11', desc: 'FAQ bilíngue PT/EN: CPF, matrícula, escritura, Golden Visa R$700k, INCRA/SPU.', tags: ['faq', 'estrangeiros', 'compra'], highlights: ['CPF e documentação', 'Financiamento para estrangeiros', 'Golden Visa e requisitos'], format: 'blog', driveLink: '' , image: '/contenthub/images/post_47.png'},
-];
+,
+    // === BACKLOG WHATSAPP ===
+    { id: 48, title: 'Campanha de Tagline TerraVentos', category: 'social', status: 'backlog', agent: 'social-media', date: '2026-05-12', desc: 'Campanha de posicionamento da marca TerraVentos com taglines criativas para redes sociais, site e materiais de marketing.', tags: ['branding', 'tagline', 'campanha'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_48.png', source: 'WhatsApp Marketing Group' },
+    { id: 49, title: 'Reels Virais de Kitesurf no Cear\u00e1', category: 'social', status: 'backlog', agent: 'social-media', date: '2026-05-12', desc: 'S\u00e9rie de Reels para Instagram com conte\u00fado viral de kitesurf nas praias do Cear\u00e1, inspirado nas refer\u00eancias do grupo.', tags: ['reels', 'kitesurf', 'viral'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_49.png', source: 'WhatsApp Marketing Group' },
+    { id: 50, title: 'Mapinha Interativo de Kite Spots', category: 'projetos', status: 'backlog', agent: 'content-strategist', date: '2026-05-12', desc: 'Mapa interativo dos melhores spots de kitesurf no litoral cearense com informa\u00e7\u00f5es de vento, acesso e infraestrutura.', tags: ['mapa', 'kitesurf', 'interativo'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_50.png', source: 'WhatsApp Marketing Group' },
+    { id: 51, title: 'Fotos 360\u00b0 de Propriedades', category: 'terreno', status: 'backlog', agent: 'social-media', date: '2026-05-12', desc: 'Produ\u00e7\u00e3o de fotos 360 graus das propriedades e terrenos para tours virtuais imersivos no site.', tags: ['360', 'fotos', 'tour-virtual'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_51.png', source: 'WhatsApp Marketing Group' },
+    { id: 52, title: 'V\u00eddeos AI com Veo 3 para Im\u00f3veis', category: 'projetos', status: 'backlog', agent: 'content-strategist', date: '2026-05-12', desc: 'V\u00eddeos gerados por IA usando Veo 3 para showcase de propriedades e empreendimentos TerraVentos.', tags: ['ia', 'video', 'veo3'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_52.png', source: 'WhatsApp Marketing Group' },
+    { id: 53, title: 'Campanha Meta Ads para Gera\u00e7\u00e3o de Leads', category: 'crm', status: 'backlog', agent: 'content-strategist', date: '2026-05-12', desc: 'Estrat\u00e9gia completa de Meta Ads com funil de convers\u00e3o para captura de leads qualificados de investidores.', tags: ['meta-ads', 'leads', 'campanha'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_53.png', source: 'WhatsApp Marketing Group' },
+    { id: 54, title: 'Estrat\u00e9gia TikTok para P\u00fablico Jovem', category: 'social', status: 'backlog', agent: 'social-media', date: '2026-05-12', desc: 'Plano de conte\u00fado para TikTok focado em p\u00fablico jovem interessado em investimento, lifestyle e kitesurf no Cear\u00e1.', tags: ['tiktok', 'jovem', 'estrategia'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_54.png', source: 'WhatsApp Marketing Group' },
+    { id: 55, title: 'Otimiza\u00e7\u00e3o do Linktree Multi-Canal', category: 'crm', status: 'backlog', agent: 'content-strategist', date: '2026-05-12', desc: 'Reestrutura\u00e7\u00e3o do Linktree como funil multi-canal conectando Instagram, WhatsApp, site e blog.', tags: ['linktree', 'funil', 'multicanal'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_55.png', source: 'WhatsApp Marketing Group' },
+    { id: 56, title: 'Lead Magnet: Estudo de Ventos Download', category: 'crm', status: 'backlog', agent: 'content-strategist', date: '2026-05-12', desc: 'Conte\u00fado gated com estudo completo de ventos do litoral cearense para captura de leads via download.', tags: ['lead-magnet', 'ventos', 'download'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_56.png', source: 'WhatsApp Marketing Group' },
+    { id: 57, title: 'Blog: Turismo no Cear\u00e1 Cresceu 43%', category: 'seo-blog', status: 'backlog', agent: 'content-strategist', date: '2026-05-12', desc: 'Artigo data-driven sobre o crescimento de 43% do turismo no Cear\u00e1 e impacto no mercado imobili\u00e1rio.', tags: ['turismo', 'dados', 'ceara'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_57.png', source: 'WhatsApp Marketing Group' },
+    { id: 58, title: 'Blog: Resort Anantara Chega ao Cear\u00e1', category: 'seo-blog', status: 'backlog', agent: 'content-strategist', date: '2026-05-12', desc: 'An\u00e1lise do mercado de luxo com a chegada do Resort Anantara ao Cear\u00e1 e valoriza\u00e7\u00e3o da regi\u00e3o.', tags: ['anantara', 'luxo', 'resort'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_58.png', source: 'WhatsApp Marketing Group' },
+    { id: 59, title: 'Blog: R$4 Bilh\u00f5es Investidos em Pre\u00e1', category: 'seo-blog', status: 'backlog', agent: 'content-strategist', date: '2026-05-12', desc: 'Artigo sobre os R$4 bilh\u00f5es em investimentos na regi\u00e3o de Pre\u00e1 e oportunidades para investidores.', tags: ['prea', 'investimento', 'bilhoes'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_59.png', source: 'WhatsApp Marketing Group' },
+    { id: 60, title: 'Carrossel: Sess\u00f5es de Fotos Paracuru e Pre\u00e1', category: 'social', status: 'backlog', agent: 'social-media', date: '2026-05-12', desc: 'Posts carrossel com fotos profissionais das sess\u00f5es em Paracuru, Casa Pre\u00e1, Conduru e Tatajuba.', tags: ['carrossel', 'fotos', 'paracuru'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_60.png', source: 'WhatsApp Marketing Group' },
+    { id: 61, title: 'V\u00eddeo: Visitas a Propriedades no Litoral', category: 'social', status: 'backlog', agent: 'social-media', date: '2026-05-12', desc: 'Conte\u00fado em v\u00eddeo das visitas a propriedades no litoral cearense para Instagram e YouTube.', tags: ['video', 'propriedades', 'visita'], driveLink: '#', isNew: true, image: '/contenthub/images/backlog_61.png', source: 'WhatsApp Marketing Group' }];
 
 // ========== STATE ==========
 let contentData = [];
@@ -1217,6 +1245,15 @@ function updateStats() {
     document.getElementById('bottomPendingBadge').style.display = '';
     document.getElementById('sidebarPendingBadge').style.display = '';
   }
+  updateBacklogCount();
+}
+
+function updateBacklogCount() {
+  const backlogCount = contentData.filter(c => c.status === 'backlog').length;
+  const el = document.getElementById('backlogCount');
+  if (el) { el.textContent = backlogCount; el.style.display = backlogCount > 0 ? '' : 'none'; }
+  const statEl = document.getElementById('statBacklog');
+  if (statEl) statEl.textContent = backlogCount;
 }
 
 function getFilteredItems(items) {
@@ -1265,6 +1302,12 @@ function renderCurrentPage() {
     const filtered = getFilteredItems(items);
     renderCards('publicadosCards', filtered);
     document.getElementById('publicadosEmpty').style.display = items.length === 0 ? '' : 'none';
+  } else if (currentPage === 'backlog') {
+    const items = contentData.filter(c => c.status === 'backlog');
+    const filtered = getFilteredItems(items);
+    renderCards('backlogCards', filtered);
+    document.getElementById('backlogEmpty').style.display = items.length === 0 ? '' : 'none';
+    document.getElementById('backlogCards').style.display = items.length === 0 ? 'none' : '';
   } else if (currentPage === 'agentes') {
     renderAgents();
   }
@@ -1283,7 +1326,7 @@ function navigate(page, el) {
   const sidebarLink = document.querySelector(`.sidebar-links a[data-page="${page}"]`);
   if (sidebarLink) sidebarLink.classList.add('active');
 
-  const titles = { dashboard: 'Dashboard', pendentes: 'Pendentes', todos: 'Todos os Conteúdos', aprovados: 'Aprovados', publicados: 'Publicados', agentes: 'Agentes' };
+  const titles = { dashboard: 'Dashboard', pendentes: 'Pendentes', todos: 'Todos os Conteúdos', aprovados: 'Aprovados', publicados: 'Publicados', backlog: 'Backlog WhatsApp', agentes: 'Agentes' };
   document.getElementById('pageTitle').textContent = titles[page] || page;
 
   renderCurrentPage();
@@ -1755,7 +1798,21 @@ const FULL_CONTENT = {
       '5️⃣ Posso construir e alugar?\nSim! Muitos compradores estrangeiros constroem para aluguel de temporada via Airbnb, com excelente rentabilidade.',
       '💬 Comente VENTOS para receber o guia completo para compradores internacionais!'
     ]
-  },
+  },,
+  48: { type: 'text', body: '<h3>Campanha de Tagline TerraVentos</h3><p>Desenvolvimento de taglines criativas para posicionamento da marca TerraVentos nas redes sociais e materiais de marketing.</p><p><strong>Objetivo:</strong> Criar identidade verbal marcante que conecte lifestyle, natureza e investimento inteligente.</p><p><strong>Sugest\u00f5es:</strong></p><ul><li>\u201cOnde o vento sopra oportunidades\u201d</li><li>\u201cInvista onde a natureza \u00e9 o luxo\u201d</li><li>\u201cTerrenos com alma. Ventos com prop\u00f3sito.\u201d</li></ul><div class="detail-manychat-cta"><span class="cta-icon">\u{1F4AC}</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram \u2022 resposta autom\u00e1tica</span></div>' },
+  49: { type: 'text', body: '<h3>Reels Virais de Kitesurf</h3><p>S\u00e9rie de Instagram Reels com conte\u00fado viral de kitesurf nas praias do Cear\u00e1.</p><p><strong>Formato:</strong> V\u00eddeos curtos (15-30s) com transi\u00e7\u00f5es din\u00e2micas, m\u00fasica trending e legendas em portugu\u00eas/ingl\u00eas.</p><p><strong>Spots:</strong> Preá, Jericoacoara, Paracuru, Tatajuba.</p><p><strong>CTA:</strong> Salve este reel e siga @terraventos para mais spots incr\u00edveis!</p><div class="detail-manychat-cta"><span class="cta-icon">\u{1F4AC}</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram \u2022 resposta autom\u00e1tica</span></div>' },
+  50: { type: 'text', body: '<h3>Mapinha Interativo de Kite Spots</h3><p>Mapa interativo do litoral cearense com os melhores spots de kitesurf.</p><p><strong>Features:</strong></p><ul><li>Dados de vento por temporada</li><li>N\u00edvel de dificuldade</li><li>Infraestrutura local</li><li>Terrenos dispon\u00edveis pr\u00f3ximos</li></ul><p><strong>Implementa\u00e7\u00e3o:</strong> Embed no site + compartilh\u00e1vel no WhatsApp.</p><div class="detail-manychat-cta"><span class="cta-icon">\u{1F4AC}</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram \u2022 resposta autom\u00e1tica</span></div>' },
+  51: { type: 'text', body: '<h3>Fotos 360° de Propriedades</h3><p>Tour virtual imersivo com fotos 360 graus das propriedades e terrenos TerraVentos.</p><p><strong>Locais:</strong> Paracuru, Preá, Conduru, Tatajuba</p><p><strong>Tecnologia:</strong> Captura com câmera 360, embed no site com navegação interativa.</p><p>Ideal para investidores remotos que querem conhecer os terrenos sem visita presencial.</p><div class="detail-manychat-cta"><span class="cta-icon">💬</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram • resposta automática</span></div>' },
+  52: { type: 'text', body: '<h3>Vídeos AI com Veo 3</h3><p>Showcase de propriedades usando vídeos gerados por inteligência artificial com Google Veo 3.</p><p><strong>Aplicações:</strong></p><ul><li>Flyover aéreo virtual dos terrenos</li><li>Simulação de construção futura</li><li>Ambientação com pôr do sol e natureza</li></ul><p><strong>Distribuição:</strong> Instagram, YouTube, WhatsApp Business.</p><div class="detail-manychat-cta"><span class="cta-icon">💬</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram • resposta automática</span></div>' },
+  53: { type: 'text', body: '<h3>Campanha Meta Ads</h3><p>Estratégia completa de Meta Ads para geração de leads qualificados.</p><p><strong>Funil:</strong></p><ul><li>Topo: Vídeos de lifestyle + kitesurf</li><li>Meio: Carrossel de terrenos + dados de valorização</li><li>Fundo: Formulário de lead com estudo de ventos</li></ul><p><strong>Orçamento sugerido:</strong> R$3.000-5.000/mês</p><p><strong>Meta:</strong> 200+ leads/mês a R$15-25 por lead.</p><div class="detail-manychat-cta"><span class="cta-icon">💬</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram • resposta automática</span></div>' },
+  54: { type: 'text', body: '<h3>Estratégia TikTok</h3><p>Plano de conteúdo para TikTok focado em público jovem (25-35 anos).</p><p><strong>Pilares:</strong></p><ul><li>Lifestyle: Dia a dia no litoral cearense</li><li>Investimento: Dicas de terrenos como primeiro investimento</li><li>Kitesurf: POV, tutoriais, spots secretos</li></ul><p><strong>Frequência:</strong> 5 posts/semana, 2 lives/mês.</p><div class="detail-manychat-cta"><span class="cta-icon">💬</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram • resposta automática</span></div>' },
+  55: { type: 'text', body: '<h3>Otimização Linktree</h3><p>Reestruturação do Linktree como hub multi-canal.</p><p><strong>Links prioritários:</strong></p><ul><li>WhatsApp Business direto</li><li>Catálogo de terrenos atualizado</li><li>Blog com artigos de investimento</li><li>Download do estudo de ventos</li><li>Agenda de visitas</li></ul><p><strong>Integração:</strong> UTM tracking em todos os links.</p><div class="detail-manychat-cta"><span class="cta-icon">💬</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram • resposta automática</span></div>' },
+  56: { type: 'text', body: '<h3>Lead Magnet: Estudo de Ventos</h3><p>Conteúdo gated premium com estudo completo de ventos do litoral cearense.</p><p><strong>Conteúdo do PDF:</strong></p><ul><li>Mapa de ventos por região e temporada</li><li>Dados históricos de 10 anos</li><li>Correlação vento × valorização imobiliária</li><li>Melhores meses para kitesurf</li></ul><p><strong>Captura:</strong> Landing page com formulário nome + email + WhatsApp.</p><div class="detail-manychat-cta"><span class="cta-icon">💬</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram • resposta automática</span></div>' },
+  57: { type: 'text', body: '<h3>Turismo no Ceará Cresceu 43%</h3><p>Artigo data-driven sobre o boom turístico cearense e seu impacto no mercado imobiliário.</p><p><strong>Dados-chave:</strong></p><ul><li>Crescimento de 43% no fluxo turístico</li><li>Aumento de voos internacionais diretos</li><li>Novos resorts e empreendimentos</li><li>Valorização média de terrenos na região</li></ul><p><strong>Formato:</strong> Blog post + infográfico para redes sociais.</p><div class="detail-manychat-cta"><span class="cta-icon">💬</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram • resposta automática</span></div>' },
+  58: { type: 'text', body: '<h3>Resort Anantara no Ceará</h3><p>Análise do impacto da chegada do Resort Anantara ao litoral cearense.</p><p><strong>Pontos de análise:</strong></p><ul><li>Posicionamento luxury do Anantara globalmente</li><li>Valorização esperada na região</li><li>Efeito cascata em infraestrutura</li><li>Oportunidade para investidores early-stage</li></ul><p><strong>Distribuição:</strong> Blog + LinkedIn + Newsletter Substack.</p><div class="detail-manychat-cta"><span class="cta-icon">💬</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram • resposta automática</span></div>' },
+  59: { type: 'text', body: '<h3>R$4 Bilhões em Preá</h3><p>Artigo investigativo sobre os R$4 bilhões em investimentos na região de Preá.</p><p><strong>Cobertura:</strong></p><ul><li>Principais empreendimentos anunciados</li><li>Infraestrutura viária e aeroportuária</li><li>Projeção de valorização 2026-2030</li><li>Comparativo com outros destinos premium</li></ul><p><strong>CTA:</strong> Agendar visita guiada aos terrenos.</p><div class="detail-manychat-cta"><span class="cta-icon">💬</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram • resposta automática</span></div>' },
+  60: { type: 'text', body: '<h3>Carrossel: Sessões de Fotos</h3><p>Posts carrossel com fotos profissionais das sessões realizadas.</p><p><strong>Locações:</strong></p><ul><li>Paracuru — terrenos frente-mar</li><li>Casa Preá — lifestyle e arquitetura</li><li>Conduru — natureza e privacidade</li><li>Tatajuba — selvagem e exclusivo</li></ul><p><strong>Formato:</strong> 10 fotos por carrossel, legendas com storytelling.</p><div class="detail-manychat-cta"><span class="cta-icon">💬</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram • resposta automática</span></div>' },
+  61: { type: 'text', body: '<h3>Vídeo: Visitas a Propriedades</h3><p>Conteúdo em vídeo das visitas presenciais ao litoral cearense.</p><p><strong>Roteiro:</strong></p><ul><li>Chegada e primeira impressão</li><li>Tour pelo terreno com drone</li><li>Entrevista com moradores locais</li><li>Pôr do sol e lifestyle</li></ul><p><strong>Plataformas:</strong> YouTube (longo), Instagram Reels (cortes), TikTok (highlights).</p><div class="detail-manychat-cta"><span class="cta-icon">💬</span><span class="cta-text">Comente VENTOS para receber mais detalhes</span><span class="cta-sub">via Instagram • resposta automática</span></div>' }
 };
 
 // === Detail View Functions ===
@@ -1804,7 +1861,9 @@ function openDetail(itemId) {
   const body = document.getElementById('detailBody');
   body.innerHTML = '';
   
-  if (fc && fc.type === 'carousel' && fc.slides) {
+  if (fc && fc.type === 'text') {
+    body.innerHTML = fc.body;
+  } else if (fc && fc.type === 'carousel' && fc.slides) {
     currentSlides = fc.slides;
     currentSlideIndex = 0;
     let slidesHtml = '<div class="detail-slides" id="detailSlides">';
