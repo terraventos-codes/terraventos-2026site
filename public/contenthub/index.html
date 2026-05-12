@@ -1178,7 +1178,7 @@ function renderAgents() {
   grid.innerHTML = AGENTS.map(a => {
     const taskCount = contentData.filter(c => c.agent === a.id).length;
     return `
-      <div class="agent-card" onclick="openDetail(${item.id})" style="cursor:pointer">
+      <div class="agent-card">
         <div class="agent-card-header">
           <div class="agent-avatar-lg" style="background:${a.color}">${a.emoji}</div>
           <div>
@@ -1762,7 +1762,7 @@ const FULL_CONTENT = {
 let currentSlideIndex = 0;
 let currentSlides = [];
 
-function getCategoryInfo(cat) {
+function getDetailCategoryInfo(cat) {
   const map = {
     'social': { label: 'Social Media', color: '#e8f4e8', textColor: '#2d8a4e' },
     'market': { label: 'Mercado', color: '#e3f2fd', textColor: '#1565c0' },
@@ -1790,7 +1790,7 @@ function openDetail(itemId) {
   document.getElementById('detailImage').src = item.image || '/contenthub/images/post_' + itemId + '.png';
   
   // Badge
-  const catInfo = getCategoryInfo(item.category);
+  const catInfo = getDetailCategoryInfo(item.category);
   const badge = document.getElementById('detailBadge');
   badge.textContent = catInfo.label;
   badge.style.background = catInfo.color;
@@ -1894,6 +1894,34 @@ function handleDetailAction(itemId, newStatus) {
     }
   }, 400);
 }
+
+
+// === Attach click handlers to content cards ===
+function attachCardClickHandlers() {
+  document.querySelectorAll('.content-card').forEach(card => {
+    if (card._hasDetailClick) return;
+    card._hasDetailClick = true;
+    const titleEl = card.querySelector('.card-title');
+    if (!titleEl) return;
+    const title = titleEl.textContent;
+    const item = contentData.find(i => i.title === title);
+    if (!item) return;
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.card-actions')) return;
+      openDetail(item.id);
+    });
+  });
+}
+
+// Patch renderCards to auto-attach handlers
+const _origRenderCards = renderCards;
+renderCards = function() {
+  _origRenderCards.apply(this, arguments);
+  setTimeout(attachCardClickHandlers, 50);
+};
+// Initial attach
+setTimeout(attachCardClickHandlers, 500);
 
 </script>
 
