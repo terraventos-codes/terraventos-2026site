@@ -12,6 +12,7 @@ import { AppShellCtx } from './appShellContext';
 import { PAGE_KEYWORDS, type SeoLang } from '../utils/seoKeywords';
 import { toOgImage } from '../utils/seoImages';
 import { REGIOES } from '../data/regioes';
+import { INTENT_SLUGS } from '../data/intentPages';
 
 export default function AppShell() {
   const { t, i18n } = useTranslation();
@@ -153,9 +154,11 @@ export default function AppShell() {
       '/contato',
       '/ventoafavor',
       '/taiba',
-      // Páginas de região (RegiaoPage) gerenciam a própria SEO — derivadas de
-      // src/data/regioes.ts para não precisar manter esta lista em dois lugares.
+      // Páginas de região (RegiaoPage) e de intenção (IntentPage) gerenciam a
+      // própria SEO — derivadas de regioes.ts / intentPages.ts para não manter
+      // esta lista em dois lugares.
       ...Object.keys(REGIOES).map((key) => `/${key}`),
+      ...INTENT_SLUGS.map((slug) => `/${slug}`),
     ].includes(cleanPath);
     if (managesOwnSeo) return;
 

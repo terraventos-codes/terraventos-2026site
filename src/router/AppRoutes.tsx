@@ -5,6 +5,7 @@ import HomePage from '../pages/HomePage';
 import PropriedadesPage from '../pages/PropriedadesPage';
 import PaginaTaiba from '../components/PaginaTaiba';
 import RegiaoPage from '../pages/RegiaoPage';
+import IntentPage from '../pages/IntentPage';
 import InstitucionalPage from '../pages/InstitucionalPage';
 import PropriedadeIndividualPage from '../pages/PropriedadeIndividualPage';
 import VentoAfavorPage from '../pages/VentoAfavorPage';
@@ -49,6 +50,11 @@ function chromedRoutes() {
       <Route path="propriedade/:slug" element={<PropriedadeIndividualPage />} />
       <Route path="blog" element={<BlogIndexPage />} />
       <Route path="blog/:slug" element={<BlogPostPage />} />
+      {/* Páginas por intenção de busca (terrenos-a-venda-no-prea, etc.).
+          IntentPage valida o slug contra src/data/intentPages.ts e cai no 404
+          se não bater. Rota dinâmica de um segmento — o React Router prioriza
+          todas as rotas estáticas acima antes de chegar aqui. */}
+      <Route path=":intentSlug" element={<IntentPage />} />
       <Route path="*" element={<NotFoundRoute />} />
     </>
   );

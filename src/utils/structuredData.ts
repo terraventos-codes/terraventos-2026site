@@ -101,6 +101,38 @@ export function buildRegionCollectionPage(input: RegionCollectionInput): JsonLd 
   return node;
 }
 
+/** Página de serviço numa localidade ("imobiliária no Preá") — RealEstateAgent
+ * filho da organização, com areaServed explícito. */
+export function buildLocalServicePage(input: {
+  name: string;
+  description: string;
+  path: string;
+  placeName: string;
+  geo?: { latitude: number; longitude: number };
+  inLanguage?: string;
+}): JsonLd {
+  const areaServed: JsonLd = { '@type': 'Place', name: input.placeName };
+  if (input.geo) {
+    areaServed.geo = {
+      '@type': 'GeoCoordinates',
+      latitude: input.geo.latitude,
+      longitude: input.geo.longitude,
+    };
+  }
+  const node: JsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'RealEstateAgent',
+    '@id': `${abs(input.path)}#service`,
+    name: input.name,
+    description: input.description,
+    url: abs(input.path),
+    parentOrganization: { '@id': ORG_ID },
+    areaServed,
+  };
+  if (input.inLanguage) node.inLanguage = input.inLanguage;
+  return node;
+}
+
 export interface PropertyForListing {
   propertyTitle: string;
   location?: string;

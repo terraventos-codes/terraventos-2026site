@@ -8,11 +8,13 @@ import {
   buildBreadcrumbList,
   buildRealEstateListing,
   buildRegionCollectionPage,
+  buildLocalServicePage,
   buildFaqPage,
   serializeJsonLd,
 } from './src/utils/structuredData.ts';
 import { REGIOES } from './src/data/regioes.ts';
-import { matchesDestination } from './src/utils/seoKeywords.ts';
+import { INTENT_PAGES } from './src/data/intentPages.ts';
+import { matchesDestination, inferPropertyTypeKey } from './src/utils/seoKeywords.ts';
 
 const BREADCRUMB_LIST_LABEL = { pt: 'Imóveis', en: 'Properties', es: 'Inmuebles' };
 
@@ -504,6 +506,59 @@ Object.entries(locales).forEach(([langId, data]) => {
     <xhtml:link rel="alternate" hreflang="pt" href="${baseUrl}/${regionKey}"/>
     <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en/${regionKey}"/>
     <xhtml:link rel="alternate" hreflang="es" href="${baseUrl}/es/${regionKey}"/>
+  </url>`;
+  });
+
+  // Páginas por intenção de busca ("terrenos à venda no Preá", etc.) —
+  // driven por src/data/intentPages.ts. Grade filtrada + corpo + FAQ +
+  // JSON-LD (CollectionPage ou RealEstateAgent + FAQPage).
+  INTENT_PAGES.forEach((intent) => {
+    const region = REGIOES[intent.regionKey];
+    const pagePath = path.resolve(distPath, langId === 'pt' ? '' : langId, intent.slug, 'index.html');
+    const title = intent.titles[langId];
+    const desc = intent.descriptions[langId];
+    const pageUrl = `${baseUrl}${langPrefix}/${intent.slug}`;
+    const relPath = `${langPrefix}/${intent.slug}`;
+    const count = data.properties.filter((p) => {
+      if (p.unlisted) return false;
+      const asItem = { propertyTitle: p.title, location: p.location, facilities: [] };
+      if (!matchesDestination(asItem, region.destinationKey)) return false;
+      return intent.tipo ? inferPropertyTypeKey(asItem) === intent.tipo : true;
+    }).length;
+    const faqs = intent.faqs?.[langId] || [];
+    const inLang = data.code.replace('_', '-');
+    const primary = intent.pageType === 'servico'
+      ? buildLocalServicePage({
+          name: `${intent.h1[langId]} — Terra Ventos`,
+          description: desc,
+          path: relPath,
+          placeName: `${region.nomes.pt}, Ceará`,
+          geo: region.geo,
+          inLanguage: inLang,
+        })
+      : buildRegionCollectionPage({
+          name: title,
+          description: desc,
+          path: relPath,
+          placeName: `${region.nomes.pt}, Ceará`,
+          geo: region.geo,
+          itemCount: count,
+          inLanguage: inLang,
+        });
+    generatePage(
+      pagePath, title, desc, intent.heroImage, pageUrl, data.code, langId, null,
+      `/${intent.slug}`, null, '', [primary, buildFaqPage(faqs)],
+      regionBodyHtml(intent, langId),
+    );
+    console.log(`Página Intenção gerada: ${langId} - ${intent.slug}`);
+
+    sitemap += `
+  <url>
+    <loc>${pageUrl}</loc>
+    <priority>${intent.priority}</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="${baseUrl}/${intent.slug}"/>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en/${intent.slug}"/>
+    <xhtml:link rel="alternate" hreflang="es" href="${baseUrl}/es/${intent.slug}"/>
   </url>`;
   });
 
