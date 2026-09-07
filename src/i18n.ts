@@ -81,7 +81,8 @@ i18n
             countLabel_one: "{{count}} imóvel disponível",
             countLabel_other: "{{count}} imóveis disponíveis",
             ctaBandQuestion: "Interessado em imóveis em",
-            ctaBandSubtitle: "Nossa equipe apresenta as opções disponíveis e tira todas as suas dúvidas, sem compromisso."
+            ctaBandSubtitle: "Nossa equipe apresenta as opções disponíveis e tira todas as suas dúvidas, sem compromisso.",
+            relacionadosLabel: "Explore também"
           },
           categorias: {
             all: "Todas",
@@ -197,7 +198,7 @@ i18n
               p1: "A TERRAVENTOS EMPREENDIMENTOS E PARTICIPACOES LTDA (CNPJ 60.726.249/0001-00) assume o compromisso de proteger a privacidade de seus usuários, em total conformidade com a Lei Geral de Proteção de Dados (LGPD).",
               p2: "Os dados informados em nossos formulários de contato ou via WhatsApp (como nome, e-mail e telefone) são armazenados em ambiente seguro e utilizados unicamente para prestar os atendimentos solicitados, enviar portfólios de imóveis ou novidades selecionadas do litoral cearense.",
               p3: "A Terra Ventos assegura que não comercializa, aluga ou compartilha suas informações pessoais com terceiros para fins publicitários.",
-              p4: "Você possui o direito de consultar, atualizar ou solicitar a exclusão total dos seus dados de nossa base a qualquer momento, bastando para isso enviar um e-mail para info@terraventos.com.br."
+              p4: "Você possui o direito de consultar, atualizar ou solicitar a exclusão total dos seus dados de nossa base a qualquer momento, bastando para isso enviar um e-mail para info@terraventos.com."
             },
             contato: {
               title: "FALE CONOSCO",
@@ -287,7 +288,8 @@ i18n
             countLabel_one: "{{count}} property available",
             countLabel_other: "{{count}} properties available",
             ctaBandQuestion: "Interested in properties in",
-            ctaBandSubtitle: "Our team walks you through the available options and answers every question, with no commitment."
+            ctaBandSubtitle: "Our team walks you through the available options and answers every question, with no commitment.",
+            relacionadosLabel: "Explore more"
           },
           categorias: {
             all: "All",
@@ -401,7 +403,7 @@ i18n
               p1: "TERRAVENTOS EMPREENDIMENTOS E PARTICIPACOES LTDA (CNPJ 60.726.249/0001-00) is committed to protecting user privacy, fully complying with General Data Protection Regulations.",
               p2: "Personal data entered into our contact forms or submitted via WhatsApp (such as name, email, and phone) are stored in secure environments and used solely to process your requests, share real estate portfolios, and send curated market updates.",
               p3: "Terra Ventos guarantees that we do not sell, rent, or share your personal data with third parties for marketing purposes.",
-              p4: "You hold the right to access, update, or request the deletion of your personal data at any time by contacting us at info@terraventos.com.br."
+              p4: "You hold the right to access, update, or request the deletion of your personal data at any time by contacting us at info@terraventos.com."
             },
             contato: {
               title: "CONTACT US",
@@ -501,7 +503,8 @@ i18n
             countLabel_one: "{{count}} inmueble disponible",
             countLabel_other: "{{count}} inmuebles disponibles",
             ctaBandQuestion: "¿Interesado en inmuebles en",
-            ctaBandSubtitle: "Nuestro equipo presenta las opciones disponibles y responde todas tus preguntas, sin compromiso."
+            ctaBandSubtitle: "Nuestro equipo presenta las opciones disponibles y responde todas tus preguntas, sin compromiso.",
+            relacionadosLabel: "Explora también"
           },
           categorias: {
             all: "Todas",
@@ -615,7 +618,7 @@ i18n
               p1: "TERRAVENTOS EMPREENDIMENTOS E PARTICIPACOES LTDA (CNPJ 60.726.249/0001-00) tiene el compromiso de proteger la privacidad de sus usuarios, en conformidad con las regulaciones de protección de datos personales.",
               p2: "Los datos ingresados en nuestros formularios o compartidos vía WhatsApp (nombre, correo y teléfono) se guardan de forma segura y se usan únicamente para responder consultas y enviar portafolios de propiedades o novedades del mercado.",
               p3: "Terra Ventos garantiza que no vende, alquila ni comparte su información personal con terceros con fines publicitarios.",
-              p4: "Usted tiene derecho a consultar, corregir o solicitar la eliminación completa de sus datos enviando un correo electrónico a info@terraventos.com.br."
+              p4: "Usted tiene derecho a consultar, corregir o solicitar la eliminación completa de sus datos enviando un correo electrónico a info@terraventos.com."
             },
             contato: {
               title: "CONTÁCTENOS",

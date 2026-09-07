@@ -13,6 +13,18 @@ import MediaViewerPortals from './MediaViewerPortals';
 import { useMediaViewer } from './useMediaViewer';
 import { derivePropertyKeywords, type SeoLang } from '../../utils/seoKeywords';
 import { toOgImage } from '../../utils/seoImages';
+import { useStructuredData } from '../../utils/useStructuredData';
+import { buildBreadcrumbList, buildRealEstateListing, SITE_URL } from '../../utils/structuredData';
+import { matchesDestination } from '../../utils/seoKeywords';
+import { REGIOES, type RegiaoKey } from '../../data/regioes';
+import LocalizedLink from '../../router/LocalizedLink';
+
+const CRUMB_IMOVEIS: Record<string, string> = { pt: 'Imóveis', en: 'Properties', es: 'Inmuebles' };
+const VER_REGIAO: Record<string, (n: string) => string> = {
+  pt: (n) => `Ver todos os imóveis em ${n}`,
+  en: (n) => `See all properties in ${n}`,
+  es: (n) => `Ver todos los inmuebles en ${n}`,
+};
 
 type PaginaIndividualProps = {
   item: OportunidadeDetalhe;
@@ -73,6 +85,41 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
     };
   }, [item, i18n.language]);
 
+  const lang = i18n.language?.split('-')[0] || 'pt';
+  const langPrefix = lang === 'pt' ? '' : `/${lang}`;
+  const pageUrl =
+    typeof window !== 'undefined'
+      ? window.location.origin + window.location.pathname
+      : `${SITE_URL}${langPrefix}/propriedade/${item.slug}`;
+  const ldImage = toOgImage(item.image);
+  const ldImageUrl = ldImage.startsWith('http')
+    ? ldImage
+    : `${typeof window !== 'undefined' ? window.location.origin : SITE_URL}${ldImage}`;
+
+  useStructuredData(
+    buildBreadcrumbList([
+      { name: 'Terra Ventos', url: lang === 'pt' ? '/' : `/${lang}/` },
+      { name: CRUMB_IMOVEIS[lang] || CRUMB_IMOVEIS.pt, url: `${langPrefix}/propriedades` },
+      { name: item.propertyTitle, url: pageUrl },
+    ]),
+    buildRealEstateListing(
+      {
+        propertyTitle: item.propertyTitle,
+        location: item.location,
+        image: item.image,
+        description: item.exclusiveText || item.about[0] || '',
+        price: item.price,
+        priceTag: item.priceTag,
+      },
+      ldImageUrl,
+      pageUrl,
+    ),
+  );
+
+  const regiaoKey = (Object.keys(REGIOES) as RegiaoKey[]).find((k) =>
+    matchesDestination(item, REGIOES[k].destinationKey),
+  );
+
   return (
     <section className="pagina-individual">
       <div className="pi-main">
@@ -84,6 +131,16 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
         />
 
         <PropertyHeader item={activeRecord} />
+
+        {regiaoKey && (
+          <LocalizedLink to={`/${regiaoKey}`} className="pi-regiao-link">
+            {(VER_REGIAO[lang] || VER_REGIAO.pt)(REGIOES[regiaoKey].nomes[lang as 'pt' | 'en' | 'es'])}
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </LocalizedLink>
+        )}
 
         <div className="pi-content-grid">
           <div className="pi-content-main">
