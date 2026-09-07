@@ -40,6 +40,8 @@ function chromedRoutes() {
       <Route path="tatajuba" element={<RegiaoPage regionKey="tatajuba" />} />
       <Route path="prea" element={<RegiaoPage regionKey="prea" />} />
       <Route path="bitupita" element={<RegiaoPage regionKey="bitupita" />} />
+      <Route path="jericoacoara" element={<RegiaoPage regionKey="jericoacoara" />} />
+      <Route path="guriu" element={<RegiaoPage regionKey="guriu" />} />
       <Route path="quem-somos" element={<InstitucionalPage pageType="quem-somos" />} />
       <Route path="termos-e-condicoes" element={<InstitucionalPage pageType="termos-e-condicoes" />} />
       <Route path="politica-de-privacidade" element={<InstitucionalPage pageType="politica-de-privacidade" />} />

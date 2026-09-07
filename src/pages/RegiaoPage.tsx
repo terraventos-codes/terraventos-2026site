@@ -11,12 +11,19 @@ import { useTransitionNavigate } from '../router/useTransitionNavigate';
 import { scrollToSection } from '../utils/scrollToSection';
 import LocalizedLink from '../router/LocalizedLink';
 import PropertyCard from '../components/PropertyCard';
+import FaqBlock from '../components/FaqBlock';
 import { useStructuredData } from '../utils/useStructuredData';
-import { buildBreadcrumbList, buildRegionCollectionPage } from '../utils/structuredData';
+import { buildBreadcrumbList, buildRegionCollectionPage, buildFaqPage } from '../utils/structuredData';
 import '../components/ListagemPropriedades.css';
 import './RegiaoPage.css';
 
 const WHATSAPP_NUMBER = '5585985572807';
+
+const FAQ_TITLE: Record<string, string> = {
+  pt: 'Perguntas frequentes',
+  en: 'Frequently asked questions',
+  es: 'Preguntas frecuentes',
+};
 
 interface RegiaoPageProps {
   regionKey: RegiaoKey;
@@ -102,6 +109,8 @@ export default function RegiaoPage({ regionKey }: RegiaoPageProps) {
 
   const langPrefix = lang === 'pt' ? '' : `/${lang}`;
   const regionPath = `${langPrefix}/${regionKey}`;
+  const corpo = config.corpo?.[lang] ?? [];
+  const faqs = config.faqs?.[lang] ?? [];
   useStructuredData(
     buildBreadcrumbList([
       { name: 'Terra Ventos', url: lang === 'pt' ? '/' : `/${lang}/` },
@@ -116,6 +125,7 @@ export default function RegiaoPage({ regionKey }: RegiaoPageProps) {
       itemCount: filteredSortedItems.length,
       inLanguage: lang === 'pt' ? 'pt-BR' : lang,
     }),
+    buildFaqPage(faqs.map((f) => ({ q: f.q, a: f.a }))),
   );
 
   const handleSelect = (item: OportunidadeDetalhe) => {
@@ -193,6 +203,19 @@ export default function RegiaoPage({ regionKey }: RegiaoPageProps) {
         </section>
       </div>
 
+      {corpo.length > 0 && (
+        <section className="regiao-corpo">
+          {corpo.map((secao, i) => (
+            <article key={i} className="regiao-corpo-secao">
+              <h2 className="regiao-corpo-titulo">{secao.titulo}</h2>
+              {secao.paragrafos.map((p, j) => (
+                <p key={j} className="regiao-corpo-paragrafo">{p}</p>
+              ))}
+            </article>
+          ))}
+        </section>
+      )}
+
       <section id="regiao-imoveis" className="listing-page" data-reveal-managed="true">
         <div className="regiao-section-header">
           <span className="regiao-section-pill">{t('oportunidades.badge')}</span>
@@ -268,6 +291,8 @@ export default function RegiaoPage({ regionKey }: RegiaoPageProps) {
           )}
         </div>
       </section>
+
+      {faqs.length > 0 && <FaqBlock items={faqs} title={FAQ_TITLE[lang] || FAQ_TITLE.pt} />}
 
       <section className="regiao-cta-band">
         <span className="regiao-cta-pill">{t('regiao.heroTag')}</span>

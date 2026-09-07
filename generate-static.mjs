@@ -7,10 +7,50 @@ import { toOgImage } from './src/utils/seoImages.ts';
 import {
   buildBreadcrumbList,
   buildRealEstateListing,
+  buildRegionCollectionPage,
+  buildFaqPage,
   serializeJsonLd,
 } from './src/utils/structuredData.ts';
+import { REGIOES } from './src/data/regioes.ts';
+import { matchesDestination } from './src/utils/seoKeywords.ts';
 
 const BREADCRUMB_LIST_LABEL = { pt: 'Imóveis', en: 'Properties', es: 'Inmuebles' };
+
+const REGION_TITLE = {
+  pt: (nome) => `${nome} — Imóveis e Terrenos à Venda | Terra Ventos`,
+  en: (nome) => `${nome} — Real Estate & Land for Sale | Terra Ventos`,
+  es: (nome) => `${nome} — Inmuebles y Terrenos en Venta | Terra Ventos`,
+};
+
+const FAQ_HEADING = { pt: 'Perguntas frequentes', en: 'Frequently asked questions', es: 'Preguntas frecuentes' };
+
+const escHtml = (s = '') =>
+  String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+/** Monta o HTML estático (visível a crawlers sem JS) do corpo + FAQ de uma região. */
+function regionBodyHtml(config, langId) {
+  const corpo = config.corpo?.[langId] || [];
+  const faqs = config.faqs?.[langId] || [];
+  const secoes = corpo
+    .map(
+      (s) => `
+        <section>
+          <h2>${escHtml(s.titulo)}</h2>
+          ${s.paragrafos.map((p) => `<p>${escHtml(p)}</p>`).join('\n          ')}
+        </section>`,
+    )
+    .join('\n');
+  const faqHtml = faqs.length
+    ? `
+        <section>
+          <h2>${FAQ_HEADING[langId] || FAQ_HEADING.pt}</h2>
+          ${faqs
+            .map((f) => `<h3>${escHtml(f.q)}</h3>\n          <p>${escHtml(f.a)}</p>`)
+            .join('\n          ')}
+        </section>`
+    : '';
+  return `${secoes}\n${faqHtml}`;
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -81,7 +121,7 @@ const SECTION_LABELS = {
   es: { details: 'Detalles del Inmueble', infra: 'Infraestructura', facilities: 'Facilidades' },
 };
 
-function generatePage(targetPath, title, desc, img, url, langCode, langId, imgAlt = null, suffix = '/', property = null, keywords = '', extraJsonLd = []) {
+function generatePage(targetPath, title, desc, img, url, langCode, langId, imgAlt = null, suffix = '/', property = null, keywords = '', extraJsonLd = [], extraBodyHtml = '') {
   let html = template;
   // og:image/twitter:image usa o recorte 1200x630 pré-gerado (nunca a foto original direto):
   // resolve tanto o aspect ratio (fotos reais são quase quadradas ou 16:9) quanto o avif
@@ -231,6 +271,7 @@ function generatePage(targetPath, title, desc, img, url, langCode, langId, imgAl
         <p>${desc}</p>
         <img src="${fullImageUrl}" alt="${displayTitle}" />
         ${propertySection}
+        ${extraBodyHtml}
         <section>
           <h2>Sobre a Terra Ventos</h2>
           <p>A Terra Ventos é especialista em curadoria de imóveis de luxo e investimentos exclusivos no litoral do Ceará. Com foco em destinos de alto padrão como Preá, Tatajuba e Bitupitá, oferecemos oportunidades únicas para quem busca sofisticação, conforto e rentabilidade no paraíso do kitesurf.</p>
@@ -336,51 +377,6 @@ const staticPages = [
     }
   },
   {
-    slug: 'tatajuba',
-    priority: 0.8,
-    image: '/imoveis/area-exclusiva-tatajuba-guriu-100000m-01.webp',
-    titles: {
-      pt: 'Imóveis em Tatajuba | Terra Ventos',
-      en: 'Properties in Tatajuba | Terra Ventos',
-      es: 'Inmuebles en Tatajuba | Terra Ventos'
-    },
-    descriptions: {
-      pt: 'Terrenos e imóveis à venda em Tatajuba, no litoral oeste do Ceará — natureza preservada, dunas intocadas e um dos destinos com valorização mais acelerada da região.',
-      en: 'Land and properties for sale in Tatajuba, on Ceará\'s west coast — preserved nature, untouched dunes and one of the fastest-appreciating destinations in the region.',
-      es: 'Terrenos e inmuebles en venta en Tatajuba, en el litoral oeste de Ceará — naturaleza preservada, dunas intactas y uno de los destinos con mayor valorización de la región.'
-    }
-  },
-  {
-    slug: 'prea',
-    priority: 0.8,
-    image: '/imoveis/mansao-praia-do-prea-01.webp',
-    titles: {
-      pt: 'Imóveis no Preá | Terra Ventos',
-      en: 'Properties in Preá | Terra Ventos',
-      es: 'Inmuebles en Preá | Terra Ventos'
-    },
-    descriptions: {
-      pt: 'Terrenos, casas e mansões à venda na Praia do Preá — o maior spot de kitesurf e wingfoil do Ceará, com infraestrutura em crescimento e alto padrão de investimento.',
-      en: 'Land, houses and mansions for sale in Preá Beach — the biggest kitesurf and wingfoil spot in Ceará, with growing infrastructure and high-end investment appeal.',
-      es: 'Terrenos, casas y mansiones en venta en la Playa de Preá — el mayor spot de kitesurf y wingfoil de Ceará, con infraestructura en crecimiento y alto potencial de inversión.'
-    }
-  },
-  {
-    slug: 'bitupita',
-    priority: 0.8,
-    image: '/imoveis/terrenos-bitupita-01.webp',
-    titles: {
-      pt: 'Imóveis em Bitupitá | Terra Ventos',
-      en: 'Properties in Bitupitá | Terra Ventos',
-      es: 'Inmuebles en Bitupitá | Terra Ventos'
-    },
-    descriptions: {
-      pt: 'Terrenos e imóveis pé na areia em Bitupitá — a nova fronteira do investimento no litoral cearense, com praias intocadas e potencial de valorização único.',
-      en: 'Beachfront land and properties in Bitupitá — the new frontier of investment on the Ceará coast, with untouched beaches and unique appreciation potential.',
-      es: 'Terrenos e inmuebles frente al mar en Bitupitá — la nueva frontera de inversión en el litoral cearense, con playas intactas y un potencial de valorización único.'
-    }
-  },
-  {
     slug: 'ventoafavor',
     priority: 0.6,
     titles: {
@@ -462,6 +458,52 @@ Object.entries(locales).forEach(([langId, data]) => {
     <xhtml:link rel="alternate" hreflang="pt" href="${baseUrl}/${p.slug}"/>
     <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en/${p.slug}"/>
     <xhtml:link rel="alternate" hreflang="es" href="${baseUrl}/es/${p.slug}"/>
+  </url>`;
+  });
+
+  // Páginas de região (Preá, Tatajuba, Jericoacoara, Guriú, Bitupitá) —
+  // driven por src/data/regioes.ts (fonte única, mesma do RegiaoPage). Cada uma
+  // ganha corpo de conteúdo + FAQ visíveis no HTML estático e JSON-LD
+  // CollectionPage + FAQPage.
+  Object.entries(REGIOES).forEach(([regionKey, config]) => {
+    const pagePath = path.resolve(distPath, langId === 'pt' ? '' : langId, regionKey, 'index.html');
+    const nome = config.nomes[langId];
+    const title = (REGION_TITLE[langId] || REGION_TITLE.pt)(nome);
+    const desc = config.intro[langId];
+    const pageUrl = `${baseUrl}${langPrefix}/${regionKey}`;
+    const listedCount = data.properties.filter(
+      (p) => !p.unlisted && matchesDestination(
+        { propertyTitle: p.title, location: p.location, facilities: [] },
+        config.destinationKey,
+      ),
+    ).length;
+    const faqs = config.faqs?.[langId] || [];
+    const extraJsonLd = [
+      buildRegionCollectionPage({
+        name: title,
+        description: desc,
+        path: `${langPrefix}/${regionKey}`,
+        placeName: `${config.nomes.pt}, Ceará`,
+        geo: config.geo,
+        itemCount: listedCount,
+        inLanguage: data.code.replace('_', '-'),
+      }),
+      buildFaqPage(faqs),
+    ];
+    generatePage(
+      pagePath, title, desc, config.heroImage, pageUrl, data.code, langId, null,
+      `/${regionKey}`, null, PAGE_KEYWORDS[regionKey]?.[langId] || '', extraJsonLd,
+      regionBodyHtml(config, langId),
+    );
+    console.log(`Página Região gerada: ${langId} - ${regionKey}`);
+
+    sitemap += `
+  <url>
+    <loc>${pageUrl}</loc>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="${baseUrl}/${regionKey}"/>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/en/${regionKey}"/>
+    <xhtml:link rel="alternate" hreflang="es" href="${baseUrl}/es/${regionKey}"/>
   </url>`;
   });
 

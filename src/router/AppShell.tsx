@@ -11,6 +11,7 @@ import { scrollToSection } from '../utils/scrollToSection';
 import { AppShellCtx } from './appShellContext';
 import { PAGE_KEYWORDS, type SeoLang } from '../utils/seoKeywords';
 import { toOgImage } from '../utils/seoImages';
+import { REGIOES } from '../data/regioes';
 
 export default function AppShell() {
   const { t, i18n } = useTranslation();
@@ -152,9 +153,9 @@ export default function AppShell() {
       '/contato',
       '/ventoafavor',
       '/taiba',
-      '/tatajuba',
-      '/prea',
-      '/bitupita',
+      // Páginas de região (RegiaoPage) gerenciam a própria SEO — derivadas de
+      // src/data/regioes.ts para não precisar manter esta lista em dois lugares.
+      ...Object.keys(REGIOES).map((key) => `/${key}`),
     ].includes(cleanPath);
     if (managesOwnSeo) return;
 
