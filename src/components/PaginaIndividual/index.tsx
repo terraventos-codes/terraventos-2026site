@@ -13,6 +13,10 @@ import MediaViewerPortals from './MediaViewerPortals';
 import { useMediaViewer } from './useMediaViewer';
 import { derivePropertyKeywords, type SeoLang } from '../../utils/seoKeywords';
 import { toOgImage } from '../../utils/seoImages';
+import { useStructuredData } from '../../utils/useStructuredData';
+import { buildBreadcrumbList, buildRealEstateListing, SITE_URL } from '../../utils/structuredData';
+
+const CRUMB_IMOVEIS: Record<string, string> = { pt: 'Imóveis', en: 'Properties', es: 'Inmuebles' };
 
 type PaginaIndividualProps = {
   item: OportunidadeDetalhe;
@@ -72,6 +76,37 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
       document.body.style.overflow = '';
     };
   }, [item, i18n.language]);
+
+  const lang = i18n.language?.split('-')[0] || 'pt';
+  const langPrefix = lang === 'pt' ? '' : `/${lang}`;
+  const pageUrl =
+    typeof window !== 'undefined'
+      ? window.location.origin + window.location.pathname
+      : `${SITE_URL}${langPrefix}/propriedade/${item.slug}`;
+  const ldImage = toOgImage(item.image);
+  const ldImageUrl = ldImage.startsWith('http')
+    ? ldImage
+    : `${typeof window !== 'undefined' ? window.location.origin : SITE_URL}${ldImage}`;
+
+  useStructuredData(
+    buildBreadcrumbList([
+      { name: 'Terra Ventos', url: lang === 'pt' ? '/' : `/${lang}/` },
+      { name: CRUMB_IMOVEIS[lang] || CRUMB_IMOVEIS.pt, url: `${langPrefix}/propriedades` },
+      { name: item.propertyTitle, url: pageUrl },
+    ]),
+    buildRealEstateListing(
+      {
+        propertyTitle: item.propertyTitle,
+        location: item.location,
+        image: item.image,
+        description: item.exclusiveText || item.about[0] || '',
+        price: item.price,
+        priceTag: item.priceTag,
+      },
+      ldImageUrl,
+      pageUrl,
+    ),
+  );
 
   return (
     <section className="pagina-individual">

@@ -4,6 +4,13 @@ import { fileURLToPath } from 'url';
 import { getOportunidadesData } from './src/data/oportunidadesDataI18n.ts';
 import { derivePropertyKeywords, PAGE_KEYWORDS } from './src/utils/seoKeywords.ts';
 import { toOgImage } from './src/utils/seoImages.ts';
+import {
+  buildBreadcrumbList,
+  buildRealEstateListing,
+  serializeJsonLd,
+} from './src/utils/structuredData.ts';
+
+const BREADCRUMB_LIST_LABEL = { pt: 'Imóveis', en: 'Properties', es: 'Inmuebles' };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -74,7 +81,7 @@ const SECTION_LABELS = {
   es: { details: 'Detalles del Inmueble', infra: 'Infraestructura', facilities: 'Facilidades' },
 };
 
-function generatePage(targetPath, title, desc, img, url, langCode, langId, imgAlt = null, suffix = '/', property = null, keywords = '') {
+function generatePage(targetPath, title, desc, img, url, langCode, langId, imgAlt = null, suffix = '/', property = null, keywords = '', extraJsonLd = []) {
   let html = template;
   // og:image/twitter:image usa o recorte 1200x630 pré-gerado (nunca a foto original direto):
   // resolve tanto o aspect ratio (fotos reais são quase quadradas ou 16:9) quanto o avif
@@ -139,6 +146,47 @@ function generatePage(targetPath, title, desc, img, url, langCode, langId, imgAl
   const langScript = `<script>localStorage.setItem('i18nextLng', '${langId}');</script>`;
   html = html.replace('</head>', `${langScript}\n</head>`);
 
+  // JSON-LD por página: BreadcrumbList (toda página que não é a home) +
+  // RealEstateListing nas fichas de imóvel + blocos extras (FAQPage, CollectionPage
+  // vindos das páginas de região/intenção). O grafo global (Organization, escritórios,
+  // WebSite) já está no index.html base e é herdado por todas as páginas.
+  const jsonLdBlocks = [];
+  if (suffix !== '/') {
+    const homeCrumb = { name: 'Terra Ventos', url: langId === 'pt' ? '/' : `/${langId}/` };
+    const langPrefix = langId === 'pt' ? '' : `/${langId}`;
+    const cleanName = displayTitle.split('|')[0].trim();
+    if (property) {
+      jsonLdBlocks.push(buildBreadcrumbList([
+        homeCrumb,
+        { name: BREADCRUMB_LIST_LABEL[langId] || BREADCRUMB_LIST_LABEL.pt, url: `${langPrefix}/propriedades` },
+        { name: property.title || cleanName, url },
+      ]));
+      jsonLdBlocks.push(buildRealEstateListing(
+        {
+          propertyTitle: property.title || cleanName,
+          location: property.location,
+          image: img,
+          description: desc,
+          price: property.price,
+          priceTag: property.priceTag,
+        },
+        fullImageUrl,
+        url,
+      ));
+    } else {
+      jsonLdBlocks.push(buildBreadcrumbList([homeCrumb, { name: cleanName, url }]));
+    }
+  }
+  for (const extra of extraJsonLd) {
+    if (extra) jsonLdBlocks.push(extra);
+  }
+  if (jsonLdBlocks.length) {
+    const ldScripts = jsonLdBlocks
+      .map((block) => `<script type="application/ld+json" data-ssr-ld="true">${serializeJsonLd(block)}</script>`)
+      .join('\n');
+    html = html.replace('</head>', `${ldScripts}\n</head>`);
+  }
+
   const dir = path.dirname(targetPath);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 
@@ -200,8 +248,9 @@ function generatePage(targetPath, title, desc, img, url, langCode, langId, imgAl
       </main>
       <footer>
         <p>Terra Ventos | Imóveis de Luxo no Ceará</p>
-        <p>Contatos: +55 (85) 9 8557-2807 | info@terraventos.com.br</p>
-        <p>Endereço: Rua Monsenhor Bruno, nº 1153, sala 608, Aldeota, Fortaleza - CE</p>
+        <p>Contatos: +55 (85) 9 8557-2807 | info@terraventos.com</p>
+        <p>Sede: Rua Monsenhor Bruno, nº 1153, sala 608, Aldeota, Fortaleza - CE, 60115-191</p>
+        <p>Escritório Preá: Rua Antônio Chagas, nº 857 - Preá, Cruz - CE, 62595-000</p>
       </footer>
     </div>
   `;

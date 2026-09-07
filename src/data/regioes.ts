@@ -6,6 +6,8 @@ interface RegiaoConfig {
   heroImage: string;
   nomes: Record<'pt' | 'en' | 'es', string>;
   intro: Record<'pt' | 'en' | 'es', string>;
+  /** Coordenadas do ponto de referência da região (usadas no JSON-LD Place). */
+  geo?: { latitude: number; longitude: number };
 }
 
 export const REGIOES: Record<RegiaoKey, RegiaoConfig> = {
@@ -22,6 +24,7 @@ export const REGIOES: Record<RegiaoKey, RegiaoConfig> = {
   prea: {
     destinationKey: 'prea',
     heroImage: '/imoveis/mansao-praia-do-prea-01.webp',
+    geo: { latitude: -2.8194128, longitude: -40.4061732 },
     nomes: { pt: 'Preá', en: 'Preá', es: 'Preá' },
     intro: {
       pt: 'Terrenos, casas e mansões à venda na Praia do Preá — o maior spot de kitesurf e wingfoil do Ceará, com infraestrutura em crescimento e alto padrão de investimento.',

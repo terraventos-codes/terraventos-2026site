@@ -11,6 +11,8 @@ import { useTransitionNavigate } from '../router/useTransitionNavigate';
 import { scrollToSection } from '../utils/scrollToSection';
 import LocalizedLink from '../router/LocalizedLink';
 import PropertyCard from '../components/PropertyCard';
+import { useStructuredData } from '../utils/useStructuredData';
+import { buildBreadcrumbList, buildRegionCollectionPage } from '../utils/structuredData';
 import '../components/ListagemPropriedades.css';
 import './RegiaoPage.css';
 
@@ -97,6 +99,24 @@ export default function RegiaoPage({ regionKey }: RegiaoPageProps) {
     updateMeta('twitter:description', description);
     updateMeta('twitter:image', imageUrl);
   }, [config, lang, regionKey]);
+
+  const langPrefix = lang === 'pt' ? '' : `/${lang}`;
+  const regionPath = `${langPrefix}/${regionKey}`;
+  useStructuredData(
+    buildBreadcrumbList([
+      { name: 'Terra Ventos', url: lang === 'pt' ? '/' : `/${lang}/` },
+      { name: config.nomes[lang], url: regionPath },
+    ]),
+    buildRegionCollectionPage({
+      name: `${config.nomes[lang]} | Terra Ventos`,
+      description: config.intro[lang],
+      path: regionPath,
+      placeName: `${config.nomes.pt}, Ceará`,
+      geo: config.geo,
+      itemCount: filteredSortedItems.length,
+      inLanguage: lang === 'pt' ? 'pt-BR' : lang,
+    }),
+  );
 
   const handleSelect = (item: OportunidadeDetalhe) => {
     transitionNavigate(`/propriedade/${item.slug}`);
