@@ -603,7 +603,12 @@ Object.entries(locales).forEach(([langId, data]) => {
   // não promover ativamente fichas marcadas como "não listar".
   data.properties.forEach(prop => {
     const propPath = path.resolve(distPath, langId === 'pt' ? '' : langId, 'propriedade', prop.slug, 'index.html');
-    generatePage(propPath, prop.title, prop.description, prop.image, `${baseUrl}${langPrefix}/propriedade/${prop.slug}`, data.code, langId, null, `/propriedade/${prop.slug}`, prop, prop.keywords);
+    const propAsItem = { propertyTitle: prop.title, location: prop.location, facilities: [] };
+    const propRegionKey = Object.keys(REGIOES).find((k) => matchesDestination(propAsItem, REGIOES[k].destinationKey));
+    const propRegionLink = propRegionKey
+      ? relatedLinksHtml([{ href: `${langPrefix}/${propRegionKey}`, label: REGIOES[propRegionKey].nomes[langId] }], langId)
+      : '';
+    generatePage(propPath, prop.title, prop.description, prop.image, `${baseUrl}${langPrefix}/propriedade/${prop.slug}`, data.code, langId, null, `/propriedade/${prop.slug}`, prop, prop.keywords, [], propRegionLink);
     console.log(`Página Propriedade gerada: ${langId} - ${prop.slug}${prop.unlisted ? ' (unlisted, fora do sitemap)' : ''}`);
 
     if (prop.unlisted) return;

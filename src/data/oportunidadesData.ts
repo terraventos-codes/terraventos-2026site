@@ -1847,11 +1847,8 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     facilities: ['560 m²', 'Escritura', 'Murado', 'Pronto para Construir', 'Localização Estratégica'],
     gallery: {
       main: '/imoveis/lote-109-taiba-01.webp',
-      sideTop: '/imoveis/lote-109-taiba-02.webp',
-      sideBottom: '/imoveis/lote-109-taiba-03.webp',
-      extra: [
-        '/imoveis/lote-109-taiba-04.webp'
-      ]
+      sideTop: '/imoveis/lote-109-taiba-03.webp',
+      sideBottom: null
     },
     mapImage: '/mapa.avif',
     mapUrl: 'https://maps.google.com/maps?q=-3.5125,-38.9090&hl=pt-BR&z=15&output=embed',

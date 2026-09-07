@@ -15,8 +15,16 @@ import { derivePropertyKeywords, type SeoLang } from '../../utils/seoKeywords';
 import { toOgImage } from '../../utils/seoImages';
 import { useStructuredData } from '../../utils/useStructuredData';
 import { buildBreadcrumbList, buildRealEstateListing, SITE_URL } from '../../utils/structuredData';
+import { matchesDestination } from '../../utils/seoKeywords';
+import { REGIOES, type RegiaoKey } from '../../data/regioes';
+import LocalizedLink from '../../router/LocalizedLink';
 
 const CRUMB_IMOVEIS: Record<string, string> = { pt: 'Imóveis', en: 'Properties', es: 'Inmuebles' };
+const VER_REGIAO: Record<string, (n: string) => string> = {
+  pt: (n) => `Ver todos os imóveis em ${n}`,
+  en: (n) => `See all properties in ${n}`,
+  es: (n) => `Ver todos los inmuebles en ${n}`,
+};
 
 type PaginaIndividualProps = {
   item: OportunidadeDetalhe;
@@ -108,6 +116,10 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
     ),
   );
 
+  const regiaoKey = (Object.keys(REGIOES) as RegiaoKey[]).find((k) =>
+    matchesDestination(item, REGIOES[k].destinationKey),
+  );
+
   return (
     <section className="pagina-individual">
       <div className="pi-main">
@@ -119,6 +131,16 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
         />
 
         <PropertyHeader item={activeRecord} />
+
+        {regiaoKey && (
+          <LocalizedLink to={`/${regiaoKey}`} className="pi-regiao-link">
+            {(VER_REGIAO[lang] || VER_REGIAO.pt)(REGIOES[regiaoKey].nomes[lang as 'pt' | 'en' | 'es'])}
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </LocalizedLink>
+        )}
 
         <div className="pi-content-grid">
           <div className="pi-content-main">
