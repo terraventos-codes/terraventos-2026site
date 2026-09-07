@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { getOportunidadesData } from '../data/oportunidadesDataI18n';
 import type { OportunidadeDetalhe } from '../data/oportunidadesData';
 import { REGIOES, type RegiaoKey } from '../data/regioes';
+import { INTENT_PAGES } from '../data/intentPages';
 import { matchesDestination, inferPropertyTypeKey, TYPE_MATCHERS, PAGE_KEYWORDS, type SeoLang } from '../utils/seoKeywords';
 import { toOgImage } from '../utils/seoImages';
 import { parsePrice } from '../utils/parsePrice';
@@ -293,6 +294,24 @@ export default function RegiaoPage({ regionKey }: RegiaoPageProps) {
       </section>
 
       {faqs.length > 0 && <FaqBlock items={faqs} title={FAQ_TITLE[lang] || FAQ_TITLE.pt} />}
+
+      <nav className="regiao-links-relacionados" aria-label={t('regiao.relacionadosLabel', 'Explore também')}>
+        <h2 className="regiao-links-titulo">{t('regiao.relacionadosLabel', 'Explore também')}</h2>
+        <div className="regiao-links-lista">
+          {(Object.keys(REGIOES) as RegiaoKey[])
+            .filter((k) => k !== regionKey)
+            .map((k) => (
+              <LocalizedLink key={k} to={`/${k}`} className="regiao-link-pill">
+                {REGIOES[k].nomes[lang]}
+              </LocalizedLink>
+            ))}
+          {INTENT_PAGES.filter((ip) => ip.regionKey === regionKey).map((ip) => (
+            <LocalizedLink key={ip.slug} to={`/${ip.slug}`} className="regiao-link-pill">
+              {ip.h1[lang]}
+            </LocalizedLink>
+          ))}
+        </div>
+      </nav>
 
       <section className="regiao-cta-band">
         <span className="regiao-cta-pill">{t('regiao.heroTag')}</span>

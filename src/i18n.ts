@@ -81,7 +81,8 @@ i18n
             countLabel_one: "{{count}} imóvel disponível",
             countLabel_other: "{{count}} imóveis disponíveis",
             ctaBandQuestion: "Interessado em imóveis em",
-            ctaBandSubtitle: "Nossa equipe apresenta as opções disponíveis e tira todas as suas dúvidas, sem compromisso."
+            ctaBandSubtitle: "Nossa equipe apresenta as opções disponíveis e tira todas as suas dúvidas, sem compromisso.",
+            relacionadosLabel: "Explore também"
           },
           categorias: {
             all: "Todas",
@@ -287,7 +288,8 @@ i18n
             countLabel_one: "{{count}} property available",
             countLabel_other: "{{count}} properties available",
             ctaBandQuestion: "Interested in properties in",
-            ctaBandSubtitle: "Our team walks you through the available options and answers every question, with no commitment."
+            ctaBandSubtitle: "Our team walks you through the available options and answers every question, with no commitment.",
+            relacionadosLabel: "Explore more"
           },
           categorias: {
             all: "All",
@@ -501,7 +503,8 @@ i18n
             countLabel_one: "{{count}} inmueble disponible",
             countLabel_other: "{{count}} inmuebles disponibles",
             ctaBandQuestion: "¿Interesado en inmuebles en",
-            ctaBandSubtitle: "Nuestro equipo presenta las opciones disponibles y responde todas tus preguntas, sin compromiso."
+            ctaBandSubtitle: "Nuestro equipo presenta las opciones disponibles y responde todas tus preguntas, sin compromiso.",
+            relacionadosLabel: "Explora también"
           },
           categorias: {
             all: "Todas",

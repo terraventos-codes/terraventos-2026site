@@ -54,6 +54,22 @@ function regionBodyHtml(config, langId) {
   return `${secoes}\n${faqHtml}`;
 }
 
+const RELATED_HEADING = { pt: 'Explore também', en: 'Explore more', es: 'Explora también' };
+
+/** Bloco de links internos (região <-> região <-> intenção) para o HTML estático. */
+function relatedLinksHtml(links, langId) {
+  if (!links.length) return '';
+  return `
+        <nav aria-label="${RELATED_HEADING[langId] || RELATED_HEADING.pt}">
+          <h2>${RELATED_HEADING[langId] || RELATED_HEADING.pt}</h2>
+          <ul>
+            ${links
+              .map((l) => `<li><a href="${baseUrl}${l.href}">${escHtml(l.label)}</a></li>`)
+              .join('\n            ')}
+          </ul>
+        </nav>`;
+}
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -432,7 +448,11 @@ Object.entries(locales).forEach(([langId, data]) => {
     : langId === 'en'
       ? 'Luxury Real Estate in Ceará — Terra Ventos'
       : 'Inmuebles de Lujo en Ceará — Terra Ventos';
-  generatePage(listPath, listTitle, listDesc, '/og-propriedades.png', `${baseUrl}${langPrefix}/propriedades`, data.code, langId, listImgAlt, '/propriedades', null, PAGE_KEYWORDS.propriedades[langId]);
+  const propriedadesHubLinks = [
+    ...Object.keys(REGIOES).map((k) => ({ href: `${langPrefix}/${k}`, label: REGIOES[k].nomes[langId] })),
+    ...INTENT_PAGES.map((ip) => ({ href: `${langPrefix}/${ip.slug}`, label: ip.h1[langId] })),
+  ];
+  generatePage(listPath, listTitle, listDesc, '/og-propriedades.png', `${baseUrl}${langPrefix}/propriedades`, data.code, langId, listImgAlt, '/propriedades', null, PAGE_KEYWORDS.propriedades[langId], [], relatedLinksHtml(propriedadesHubLinks, langId));
   console.log(`Página Listagem Propriedades gerada para: ${langId}`);
 
   sitemap += `
@@ -492,10 +512,19 @@ Object.entries(locales).forEach(([langId, data]) => {
       }),
       buildFaqPage(faqs),
     ];
+    const regionRelLinks = [
+      ...Object.keys(REGIOES)
+        .filter((k) => k !== regionKey)
+        .map((k) => ({ href: `${langPrefix}/${k}`, label: REGIOES[k].nomes[langId] })),
+      ...INTENT_PAGES.filter((ip) => ip.regionKey === regionKey).map((ip) => ({
+        href: `${langPrefix}/${ip.slug}`,
+        label: ip.h1[langId],
+      })),
+    ];
     generatePage(
       pagePath, title, desc, config.heroImage, pageUrl, data.code, langId, null,
       `/${regionKey}`, null, PAGE_KEYWORDS[regionKey]?.[langId] || '', extraJsonLd,
-      regionBodyHtml(config, langId),
+      regionBodyHtml(config, langId) + relatedLinksHtml(regionRelLinks, langId),
     );
     console.log(`Página Região gerada: ${langId} - ${regionKey}`);
 
@@ -545,10 +574,17 @@ Object.entries(locales).forEach(([langId, data]) => {
           itemCount: count,
           inLanguage: inLang,
         });
+    const intentRelLinks = [
+      { href: `${langPrefix}/${intent.regionKey}`, label: region.nomes[langId] },
+      ...INTENT_PAGES.filter((ip) => ip.slug !== intent.slug).map((ip) => ({
+        href: `${langPrefix}/${ip.slug}`,
+        label: ip.h1[langId],
+      })),
+    ];
     generatePage(
       pagePath, title, desc, intent.heroImage, pageUrl, data.code, langId, null,
       `/${intent.slug}`, null, '', [primary, buildFaqPage(faqs)],
-      regionBodyHtml(intent, langId),
+      regionBodyHtml(intent, langId) + relatedLinksHtml(intentRelLinks, langId),
     );
     console.log(`Página Intenção gerada: ${langId} - ${intent.slug}`);
 

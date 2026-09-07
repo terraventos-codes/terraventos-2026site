@@ -20,6 +20,16 @@ export default function Footer() {
         </div>
 
         <div className="footer-luxo-links">
+          <h4>{t('nav.regioes')}</h4>
+          <LocalizedLink to="/prea">Preá</LocalizedLink>
+          <LocalizedLink to="/jericoacoara">Jericoacoara</LocalizedLink>
+          <LocalizedLink to="/guriu">Guriú</LocalizedLink>
+          <LocalizedLink to="/tatajuba">Tatajuba</LocalizedLink>
+          <LocalizedLink to="/bitupita">Bitupitá</LocalizedLink>
+          <LocalizedLink to="/taiba">Taíba</LocalizedLink>
+        </div>
+
+        <div className="footer-luxo-links">
           <h4>{t('nav.quemSomos')} & {t('nav.contato_dedicado')}</h4>
           <LocalizedLink to="/quem-somos">{t('nav.quemSomos')}</LocalizedLink>
           <LocalizedLink to="/contato">{t('nav.contato_dedicado')}</LocalizedLink>
