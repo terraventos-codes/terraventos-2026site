@@ -1,0 +1,28 @@
+# Assets pesados brutos nunca vão pro deploy
+*.zip
+*.mp4
+*.mov
+por.traineddata
+
+# Scripts de manutenção / geração de dados (rodam só localmente)
+add_*.js
+add_*.cjs
+fix_*.js
+fix_*.cjs
+update_*.mjs
+update_*.cjs
+compress*.mjs
+scratch.mjs
+
+# Diretórios de trabalho / rascunho
+.tmpwork/
+.claude/
+template/
+
+# Docs internos
+emailjs-template.md
+links_novas_propriedades.md
+links-propriedades-ocultas-novas.txt
+novas_propriedades_links.md
+novas_propriedades_localhost.md
+propriedades_ocultas_antigas.md
