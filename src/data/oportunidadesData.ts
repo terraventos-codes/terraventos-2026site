@@ -782,7 +782,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     propertyTitle: "TERRENO PRAIA DO FAROL",
     location: "Farol do Itapajé - Itarema, CE",
     rating: 5,
-    exclusiveText: "Área exclusiva à venda. R$ 750,00 o m² | Total: R$ 6.450.000,00",
+    exclusiveText: "Área exclusiva à venda. Total: R$ 4.000.000,00",
     summaryDescription: "Terreno com frente para lagoa em área de alta valorização do litoral cearense. A apenas 2 minutos da praia, ideal para casas de alto padrão, pousada ou hotel boutique.",
     about: [
       "Terreno com frente para lagoa, localizado em uma das áreas de maior valorização do litoral cearense.",
@@ -809,7 +809,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
       "https://player.vimeo.com/video/1203999301"
     ],
     priceTag: "Valor",
-    price: "R$ 6.450.000,00",
+    price: "R$ 4.000.000,00",
     installments: "Consulte condições",
     category: "venda"
   },
