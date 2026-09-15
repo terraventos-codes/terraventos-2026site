@@ -1126,9 +1126,13 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       },
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=Preá+-+Caiçara,+Cruz+-+CE,+62595-000,+Brasil&hl=pt-BR&z=15&output=embed',
-      priceTag: 'A partir de',
+      priceTag: 'Réveillon',
       price: 'R$ 55 MIL',
-      installments: 'Réveillon: 3 quartos (8 pessoas) R$ 55 mil, ou casa toda com 5 quartos (12 pessoas) R$ 70 mil',
+      installments: 'Pacote exclusivo para o Réveillon',
+      lotes: [
+        { id: '8p', label: '3 Quartos • 8 pessoas', priceTag: 'Réveillon', price: 'R$ 55 MIL' },
+        { id: '12p', label: 'Casa toda • 5 Quartos • 12 pessoas', priceTag: 'Réveillon (casa completa)', price: 'R$ 70 MIL' },
+      ],
     },
     {
       id: '05',
@@ -3414,9 +3418,13 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       },
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=Preá+-+Caiçara,+Cruz+-+CE,+62595-000,+Brasil&hl=pt-BR&z=15&output=embed',
-      priceTag: 'Starting at',
+      priceTag: 'New Year\'s Eve',
       price: 'R$ 55 THOUSAND',
-      installments: 'New Year\'s Eve: 3 bedrooms (8 people) R$ 55K, or the whole house with 5 bedrooms (12 people) R$ 70K',
+      installments: 'Exclusive New Year\'s Eve package',
+      lotes: [
+        { id: '8p', label: '3 Bedrooms • 8 people', priceTag: 'New Year\'s Eve', price: 'R$ 55 THOUSAND' },
+        { id: '12p', label: 'Whole house • 5 Bedrooms • 12 people', priceTag: 'New Year\'s Eve (whole house)', price: 'R$ 70 THOUSAND' },
+      ],
     },
     {
       id: '05',
@@ -5040,9 +5048,13 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       },
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=Preá+-+Caiçara,+Cruz+-+CE,+62595-000,+Brasil&hl=pt-BR&z=15&output=embed',
-      priceTag: 'Desde',
+      priceTag: 'Año Nuevo',
       price: 'R$ 55 MIL',
-      installments: 'Año Nuevo: 3 habitaciones (8 personas) R$ 55 mil, o la casa completa con 5 habitaciones (12 personas) R$ 70 mil',
+      installments: 'Paquete exclusivo para el Año Nuevo',
+      lotes: [
+        { id: '8p', label: '3 Habitaciones • 8 personas', priceTag: 'Año Nuevo', price: 'R$ 55 MIL' },
+        { id: '12p', label: 'Casa completa • 5 Habitaciones • 12 personas', priceTag: 'Año Nuevo (casa completa)', price: 'R$ 70 MIL' },
+      ],
     },
     {
       id: '05',

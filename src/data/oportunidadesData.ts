@@ -1741,10 +1741,14 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     },
     mapImage: '/mapa.avif',
     mapUrl: 'https://maps.google.com/maps?q=Preá+-+Caiçara,+Cruz+-+CE,+62595-000,+Brasil&hl=pt-BR&z=15&output=embed',
-    priceTag: 'A partir de',
+    priceTag: 'Réveillon',
     price: 'R$ 55 MIL',
-    installments: 'Réveillon: 3 quartos (8 pessoas) R$ 55 mil, ou casa toda com 5 quartos (12 pessoas) R$ 70 mil',
-    category: 'temporada'
+    installments: 'Pacote exclusivo para o Réveillon',
+    category: 'temporada',
+    lotes: [
+      { id: '8p', label: '3 Quartos • 8 pessoas', priceTag: 'Réveillon', price: 'R$ 55 MIL' },
+      { id: '12p', label: 'Casa toda • 5 Quartos • 12 pessoas', priceTag: 'Réveillon (casa completa)', price: 'R$ 70 MIL' },
+    ]
   },
   {
     id: '05',
