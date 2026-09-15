@@ -198,7 +198,7 @@ const projetos = [
     tag: "VENDA",
     location: "Praia do Preá, Ceará, Brasil",
     title: "CASA ALTO PADRÃO NA PRAIA DO PREÁ",
-    area: "450 m²",
+    area: "565 m²",
     beds: 4,
     baths: 5,
     price: "R$ 4.000.000,00",
