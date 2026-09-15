@@ -1689,27 +1689,33 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   {
     id: '03',
     slug: 'vila-do-ingles',
-    title: 'INVESTIMENTO',
+    title: 'TEMPORADA',
     image: '/imoveis/vila-do-ingles-01.webp',
-    badge: 'Investimento',
-    propertyTitle: 'VILA DO INGLÃS',
-    location: 'PreÃ¡, CearÃ¡, Brasil',
+    badge: 'Temporada',
+    propertyTitle: 'VILA DO INGLÊS',
+    location: 'Preá, Ceará, Brasil',
     rating: 5,
-    exclusiveText: '200 m² | 3 Quartos | 3 Banheiros | 10 Projetos Exclusivos',
+    exclusiveText: '2.000 m² | 5 Quartos | 3 Banheiros | Exclusivo Réveillon',
     about: [
-      'A poucos passos dos melhores spots de kite do Preá, a Vila do Inglês é um convite a viver o litoral do Ceará em outro nível. São 200 m² desenhados para o dia a dia: 3 quartos, 3 banheiros e ambientes amplos, banhados por luz natural do início ao fim do dia — o tipo de casa que transforma qualquer temporada em férias permanentes.',
-      'As paredes de vidro do chão ao teto dissolvem a fronteira entre dentro e fora, abrindo a casa para o verde ao redor, enquanto o terraço privativo garante aquele pôr do sol só seu, sem vizinho por perto. Para receber bem, a casa foi pensada com carinho: um quarto com beliche, dois com cama de casal e mais dois sofás-cama, acomodando até 8 pessoas com conforto — perfeita para família grande, grupo de amigos ou para rentabilizar como aluguel de temporada.',
-      'Faz parte de um seleto grupo de 10 projetos exclusivos na região — oportunidades assim não ficam disponíveis por muito tempo. Se você busca um imóvel que une localização premium, privacidade e potencial de valorização no litoral que mais cresce no Brasil, a Vila do Inglês é a sua porta de entrada nesse mercado. Fale com a Terra Ventos e garanta a sua.'
+      'A Vila do Inglês é uma propriedade de 2.000 m², 100% privativa, no coração do Preá — pensada para grandes celebrações e para reunir quem você mais ama num só lugar. Piscina privativa, quadra de esportes com rede de beach tennis, área gourmet com churrasqueira e um jardim natural que convida a desacelerar assim que você chega.',
+      'Por dentro, conforto do início ao fim: todos os quartos com ar-condicionado, cozinha de fazenda completa com liquidificador, tostadeira e cafeteira, lava-roupas, lava-louças e até ovos fresquinhos de galinhas criadas soltas no terreno. Chuveiro ao ar livre, detector de fumaça, guarda de kite e estacionamento para 5 carros garantem que nada falte durante a estadia — e cozinheira e serviço de limpeza estão disponíveis à parte, para quem quiser zero preocupação.',
+      'Disponível com exclusividade para o Réveillon: 3 quartos (6 pessoas) + 2 sofás-cama, acomodando até 8 pessoas, por R$ 55 mil — ou a casa toda, com 5 quartos + 2 sofás-cama, para até 12 pessoas, por R$ 70 mil. Fale com a Terra Ventos e garanta a virada do ano no Preá.'
     ],
     infra: [
-      'Paredes de vidro do chão ao teto',
-      'Terraço privativo',
-      '3 quartos (1 beliche, 2 casal) + 2 sofás-cama',
-      '3 banheiros modernos',
-      'Acomoda até 8 pessoas',
-      'Localização isolada de alto padrão'
+      'Piscina privativa',
+      '2.000 m² de área, 100% privativo',
+      'Quadra de esportes com rede de beach tennis',
+      'Área gourmet com churrasqueira',
+      'Jardim natural e chuveiro ao ar livre',
+      'Todos os quartos com ar-condicionado',
+      'Detector de fumaça',
+      'Cozinha de fazenda (lava-louças, lava-roupas, liquidificador, tostadeira, cafeteira)',
+      'Ovos de galinhas livres',
+      'Guarda de kite',
+      'Estacionamento para 5 carros',
+      'Cozinheira e limpeza disponíveis à parte'
     ],
-    facilities: ['!Beira-mar', 'Ar-condicionado', '!MÃ¡quina de lavar', '!Internet', 'Aquecedor de Ã¡gua', 'Geladeira', 'SofÃ¡', 'Guarda-roupa'],
+    facilities: ['Piscina Privativa', 'Ar-condicionado', 'Área Gourmet', 'Churrasqueira', 'Quadra de Esportes', 'Guarda de Kite', 'Estacionamento', 'Detector de Fumaça'],
     gallery: {
       main: '/imoveis/vila-do-ingles-02.webp',
       sideTop: '/imoveis/vila-do-ingles-03.webp',
@@ -1735,10 +1741,10 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     },
     mapImage: '/mapa.avif',
     mapUrl: 'https://maps.google.com/maps?q=Preá+-+Caiçara,+Cruz+-+CE,+62595-000,+Brasil&hl=pt-BR&z=15&output=embed',
-    priceTag: 'Status',
-    price: 'Em Breve',
-    installments: '',
-    category: 'investimento'
+    priceTag: 'A partir de',
+    price: 'R$ 55 MIL',
+    installments: 'Réveillon: 3 quartos (8 pessoas) R$ 55 mil, ou casa toda com 5 quartos (12 pessoas) R$ 70 mil',
+    category: 'temporada'
   },
   {
     id: '05',

@@ -291,13 +291,13 @@ const projetos = [
   {
     id: "03",
     image: "/imoveis/vila-do-ingles-01.webp",
-    tag: "INVESTIMENTO",
+    tag: "TEMPORADA",
     location: "Preá, Ceará, Brasil",
     title: "Vila do Inglês",
-    area: "200 m²",
-    beds: 3,
+    area: "2.000 m²",
+    beds: 5,
     baths: 3,
-    price: "Em Breve",
+    price: "A partir de R$ 55 MIL",
     detailIndex: 4,
   },
   {
