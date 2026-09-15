@@ -1695,22 +1695,22 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     propertyTitle: 'VILA DO INGLÃS',
     location: 'PreÃ¡, CearÃ¡, Brasil',
     rating: 5,
-    exclusiveText: '200 mÂ² | 2 Banheiros | 10 Projetos Exclusivos',
+    exclusiveText: '200 m² | 3 Quartos | 3 Banheiros | 10 Projetos Exclusivos',
     about: [
-      'A EssÃªncia do Luxo SustentÃ¡vel: Uma mistura Ãºnica de sustentabilidade moderna e tranquilidade.',
-      'Inspirada em um refÃºgio de Nova York, esta residÃªncia oferece 200 mÂ² alimentados inteiramente por energia solar.',
-      '1. Design SustentÃ¡vel: Sistemas inteligentes com painÃ©is solares no telhado.',
-      '2. Conforto Estilo Spa: 2 banheiros modernos e imersivos.',
-      '3. TransparÃªncia DinÃ¢mica: Amplas paredes de vidro do chÃ£o ao teto.',
-      '4. Privacidade PanorÃ¢mica: TerraÃ§o privativo no rooftop.',
-      '5. ConexÃ£o Exclusiva: O contraste entre a localizaÃ§Ã£o premium e a paz isolada.'
+      'A Essência do Luxo Sustentável: Uma mistura única de sustentabilidade moderna e tranquilidade.',
+      'Inspirada em um refúgio de Nova York, esta residência oferece 200 m² distribuídos em 3 quartos e 3 banheiros.',
+      '1. Transparência Dinâmica: Amplas paredes de vidro do chão ao teto.',
+      '2. Privacidade Panorâmica: Terraço privativo.',
+      '3. Conforto para Hóspedes: 1 quarto com beliche, 2 quartos com cama de casal e 2 sofás-cama, acomodando até 8 pessoas.',
+      '4. Conexão Exclusiva: O contraste entre a localização premium e a paz isolada.'
     ],
     infra: [
-      'Sistema de painÃ©is solares no rooftop',
-      'Paredes de vidro do chÃ£o ao teto',
-      'TerraÃ§o privativo no rooftop',
-      '2 banheiros modernos',
-      'LocalizaÃ§Ã£o isolada de alto padrÃ£o'
+      'Paredes de vidro do chão ao teto',
+      'Terraço privativo',
+      '3 quartos (1 beliche, 2 casal) + 2 sofás-cama',
+      '3 banheiros modernos',
+      'Acomoda até 8 pessoas',
+      'Localização isolada de alto padrão'
     ],
     facilities: ['!Beira-mar', 'Ar-condicionado', '!MÃ¡quina de lavar', '!Internet', 'Aquecedor de Ã¡gua', 'Geladeira', 'SofÃ¡', 'Guarda-roupa'],
     gallery: {
