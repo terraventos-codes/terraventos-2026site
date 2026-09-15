@@ -1697,12 +1697,9 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     rating: 5,
     exclusiveText: '200 m² | 3 Quartos | 3 Banheiros | 10 Projetos Exclusivos',
     about: [
-      'A Essência do Luxo Sustentável: Uma mistura única de sustentabilidade moderna e tranquilidade.',
-      'Inspirada em um refúgio de Nova York, esta residência oferece 200 m² distribuídos em 3 quartos e 3 banheiros.',
-      '1. Transparência Dinâmica: Amplas paredes de vidro do chão ao teto.',
-      '2. Privacidade Panorâmica: Terraço privativo.',
-      '3. Conforto para Hóspedes: 1 quarto com beliche, 2 quartos com cama de casal e 2 sofás-cama, acomodando até 8 pessoas.',
-      '4. Conexão Exclusiva: O contraste entre a localização premium e a paz isolada.'
+      'A poucos passos dos melhores spots de kite do Preá, a Vila do Inglês é um convite a viver o litoral do Ceará em outro nível. São 200 m² desenhados para o dia a dia: 3 quartos, 3 banheiros e ambientes amplos, banhados por luz natural do início ao fim do dia — o tipo de casa que transforma qualquer temporada em férias permanentes.',
+      'As paredes de vidro do chão ao teto dissolvem a fronteira entre dentro e fora, abrindo a casa para o verde ao redor, enquanto o terraço privativo garante aquele pôr do sol só seu, sem vizinho por perto. Para receber bem, a casa foi pensada com carinho: um quarto com beliche, dois com cama de casal e mais dois sofás-cama, acomodando até 8 pessoas com conforto — perfeita para família grande, grupo de amigos ou para rentabilizar como aluguel de temporada.',
+      'Faz parte de um seleto grupo de 10 projetos exclusivos na região — oportunidades assim não ficam disponíveis por muito tempo. Se você busca um imóvel que une localização premium, privacidade e potencial de valorização no litoral que mais cresce no Brasil, a Vila do Inglês é a sua porta de entrada nesse mercado. Fale com a Terra Ventos e garanta a sua.'
     ],
     infra: [
       'Paredes de vidro do chão ao teto',
@@ -1737,7 +1734,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
       ]
     },
     mapImage: '/mapa.avif',
-    mapUrl: 'https://maps.google.com/maps?q=40.773565,-73.956555&z=15&output=embed',
+    mapUrl: 'https://maps.google.com/maps?q=Preá+-+Caiçara,+Cruz+-+CE,+62595-000,+Brasil&hl=pt-BR&z=15&output=embed',
     priceTag: 'Status',
     price: 'Em Breve',
     installments: '',
