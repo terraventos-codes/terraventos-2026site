@@ -8,7 +8,11 @@ import LocalizedLink from '../router/LocalizedLink';
 import { useAppShellContext } from '../router/appShellContext';
 import { fetchPublishedPostBySlug, pickLangFields, toLangCode, type BlogPostRow } from '../lib/blogPosts';
 import { toOgImage } from '../utils/seoImages';
+import { useStructuredData } from '../utils/useStructuredData';
+import { buildBreadcrumbList } from '../utils/structuredData';
 import './BlogPostPage.css';
+
+const CRUMB_BLOG: Record<string, string> = { pt: 'Blog', en: 'Blog', es: 'Blog' };
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -85,6 +89,17 @@ export default function BlogPostPage() {
     updateMeta('twitter:description', description);
     updateMeta('twitter:image', imageUrl);
   }, [post]);
+
+  const blogPrefix = lang === 'pt' ? '' : `/${lang}`;
+  useStructuredData(
+    post
+      ? buildBreadcrumbList([
+          { name: 'Terra Ventos', url: lang === 'pt' ? '/' : `/${lang}/` },
+          { name: CRUMB_BLOG[lang] || CRUMB_BLOG.pt, url: `${blogPrefix}/blog` },
+          { name: post.title, url: `${blogPrefix}/blog/${slug}` },
+        ])
+      : null,
+  );
 
   if (notFound) {
     return <Pagina404 onBack={() => transitionNavigate(previousPath || '/blog')} />;

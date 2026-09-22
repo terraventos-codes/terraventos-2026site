@@ -58,7 +58,7 @@ const getTaibaData = (lang: string) => {
       facilities: isEs ? ['560 m²', 'MATRÍCULA', 'Listo para Construir', 'Totalmente Amurallado'] : isEn ? ['560 m²', 'MATRÍCULA', 'Ready to Build', 'Fully Walled'] : ['560 m²', 'MATRÍCULA', 'Pronto para Construir', 'Totalmente Murado'],
       gallery: {
         main: '/imoveis/lote-109-taiba-01.webp',
-        sideTop: '/imoveis/lote-109-taiba-02.webp',
+        sideTop: '/imoveis/lote-109-taiba-03.webp',
         sideBottom: null
       }
     },

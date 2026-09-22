@@ -143,3 +143,76 @@
     padding: 56px 20px;
   }
 }
+
+
+/* ── Região — corpo de conteúdo (mercado, acesso, documentação) ── */
+.regiao-corpo {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 56px 24px 8px;
+}
+
+.regiao-corpo-secao + .regiao-corpo-secao {
+  margin-top: 36px;
+}
+
+.regiao-corpo-titulo {
+  font-family: "Diodrum", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.35rem, 2.6vw, 1.8rem);
+  color: #111827;
+  margin: 0 0 16px;
+}
+
+.regiao-corpo-paragrafo {
+  font-family: "Avenir", sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #444;
+  margin: 0 0 14px;
+}
+
+@media (max-width: 768px) {
+  .regiao-corpo { padding: 40px 20px 4px; }
+}
+
+/* ── Região — links relacionados (interligação interna / GEO) ── */
+.regiao-links-relacionados {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 8px;
+  text-align: center;
+}
+
+.regiao-links-titulo {
+  font-family: "Diodrum", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  color: #111827;
+  margin: 0 0 20px;
+}
+
+.regiao-links-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.regiao-link-pill {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid rgba(17, 24, 39, 0.15);
+  border-radius: 22px;
+  font-family: "Avenir", sans-serif;
+  font-size: 0.9rem;
+  color: #111827;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.regiao-link-pill:hover {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}

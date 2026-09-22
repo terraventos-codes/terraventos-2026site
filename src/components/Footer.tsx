@@ -14,9 +14,19 @@ export default function Footer() {
       <div className="footer-luxo-content">
         <div className="footer-luxo-info">
           <p><a href="tel:+5585985572807">+55 (85) 9 8557-2807</a></p>
-          <p><a href="mailto:info@terraventos.com.br">info@terraventos.com.br</a></p>
+          <p><a href="mailto:info@terraventos.com">info@terraventos.com</a></p>
           <p>Fortaleza, Ceará - Rua Monsenhor Bruno, nº 1153, sala 608, Aldeota, Fortaleza - CE, 60115-191</p>
           <p>Preá, Cruz, Ceará - Rua Antônio Chagas, nº 857 - Preá, Cruz - CE, 62595-000</p>
+        </div>
+
+        <div className="footer-luxo-links">
+          <h4>{t('nav.regioes')}</h4>
+          <LocalizedLink to="/prea">Preá</LocalizedLink>
+          <LocalizedLink to="/jericoacoara">Jericoacoara</LocalizedLink>
+          <LocalizedLink to="/guriu">Guriú</LocalizedLink>
+          <LocalizedLink to="/tatajuba">Tatajuba</LocalizedLink>
+          <LocalizedLink to="/bitupita">Bitupitá</LocalizedLink>
+          <LocalizedLink to="/taiba">Taíba</LocalizedLink>
         </div>
 
         <div className="footer-luxo-links">

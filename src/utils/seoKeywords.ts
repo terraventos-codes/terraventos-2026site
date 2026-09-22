@@ -17,6 +17,7 @@ export const DESTINATION_MATCHERS: Array<{ key: string; pattern: RegExp; keyword
   { key: 'bitupita', pattern: /bitupit[áa]/i, keywords: { pt: 'Bitupitá', en: 'Bitupitá', es: 'Bitupitá' } },
   { key: 'taiba', pattern: /ta[íi]ba/i, keywords: { pt: 'Taíba', en: 'Taíba', es: 'Taíba' } },
   { key: 'jericoacoara', pattern: /jericoacoara|jeri\b/i, keywords: { pt: 'Jericoacoara', en: 'Jericoacoara', es: 'Jericoacoara' } },
+  { key: 'guriu', pattern: /guri[uú]/i, keywords: { pt: 'Guriú', en: 'Guriú', es: 'Guriú' } },
   { key: 'acarau', pattern: /acara[uú]/i, keywords: { pt: 'Acaraú', en: 'Acaraú', es: 'Acaraú' } },
   { key: 'paracuru', pattern: /paracuru/i, keywords: { pt: 'Paracuru', en: 'Paracuru', es: 'Paracuru' } },
   { key: 'barrinha', pattern: /barrinha/i, keywords: { pt: 'Praia da Barrinha', en: 'Barrinha Beach', es: 'Playa de Barrinha' } },
@@ -99,6 +100,8 @@ export type StaticPageKey =
   | 'tatajuba'
   | 'prea'
   | 'bitupita'
+  | 'jericoacoara'
+  | 'guriu'
   | 'ventoafavor';
 
 export const PAGE_KEYWORDS: Record<StaticPageKey, Record<SeoLang, string>> = {
@@ -151,6 +154,16 @@ export const PAGE_KEYWORDS: Record<StaticPageKey, Record<SeoLang, string>> = {
     pt: 'imóveis em Bitupitá, terrenos Bitupitá, casas Bitupitá Ceará, investimento Bitupitá pé na areia, Terra Ventos',
     en: 'properties in Bitupitá, Bitupitá land for sale, Bitupitá Ceará houses, Bitupitá beachfront investment, Terra Ventos',
     es: 'inmuebles en Bitupitá, terrenos Bitupitá, casas Bitupitá Ceará, inversión Bitupitá frente al mar, Terra Ventos',
+  },
+  jericoacoara: {
+    pt: 'imóveis em Jericoacoara, casas Serrote Jericoacoara, terrenos perto de Jeri, investimento imobiliário Jericoacoara, Terra Ventos',
+    en: 'properties in Jericoacoara, Serrote Jericoacoara houses, land near Jeri, Jericoacoara real estate investment, Terra Ventos',
+    es: 'inmuebles en Jericoacoara, casas Serrote Jericoacoara, terrenos cerca de Jeri, inversión inmobiliaria Jericoacoara, Terra Ventos',
+  },
+  guriu: {
+    pt: 'terrenos em Guriú, áreas exclusivas Guriú Camocim, imóveis entre Jericoacoara e Tatajuba, investimento Guriú, Terra Ventos',
+    en: 'land in Guriú, exclusive areas Guriú Camocim, property between Jericoacoara and Tatajuba, Guriú investment, Terra Ventos',
+    es: 'terrenos en Guriú, áreas exclusivas Guriú Camocim, inmuebles entre Jericoacoara y Tatajuba, inversión Guriú, Terra Ventos',
   },
   ventoafavor: {
     pt: 'Vento a Favor, comunidade Terra Ventos, kitesurf Ceará, clube de investidores litoral',

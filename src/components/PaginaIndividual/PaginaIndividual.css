@@ -1171,3 +1171,25 @@
   background: #C4B096;
   color: #fff;
 }
+
+/* Link para a página da região do imóvel (interligação interna) */
+.pi-regiao-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 20px;
+  padding: 8px 16px;
+  border: 1px solid rgba(17, 24, 39, 0.15);
+  border-radius: 22px;
+  font-family: "Avenir", sans-serif;
+  font-size: 0.9rem;
+  color: #111827;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pi-regiao-link:hover {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}

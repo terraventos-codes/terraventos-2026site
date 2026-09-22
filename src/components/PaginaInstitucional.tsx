@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useStructuredData } from '../utils/useStructuredData';
+import { buildBreadcrumbList } from '../utils/structuredData';
 import './PaginaInstitucional.css';
 
 type PaginaInstitucionalProps = {
@@ -45,6 +47,17 @@ export default function PaginaInstitucional({ pageType, onBack }: PaginaInstituc
     updateMeta('twitter:title', title);
     updateMeta('twitter:description', pageDesc);
   }, [pageType, translationKey, t, i18n.language]);
+
+  const lang = i18n.language?.split('-')[0] || 'pt';
+  useStructuredData(
+    buildBreadcrumbList([
+      { name: 'Terra Ventos', url: lang === 'pt' ? '/' : `/${lang}/` },
+      {
+        name: t(`institucional.${translationKey}.title`),
+        url: `${lang === 'pt' ? '' : `/${lang}`}/${pageType}`,
+      },
+    ]),
+  );
 
   return (
     <div className="pagina-institucional">
@@ -103,7 +116,7 @@ export default function PaginaInstitucional({ pageType, onBack }: PaginaInstituc
               <div className="inst-info-item">
                 <span className="inst-info-label">{t('institucional.contato.email')}</span>
                 <span className="inst-info-value">
-                  <a href="mailto:info@terraventos.com.br" className="inst-link">info@terraventos.com.br</a>
+                  <a href="mailto:info@terraventos.com" className="inst-link">info@terraventos.com</a>
                 </span>
               </div>
             </div>
