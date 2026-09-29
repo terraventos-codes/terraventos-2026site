@@ -902,7 +902,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       title: 'ALUGUEL',
       image: '/imoveis/villa-conduru-3-fachada-piscina-prea.webp',
       badge: 'Aluguel de Temporada',
-      propertyTitle: 'CASA ALTO PADRÃO 3 SUÍTES (ALUGUEL)',
+      propertyTitle: 'CASA ALTO PADRÃO 3 QUARTOS (ALUGUEL)',
       location: 'FRENTE À PRAIA DO PREÁ',
       rating: 5,
       exclusiveText: 'ALUGUEL DE TEMPORADA FRENTE À PRAIA DO PREÁ',
@@ -918,7 +918,8 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       ],
       infra: [
         'Piscina no condomínio',
-        '3 suítes amplas',
+        '3 quartos amplos',
+        '3 banheiros',
         'Churrasqueira',
         'Beira-mar',
         'Kite-point',
@@ -926,7 +927,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
         'Estacionamento',
         'Segurança 24h'
       ],
-      facilities: ['3 Suítes', 'Beira-mar', 'Pé na areia', 'Piscina', 'Cozinha Completa', 'Ar-condicionado', 'Lavabo', 'Estacionamento', 'Segurança 24h'],
+      facilities: ['3 Quartos', '3 Banheiros', 'Beira-mar', 'Pé na areia', 'Piscina', 'Cozinha Completa', 'Ar-condicionado', 'Estacionamento', 'Segurança 24h'],
       gallery: {
       main: '/imoveis/villa-conduru-3-fachada-piscina-prea.webp',
       sideTop: '/imoveis/villa-conduru-3-anfitriao-bernardo-sala.webp',
@@ -3213,7 +3214,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       title: 'RENTAL',
       image: '/imoveis/villa-conduru-3-fachada-piscina-prea.webp',
       badge: 'Vacation Rental',
-      propertyTitle: 'HIGH-END HOUSE 3 SUITES (RENTAL)',
+      propertyTitle: 'HIGH-END HOUSE 3 BEDROOMS (RENTAL)',
       location: 'BEACHFRONT PREÁ',
       rating: 5,
       exclusiveText: 'VACATION RENTAL BEACHFRONT PREÁ',
@@ -3230,7 +3231,8 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       ],
       infra: [
         'Pool in the condominium',
-        '3 large suites',
+        '3 large bedrooms',
+        '3 bathrooms',
         'Barbecue area',
         'Beachfront',
         'Kite-point',
@@ -3238,7 +3240,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
         'Parking',
         '24h Security/Portaria'
       ],
-      facilities: ['3 Suites', 'Beachfront', 'Feet in the sand', 'Pool', 'Full kitchen', 'Air conditioning', 'Powder room', 'Parking', '24h Security'],
+      facilities: ['3 Bedrooms', '3 Bathrooms', 'Beachfront', 'Feet in the sand', 'Pool', 'Full kitchen', 'Air conditioning', 'Parking', '24h Security'],
       gallery: {
       main: '/imoveis/villa-conduru-3-fachada-piscina-prea.webp',
       sideTop: '/imoveis/villa-conduru-3-anfitriao-bernardo-sala.webp',
@@ -4865,7 +4867,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       title: 'ALQUILER',
       image: '/imoveis/villa-conduru-3-fachada-piscina-prea.webp',
       badge: 'Alquiler Vacacional',
-      propertyTitle: 'CASA DE ALTO NIVEL 3 SUITES (ALQUILER)',
+      propertyTitle: 'CASA DE ALTO NIVEL 3 HABITACIONES (ALQUILER)',
       location: 'FRENTE A LA PLAYA DE PREÁ',
       rating: 5,
       exclusiveText: 'ALQUILER VACACIONAL FRENTE A LA PLAYA DE PREÁ',
@@ -4883,6 +4885,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       infra: [
         'Piscina en el condominio',
         '3 habitaciones amplias',
+        '3 baños',
         'Parilla',
         'Frente al mar',
         'Kite-point',
@@ -4890,7 +4893,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
         'Estacionamiento',
         'Seguridad 24h'
       ],
-      facilities: ['3 Suites', 'Frente al mar', 'Pies en la arena', 'Piscina', 'Cocina completa', 'Aire acondicionado', 'Aseo', 'Estacionamiento', 'Seguridad 24h'],
+      facilities: ['3 Habitaciones', '3 Baños', 'Frente al mar', 'Pies en la arena', 'Piscina', 'Cocina completa', 'Aire acondicionado', 'Estacionamiento', 'Seguridad 24h'],
       gallery: {
       main: '/imoveis/villa-conduru-3-fachada-piscina-prea.webp',
       sideTop: '/imoveis/villa-conduru-3-anfitriao-bernardo-sala.webp',
