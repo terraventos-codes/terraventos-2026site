@@ -1,9 +1,11 @@
 import { createPortal } from 'react-dom';
 import type { MediaViewer } from './useMediaViewer';
+import { photoAlt } from '../../utils/seoImages';
 
 type Props = MediaViewer & {
   allPhotos: string[];
   propertyTitle: string;
+  slug: string;
 };
 
 export default function MediaViewerPortals({
@@ -15,6 +17,7 @@ export default function MediaViewerPortals({
   openLightbox,
   allPhotos,
   propertyTitle,
+  slug,
 }: Props) {
   return (
     <>
@@ -30,7 +33,7 @@ export default function MediaViewerPortals({
           {lightboxImage && (
             <img
               src={lightboxImage}
-              alt="Visualização ampliada"
+              alt={photoAlt(lightboxImage, slug, propertyTitle, 'Visualização ampliada')}
               className="pi-lightbox-img"
               onClick={(e) => e.stopPropagation()}
             />
@@ -70,7 +73,7 @@ export default function MediaViewerPortals({
             <div className="pi-album-grid">
               {allPhotos.map((src, idx) => (
                 <div key={idx} className="pi-album-item" onClick={() => openLightbox(src)}>
-                  <img src={src} alt={`Foto ${idx + 1}`} loading="lazy" />
+                  <img src={src} alt={photoAlt(src, slug, propertyTitle, `Foto ${idx + 1}`)} loading="lazy" />
                   <div className="pi-album-item-overlay">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="11" cy="11" r="8"></circle>

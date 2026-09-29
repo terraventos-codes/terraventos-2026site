@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import type { OportunidadeDetalhe } from '../../data/oportunidadesData';
+import { photoAlt } from '../../utils/seoImages';
 
 type Props = {
   item: OportunidadeDetalhe;
@@ -14,6 +15,7 @@ export default function PropertyGallery({ item, allPhotos, onOpenLightbox, onOpe
 
   // Evita repetir no mosaico as fotos já exibidas como main/sideTop/sideBottom
   const shownInCollage = new Set([item.gallery.main, sideTop, sideBottom].filter(Boolean));
+  const alt = (src: string, fallback: string) => photoAlt(src, item.slug, item.propertyTitle, fallback);
   const extraPhotos = (item.gallery.extra || []).filter((img) => !shownInCollage.has(img));
 
   return (
@@ -22,14 +24,14 @@ export default function PropertyGallery({ item, allPhotos, onOpenLightbox, onOpe
         <span className="pi-pill">{item.badge}</span>
         <img
           src={item.gallery.main}
-          alt={`Destaque de ${item.propertyTitle}`}
+          alt={alt(item.gallery.main, `Destaque de ${item.propertyTitle}`)}
           className="pi-image-main pi-zoomable"
           onClick={() => onOpenLightbox(item.gallery.main)}
         />
         {sideTop && (
           <img
             src={sideTop}
-            alt={`Imagem complementar de ${item.propertyTitle}`}
+            alt={alt(sideTop, `Imagem complementar de ${item.propertyTitle}`)}
             className="pi-image-side-top pi-zoomable"
             onClick={() => onOpenLightbox(sideTop)}
           />
@@ -37,7 +39,7 @@ export default function PropertyGallery({ item, allPhotos, onOpenLightbox, onOpe
         {sideBottom && (
           <img
             src={sideBottom}
-            alt={`Mapa e dados de ${item.propertyTitle}`}
+            alt={alt(sideBottom, `Mapa e dados de ${item.propertyTitle}`)}
             className="pi-image-side-bottom pi-zoomable"
             onClick={() => onOpenLightbox(sideBottom)}
           />
@@ -50,7 +52,7 @@ export default function PropertyGallery({ item, allPhotos, onOpenLightbox, onOpe
             <img
               key={idx}
               src={img}
-              alt={`Galeria ${idx + 4} de ${item.propertyTitle}`}
+              alt={alt(img, `Galeria ${idx + 4} de ${item.propertyTitle}`)}
               className="pi-image-secondary pi-zoomable"
               onClick={() => onOpenLightbox(img)}
             />
@@ -63,7 +65,7 @@ export default function PropertyGallery({ item, allPhotos, onOpenLightbox, onOpe
           <div className="pi-gallery-strip-previews">
             {allPhotos.slice(0, 5).map((src, idx) => (
               <div key={idx} className="pi-gallery-strip-thumb">
-                <img src={src} alt={`Preview ${idx + 1}`} />
+                <img src={src} alt={alt(src, `Preview ${idx + 1}`)} />
                 {idx === 4 && allPhotos.length > 5 && (
                   <div className="pi-gallery-strip-more">
                     <span>+{allPhotos.length - 5}</span>

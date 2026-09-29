@@ -118,6 +118,7 @@ export default function PaginaIndividual({ item }: PaginaIndividualProps) {
         {...mediaViewer}
         allPhotos={allPhotos}
         propertyTitle={activeRecord.propertyTitle}
+        slug={activeRecord.slug}
       />
     </section>
   );

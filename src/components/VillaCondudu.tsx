@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import type { OportunidadeDetalhe } from "../data/oportunidadesData";
 import { getOportunidadesData } from "../data/oportunidadesDataI18n";
 import LazyImage from "./LazyImage";
+import { photoAlt } from "../utils/seoImages";
 
 type VillaConduduProps = {
   onSelect: (item: OportunidadeDetalhe) => void;
@@ -18,8 +19,9 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
     getOportunidadesData(i18n.language)[0];
 
   const sliderImages = [
-    "/imoveis/villa-conduru-3-homepage-01.webp",
-    "/imoveis/villa-conduru-3-homepage-02.webp",
+    "/imoveis/villa-conduru-3-varanda-rede.webp",
+    "/imoveis/villa-conduru-3-fachada-piscina-prea.webp",
+    "/imoveis/villa-conduru-3-sala-estar-jantar.webp",
   ];
 
   const handleNext = (e: React.MouseEvent) => {
@@ -44,7 +46,7 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
               <LazyImage
                 key={src}
                 src={src}
-                alt={`Vila Conduru III - Imagem ${idx + 1}`}
+                alt={photoAlt(src, "villa-conduru-3", "Vila Conduru III", `Vila Conduru III - Imagem ${idx + 1}`)}
                 className={`condudu-image ${idx === activeSlide ? "active" : ""}`}
               />
             ))}
