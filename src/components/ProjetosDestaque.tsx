@@ -314,7 +314,7 @@ const projetos = [
   },
   {
     id: "01",
-    image: "/imoveis/villa-conduru-3-01.webp",
+    image: "/imoveis/villa-conduru-3-fachada-piscina-prea.webp",
     tag: "ALUGUEL DE TEMPORADA",
     location: "FRENTE À PRAIA DO PREÁ",
     title: "CASA ALTO PADRÃO 3 SUÍTES",
