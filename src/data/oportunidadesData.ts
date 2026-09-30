@@ -1378,7 +1378,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
       ]
     },
     mapImage: '/mapa.avif',
-    mapUrl: 'https://maps.google.com/maps?q=-2.812328,-40.428784&z=15&output=embed',
+    mapUrl: 'https://maps.google.com/maps?q=-2.815576,-40.420863&z=15&output=embed',
     priceTag: '',
     price: 'R$ 2.700.000,00',
     installments: 'Consulte condiÃ§Ãµes',
