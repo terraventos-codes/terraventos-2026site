@@ -295,9 +295,9 @@ const projetos = [
     location: "Preá, Ceará, Brasil",
     title: "Vila do Inglês",
     area: "2.000 m²",
-    beds: 5,
+    beds: 3,
     baths: 3,
-    price: "A partir de R$ 55 MIL",
+    price: "R$ 60 MIL",
     detailIndex: 4,
   },
   {
