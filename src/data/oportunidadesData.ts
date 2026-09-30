@@ -3417,7 +3417,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     ]
   },
   mapImage: "/mapa.avif",
-  mapUrl: "https://maps.google.com/maps?q=Pousada+Cavalo+Bravo,+Cruz+-+CE&hl=pt-BR&z=15&output=embed",
+  mapUrl: "https://maps.google.com/maps?q=-2.833513,-40.412647&hl=pt-BR&z=16&output=embed",
   videoSources: [
     "https://player.vimeo.com/video/1231801370",
     "https://player.vimeo.com/video/1231801371"
