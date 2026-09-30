@@ -22,6 +22,7 @@ const projetos = [
     baths: null,
     price: "R$ 1.700.000,00",
     detailIndex: 0,
+    pinned: true,
   },
   {
     id: "chale-divino-tatajuba",
@@ -338,6 +339,8 @@ const projetos = [
   },
 ];
 
+// `pinned: true` fixa o card na primeira posição do carrossel, antes das propriedades
+// auto-detectadas abaixo.
 // IDs já com card "curado" manualmente (imagem/beds/baths/area customizados) no array `projetos` acima.
 const projetosCuradosIds = new Set(projetos.map((p) => p.id));
 
@@ -352,6 +355,63 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
   // arquivo a cada novo imóvel. Marcar `hideFromDestaque: true` no imóvel tira ele
   // desse carrossel sem tirá-lo do resto do site.
   const autoNewItems = localizedData.filter((item) => !projetosCuradosIds.has(item.id));
+  const renderProjetoCurado = (projeto: (typeof projetos)[number]) => {
+    const itemFromData = localizedData.find((d) => d.id === projeto.id);
+    if (!itemFromData) return null;
+    return (
+      <a
+        key={projeto.id}
+        href={`/propriedade/${itemFromData.slug}`}
+        className="pd-card"
+        onClick={(e) => {
+          e.preventDefault();
+          onSelect(itemFromData as OportunidadeDetalhe);
+        }}
+      >
+        <div className="pd-image-wrapper">
+          <LazyImage src={projeto.image} alt={itemFromData.propertyTitle || projeto.title} className="pd-image" />
+          <div className="pd-tag">{itemFromData.badge || projeto.tag}</div>
+        </div>
+        <div className="pd-content">
+          <div className="pd-location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+            <span>{itemFromData.location || projeto.location}</span>
+          </div>
+          <h3 className="pd-card-title">{itemFromData.propertyTitle || projeto.title}</h3>
+          <div className="pd-amenities">
+            {projeto.beds && (
+              <div className="pd-amenity">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" />
+                  <path d="M3 13h18" />
+                </svg>
+                {projeto.beds}
+              </div>
+            )}
+            {projeto.baths && (
+              <div className="pd-amenity">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5" />
+                </svg>
+                {projeto.baths}
+              </div>
+            )}
+            {projeto.area && (
+              <div className="pd-amenity">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M8 3v18M16 3v18M3 8h18M3 16h18" />
+                </svg>
+                {projeto.area}
+              </div>
+            )}
+          </div>
+          <div className="pd-price">{itemFromData.price || projeto.price}</div>
+        </div>
+      </a>
+    );
+  };
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -449,7 +509,10 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
           onScroll={checkScroll}
         >
           <div className="pd-slider-track">
-            {/* NOVAS PROPRIEDADES (auto-detectadas, sem card curado ainda) — sempre primeiro */}
+            {/* FIXADAS (`pinned: true`) — antes até das auto-detectadas */}
+            {projetos.filter((p) => p.pinned).map(renderProjetoCurado)}
+
+            {/* NOVAS PROPRIEDADES (auto-detectadas, sem card curado ainda) */}
             {autoNewItems.map((itemFromData) => (
               <a
                 key={itemFromData.id}
@@ -489,63 +552,7 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
             ))}
 
             {/* PRIMEIRAS PROPRIEDADES (terrenos novos em destaque) */}
-            {projetos.slice(0, 8).map((projeto) => {
-              const itemFromData = localizedData.find((d) => d.id === projeto.id);
-              if (!itemFromData) return null;
-              return (
-                <a
-                  key={projeto.id}
-                  href={`/propriedade/${itemFromData.slug}`}
-                  className="pd-card"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onSelect(itemFromData as OportunidadeDetalhe);
-                  }}
-                >
-                  <div className="pd-image-wrapper">
-                    <LazyImage src={projeto.image} alt={itemFromData.propertyTitle || projeto.title} className="pd-image" />
-                    <div className="pd-tag">{itemFromData.badge || projeto.tag}</div>
-                  </div>
-                  <div className="pd-content">
-                    <div className="pd-location">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                      </svg>
-                      <span>{itemFromData.location || projeto.location}</span>
-                    </div>
-                    <h3 className="pd-card-title">{itemFromData.propertyTitle || projeto.title}</h3>
-                    <div className="pd-amenities">
-                      {projeto.beds && (
-                        <div className="pd-amenity">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" />
-                            <path d="M3 13h18" />
-                          </svg>
-                          {projeto.beds}
-                        </div>
-                      )}
-                      {projeto.baths && (
-                        <div className="pd-amenity">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5" />
-                          </svg>
-                          {projeto.baths}
-                        </div>
-                      )}
-                      {projeto.area && (
-                        <div className="pd-amenity">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M8 3v18M16 3v18M3 8h18M3 16h18" />
-                          </svg>
-                          {projeto.area}
-                        </div>
-                      )}
-                    </div>
-                    <div className="pd-price">{itemFromData.price || projeto.price}</div>
-                  </div>
-                </a>
-              );
-            })}
+            {projetos.slice(0, 8).filter((p) => !p.pinned).map(renderProjetoCurado)}
 
             {/* OPÇÃO DE TAÍBA (CARD FIXO) */}
             <a
