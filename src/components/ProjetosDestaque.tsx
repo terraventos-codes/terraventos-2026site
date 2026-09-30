@@ -12,6 +12,18 @@ type ProjetosDestaqueProps = {
 
 const projetos = [
   {
+    id: "casa-3-quartos-piscina-cavalo-bravo-prea",
+    image: "/imoveis/casa-3-quartos-piscina-cavalo-bravo-prea-01-fachada-piscina.webp",
+    tag: "VENDA",
+    location: "Cavalo Bravo, Preá - CE",
+    title: "CASA COM PISCINA EM CAVALO BRAVO — PREÁ",
+    area: "1.300 m²",
+    beds: 3,
+    baths: null,
+    price: "R$ 1.700.000,00",
+    detailIndex: 0,
+  },
+  {
     id: "chale-divino-tatajuba",
     image: "/imoveis/chale-divino-tatajuba-01.webp",
     tag: "VENDA",
