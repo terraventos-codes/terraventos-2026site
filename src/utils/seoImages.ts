@@ -25,16 +25,20 @@ export function toOgImage(imagePath: string): string {
 // Palavras que perdem o acento no nome do arquivo e precisam voltar no alt text.
 const ALT_WORDS: Record<string, string> = {
   suite: 'suíte', area: 'área', anfitriao: 'anfitrião', prea: 'Preá', tv: 'TV', bernardo: 'Bernardo',
+  sofa: 'sofá', rustico: 'rústico', rustica: 'rústica', condominio: 'condomínio', terreo: 'térreo',
+  patio: 'pátio', luminarias: 'luminárias', armarios: 'armários', armario: 'armário',
+  hospede: 'hóspede', marmore: 'mármore', escritorio: 'escritório',
 };
 
 // Alt descritivo a partir do nome do arquivo: `/imoveis/villa-conduru-3-suite-1.webp` com slug
-// `villa-conduru-3` vira "Suíte 1 – <título>". Fotos só numeradas (`-01.webp`) não têm o que
-// descrever e caem no fallback.
+// `villa-conduru-3` vira "Suíte 1 – <título>". Um número de ordem na frente (`-07-suite-1.webp`)
+// é descartado. Fotos só numeradas (`-01.webp`) não têm o que descrever e caem no fallback.
 export function photoAlt(src: string, slug: string, propertyTitle: string, fallback: string): string {
   const base = src.split('/').pop()?.replace(/\.[^.]+$/, '') ?? '';
   if (!base.startsWith(`${slug}-`)) return fallback;
   const rest = base.slice(slug.length + 1);
   if (/^[\d-]*$/.test(rest)) return fallback;
-  const desc = rest.split('-').map((w) => ALT_WORDS[w] ?? w).join(' ');
+  const words = rest.replace(/^\d+-/, '');
+  const desc = words.split('-').map((w) => ALT_WORDS[w] ?? w).join(' ');
   return `${desc.charAt(0).toUpperCase()}${desc.slice(1)} – ${propertyTitle}`;
 }

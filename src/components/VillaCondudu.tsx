@@ -19,9 +19,9 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
     getOportunidadesData(i18n.language)[0];
 
   const sliderImages = [
-    "/imoveis/villa-conduru-3-varanda-rede.webp",
-    "/imoveis/villa-conduru-3-fachada-piscina-prea.webp",
-    "/imoveis/villa-conduru-3-sala-estar-jantar.webp",
+    "/imoveis/villa-conduru-3-45-varanda-rede-artesanal.webp",
+    "/imoveis/villa-conduru-3-01-sala-cozinha-integrada.webp",
+    "/imoveis/villa-conduru-3-10-sala-estar-jantar-parede-pedra.webp",
   ];
 
   const handleNext = (e: React.MouseEvent) => {

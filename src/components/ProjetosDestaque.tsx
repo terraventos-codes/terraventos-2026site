@@ -290,7 +290,7 @@ const projetos = [
   },
   {
     id: "03",
-    image: "/imoveis/vila-do-ingles-01.webp",
+    image: "/imoveis/vila-do-ingles-01-fachada-piscina.webp",
     tag: "TEMPORADA",
     location: "Preá, Ceará, Brasil",
     title: "Vila do Inglês",
@@ -314,10 +314,10 @@ const projetos = [
   },
   {
     id: "01",
-    image: "/imoveis/villa-conduru-3-fachada-piscina-prea.webp",
+    image: "/imoveis/villa-conduru-3-01-sala-cozinha-integrada.webp",
     tag: "ALUGUEL DE TEMPORADA",
-    location: "FRENTE À PRAIA DO PREÁ",
-    title: "CASA ALTO PADRÃO 3 SUÍTES",
+    location: "A PASSOS DA PRAIA DO PREÁ",
+    title: "CASA ALTO PADRÃO 3 QUARTOS",
     area: "153 m²",
     beds: 3,
     baths: 3,
