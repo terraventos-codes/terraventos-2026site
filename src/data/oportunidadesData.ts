@@ -3418,6 +3418,14 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   },
   mapImage: "/mapa.avif",
   mapUrl: "https://maps.google.com/maps?q=Pousada+Cavalo+Bravo,+Cruz+-+CE&hl=pt-BR&z=15&output=embed",
+  videoSources: [
+    "https://player.vimeo.com/video/1231801370",
+    "https://player.vimeo.com/video/1231801371"
+  ],
+  videoThumbnails: [
+    "/imoveis/casa-3-quartos-piscina-cavalo-bravo-prea-video-1-capa.webp",
+    "/imoveis/casa-3-quartos-piscina-cavalo-bravo-prea-video-2-capa.webp"
+  ],
   priceTag: "Valor",
   price: "R$ 1.700.000,00",
   installments: "Consulte condições",
