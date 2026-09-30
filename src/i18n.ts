@@ -96,9 +96,9 @@ i18n
           },
           condudu: {
             badge: "Exclusividade",
-            title: "CASA ALTO PADRÃO 3 SUÍTES<br />FRENTE À PRAIA DO PREÁ",
-            subtitle: "Vila Conduru III — Piscina, churrasqueira, varanda e condomínio de luxo 24 horas.",
-            tags: ["Piscina", "3 quartos", "Beira-mar", "Projeto Patricia Mureta"],
+            title: "CASA ALTO PADRÃO 3 QUARTOS<br />A PASSOS DA PRAIA DO PREÁ",
+            subtitle: "Vila Conduru III — 153 m² em condomínio de alto padrão no coração do Preá, em frente ao KiteLodge e ao GKC. Suíte master com varanda, área gourmet com churrasqueira e piscina.",
+            tags: ["Piscina", "3 quartos", "Até 6 hóspedes", "A passos do mar", "Projeto Patricia Mureta"],
             priceNote: "consultar disponibilidade",
             cta: "RESERVAR"
           },
@@ -302,9 +302,9 @@ i18n
           },
           condudu: {
             badge: "Exclusive",
-            title: "HIGH-END HOUSE 3 SUITES<br />BEACHFRONT IN PREÁ",
-            subtitle: "Vila Conduru III — Pool, BBQ area, balcony, and luxury 24-hour gated community.",
-            tags: ["Pool", "3 Bedrooms", "Beachfront", "Patricia Mureta Project"],
+            title: "HIGH-END HOUSE 3 BEDROOMS<br />STEPS FROM PREÁ BEACH",
+            subtitle: "Vila Conduru III — 153 m² in a high-end gated community in the heart of Preá, across from KiteLodge and GKC. Master suite with balcony, gourmet area with barbecue and pool.",
+            tags: ["Pool", "3 Bedrooms", "Sleeps 6", "Steps from the sea", "Patricia Mureta Project"],
             priceNote: "consult availability",
             cta: "BOOK NOW"
           },
@@ -516,9 +516,9 @@ i18n
           },
           condudu: {
             badge: "Exclusivo",
-            title: "CASA DE ALTO ESTÁNDAR 3 SUITES<br />FRENTE A LA PLAYA DE PREÁ",
-            subtitle: "Vila Conduru III — Piscina, parrilla, balcón y condominio de lujo 24 horas.",
-            tags: ["Piscina", "3 Habitaciones", "Frente al mar", "Proyecto Patricia Mureta"],
+            title: "CASA DE ALTO ESTÁNDAR 3 HABITACIONES<br />A PASOS DE LA PLAYA DE PREÁ",
+            subtitle: "Vila Conduru III — 153 m² en un condominio de alto nivel en el corazón de Preá, frente al KiteLodge y al GKC. Suite principal con balcón, área gourmet con parrilla y piscina.",
+            tags: ["Piscina", "3 Habitaciones", "Hasta 6 huéspedes", "A pasos del mar", "Proyecto Patricia Mureta"],
             priceNote: "consultar disponibilidade",
             cta: "RESERVAR"
           },

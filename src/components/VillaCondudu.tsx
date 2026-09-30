@@ -18,11 +18,9 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
     getOportunidadesData(i18n.language).find((o) => o.id === "01") ||
     getOportunidadesData(i18n.language)[0];
 
-  const sliderImages = [
-    "/imoveis/villa-conduru-3-45-varanda-rede-artesanal.webp",
-    "/imoveis/villa-conduru-3-01-sala-cozinha-integrada.webp",
-    "/imoveis/villa-conduru-3-10-sala-estar-jantar-parede-pedra.webp",
-  ];
+  // As mesmas 3 primeiras fotos da galeria da página do imóvel, para o card nunca sair de sincronia
+  const { main, sideTop, sideBottom } = conduduLocalized.gallery;
+  const sliderImages = [main, sideTop, sideBottom].filter((src): src is string => Boolean(src));
 
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
