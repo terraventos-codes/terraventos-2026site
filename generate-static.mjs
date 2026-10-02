@@ -273,6 +273,7 @@ const staticPages = [
   },
   {
     slug: 'taiba',
+    unlisted: true, // fora do ar a pedido (02/10/2026): página segue acessível, mas sai do sitemap
     priority: 0.8,
     image: '/imoveis/lote-barramar-lagoa-taiba-03.webp',
     titles: {
@@ -405,6 +406,7 @@ Object.entries(locales).forEach(([langId, data]) => {
     const keywords = PAGE_KEYWORDS[p.slug]?.[langId] || '';
     generatePage(pagePath, title, desc, p.image || '/og-propriedades.png', `${baseUrl}${langPrefix}/${p.slug}`, data.code, langId, null, `/${p.slug}`, null, keywords);
     console.log(`Página estática gerada: ${langId} - ${p.slug}`);
+    if (p.unlisted) return;
 
     sitemap += `
   <url>

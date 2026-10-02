@@ -342,6 +342,9 @@ const projetos = [
 // `pinned: true` fixa o card na primeira posição do carrossel, antes das propriedades
 // auto-detectadas abaixo.
 // IDs já com card "curado" manualmente (imagem/beds/baths/area customizados) no array `projetos` acima.
+// Card fixo de Taíba desligado; voltar para true para reexibir.
+const SHOW_TAIBA_CARD = false;
+
 const projetosCuradosIds = new Set(projetos.map((p) => p.id));
 
 export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
@@ -554,7 +557,8 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
             {/* PRIMEIRAS PROPRIEDADES (terrenos novos em destaque) */}
             {projetos.slice(0, 8).filter((p) => !p.pinned).map(renderProjetoCurado)}
 
-            {/* OPÇÃO DE TAÍBA (CARD FIXO) */}
+            {/* OPÇÃO DE TAÍBA (CARD FIXO) — fora do ar a pedido (02/10/2026) */}
+            {SHOW_TAIBA_CARD && (
             <a
               href="/taiba"
               className="pd-card"
@@ -591,6 +595,7 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
                 </div>
               </div>
             </a>
+            )}
 
             {/* RESTANTE DOS PROJETOS */}
             {projetos.slice(8).map((projeto) => {

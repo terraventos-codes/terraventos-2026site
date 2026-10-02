@@ -2977,6 +2977,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
 {
   id: "casa-alto-padrao-taiba-vista-mar",
   slug: "casa-alto-padrao-taiba-vista-mar",
+  unlisted: true, // Taíba fora do ar a pedido (02/10/2026) — não excluir
   title: "VENDA",
   searchTitle: "Casa Alto Padrão em Granito — Taíba",
   image: "/imoveis/casa-alto-padrao-taiba-vista-mar-23.webp",
@@ -3053,6 +3054,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
 {
   id: "terreno-nova-taiba-1920m2",
   slug: "terreno-nova-taiba-1920m2",
+  unlisted: true, // Taíba fora do ar a pedido (02/10/2026) — não excluir
   title: "VENDA",
   searchTitle: "Terreno em Nova Taíba — 1.920 m² com Casa",
   image: "/imoveis/terreno-nova-taiba-1920m2-06.webp",
@@ -3105,6 +3107,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
 {
   id: "casa-duplex-pe-na-areia-taiba",
   slug: "casa-duplex-pe-na-areia-taiba",
+  unlisted: true, // Taíba fora do ar a pedido (02/10/2026) — não excluir
   title: "VENDA",
   searchTitle: "Casa Duplex Pé na Areia — Taíba",
   image: "/imoveis/casa-duplex-pe-na-areia-taiba-04.webp",
@@ -3148,6 +3151,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
 {
   id: "terreno-morro-do-chapeu-taiba-832m2",
   slug: "terreno-morro-do-chapeu-taiba-832m2",
+  unlisted: true, // Taíba fora do ar a pedido (02/10/2026) — não excluir
   title: "VENDA",
   searchTitle: "Terreno Morro do Chapéu — Taíba, 832 m²",
   image: "/imoveis/terreno-morro-do-chapeu-taiba-832m2-02.webp",
@@ -3194,6 +3198,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
 {
   id: "terreno-taiba-2560m2",
   slug: "terreno-taiba-2560m2",
+  unlisted: true, // Taíba fora do ar a pedido (02/10/2026) — não excluir
   title: "VENDA",
   searchTitle: "Terreno em Taíba — 2.560 m²",
   image: "/imoveis/terreno-taiba-2560m2-02.webp",
