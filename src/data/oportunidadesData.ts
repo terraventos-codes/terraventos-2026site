@@ -3420,11 +3420,13 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   mapUrl: "https://maps.google.com/maps?q=-2.833513,-40.412647&hl=pt-BR&z=16&output=embed",
   videoSources: [
     "https://player.vimeo.com/video/1231801370",
-    "https://player.vimeo.com/video/1231801371"
+    "https://player.vimeo.com/video/1231801371",
+    "https://player.vimeo.com/video/1232372166"
   ],
   videoThumbnails: [
     "/imoveis/casa-3-quartos-piscina-cavalo-bravo-prea-video-1-capa.webp",
-    "/imoveis/casa-3-quartos-piscina-cavalo-bravo-prea-video-2-capa.webp"
+    "/imoveis/casa-3-quartos-piscina-cavalo-bravo-prea-video-2-capa.webp",
+    "/imoveis/casa-3-quartos-piscina-cavalo-bravo-prea-video-3-capa.webp"
   ],
   priceTag: "Valor",
   price: "R$ 1.700.000,00",
