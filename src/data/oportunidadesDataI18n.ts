@@ -1075,15 +1075,17 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       ],
       facilities: ['Piscina Privativa', 'Ar-condicionado', 'Área Gourmet', 'Churrasqueira', 'Quadra de Esportes', 'Guarda de Kite', 'Estacionamento', 'Detector de Fumaça'],
       gallery: {
-        main: '/imoveis/vila-do-ingles-01-fachada-piscina.webp',
-        sideTop: '/imoveis/vila-do-ingles-02-sala-estar-jantar-integrada.webp',
-        sideBottom: '/imoveis/vila-do-ingles-03-sala-jantar-cortinas-linho.webp',
+        main: '/imoveis/vila-do-ingles-23-piscina-palmeiras.webp',
+        sideTop: '/imoveis/vila-do-ingles-21-anfitriao-bernardo-cachorro.webp',
+        sideBottom: '/imoveis/vila-do-ingles-02-sala-estar-jantar-integrada.webp',
         extra: [
+          '/imoveis/vila-do-ingles-01-fachada-piscina.webp',
+          '/imoveis/vila-do-ingles-07-varanda-rede-artesanal.webp',
+          '/imoveis/vila-do-ingles-08-cozinha-completa-bancada.webp',
+          '/imoveis/vila-do-ingles-03-sala-jantar-cortinas-linho.webp',
           '/imoveis/vila-do-ingles-04-area-jantar-janelas-madeira.webp',
           '/imoveis/vila-do-ingles-05-mesa-frutas-regionais.webp',
           '/imoveis/vila-do-ingles-06-area-gourmet-churrasqueira.webp',
-          '/imoveis/vila-do-ingles-07-varanda-rede-artesanal.webp',
-          '/imoveis/vila-do-ingles-08-cozinha-completa-bancada.webp',
           '/imoveis/vila-do-ingles-09-cozinha-corredor-madeira.webp',
           '/imoveis/vila-do-ingles-10-sala-tv-sofa.webp',
           '/imoveis/vila-do-ingles-11-sala-tv-espelho-palha.webp',
@@ -1096,7 +1098,6 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
           '/imoveis/vila-do-ingles-18-banheiro-box-espelho.webp',
           '/imoveis/vila-do-ingles-19-banheiro-cuba-pedra.webp',
           '/imoveis/vila-do-ingles-20-banheiro-cuba-marmore.webp',
-          '/imoveis/vila-do-ingles-21-hospede-sala-estar.webp',
           '/imoveis/vila-do-ingles-22-hospede-quarto.webp'
         ]
       },
@@ -3338,15 +3339,17 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       ],
       facilities: ['Private Pool', 'Air conditioning', 'Gourmet Area', 'Barbecue', 'Sports Court', 'Kite Storage', 'Parking', 'Smoke Detector'],
       gallery: {
-        main: '/imoveis/vila-do-ingles-01-fachada-piscina.webp',
-        sideTop: '/imoveis/vila-do-ingles-02-sala-estar-jantar-integrada.webp',
-        sideBottom: '/imoveis/vila-do-ingles-03-sala-jantar-cortinas-linho.webp',
+        main: '/imoveis/vila-do-ingles-23-piscina-palmeiras.webp',
+        sideTop: '/imoveis/vila-do-ingles-21-anfitriao-bernardo-cachorro.webp',
+        sideBottom: '/imoveis/vila-do-ingles-02-sala-estar-jantar-integrada.webp',
         extra: [
+          '/imoveis/vila-do-ingles-01-fachada-piscina.webp',
+          '/imoveis/vila-do-ingles-07-varanda-rede-artesanal.webp',
+          '/imoveis/vila-do-ingles-08-cozinha-completa-bancada.webp',
+          '/imoveis/vila-do-ingles-03-sala-jantar-cortinas-linho.webp',
           '/imoveis/vila-do-ingles-04-area-jantar-janelas-madeira.webp',
           '/imoveis/vila-do-ingles-05-mesa-frutas-regionais.webp',
           '/imoveis/vila-do-ingles-06-area-gourmet-churrasqueira.webp',
-          '/imoveis/vila-do-ingles-07-varanda-rede-artesanal.webp',
-          '/imoveis/vila-do-ingles-08-cozinha-completa-bancada.webp',
           '/imoveis/vila-do-ingles-09-cozinha-corredor-madeira.webp',
           '/imoveis/vila-do-ingles-10-sala-tv-sofa.webp',
           '/imoveis/vila-do-ingles-11-sala-tv-espelho-palha.webp',
@@ -3359,7 +3362,6 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
           '/imoveis/vila-do-ingles-18-banheiro-box-espelho.webp',
           '/imoveis/vila-do-ingles-19-banheiro-cuba-pedra.webp',
           '/imoveis/vila-do-ingles-20-banheiro-cuba-marmore.webp',
-          '/imoveis/vila-do-ingles-21-hospede-sala-estar.webp',
           '/imoveis/vila-do-ingles-22-hospede-quarto.webp'
         ]
       },
@@ -4979,15 +4981,17 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       ],
       facilities: ['Piscina Privada', 'Aire acondicionado', 'Área Gourmet', 'Parrilla', 'Cancha Deportiva', 'Guardado de Kite', 'Estacionamiento', 'Detector de Humo'],
       gallery: {
-        main: '/imoveis/vila-do-ingles-01-fachada-piscina.webp',
-        sideTop: '/imoveis/vila-do-ingles-02-sala-estar-jantar-integrada.webp',
-        sideBottom: '/imoveis/vila-do-ingles-03-sala-jantar-cortinas-linho.webp',
+        main: '/imoveis/vila-do-ingles-23-piscina-palmeiras.webp',
+        sideTop: '/imoveis/vila-do-ingles-21-anfitriao-bernardo-cachorro.webp',
+        sideBottom: '/imoveis/vila-do-ingles-02-sala-estar-jantar-integrada.webp',
         extra: [
+          '/imoveis/vila-do-ingles-01-fachada-piscina.webp',
+          '/imoveis/vila-do-ingles-07-varanda-rede-artesanal.webp',
+          '/imoveis/vila-do-ingles-08-cozinha-completa-bancada.webp',
+          '/imoveis/vila-do-ingles-03-sala-jantar-cortinas-linho.webp',
           '/imoveis/vila-do-ingles-04-area-jantar-janelas-madeira.webp',
           '/imoveis/vila-do-ingles-05-mesa-frutas-regionais.webp',
           '/imoveis/vila-do-ingles-06-area-gourmet-churrasqueira.webp',
-          '/imoveis/vila-do-ingles-07-varanda-rede-artesanal.webp',
-          '/imoveis/vila-do-ingles-08-cozinha-completa-bancada.webp',
           '/imoveis/vila-do-ingles-09-cozinha-corredor-madeira.webp',
           '/imoveis/vila-do-ingles-10-sala-tv-sofa.webp',
           '/imoveis/vila-do-ingles-11-sala-tv-espelho-palha.webp',
@@ -5000,7 +5004,6 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
           '/imoveis/vila-do-ingles-18-banheiro-box-espelho.webp',
           '/imoveis/vila-do-ingles-19-banheiro-cuba-pedra.webp',
           '/imoveis/vila-do-ingles-20-banheiro-cuba-marmore.webp',
-          '/imoveis/vila-do-ingles-21-hospede-sala-estar.webp',
           '/imoveis/vila-do-ingles-22-hospede-quarto.webp'
         ]
       },
