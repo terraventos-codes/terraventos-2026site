@@ -28,6 +28,7 @@ const ALT_WORDS: Record<string, string> = {
   sofa: 'sofá', rustico: 'rústico', rustica: 'rústica', condominio: 'condomínio', terreo: 'térreo',
   patio: 'pátio', luminarias: 'luminárias', armarios: 'armários', armario: 'armário',
   hospede: 'hóspede', marmore: 'mármore', escritorio: 'escritório', espreguicadeiras: 'espreguiçadeiras',
+  espreguicadeira: 'espreguiçadeira', hidraulico: 'hidráulico', luminaria: 'luminária',
 };
 
 // Alt descritivo a partir do nome do arquivo: `/imoveis/villa-conduru-3-suite-1.webp` com slug
