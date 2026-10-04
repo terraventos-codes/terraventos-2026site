@@ -303,7 +303,7 @@ const projetos = [
   },
   {
     id: "03",
-    image: "/imoveis/vila-do-ingles-01-fachada-piscina.webp",
+    image: "/imoveis/vila-do-ingles-23-piscina-palmeiras.webp",
     tag: "TEMPORADA",
     location: "Preá, Ceará, Brasil",
     title: "Vila do Inglês",
