@@ -238,7 +238,16 @@ i18n
             viewPdf: "Visualizar PDF",
             reservationNotice: "Faça a cotação direto na plataforma de reserva",
             bookAirbnb: "Link para o Airbnb",
-            whatsapp: "Fale conosco"
+            whatsapp: "Fale conosco",
+            keyFacts: {
+              deal: { venda: "À venda", temporada: "Aluguel de temporada", lancamento: "Lançamento", investimento: "Investimento" },
+              bedrooms: "quartos",
+              suites: "suítes",
+              bathrooms: "banheiros",
+              landArea: "terreno",
+              builtArea: "construídos",
+              openMap: "Abrir no Google Maps"
+            }
           }
         }
       },
@@ -442,7 +451,16 @@ i18n
             viewPdf: "View PDF",
             reservationNotice: "Make the quote directly on the booking platform",
             bookAirbnb: "Link to Airbnb",
-            whatsapp: "Chat with us"
+            whatsapp: "Chat with us",
+            keyFacts: {
+              deal: { venda: "For sale", temporada: "Vacation rental", lancamento: "New development", investimento: "Investment" },
+              bedrooms: "bedrooms",
+              suites: "en-suites",
+              bathrooms: "bathrooms",
+              landArea: "lot",
+              builtArea: "built",
+              openMap: "Open in Google Maps"
+            }
           }
         }
       },
@@ -656,7 +674,16 @@ i18n
             viewPdf: "Ver PDF",
             reservationNotice: "Realice la cotización directamente en la plataforma de reservas",
             bookAirbnb: "Link al Airbnb",
-            whatsapp: "Hable con nosotros"
+            whatsapp: "Hable con nosotros",
+            keyFacts: {
+              deal: { venda: "En venta", temporada: "Alquiler de temporada", lancamento: "Lanzamiento", investimento: "Inversión" },
+              bedrooms: "habitaciones",
+              suites: "suites",
+              bathrooms: "baños",
+              landArea: "terreno",
+              builtArea: "construidos",
+              openMap: "Abrir en Google Maps"
+            }
           }
         }
       }
