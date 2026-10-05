@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import type { OportunidadeDetalhe } from '../../data/oportunidadesData';
+import PropertyKeyFacts from './PropertyKeyFacts';
 
 type Props = {
   item: OportunidadeDetalhe;
@@ -49,6 +50,7 @@ export default function PropertyHeader({ item }: Props) {
           {t('common.share') || 'Compartilhar'}
         </button>
       </div>
+      <PropertyKeyFacts item={item} />
       <p className="pi-exclusive">{item.exclusiveText}</p>
       {item.referralCode && (
         <p className="pi-ref-code">Ref: {item.referralCode}</p>

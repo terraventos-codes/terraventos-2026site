@@ -1171,3 +1171,135 @@
   background: #C4B096;
   color: #fff;
 }
+
+/* --- DESTAQUES NO TOPO (preço, quartos, banheiros, mapa) --- */
+.pi-keyfacts {
+  margin: 20px 0 8px;
+  padding: 20px 24px;
+  border: 1px solid rgba(196, 176, 150, 0.35);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(17, 24, 39, 0.04);
+}
+
+.pi-keyfacts-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pi-keyfacts-deal {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: #111827;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.pi-keyfacts-deal--temporada {
+  background: #C4B096;
+  color: #111827;
+}
+
+.pi-keyfacts-price {
+  margin: 10px 0 0;
+  color: #111;
+  font-family: 'Avenir', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.pi-keyfacts-price-tag {
+  display: block;
+  margin-bottom: 2px;
+  color: #7c7c7c;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.pi-keyfacts-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 24px;
+  border-radius: 14px;
+  background: #111827;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.12);
+}
+
+.pi-keyfacts-map:hover {
+  transform: translateY(-2px);
+  background: #C4B096;
+  color: #111827;
+}
+
+.pi-keyfacts-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin: 18px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid rgba(196, 176, 150, 0.3);
+  list-style: none;
+}
+
+.pi-keyfacts-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #404040;
+}
+
+.pi-keyfacts-item svg {
+  color: #C4B096;
+  flex-shrink: 0;
+}
+
+.pi-keyfacts-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+}
+
+.pi-keyfacts-label {
+  font-size: 15px;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .pi-keyfacts {
+    padding: 16px;
+  }
+
+  .pi-keyfacts-price {
+    font-size: 28px;
+  }
+
+  .pi-keyfacts-map {
+    width: 100%;
+  }
+
+  .pi-keyfacts-list {
+    gap: 10px 20px;
+  }
+
+  .pi-keyfacts-value {
+    font-size: 18px;
+  }
+}
