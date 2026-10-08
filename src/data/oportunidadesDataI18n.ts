@@ -1057,7 +1057,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       about: [
         'A Vila do Inglês é uma propriedade de 2.000 m², 100% privativa, no coração do Preá — pensada para grandes celebrações e para reunir quem você mais ama num só lugar. Piscina privativa, quadra de esportes com rede de beach tennis, área gourmet com churrasqueira e um jardim natural que convida a desacelerar assim que você chega.',
         'Por dentro, conforto do início ao fim: todos os quartos com ar-condicionado, cozinha de fazenda completa com liquidificador, tostadeira e cafeteira, lava-roupas, lava-louças e até ovos fresquinhos de galinhas criadas soltas no terreno. Chuveiro ao ar livre, detector de fumaça, guarda de kite e estacionamento para 5 carros garantem que nada falte durante a estadia — e cozinheira e serviço de limpeza estão disponíveis à parte, para quem quiser zero preocupação.',
-        'Disponível com exclusividade para o Réveillon: a casa toda, com 3 quartos e 3 banheiros + 2 sofás-cama, acomodando até 8 pessoas, por R$ 60 mil. Fale com a Terra Ventos e garanta a virada do ano no Preá.',
+        'Disponível com exclusividade para o Réveillon: a casa toda, com 3 quartos e 3 banheiros + 2 sofás-cama, acomodando até 8 pessoas. Fale com a Terra Ventos para consultar valores e garanta a virada do ano no Preá.',
       ],
       infra: [
         'Piscina privativa',
@@ -1131,7 +1131,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=Preá+-+Caiçara,+Cruz+-+CE,+62595-000,+Brasil&hl=pt-BR&z=15&output=embed',
       priceTag: 'Réveillon',
-      price: 'R$ 60 MIL',
+      price: 'SOB CONSULTA',
       installments: 'Pacote exclusivo para o Réveillon',
     },
     {
@@ -3348,7 +3348,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       about: [
         'Vila do Inglês is a 2,000 sqm, fully private estate in the heart of Preá — built for big celebrations and for bringing together the people you love most. A private pool, a sports court with a beach tennis net, a gourmet area with a barbecue, and a natural garden invite you to slow down the moment you arrive.',
         'Inside, comfort from start to finish: every bedroom with air conditioning, a full farmhouse kitchen with a blender, toaster, and coffee maker, a washing machine, a dishwasher, and even fresh eggs from free-range chickens on the property. An outdoor shower, smoke detector, kite storage, and parking for 5 cars mean nothing is missing during your stay — and a cook and cleaning service are available separately, for anyone who wants zero worries.',
-        'Available exclusively for New Year\'s Eve: the whole house, with 3 bedrooms and 3 bathrooms plus 2 sofa beds, sleeping up to 8, for R$ 60 thousand. Talk to Terra Ventos and lock in your New Year\'s in Preá.',
+        'Available exclusively for New Year\'s Eve: the whole house, with 3 bedrooms and 3 bathrooms plus 2 sofa beds, sleeping up to 8. Talk to Terra Ventos for rates and lock in your New Year\'s in Preá.',
       ],
       infra: [
         'Private pool',
@@ -3422,7 +3422,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=Preá+-+Caiçara,+Cruz+-+CE,+62595-000,+Brasil&hl=pt-BR&z=15&output=embed',
       priceTag: 'New Year\'s Eve',
-      price: 'R$ 60 THOUSAND',
+      price: 'ON REQUEST',
       installments: 'Exclusive New Year\'s Eve package',
     },
     {
@@ -5017,7 +5017,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       about: [
         'Vila do Inglês es una propiedad de 2.000 m², 100% privada, en el corazón de Preá — pensada para grandes celebraciones y para reunir a quienes más quieres en un solo lugar. Piscina privada, cancha deportiva con red de beach tennis, área gourmet con parrilla y un jardín natural que invita a bajar el ritmo apenas llegas.',
         'Por dentro, comodidad de principio a fin: todas las habitaciones con aire acondicionado, cocina de granja completa con licuadora, tostadora y cafetera, lavadora, lavavajillas y hasta huevos frescos de gallinas criadas en libertad en el terreno. Ducha al aire libre, detector de humo, guardado para kite y estacionamiento para 5 autos aseguran que no falte nada durante la estadía — y hay cocinera y servicio de limpieza disponibles por separado, para quien quiera cero preocupaciones.',
-        'Disponible en exclusiva para el Año Nuevo: la casa completa, con 3 habitaciones y 3 baños más 2 sofás cama, con capacidad para 8 personas, por R$ 60 mil. Habla con Terra Ventos y asegura tu fin de año en Preá.',
+        'Disponible en exclusiva para el Año Nuevo: la casa completa, con 3 habitaciones y 3 baños más 2 sofás cama, con capacidad para 8 personas. Habla con Terra Ventos para consultar valores y asegura tu fin de año en Preá.',
       ],
       infra: [
         'Piscina privada',
@@ -5091,7 +5091,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       mapImage: '/mapa.avif',
       mapUrl: 'https://maps.google.com/maps?q=Preá+-+Caiçara,+Cruz+-+CE,+62595-000,+Brasil&hl=pt-BR&z=15&output=embed',
       priceTag: 'Año Nuevo',
-      price: 'R$ 60 MIL',
+      price: 'A CONSULTAR',
       installments: 'Paquete exclusivo para el Año Nuevo',
     },
     {

@@ -1655,7 +1655,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     about: [
       'A Vila do Inglês é uma propriedade de 2.000 m², 100% privativa, no coração do Preá — pensada para grandes celebrações e para reunir quem você mais ama num só lugar. Piscina privativa, quadra de esportes com rede de beach tennis, área gourmet com churrasqueira e um jardim natural que convida a desacelerar assim que você chega.',
       'Por dentro, conforto do início ao fim: todos os quartos com ar-condicionado, cozinha de fazenda completa com liquidificador, tostadeira e cafeteira, lava-roupas, lava-louças e até ovos fresquinhos de galinhas criadas soltas no terreno. Chuveiro ao ar livre, detector de fumaça, guarda de kite e estacionamento para 5 carros garantem que nada falte durante a estadia — e cozinheira e serviço de limpeza estão disponíveis à parte, para quem quiser zero preocupação.',
-      'Disponível com exclusividade para o Réveillon: a casa toda, com 3 quartos e 3 banheiros + 2 sofás-cama, acomodando até 8 pessoas, por R$ 60 mil. Fale com a Terra Ventos e garanta a virada do ano no Preá.'
+      'Disponível com exclusividade para o Réveillon: a casa toda, com 3 quartos e 3 banheiros + 2 sofás-cama, acomodando até 8 pessoas. Fale com a Terra Ventos para consultar valores e garanta a virada do ano no Preá.'
     ],
     infra: [
       'Piscina privativa',
@@ -1729,7 +1729,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     mapImage: '/mapa.avif',
     mapUrl: 'https://maps.google.com/maps?q=Preá+-+Caiçara,+Cruz+-+CE,+62595-000,+Brasil&hl=pt-BR&z=15&output=embed',
     priceTag: 'Réveillon',
-    price: 'R$ 60 MIL',
+    price: 'SOB CONSULTA',
     installments: 'Pacote exclusivo para o Réveillon',
     category: 'temporada',
   },
