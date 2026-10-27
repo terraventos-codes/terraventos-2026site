@@ -29,7 +29,7 @@ const projetos = [
     image: "/imoveis/casa-3-quartos-piscina-cavalo-bravo-prea-01-fachada-piscina.webp",
     tag: "VENDA",
     location: "Cavalo Bravo, Preá - CE",
-    title: "CASA COM PISCINA EM CAVALO BRAVO — PREÁ",
+    title: "CASA À VENDA COM PISCINA EM CAVALO BRAVO — PREÁ",
     area: "1.300 m²",
     beds: 3,
     baths: null,
