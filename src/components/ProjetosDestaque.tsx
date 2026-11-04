@@ -12,6 +12,19 @@ type ProjetosDestaqueProps = {
 
 const projetos = [
   {
+    id: "casa-3-suites-vista-mar-prea",
+    image: "/imoveis/casa-3-suites-vista-mar-prea-01-varanda-vista-mar-telhado-palha.webp",
+    tag: "VENDA",
+    location: "Praia do Preá, Cruz - CE",
+    title: "CASA À VENDA COM VISTA PARA O MAR — PRAIA DO PREÁ",
+    area: "477 m²",
+    beds: 3,
+    baths: null,
+    price: "R$ 3.200.000,00",
+    detailIndex: 0,
+    pinned: true,
+  },
+  {
     id: "casa-alto-padrao-prea-4-suites-simi",
     image: "/imoveis/casa-alto-padrao-prea-4-suites-simi-01-fachada-jardim.webp",
     tag: "VENDA",
