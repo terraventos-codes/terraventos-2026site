@@ -3769,7 +3769,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     ]
   },
   mapImage: "/mapa.avif",
-  mapUrl: "https://maps.google.com/maps?q=Preá,+Cruz,+Ceará&hl=pt-BR&z=14&output=embed",
+  mapUrl: "https://maps.google.com/maps?q=-2.814477,-40.413897&hl=pt-BR&z=18&output=embed",
   priceTag: "Valor",
   price: "R$ 3.200.000,00",
   installments: "Consulte condições",
