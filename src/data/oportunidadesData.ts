@@ -3691,6 +3691,48 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   category: "venda"
 },
 {
+  id: "terreno-50x50-matricula-prea",
+  slug: "terreno-50x50-matricula-prea",
+  title: "VENDA",
+  searchTitle: "Terreno 50x50 com Matrícula — 2.500 m² — Praia do Preá",
+  image: "/imoveis/terreno-50x50-matricula-prea-01-lote-destacado-com-matricula.webp",
+  badge: "Com Matrícula",
+  propertyTitle: "TERRENO 50 X 50 COM MATRÍCULA — PRAIA DO PREÁ",
+  location: "Praia do Preá, Cruz - CE",
+  rating: 5,
+  exclusiveText: "COM MATRÍCULA | 2.500 m² | 50 x 50 m | Murado | Praia do Preá",
+  summaryDescription: "À venda: terreno de 50 x 50 m (2.500 m²) com matrícula registrada na Praia do Preá. Murado, plano e pronto para receber o seu projeto em uma das regiões que mais se valorizam no litoral do Ceará.",
+  about: [
+    "Terreno com matrícula na Praia do Preá — um diferencial raro na região, que traz segurança jurídica para comprar, construir e financiar.",
+    "São 2.500 m² em formato quadrado, 50 x 50 metros, já murado e em área plana, numa rua com casas e pousadas do Preá. O tamanho permite uma casa de alto padrão com amplo jardim e piscina, um conjunto de chalés ou uma pousada.",
+    "O Preá é um dos melhores spots de kitesurf do mundo, vizinho do Parque Nacional de Jericoacoara, com vento constante na maior parte do ano e procura crescente por casas de temporada e hospedagem."
+  ],
+  infra: [
+    "Matrícula registrada",
+    "Área total: 2.500 m²",
+    "Dimensões: 50 x 50 m",
+    "Terreno murado",
+    "Terreno plano",
+    "Praia do Preá, Cruz - CE"
+  ],
+  facilities: ["Com Matrícula", "2.500 m²", "50 x 50 m", "Murado", "Praia do Preá"],
+  gallery: {
+    main: "/imoveis/terreno-50x50-matricula-prea-01-lote-destacado-com-matricula.webp",
+    sideTop: "/imoveis/terreno-50x50-matricula-prea-02-vista-aerea-lote-murado.webp",
+    sideBottom: "/imoveis/terreno-50x50-matricula-prea-03-vista-aerea-lote-mar.webp",
+    extra: [
+      "/imoveis/terreno-50x50-matricula-prea-04-vista-aerea-bairro-prea.webp",
+      "/imoveis/terreno-50x50-matricula-prea-05-vista-aerea-praia-do-prea.webp"
+    ]
+  },
+  mapImage: "/mapa.avif",
+  mapUrl: "https://maps.google.com/maps?q=-2.825815,-40.417575&hl=pt-BR&z=18&output=embed",
+  priceTag: "Valor",
+  price: "R$ 1.500.000,00",
+  installments: "Consulte condições",
+  category: "venda"
+},
+{
   id: "casa-3-suites-vista-mar-prea",
   slug: "casa-3-suites-vista-mar-prea",
   title: "VENDA",

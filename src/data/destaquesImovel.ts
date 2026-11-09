@@ -40,6 +40,7 @@ export const destaquesImovel: Record<string, DestaquesImovel> = {
   'vila-cangalha-camocim-leo': { quartos: '1–3', areaTerreno: '400 m²' },
 
   // Terrenos
+  'terreno-50x50-matricula-prea': { areaTerreno: '2.500 m²' },
   'terreno-praia-do-farol': { areaTerreno: '8.600 m²' },
   'terreno-barrinha-1753m': { areaTerreno: '1.753 m²' },
   'terreno-barrinha-1840m2-matricula': { areaTerreno: '1.840 m²' },

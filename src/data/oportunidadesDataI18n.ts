@@ -3863,6 +3863,37 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     category: "venda"
   },
   {
+    id: "terreno-50x50-matricula-prea",
+    slug: "terreno-50x50-matricula-prea",
+    title: "FOR SALE",
+    searchTitle: "50x50 Lot with Registered Title — 2,500 sqm — Preá Beach",
+    image: "/imoveis/terreno-50x50-matricula-prea-01-lote-destacado-com-matricula.webp",
+    badge: "Registered Title",
+    propertyTitle: "50 X 50 LOT WITH REGISTERED TITLE — PREÁ BEACH",
+    location: "Preá Beach, Cruz - CE",
+    rating: 5,
+    exclusiveText: "REGISTERED TITLE | 2,500 sqm | 50 x 50 m | Walled | Preá Beach",
+    summaryDescription: "For sale: 50 x 50 m lot (2,500 sqm) with registered title (matrícula) at Preá Beach. Walled, flat and ready for your project in one of the fastest-appreciating areas on the Ceará coast.",
+    about: [
+      "A lot with registered title (matrícula) at Preá Beach — a rare advantage in the region, bringing legal certainty to buy, build and finance.",
+      "It is a 2,500 sqm square lot, 50 x 50 meters, already walled and flat, on a street with Preá homes and guesthouses. The size allows for a high-end home with a large garden and pool, a set of chalets or a guesthouse.",
+      "Preá is one of the best kitesurfing spots in the world, next to Jericoacoara National Park, with steady wind most of the year and growing demand for vacation homes and lodging."
+    ],
+    infra: [
+      "Registered title (matrícula)",
+      "Total area: 2,500 sqm",
+      "Dimensions: 50 x 50 m",
+      "Walled lot",
+      "Flat lot",
+      "Preá Beach, Cruz - CE"
+    ],
+    facilities: ["Registered Title", "2,500 sqm", "50 x 50 m", "Walled", "Preá Beach"],
+    priceTag: "Price",
+    price: "R$ 1,500,000.00",
+    installments: "Contact us for terms",
+    category: "venda"
+  },
+  {
     id: "casa-3-suites-vista-mar-prea",
     slug: "casa-3-suites-vista-mar-prea",
     title: "FOR SALE",
@@ -5719,6 +5750,37 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     ],
     priceTag: "Valor",
     price: "R$ 3.500.000,00",
+    installments: "Consulte las condiciones",
+    category: "venda"
+  },
+  {
+    id: "terreno-50x50-matricula-prea",
+    slug: "terreno-50x50-matricula-prea",
+    title: "VENTA",
+    searchTitle: "Terreno 50x50 con Matrícula — 2.500 m² — Playa de Preá",
+    image: "/imoveis/terreno-50x50-matricula-prea-01-lote-destacado-com-matricula.webp",
+    badge: "Con Matrícula",
+    propertyTitle: "TERRENO 50 X 50 CON MATRÍCULA — PLAYA DE PREÁ",
+    location: "Playa de Preá, Cruz - CE",
+    rating: 5,
+    exclusiveText: "CON MATRÍCULA | 2.500 m² | 50 x 50 m | Amurallado | Playa de Preá",
+    summaryDescription: "En venta: terreno de 50 x 50 m (2.500 m²) con matrícula registrada en la Playa de Preá. Amurallado, plano y listo para recibir su proyecto en una de las zonas que más se valorizan en la costa de Ceará.",
+    about: [
+      "Terreno con matrícula en la Playa de Preá — un diferencial poco común en la región, que aporta seguridad jurídica para comprar, construir y financiar.",
+      "Son 2.500 m² de formato cuadrado, 50 x 50 metros, ya amurallado y en área plana, en una calle con casas y posadas de Preá. El tamaño permite una casa de alto nivel con amplio jardín y piscina, un conjunto de chalés o una posada.",
+      "Preá es uno de los mejores spots de kitesurf del mundo, vecino del Parque Nacional de Jericoacoara, con viento constante la mayor parte del año y demanda creciente de casas de temporada y hospedaje."
+    ],
+    infra: [
+      "Matrícula registrada",
+      "Área total: 2.500 m²",
+      "Dimensiones: 50 x 50 m",
+      "Terreno amurallado",
+      "Terreno plano",
+      "Playa de Preá, Cruz - CE"
+    ],
+    facilities: ["Con Matrícula", "2.500 m²", "50 x 50 m", "Amurallado", "Playa de Preá"],
+    priceTag: "Valor",
+    price: "R$ 1.500.000,00",
     installments: "Consulte las condiciones",
     category: "venda"
   },
