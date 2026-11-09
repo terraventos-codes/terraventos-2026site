@@ -15,7 +15,7 @@ export default function handler(req, res) {
     {
       slug: 'terreno-exclusivo-tatajuba-1000m',
       title: 'TERRENO EXCLUSIVO EM TATAJUBA — 1.000 m²',
-      description: 'Descubra a joia de Tatajuba: Um terreno de 1.000 m² no coração da vila que é o novo desejo do kitesurf mundial. Segurança jurídica total com matrícula individualizada.',
+      description: 'Terreno de 1.000 m² no Distrito de Tatajuba, no corredor de vento entre Tatajuba e Jericoacoara. Origem em matrícula registrada no Cartório de Camocim, sem ônus, com desmembramento aprovado pela Prefeitura.',
       image: '/TATAJUBA/WhatsApp%20Image%202026-04-23%20at%2018.35.22.jpeg'
     },
     {
