@@ -1254,22 +1254,24 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     image: '/imoveis/terreno-exclusivo-tatajuba-1000m-01.webp',
     badge: 'Exclusividade',
     propertyTitle: 'TERRENO EXCLUSIVO EM TATAJUBA — 1.000 m²',
-    location: 'Tatajuba, Ceará, Brasil',
+    location: 'Distrito de Tatajuba, Camocim/CE',
     rating: 5,
-    exclusiveText: '1.000 m² | Matrícula Individualizada | Oportunidade Única',
+    exclusiveText: '1.000 m² | Origem em Matrícula Registrada | Desmembramento Aprovado',
+    summaryDescription: 'Terreno de 1.000 m² no Distrito de Tatajuba, no corredor de vento entre Tatajuba e Jericoacoara. Origem em matrícula registrada no Cartório de Camocim, sem ônus, com desmembramento aprovado pela Prefeitura.',
     about: [
-      'Descubra a joia de Tatajuba: Um terreno de 1.000 m² no coração da vila que é o novo desejo do kitesurf mundial.',
-      'Segurança Jurídica Total: Imóvel com matrícula individualizada e processo de desmembramento finalizado, oferecendo a tranquilidade que o investidor experiente exige.',
-      'Localização Estratégica: Situado em uma região de altíssima valorização, ideal para quem busca construir um refúgio exclusivo ou realizar um investimento imobiliário estratégico.',
-      'Estilo de Vida Tatajuba: Viva em harmonia com a natureza, em um local reconhecido por sua hospitalidade, ventos constantes e paisagens de tirar o fôlego.'
+      'Terreno de 1.000 m² no Distrito de Tatajuba, no corredor de vento entre Tatajuba e Jericoacoara, um dos melhores destinos de kitesurf do mundo. O tamanho comporta uma casa de alto padrão ou um projeto boutique.',
+      'Diferente da maioria das áreas da região, negociadas apenas com posse, este terreno tem origem em matrícula registrada no Cartório de Registro de Imóveis de Camocim, sem ônus. O desmembramento foi aprovado pela Prefeitura e já está protocolado no cartório para abertura da matrícula própria.',
+      'Documentação: documentação completa disponível para análise do comprador e do seu advogado.'
     ],
     infra: [
-      'Área Total: 1.000 m²',
-      'Matrícula Individualizada',
-      'Localização Premium em Tatajuba',
-      'Pronto para Desmembramento'
+      'Origem em matrícula registrada (Cartório de Camocim), sem ônus',
+      'Área urbana reconhecida pela Prefeitura',
+      'Georreferenciado, com responsável técnico (CAU/RRT)',
+      'Desmembramento aprovado pela Prefeitura e protocolado em cartório',
+      'IPTU em dia, com certidão negativa de tributos',
+      'Proprietária única e negociação direta'
     ],
-    facilities: ['1.000 m²', 'Matrícula Pronta', 'Kitesurf Paradise', 'Exclusividade'],
+    facilities: ['1.000 m²', 'Matrícula de Origem', 'Georreferenciado', 'IPTU em Dia'],
     gallery: {
       main: '/imoveis/terreno-exclusivo-tatajuba-1000m-01.webp',
       sideTop: '/imoveis/terreno-exclusivo-tatajuba-1000m-02.webp',
@@ -1292,7 +1294,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     ],
     priceTag: '',
     price: 'R$ 800.000,00',
-    installments: 'Consulte condições exclusivas',
+    installments: 'Consulte condições',
     category: 'venda'
   },
   {

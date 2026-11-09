@@ -722,25 +722,26 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       image: '/imoveis/terreno-exclusivo-tatajuba-1000m-01.webp',
       badge: 'Exclusividade',
       propertyTitle: 'TERRENO EXCLUSIVO EM TATAJUBA — 1.000 m²',
-      location: 'Tatajuba, Ceará, Brasil',
+      location: 'Distrito de Tatajuba, Camocim/CE',
       rating: 5,
-      exclusiveText: '1.000 m² | Matrícula Individualizada | Oportunidade Única',
-      summaryDescription: 'Oportunidade exclusiva em Tatajuba: Terreno de 1.000 m² com matrícula individualizada, no coração do paraíso do kitesurf.',
+      exclusiveText: '1.000 m² | Origem em Matrícula Registrada | Desmembramento Aprovado',
+      summaryDescription: 'Terreno de 1.000 m² no Distrito de Tatajuba, no corredor de vento entre Tatajuba e Jericoacoara. Origem em matrícula registrada no Cartório de Camocim, sem ônus, com desmembramento aprovado pela Prefeitura.',
       about: [
-        'Oportunidade rara em Tatajuba: Meio lote de 1.000 m² localizado em uma das áreas mais cobiçadas do paraíso do kitesurf.',
-        'Segurança Jurídica: Imóvel com matrícula individualizada e processo de desmembramento finalizado, garantindo uma transação segura e transparente.',
-        'Localização Estratégica: Região de alta valorização, ideal para quem busca exclusividade e contato direto com a natureza exuberante de Tatajuba.',
-        'Pronto para Investir: Área retificada e pronta para receber seu projeto dos sonhos ou para compor uma carteira de investimentos sólidos no litoral cearense.'
+        'Terreno de 1.000 m² no Distrito de Tatajuba, no corredor de vento entre Tatajuba e Jericoacoara, um dos melhores destinos de kitesurf do mundo. O tamanho comporta uma casa de alto padrão ou um projeto boutique.',
+        'Diferente da maioria das áreas da região, negociadas apenas com posse, este terreno tem origem em matrícula registrada no Cartório de Registro de Imóveis de Camocim, sem ônus. O desmembramento foi aprovado pela Prefeitura e já está protocolado no cartório para abertura da matrícula própria.',
+        'Documentação: documentação completa disponível para análise do comprador e do seu advogado.'
       ],
       infra: [
-        'Área Total: 1.000 m²',
-        'Matrícula Individualizada',
-        'Localização Premium em Tatajuba',
-        'Pronto para Desmembramento'
+        'Origem em matrícula registrada (Cartório de Camocim), sem ônus',
+        'Área urbana reconhecida pela Prefeitura',
+        'Georreferenciado, com responsável técnico (CAU/RRT)',
+        'Desmembramento aprovado pela Prefeitura e protocolado em cartório',
+        'IPTU em dia, com certidão negativa de tributos',
+        'Proprietária única e negociação direta'
       ],
-      facilities: ['1.000 m²', 'Matrícula Pronta', 'Kitesurf Paradise', 'Exclusividade'],
+      facilities: ['1.000 m²', 'Matrícula de Origem', 'Georreferenciado', 'IPTU em Dia'],
       price: 'R$ 800.000,00',
-      installments: 'Consulte condições exclusivas',
+      installments: 'Consulte condições',
       priceTag: '',
       documents: [
         {
@@ -3029,25 +3030,26 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       image: '/imoveis/terreno-exclusivo-tatajuba-1000m-01.webp',
       badge: 'Exclusivity',
       propertyTitle: 'EXCLUSIVE LAND IN TATAJUBA — 1,000 m²',
-      location: 'Tatajuba, Ceará, Brazil',
+      location: 'Tatajuba district, Camocim, Ceará, Brazil',
       rating: 5,
-      exclusiveText: '1,000 m² | Individual Registration | Unique Opportunity',
-      summaryDescription: 'Exclusive opportunity in Tatajuba: 1,000 sqm lot with individual registration, in the heart of the kitesurfing paradise.',
+      exclusiveText: '1,000 m² | Registered Title of Origin | Subdivision Approved',
+      summaryDescription: 'A 1,000 m² plot in the Tatajuba district, in the wind corridor between Tatajuba and Jericoacoara. Comes from a registered title at the Camocim Land Registry, free of liens, with subdivision approved by the municipality.',
       about: [
-        'Rare opportunity in Tatajuba: Half lot of 1,000 sqm located in one of the most coveted areas of the kitesurfing paradise.',
-        'Legal Security: Property with individual registration and finalized splitting process, ensuring a safe and transparent transaction.',
-        'Strategic Location: High appreciation region, ideal for those seeking exclusivity and direct contact with the exuberant nature of Tatajuba.',
-        'Ready to Invest: Rectified area ready for your dream project or for a solid investment portfolio on the Ceará coast.'
+        'A 1,000 m² plot in the Tatajuba district, in the wind corridor between Tatajuba and Jericoacoara, one of the world\'s top kitesurfing destinations. It is large enough for a high-end home or a boutique hospitality project.',
+        'Unlike most land in the region, which trades on possession rights alone, this plot comes from a registered title at the Camocim Land Registry, free of liens. The subdivision has been approved by the municipality and filed with the registry for issuance of its own title.',
+        'Documentation: full documentation available for review by the buyer and their lawyer.'
       ],
       infra: [
-        'Total Area: 1,000 sqm',
-        'Individual Registration',
-        'Premium Location in Tatajuba',
-        'Ready for Splitting'
+        'Comes from a registered title (Camocim Land Registry), free of liens',
+        'Classified as urban land by the municipality',
+        'Fully geo-referenced, signed by a licensed professional',
+        'Subdivision approved by the municipality and filed with the registry',
+        'Property taxes up to date, with tax clearance certificate',
+        'Single owner, straightforward negotiation'
       ],
-      facilities: ['1,000 sqm', 'Ready Registration', 'Kitesurf Paradise', 'Exclusivity'],
+      facilities: ['1,000 sqm', 'Registered Title of Origin', 'Geo-referenced', 'Taxes Up to Date'],
       price: 'R$ 800,000.00',
-      installments: 'Consult exclusive conditions',
+      installments: 'Contact us for conditions',
       priceTag: '',
       documents: [
         {
@@ -4965,25 +4967,26 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       image: '/imoveis/terreno-exclusivo-tatajuba-1000m-01.webp',
       badge: 'Exclusividad',
       propertyTitle: 'TERRENO EXCLUSIVO EN TATAJUBA — 1.000 m²',
-      location: 'Tatajuba, Ceará, Brasil',
+      location: 'Distrito de Tatajuba, Camocim, Ceará, Brasil',
       rating: 5,
-      exclusiveText: '1.000 m² | Matrícula Individual | Oportunidad Única',
-      summaryDescription: 'Oportunidad exclusiva en Tatajuba: Terreno de 1.000 m² con matrícula individual, en el corazón del paraíso del kitesurf.',
+      exclusiveText: '1.000 m² | Origen en Matrícula Registrada | Subdivisión Aprobada',
+      summaryDescription: 'Terreno de 1.000 m² en el distrito de Tatajuba, en el corredor de viento entre Tatajuba y Jericoacoara. Origen en matrícula registrada en el Registro de la Propiedad de Camocim, sin cargas, con subdivisión aprobada por el municipio.',
       about: [
-        'Oportunidad rara en Tatajuba: Medio lote de 1.000 m² ubicado en una de las zonas más codiciadas del paraíso del kitesurf.',
-        'Seguridad Jurídica: Propiedad con matrícula individual y proceso de desmembramento finalizado, garantizando una transacción segura y transparente.',
-        'Ubicación Estratégica: Región de alta valorización, ideal para quienes buscan exclusividad y contacto directo con la naturaleza exuberante de Tatajuba.',
-        'Listo para Invertir: Área rectificada y lista para su proyecto soñado o para una sólida cartera de inversiones en la costa de Ceará.'
+        'Terreno de 1.000 m² en el distrito de Tatajuba, en el corredor de viento entre Tatajuba y Jericoacoara, uno de los mejores destinos de kitesurf del mundo. Su tamaño permite una casa de alto estándar o un proyecto boutique.',
+        'A diferencia de la mayoría de las áreas de la región, que se negocian solo con posesión, este terreno tiene origen en una matrícula registrada en el Registro de la Propiedad de Camocim, sin cargas. La subdivisión fue aprobada por el municipio y ya está presentada en el registro para la apertura de su propia matrícula.',
+        'Documentación: documentación completa disponible para el análisis del comprador y de su abogado.'
       ],
       infra: [
-        'Área Total: 1.000 m²',
-        'Matrícula Individual',
-        'Ubicación Premium en Tatajuba',
-        'Listo para Desmembramiento'
+        'Origen en matrícula registrada (Registro de Camocim), sin cargas',
+        'Área urbana reconocida por el municipio',
+        'Georreferenciado, con responsable técnico (CAU/RRT)',
+        'Subdivisión aprobada por el municipio y presentada en el registro',
+        'Impuesto predial al día, con certificado negativo de tributos',
+        'Propietaria única y negociación directa'
       ],
-      facilities: ['1.000 m²', 'Matrícula Lista', 'Kitesurf Paradise', 'Exclusividad'],
+      facilities: ['1.000 m²', 'Matrícula de Origen', 'Georreferenciado', 'Impuestos al Día'],
       price: 'R$ 800.000,00',
-      installments: 'Consulte condiciones exclusivas',
+      installments: 'Consulte condiciones',
       priceTag: '',
       documents: [
         {
