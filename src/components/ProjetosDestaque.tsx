@@ -12,6 +12,19 @@ type ProjetosDestaqueProps = {
 
 const projetos = [
   {
+    id: "terreno-50x50-matricula-prea",
+    image: "/imoveis/terreno-50x50-matricula-prea-01-lote-destacado-com-matricula.webp",
+    tag: "VENDA",
+    location: "Praia do Preá, Cruz - CE",
+    title: "TERRENO 50 X 50 COM MATRÍCULA — PRAIA DO PREÁ",
+    area: "2.500 m²",
+    beds: null,
+    baths: null,
+    price: "R$ 1.500.000,00",
+    detailIndex: 0,
+    pinned: true,
+  },
+  {
     id: "casa-3-suites-vista-mar-prea",
     image: "/imoveis/casa-3-suites-vista-mar-prea-01-varanda-vista-mar-telhado-palha.webp",
     tag: "VENDA",
