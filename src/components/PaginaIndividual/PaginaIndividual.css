@@ -613,6 +613,62 @@
   transform: scale(1.1);
 }
 
+.pi-lightbox-img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.pi-lightbox {
+  touch-action: pan-y pinch-zoom;
+}
+
+.pi-lightbox-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(45, 45, 45, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 2000001;
+}
+
+.pi-lightbox-nav:hover {
+  background: #000;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.pi-lightbox-nav:focus-visible,
+.pi-lightbox-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.pi-lightbox-nav--prev { left: 30px; }
+.pi-lightbox-nav--next { right: 30px; }
+
+.pi-lightbox-counter {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(45, 45, 45, 0.8);
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  z-index: 2000001;
+  pointer-events: none;
+}
+
 @keyframes lightboxFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -645,6 +701,14 @@
     width: 40px;
     height: 40px;
   }
+  .pi-lightbox-nav {
+    width: 42px;
+    height: 42px;
+    background: rgba(30, 30, 30, 0.55);
+  }
+  .pi-lightbox-nav--prev { left: 10px; }
+  .pi-lightbox-nav--next { right: 10px; }
+  .pi-lightbox-counter { bottom: 16px; }
   /* Target video gallery wrapper */
   .pi-lightbox-video-wrapper,
   .pi-lightbox-video-container {
