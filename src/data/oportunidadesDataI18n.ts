@@ -3602,38 +3602,35 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     propertyTitle: "TATAJUBA LOTS — CAMOCIM, CE",
     location: "Vila de Tatajuba, Camocim - CE",
     rating: 5,
-    exclusiveText: "5 Lots from 400 to 604 sqm | Next to La Ventana and Avra | Starting at R$ 330,000.00",
-    summaryDescription: "A set of 5 lots in Vila de Tatajuba, next to the La Ventana and Avra villas and close to the seafront, with areas between 400.86 sqm and 604.06 sqm. Starting at R$ 330,000.00 per lot.",
+    exclusiveText: "4 Lots Available from 400 to 504 sqm | Next to La Ventana and Avra | R$ 330,000.00 each",
+    summaryDescription: "Lots in Vila de Tatajuba, next to the La Ventana and Avra villas and close to the seafront. Available: lots 02, 03, 04 and 05, with areas between 400.86 sqm and 503.69 sqm, at R$ 330,000.00 per lot.",
     about: [
-      "An exclusive set of 5 lots for sale in Vila de Tatajuba (Camocim, CE), right next to the renowned La Ventana and Avra villas and just steps from the seafront — one of the fastest-appreciating areas on the Ceará coast in recent years.",
-      "There are 5 lots ranging from 400.86 sqm to 604.06 sqm, ideal for high-end residential projects, boutique inns, or an investment with strong appreciation potential given the proximity to already-established developments.",
+      "Exclusive lots for sale in Vila de Tatajuba (Camocim, CE), right next to the renowned La Ventana and Avra villas and just steps from the seafront — one of the fastest-appreciating areas on the Ceará coast in recent years.",
+      "Lots 02, 03, 04 and 05 are available, ranging from 400.86 sqm to 503.69 sqm, ideal for high-end residential projects, boutique inns, or an investment with strong appreciation potential given the proximity to already-established developments.",
       "The privileged location provides easy access to the beach, the lagoon and the river mouth, plus the infrastructure already in place nearby — high-end homes, inns and an internationally-flavored neighborhood.",
-      "Each lot can be purchased individually (starting at R$ 330,000.00) or as a set. The plan with the detailed division of the 5 areas is available for download on this page."
+      "Each lot costs R$ 330,000.00. The plan with the detailed division of the lots is available for download on this page."
     ],
     infra: [
-      "Total Area: 2,511.85 sqm (5 lots)",
-      "Lot 01: 604.06 sqm",
+      "Available lots: 02, 03, 04 and 05",
       "Lot 02: 400.86 sqm",
       "Lot 03: 503.69 sqm",
       "Lot 04: 501.71 sqm",
       "Lot 05: 501.53 sqm",
       "Location: Vila de Tatajuba, next to La Ventana and Avra"
     ],
-    facilities: ["5 Lots", "400 to 604 sqm", "Next to La Ventana and Avra", "Close to the Seafront"],
+    facilities: ["4 Lots Available", "400 to 504 sqm", "Next to La Ventana and Avra", "Close to the Seafront"],
     documents: [
       {
-        label: "Plan with the Division of the 5 Lots",
+        label: "Plan with the Division of the Lots",
         url: "/documentos/lotes-tatajuba-planta-divisao-5-lotes.pdf",
-        legend: "Plan showing the division of the 5 lots and each individual area."
+        legend: "Plan showing the division of the lots and each individual area."
       }
     ],
-    priceTag: "Starting at",
+    priceTag: "Price per lot",
     price: "R$ 330,000.00",
-    installments: "Individual lots: R$ 330,000.00 each",
+    installments: "Lots 02, 03, 04 and 05: R$ 330,000.00 each",
     category: "venda",
     lotes: [
-      { id: "all", label: "All 5 Lots (2,511.85 sqm)", priceTag: "Total price", price: "R$ 1,650,000.00" },
-      { id: "lote-01", label: "Lot 01 (604.06 sqm)", priceTag: "Price", price: "R$ 330,000.00" },
       { id: "lote-02", label: "Lot 02 (400.86 sqm)", priceTag: "Price", price: "R$ 330,000.00" },
       { id: "lote-03", label: "Lot 03 (503.69 sqm)", priceTag: "Price", price: "R$ 330,000.00" },
       { id: "lote-04", label: "Lot 04 (501.71 sqm)", priceTag: "Price", price: "R$ 330,000.00" },
@@ -5494,38 +5491,35 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     propertyTitle: "LOTES EN TATAJUBA — CAMOCIM, CE",
     location: "Vila de Tatajuba, Camocim - CE",
     rating: 5,
-    exclusiveText: "5 Lotes de 400 a 604 m² | Junto a La Ventana y Avra | Desde R$ 330.000,00",
-    summaryDescription: "Conjunto de 5 lotes en Vila de Tatajuba, junto a las villas La Ventana y Avra y cerca de la orilla, con áreas entre 400,86 m² y 604,06 m². Desde R$ 330.000,00 cada lote.",
+    exclusiveText: "4 Lotes Disponibles de 400 a 504 m² | Junto a La Ventana y Avra | R$ 330.000,00 cada uno",
+    summaryDescription: "Lotes en Vila de Tatajuba, junto a las villas La Ventana y Avra y cerca de la orilla. Disponibles: lotes 02, 03, 04 y 05, con áreas entre 400,86 m² y 503,69 m², a R$ 330.000,00 cada lote.",
     about: [
-      "Conjunto exclusivo de 5 lotes en venta en Vila de Tatajuba (Camocim-CE), vecino de las reconocidas villas La Ventana y Avra y a pocos pasos de la orilla — una de las zonas de mayor valorización del litoral cearense en los últimos años.",
-      "Son 5 lotes con áreas entre 400,86 m² y 604,06 m², ideales para proyectos residenciales de alto standing, posadas boutique o inversión con gran potencial de valorización, dada la cercanía con emprendimientos ya consolidados en la región.",
+      "Lotes exclusivos en venta en Vila de Tatajuba (Camocim-CE), vecino de las reconocidas villas La Ventana y Avra y a pocos pasos de la orilla — una de las zonas de mayor valorización del litoral cearense en los últimos años.",
+      "Están disponibles los lotes 02, 03, 04 y 05, con áreas entre 400,86 m² y 503,69 m², ideales para proyectos residenciales de alto standing, posadas boutique o inversión con gran potencial de valorización, dada la cercanía con emprendimientos ya consolidados en la región.",
       "La ubicación privilegiada garantiza fácil acceso a la playa, a la laguna y a la desembocadura del río, además de contar con la infraestructura ya instalada en los alrededores — casas de alto standing, posadas y un vecindario de nivel internacional.",
-      "Cada lote puede adquirirse individualmente (desde R$ 330.000,00) o en conjunto. El plano con la división detallada de las 5 áreas está disponible para descargar en esta página."
+      "Cada lote cuesta R$ 330.000,00. El plano con la división detallada de los lotes está disponible para descargar en esta página."
     ],
     infra: [
-      "Área Total: 2.511,85 m² (5 lotes)",
-      "Lote 01: 604,06 m²",
+      "Lotes disponibles: 02, 03, 04 y 05",
       "Lote 02: 400,86 m²",
       "Lote 03: 503,69 m²",
       "Lote 04: 501,71 m²",
       "Lote 05: 501,53 m²",
       "Ubicación: Vila de Tatajuba, junto a La Ventana y Avra"
     ],
-    facilities: ["5 Lotes", "400 a 604 m²", "Junto a La Ventana y Avra", "Cerca de la Orilla"],
+    facilities: ["4 Lotes Disponibles", "400 a 504 m²", "Junto a La Ventana y Avra", "Cerca de la Orilla"],
     documents: [
       {
-        label: "Plano con la División de los 5 Lotes",
+        label: "Plano con la División de los Lotes",
         url: "/documentos/lotes-tatajuba-planta-divisao-5-lotes.pdf",
-        legend: "Plano con la división de los 5 lotes y las áreas individuales de cada uno."
+        legend: "Plano con la división de los lotes y el área individual de cada uno."
       }
     ],
-    priceTag: "Desde",
+    priceTag: "Valor por lote",
     price: "R$ 330.000,00",
-    installments: "Lotes individuales: R$ 330.000,00 cada uno",
+    installments: "Lotes 02, 03, 04 y 05: R$ 330.000,00 cada uno",
     category: "venda",
     lotes: [
-      { id: "all", label: "Los 5 Lotes (2.511,85 m²)", priceTag: "Valor total", price: "R$ 1.650.000,00" },
-      { id: "lote-01", label: "Lote 01 (604,06 m²)", priceTag: "Valor", price: "R$ 330.000,00" },
       { id: "lote-02", label: "Lote 02 (400,86 m²)", priceTag: "Valor", price: "R$ 330.000,00" },
       { id: "lote-03", label: "Lote 03 (503,69 m²)", priceTag: "Valor", price: "R$ 330.000,00" },
       { id: "lote-04", label: "Lote 04 (501,71 m²)", priceTag: "Valor", price: "R$ 330.000,00" },

@@ -46,7 +46,8 @@ export default function PropertyGallery({ item, allPhotos, onOpenLightbox, onOpe
         )}
       </div>
 
-      {extraPhotos.length > 0 && (
+      {/* Com 1 foto só a linha fica desequilibrada; ela continua no álbum e na faixa abaixo */}
+      {extraPhotos.length > 1 && (
         <div className="pi-gallery-secondary">
           {extraPhotos.slice(0, 3).map((img, idx) => (
             <img
