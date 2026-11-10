@@ -165,7 +165,7 @@ const projetos = [
     tag: "VENDA",
     location: "Vila de Tatajuba, Camocim - CE",
     title: "LOTES EM TATAJUBA — CAMOCIM, CE",
-    area: "400 a 604 m²",
+    area: "400 a 504 m²",
     beds: null,
     baths: null,
     price: "R$ 330.000,00",

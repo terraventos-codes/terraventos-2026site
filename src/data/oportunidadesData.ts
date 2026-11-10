@@ -1274,12 +1274,13 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     facilities: ['1.000 m²', 'Matrícula de Origem', 'Georreferenciado', 'IPTU em Dia'],
     gallery: {
       main: '/imoveis/terreno-exclusivo-tatajuba-1000m-01.webp',
-      sideTop: '/imoveis/terreno-exclusivo-tatajuba-1000m-02.webp',
-      sideBottom: '/imoveis/terreno-exclusivo-tatajuba-1000m-03.webp',
-      extra: []
+      // Imagem de satélite com a área exata do terreno (amarelo, conforme o Bernardo — 10/11/2026)
+      sideTop: '/imoveis/terreno-exclusivo-tatajuba-1000m-satelite-area.webp',
+      sideBottom: '/imoveis/terreno-exclusivo-tatajuba-1000m-04.webp',
+      extra: ['/imoveis/terreno-exclusivo-tatajuba-1000m-02.webp']
     },
     mapImage: '/mapa.avif',
-    mapUrl: 'https://maps.google.com/maps?q=-2.854046,-40.696586&hl=pt-BR&z=15&output=embed',
+    mapUrl: 'https://maps.google.com/maps?q=-2.85425,-40.69697&hl=pt-BR&z=17&output=embed',
     documents: [
       {
         label: 'Tatajuba: O Paraíso Escondido do Kitesurf',
@@ -2902,24 +2903,23 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   propertyTitle: "LOTES EM TATAJUBA — CAMOCIM, CE",
   location: "Vila de Tatajuba, Camocim - CE",
   rating: 5,
-  exclusiveText: "5 Lotes de 400 a 604 m² | Ao Lado de La Ventana e Avra | A partir de R$ 330.000,00",
-  summaryDescription: "Conjunto de 5 lotes na Vila de Tatajuba, próximos às vilas La Ventana e Avra e à orla, com áreas entre 400,86 m² e 604,06 m². A partir de R$ 330.000,00 cada lote.",
+  exclusiveText: "4 Lotes Disponíveis de 400 a 504 m² | Ao Lado de La Ventana e Avra | R$ 330.000,00 cada",
+  summaryDescription: "Lotes na Vila de Tatajuba, próximos às vilas La Ventana e Avra e à orla. Disponíveis: lotes 02, 03, 04 e 05, com áreas entre 400,86 m² e 503,69 m², por R$ 330.000,00 cada lote.",
   about: [
-    "Conjunto exclusivo de 5 lotes à venda na Vila de Tatajuba (Camocim-CE), vizinhos às renomadas vilas La Ventana e Avra e a poucos passos da orla — uma das regiões de maior valorização do litoral cearense nos últimos anos.",
-    "São 5 lotes com áreas entre 400,86 m² e 604,06 m², ideais para projetos residenciais de alto padrão, pousadas boutique ou investimento com potencial de valorização acelerada, dada a proximidade com empreendimentos já consolidados na região.",
+    "Lotes exclusivos à venda na Vila de Tatajuba (Camocim-CE), vizinhos às renomadas vilas La Ventana e Avra e a poucos passos da orla — uma das regiões de maior valorização do litoral cearense nos últimos anos.",
+    "Estão disponíveis os lotes 02, 03, 04 e 05, com áreas entre 400,86 m² e 503,69 m², ideais para projetos residenciais de alto padrão, pousadas boutique ou investimento com potencial de valorização acelerada, dada a proximidade com empreendimentos já consolidados na região.",
     "A localização privilegiada garante fácil acesso à praia, à lagoa e à foz do rio, além de contar com a infraestrutura já instalada no entorno — casas de alto padrão, pousadas e uma vizinhança de padrão internacional.",
-    "Cada lote pode ser adquirido individualmente (a partir de R$ 330.000,00) ou em conjunto. A planta com a divisão detalhada das 5 áreas está disponível para download nesta página."
+    "Cada lote custa R$ 330.000,00. A planta com a divisão detalhada dos lotes está disponível para download nesta página."
   ],
   infra: [
-    "Área Total: 2.511,85 m² (5 lotes)",
-    "Lote 01: 604,06 m²",
+    "Lotes disponíveis: 02, 03, 04 e 05",
     "Lote 02: 400,86 m²",
     "Lote 03: 503,69 m²",
     "Lote 04: 501,71 m²",
     "Lote 05: 501,53 m²",
     "Localização: Vila de Tatajuba, ao lado de La Ventana e Avra"
   ],
-  facilities: ["5 Lotes", "400 a 604 m²", "Ao Lado de La Ventana e Avra", "Perto da Orla"],
+  facilities: ["4 Lotes Disponíveis", "400 a 504 m²", "Ao Lado de La Ventana e Avra", "Perto da Orla"],
   gallery: {
     main: "/imoveis/lotes-tatajuba-camocim-01.webp",
     sideTop: "/imoveis/lotes-tatajuba-camocim-02.webp",
@@ -2931,18 +2931,16 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   videoSources: [],
   documents: [
     {
-      label: "Planta com Divisão dos 5 Lotes",
+      label: "Planta com Divisão dos Lotes",
       url: "/documentos/lotes-tatajuba-planta-divisao-5-lotes.pdf",
-      legend: "Planta com a divisão dos 5 lotes e as áreas individuais de cada um."
+      legend: "Planta com a divisão dos lotes e a área individual de cada um."
     }
   ],
-  priceTag: "A partir de",
+  priceTag: "Valor por lote",
   price: "R$ 330.000,00",
-  installments: "Lotes individuais: R$ 330.000,00 cada",
+  installments: "Lotes 02, 03, 04 e 05: R$ 330.000,00 cada",
   category: "venda",
   lotes: [
-    { id: "all", label: "Todos os 5 Lotes (2.511,85 m²)", priceTag: "Valor total", price: "R$ 1.650.000,00" },
-    { id: "lote-01", label: "Lote 01 (604,06 m²)", priceTag: "Valor", price: "R$ 330.000,00" },
     { id: "lote-02", label: "Lote 02 (400,86 m²)", priceTag: "Valor", price: "R$ 330.000,00" },
     { id: "lote-03", label: "Lote 03 (503,69 m²)", priceTag: "Valor", price: "R$ 330.000,00" },
     { id: "lote-04", label: "Lote 04 (501,71 m²)", priceTag: "Valor", price: "R$ 330.000,00" },

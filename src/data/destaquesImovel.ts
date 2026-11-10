@@ -48,7 +48,7 @@ export const destaquesImovel: Record<string, DestaquesImovel> = {
   'area-exclusiva-tatajuba-guriu-100000m': { areaTerreno: '100.000 m²' },
   'terreno-exclusivo-tatajuba-1000m': { areaTerreno: '1.000 m²' },
   'terreno-tatajuba-camocim-5405m2': { areaTerreno: '5.405 m²' },
-  'lotes-tatajuba-camocim': { areaTerreno: '400–604 m²' },
+  'lotes-tatajuba-camocim': { areaTerreno: '400–504 m²' },
   'terreno-vila-sao-francisco-tatajuba': { areaTerreno: '2.000 m²' },
   'terreno-parque-nacional-3044m-carlos': { areaTerreno: '3.044 m²' },
   'terreno-perto-mar-2110m-carlos': { areaTerreno: '2.110 m²' },
