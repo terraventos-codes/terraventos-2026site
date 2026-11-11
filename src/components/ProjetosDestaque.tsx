@@ -12,6 +12,32 @@ type ProjetosDestaqueProps = {
 
 const projetos = [
   {
+    id: "terreno-frente-mar-barrinha-5684m",
+    image: "/imoveis/terreno-frente-mar-barrinha-5684m-01-satelite-lote-frente-mar.webp",
+    tag: "VENDA",
+    location: "Praia da Barrinha, Acaraú - CE",
+    title: "TERRENO FRENTE MAR NA BARRINHA — 5.684 m²",
+    area: "5.684 m²",
+    beds: null,
+    baths: null,
+    price: "SOB CONSULTA",
+    detailIndex: 0,
+    pinned: true,
+  },
+  {
+    id: "terreno-frente-mar-barrinha-415m-ckc",
+    image: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp",
+    tag: "VENDA",
+    location: "Praia da Barrinha, Acaraú - CE",
+    title: "TERRENO FRENTE MAR NA BARRINHA, VIZINHO AO CKC — 415 m²",
+    area: "415 m²",
+    beds: null,
+    baths: null,
+    price: "SOB CONSULTA",
+    detailIndex: 0,
+    pinned: true,
+  },
+  {
     id: "terreno-50x50-matricula-prea",
     image: "/imoveis/terreno-50x50-matricula-prea-01-lote-destacado-com-matricula.webp",
     tag: "VENDA",
