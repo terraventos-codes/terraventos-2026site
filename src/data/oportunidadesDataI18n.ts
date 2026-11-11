@@ -3862,6 +3862,70 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     category: "venda"
   },
   {
+    id: "terreno-frente-mar-barrinha-5684m",
+    slug: "terreno-frente-mar-barrinha-5684m",
+    title: "FOR SALE",
+    searchTitle: "Beachfront Lot in Barrinha — 5,684 sqm — 62 m of Ocean Frontage",
+    image: "/imoveis/terreno-frente-mar-barrinha-5684m-01-satelite-lote-frente-mar.webp",
+    badge: "Beachfront",
+    propertyTitle: "BEACHFRONT LOT IN BARRINHA — 5,684 SQM",
+    location: "Barrinha Beach, Acaraú - CE",
+    rating: 5,
+    exclusiveText: "BEACHFRONT | 5,684 sqm | 62 m frontage | 94 m deep | Next to CKC",
+    summaryDescription: "For sale: 5,684 sqm beachfront lot at Barrinha Beach, with 62 meters of ocean frontage, right next to CKC Curral Kite Center. Georeferenced survey signed by a licensed professional.",
+    about: [
+      "Feet in the sand, open sea: the lot's northern boundary is the shoreline itself. Nothing between you and the horizon.",
+      "It is 5,684 sqm, with 62 meters of ocean frontage and about 94 meters deep, next to CKC Curral Kite Center, the kite meeting point in Barrinha. Room for a spacious beach house or a boutique project.",
+      "Barrinha is on the west coast of Ceará, next to Preá, with steady wind most of the year. The lot has a georeferenced topographic survey, with plan and legal description signed by a licensed professional (ART). Contact Terra Ventos to receive the plan, the description and the exact location."
+    ],
+    infra: [
+      "Beachfront (northern boundary on the shoreline)",
+      "Total area: 5,684 sqm",
+      "62 m of ocean frontage",
+      "94 m deep",
+      "Next to CKC Curral Kite Center",
+      "Georeferenced survey with ART",
+      "Barrinha Beach, Acaraú - CE"
+    ],
+    facilities: ["Beachfront", "5,684 sqm", "62 m Frontage", "Next to CKC", "Georeferenced"],
+    priceTag: "Price",
+    price: "ON REQUEST",
+    installments: "Contact us for terms",
+    category: "venda"
+  },
+  {
+    id: "terreno-frente-mar-barrinha-415m-ckc",
+    slug: "terreno-frente-mar-barrinha-415m-ckc",
+    title: "FOR SALE",
+    searchTitle: "Beachfront Lot in Barrinha — 415 sqm — Next to CKC",
+    image: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp",
+    badge: "Beachfront",
+    propertyTitle: "BEACHFRONT LOT IN BARRINHA, NEXT TO CKC — 415 SQM",
+    location: "Barrinha Beach, Acaraú - CE",
+    rating: 5,
+    exclusiveText: "BEACHFRONT | 415 sqm | 12 m frontage | 34 m deep | Next to CKC",
+    summaryDescription: "For sale: 415 sqm beachfront lot at Barrinha Beach, next to CKC Curral Kite Center. Your feet in the sand on the most sought-after stretch of the beach, with a georeferenced plan.",
+    about: [
+      "Feet in the sand: facing the sea, on the most sought-after stretch of Barrinha Beach.",
+      "It is 415 sqm, with 12 meters of frontage and 34 meters deep, two houses from CKC Curral Kite Center: step out of the house and you are at the spot. The right size for a compact beach house or a kitesurfer's retreat.",
+      "Barrinha is on the west coast of Ceará, next to Preá, with steady wind most of the year. The lot has a georeferenced plan signed by a licensed professional. Contact Terra Ventos to receive the plan, drone photos and the exact location."
+    ],
+    infra: [
+      "Beachfront",
+      "Total area: 415 sqm",
+      "12 m frontage",
+      "34 m deep",
+      "Two houses from CKC Curral Kite Center",
+      "Georeferenced plan by a licensed professional",
+      "Barrinha Beach, Acaraú - CE"
+    ],
+    facilities: ["Beachfront", "415 sqm", "12 m Frontage", "Next to CKC", "Georeferenced"],
+    priceTag: "Price",
+    price: "ON REQUEST",
+    installments: "Contact us for terms",
+    category: "venda"
+  },
+  {
     id: "terreno-50x50-matricula-prea",
     slug: "terreno-50x50-matricula-prea",
     title: "FOR SALE",
@@ -5747,6 +5811,70 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     ],
     priceTag: "Valor",
     price: "R$ 3.500.000,00",
+    installments: "Consulte las condiciones",
+    category: "venda"
+  },
+  {
+    id: "terreno-frente-mar-barrinha-5684m",
+    slug: "terreno-frente-mar-barrinha-5684m",
+    title: "VENTA",
+    searchTitle: "Terreno Frente al Mar en Barrinha — 5.684 m² — 62 m de Frente al Mar",
+    image: "/imoveis/terreno-frente-mar-barrinha-5684m-01-satelite-lote-frente-mar.webp",
+    badge: "Frente al Mar",
+    propertyTitle: "TERRENO FRENTE AL MAR EN BARRINHA — 5.684 m²",
+    location: "Playa de Barrinha, Acaraú - CE",
+    rating: 5,
+    exclusiveText: "FRENTE AL MAR | 5.684 m² | 62 m de frente | 94 m de fondo | Junto al CKC",
+    summaryDescription: "En venta: terreno frente al mar de 5.684 m² en la Playa de Barrinha, con 62 metros de frente al mar, junto al CKC Curral Kite Center. Levantamiento georreferenciado con responsable técnico.",
+    about: [
+      "Pies en la arena, mar abierto: el límite norte del terreno es la propia orilla. Nada entre usted y el horizonte.",
+      "Son 5.684 m², con 62 metros de frente al mar y unos 94 metros de fondo, junto al CKC Curral Kite Center, punto de encuentro del kite en Barrinha. Escala para una casa de playa con mucho espacio o un proyecto boutique.",
+      "Barrinha está en la costa oeste de Ceará, vecina de Preá, con viento constante la mayor parte del año. El terreno tiene levantamiento topográfico georreferenciado, con plano y memorial descriptivo firmados por responsable técnico (ART). Hable con Terra Ventos para recibir el plano, el memorial y la ubicación exacta."
+    ],
+    infra: [
+      "Frente al mar (límite norte en la orilla)",
+      "Área total: 5.684 m²",
+      "62 m de frente al mar",
+      "94 m de fondo",
+      "Junto al CKC Curral Kite Center",
+      "Levantamiento georreferenciado con ART",
+      "Playa de Barrinha, Acaraú - CE"
+    ],
+    facilities: ["Frente al Mar", "5.684 m²", "62 m de Frente", "Junto al CKC", "Georreferenciado"],
+    priceTag: "Valor",
+    price: "A CONSULTAR",
+    installments: "Consulte las condiciones",
+    category: "venda"
+  },
+  {
+    id: "terreno-frente-mar-barrinha-415m-ckc",
+    slug: "terreno-frente-mar-barrinha-415m-ckc",
+    title: "VENTA",
+    searchTitle: "Terreno Frente al Mar en Barrinha — 415 m² — Junto al CKC",
+    image: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp",
+    badge: "Frente al Mar",
+    propertyTitle: "TERRENO FRENTE AL MAR EN BARRINHA, JUNTO AL CKC — 415 m²",
+    location: "Playa de Barrinha, Acaraú - CE",
+    rating: 5,
+    exclusiveText: "FRENTE AL MAR | 415 m² | 12 m de frente | 34 m de fondo | Junto al CKC",
+    summaryDescription: "En venta: terreno frente al mar de 415 m² en la Playa de Barrinha, vecino del CKC Curral Kite Center. Sus pies en la arena en el tramo más disputado de la playa, con plano georreferenciado.",
+    about: [
+      "Pies en la arena: frente orientado al mar, en el tramo más disputado de la Playa de Barrinha.",
+      "Son 415 m², con 12 metros de frente y 34 metros de fondo, a dos casas del CKC Curral Kite Center: sale de casa y ya está en el spot. El tamaño justo para una casa de playa compacta o el refugio del kitesurfista.",
+      "Barrinha está en la costa oeste de Ceará, vecina de Preá, con viento constante la mayor parte del año. El terreno tiene plano georreferenciado con responsable técnico. Hable con Terra Ventos para recibir el plano, las fotos de dron y la ubicación exacta."
+    ],
+    infra: [
+      "Frente al mar",
+      "Área total: 415 m²",
+      "12 m de frente",
+      "34 m de fondo",
+      "A dos casas del CKC Curral Kite Center",
+      "Plano georreferenciado con responsable técnico",
+      "Playa de Barrinha, Acaraú - CE"
+    ],
+    facilities: ["Frente al Mar", "415 m²", "12 m de Frente", "Junto al CKC", "Georreferenciado"],
+    priceTag: "Valor",
+    price: "A CONSULTAR",
     installments: "Consulte las condiciones",
     category: "venda"
   },

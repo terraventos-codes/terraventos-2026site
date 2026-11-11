@@ -3691,6 +3691,86 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   category: "venda"
 },
 {
+  id: "terreno-frente-mar-barrinha-5684m",
+  slug: "terreno-frente-mar-barrinha-5684m",
+  title: "VENDA",
+  searchTitle: "Terreno Frente Mar na Barrinha — 5.684 m² — 62 m de Frente para o Mar",
+  image: "/imoveis/terreno-frente-mar-barrinha-5684m-01-satelite-lote-frente-mar.webp",
+  badge: "Frente Mar",
+  propertyTitle: "TERRENO FRENTE MAR NA BARRINHA — 5.684 m²",
+  location: "Praia da Barrinha, Acaraú - CE",
+  rating: 5,
+  exclusiveText: "FRENTE MAR | 5.684 m² | 62 m de frente | 94 m de profundidade | Vizinho ao CKC",
+  summaryDescription: "À venda: terreno frente mar de 5.684 m² na Praia da Barrinha, com 62 metros de frente para o mar, ao lado do CKC Curral Kite Center. Levantamento georreferenciado com responsável técnico.",
+  about: [
+    "Pé na areia, mar aberto: a divisa norte do terreno é direto com a orla. Nada entre você e o horizonte.",
+    "São 5.684 m², com 62 metros de frente para o mar e cerca de 94 metros de profundidade, ao lado do CKC Curral Kite Center, ponto de encontro do kite na Barrinha. Escala para uma casa de praia com muito espaço ou um projeto boutique.",
+    "A Barrinha fica no litoral oeste do Ceará, vizinha ao Preá, com vento constante na maior parte do ano. O terreno tem levantamento topográfico georreferenciado, com planta e memorial descritivo assinados por responsável técnico (ART). Fale com a Terra Ventos para receber a planta, o memorial e a localização exata."
+  ],
+  infra: [
+    "Frente mar (divisa norte com a orla)",
+    "Área total: 5.684 m²",
+    "62 m de frente para o mar",
+    "94 m de profundidade",
+    "Ao lado do CKC Curral Kite Center",
+    "Levantamento georreferenciado com ART",
+    "Praia da Barrinha, Acaraú - CE"
+  ],
+  facilities: ["Frente Mar", "5.684 m²", "62 m de Frente", "Vizinho ao CKC", "Georreferenciado"],
+  gallery: {
+    main: "/imoveis/terreno-frente-mar-barrinha-5684m-01-satelite-lote-frente-mar.webp",
+    sideTop: "/imoveis/terreno-frente-mar-barrinha-5684m-02-vista-aerea-lote-destacado.webp",
+    sideBottom: null,
+    extra: []
+  },
+  mapImage: "/mapa.avif",
+  mapUrl: "https://maps.google.com/maps?q=-2.8085,-40.3492&hl=pt-BR&z=16&output=embed",
+  priceTag: "Valor",
+  price: "SOB CONSULTA",
+  installments: "Consulte condições",
+  category: "venda"
+},
+{
+  id: "terreno-frente-mar-barrinha-415m-ckc",
+  slug: "terreno-frente-mar-barrinha-415m-ckc",
+  title: "VENDA",
+  searchTitle: "Terreno Frente Mar na Barrinha — 415 m² — Vizinho ao CKC",
+  image: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp",
+  badge: "Frente Mar",
+  propertyTitle: "TERRENO FRENTE MAR NA BARRINHA, VIZINHO AO CKC — 415 m²",
+  location: "Praia da Barrinha, Acaraú - CE",
+  rating: 5,
+  exclusiveText: "FRENTE MAR | 415 m² | 12 m de frente | 34 m de profundidade | Vizinho ao CKC",
+  summaryDescription: "À venda: terreno frente mar de 415 m² na Praia da Barrinha, vizinho ao CKC Curral Kite Center. Seu pé na areia na faixa mais disputada da praia, com planta georreferenciada.",
+  about: [
+    "Pé na areia: frente voltada para o mar, na faixa mais disputada da Praia da Barrinha.",
+    "São 415 m², com 12 metros de frente e 34 metros de profundidade, a duas casas do CKC Curral Kite Center: sai de casa e já está no spot. Tamanho certo para uma casa de praia compacta ou o refúgio do kitesurfista.",
+    "A Barrinha fica no litoral oeste do Ceará, vizinha ao Preá, com vento constante na maior parte do ano. O terreno tem planta georreferenciada com responsável técnico. Fale com a Terra Ventos para receber a planta, as fotos de drone e a localização exata."
+  ],
+  infra: [
+    "Frente mar",
+    "Área total: 415 m²",
+    "12 m de frente",
+    "34 m de profundidade",
+    "A duas casas do CKC Curral Kite Center",
+    "Planta georreferenciada com responsável técnico",
+    "Praia da Barrinha, Acaraú - CE"
+  ],
+  facilities: ["Frente Mar", "415 m²", "12 m de Frente", "Vizinho ao CKC", "Georreferenciado"],
+  gallery: {
+    main: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp",
+    sideTop: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-02-satelite-lote-destacado.webp",
+    sideBottom: null,
+    extra: []
+  },
+  mapImage: "/mapa.avif",
+  mapUrl: "https://maps.google.com/maps?q=-2.8085,-40.3492&hl=pt-BR&z=16&output=embed",
+  priceTag: "Valor",
+  price: "SOB CONSULTA",
+  installments: "Consulte condições",
+  category: "venda"
+},
+{
   id: "terreno-50x50-matricula-prea",
   slug: "terreno-50x50-matricula-prea",
   title: "VENDA",
