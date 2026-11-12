@@ -12,6 +12,19 @@ type ProjetosDestaqueProps = {
 
 const projetos = [
   {
+    id: "piticcaia-lodge-pe-na-areia-prea",
+    image: "/imoveis/piticcaia-lodge-pe-na-areia-prea-01-sala-jantar-vista-mar.webp",
+    tag: "VENDA",
+    location: "Praia do Preá, Cruz - CE",
+    title: "PITICCAIA LODGE — CASA PÉ NA AREIA COM 4 SUÍTES — PRAIA DO PREÁ",
+    area: null,
+    beds: 4,
+    baths: null,
+    price: "R$ 4.000.000,00",
+    detailIndex: 0,
+    pinned: true,
+  },
+  {
     id: "terreno-frente-mar-barrinha-5684m",
     image: "/imoveis/terreno-frente-mar-barrinha-5684m-01-satelite-lote-frente-mar.webp",
     tag: "VENDA",
