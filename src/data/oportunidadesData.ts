@@ -3724,7 +3724,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     extra: []
   },
   mapImage: "/mapa.avif",
-  mapUrl: "https://maps.google.com/maps?q=-2.8085,-40.3492&hl=pt-BR&z=16&output=embed",
+  mapUrl: "https://maps.google.com/maps?q=-2.808333,-40.348479&hl=pt-BR&z=18&output=embed",
   priceTag: "Valor",
   price: "SOB CONSULTA",
   installments: "Consulte condições",
@@ -3764,7 +3764,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     extra: []
   },
   mapImage: "/mapa.avif",
-  mapUrl: "https://maps.google.com/maps?q=-2.8085,-40.3492&hl=pt-BR&z=16&output=embed",
+  mapUrl: "https://maps.google.com/maps?q=-2.808341,-40.349926&hl=pt-BR&z=18&output=embed",
   priceTag: "Valor",
   price: "SOB CONSULTA",
   installments: "Consulte condições",
