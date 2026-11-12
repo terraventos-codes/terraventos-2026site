@@ -3813,6 +3813,63 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   category: "venda"
 },
 {
+  id: "piticcaia-lodge-pe-na-areia-prea",
+  slug: "piticcaia-lodge-pe-na-areia-prea",
+  title: "VENDA",
+  searchTitle: "Piticcaia Lodge — Casa Pé na Areia com 4 Suítes — Praia do Preá",
+  image: "/imoveis/piticcaia-lodge-pe-na-areia-prea-01-sala-jantar-vista-mar.webp",
+  badge: "Oportunidade Exclusiva",
+  propertyTitle: "PITICCAIA LODGE — CASA PÉ NA AREIA COM 4 SUÍTES — PRAIA DO PREÁ",
+  location: "Praia do Preá, Cruz - CE",
+  rating: 5,
+  exclusiveText: "Pé na Areia | 4 Suítes | Rooftop com Piscina | Spot de Kitesurf",
+  summaryDescription: "À venda: Piticcaia Lodge, casa pé na areia na Praia do Preá, ao lado do Espaço Movimento. São 4 suítes com cama king, sala e cozinha integradas com vista para o mar, deck com redes, jardim de frente para a praia e rooftop com piscina com hidromassagem e churrasqueira.",
+  about: [
+    "Da sala direto para a areia: a Piticcaia Lodge fica na Avenida Beira Mar, na Praia do Preá, ao lado do Espaço Movimento — um dos melhores spots de kitesurf do mundo, com o pôr do sol de frente para a casa.",
+    "São 2 andares e um rooftop. No térreo, a sala de estar e a cozinha completa com ilha se integram à mesa de jantar para 10 pessoas e se abrem para o deck com redes e o jardim de frente para a praia, com chuveiro de praia.",
+    "As 4 suítes têm cama king, ar-condicionado e banheiro completo com água quente: uma no térreo, com saída para o jardim, e três no segundo andar, com vista para o mar.",
+    "No rooftop, uma piscina com hidromassagem, área de estar e churrasqueira fazem do fim de tarde o melhor momento do dia, com vista para o mar e para o pôr do sol.",
+    "Pensada para quem vive o vento: compressor para inflar os kites no deck, guarda-volumes para pranchas e equipamentos, cervejeira, internet por fibra em toda a casa e fossa ecológica com biodigestor.",
+    "Pronta para morar, passar temporadas ou receber hóspedes: hoje a casa opera como hospedagem de temporada no Preá."
+  ],
+  infra: [
+    "Pé na areia",
+    "4 suítes com cama king",
+    "2 andares + rooftop",
+    "Sala e cozinha completa com ilha",
+    "Mesa de jantar para 10 pessoas",
+    "Deck com redes",
+    "Jardim de frente para a praia",
+    "Chuveiro de praia",
+    "Rooftop com piscina com hidromassagem",
+    "Churrasqueira no rooftop",
+    "Lavanderia",
+    "Ar-condicionado em todas as suítes",
+    "Compressor para kite",
+    "Guarda-volumes para pranchas e equipamentos",
+    "Cervejeira",
+    "Internet por fibra",
+    "Fossa ecológica com biodigestor",
+    "Ao lado do Espaço Movimento"
+  ],
+  facilities: ["Pé na Areia", "4 Suítes", "Rooftop", "Piscina com Hidromassagem", "Spot de Kitesurf", "Vista para o Mar"],
+  gallery: {
+    main: "/imoveis/piticcaia-lodge-pe-na-areia-prea-01-sala-jantar-vista-mar.webp",
+    sideTop: "/imoveis/piticcaia-lodge-pe-na-areia-prea-02-deck-jardim-pe-na-areia.webp",
+    sideBottom: "/imoveis/piticcaia-lodge-pe-na-areia-prea-04-rooftop-piscina-hidromassagem.webp",
+    extra: [
+      "/imoveis/piticcaia-lodge-pe-na-areia-prea-03-suite-vista-mar.webp",
+      "/imoveis/piticcaia-lodge-pe-na-areia-prea-05-fachada-varandas-redes.webp"
+    ]
+  },
+  mapImage: "/mapa.avif",
+  mapUrl: "https://maps.google.com/maps?q=-2.813477,-40.411556&hl=pt-BR&z=18&output=embed",
+  priceTag: "Valor",
+  price: "R$ 4.000.000,00",
+  installments: "Consulte condições",
+  category: "venda"
+},
+{
   id: "casa-3-suites-vista-mar-prea",
   slug: "casa-3-suites-vista-mar-prea",
   title: "VENDA",
