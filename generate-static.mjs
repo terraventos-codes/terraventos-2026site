@@ -445,6 +445,7 @@ const standalonePages = [
   { loc: '/advogados', priority: 0.5 },
   { loc: '/parceiros', priority: 0.5 },
   { loc: '/founders', priority: 0.5 },
+  { loc: '/aboutme', priority: 0.4 },
   { loc: '/gowind.html', priority: 0.4 },
 ];
 standalonePages.forEach(({ loc, priority }) => {
