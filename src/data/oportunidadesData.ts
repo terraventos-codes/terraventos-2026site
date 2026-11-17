@@ -3725,6 +3725,9 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   },
   mapImage: "/mapa.avif",
   mapUrl: "https://maps.google.com/maps?q=-2.808333,-40.348479&hl=pt-BR&z=18&output=embed",
+  // Vídeo hospedado no Drive (info@, "qualquer pessoa com o link")
+  videoSources: ["https://drive.google.com/file/d/16a7WoLDRu7VwpgtnCirXvN4TOhC6quSE/preview"],
+  videoThumbnails: ["/imoveis/terreno-frente-mar-barrinha-5684m-02-vista-aerea-lote-destacado.webp"],
   priceTag: "Valor",
   price: "SOB CONSULTA",
   installments: "Consulte condições",
@@ -3765,6 +3768,9 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   },
   mapImage: "/mapa.avif",
   mapUrl: "https://maps.google.com/maps?q=-2.808341,-40.349926&hl=pt-BR&z=18&output=embed",
+  // Vídeo hospedado no Drive (info@, "qualquer pessoa com o link")
+  videoSources: ["https://drive.google.com/file/d/1FSvzURHTaQVjFMCAUohzVl4w6GinljAD/preview"],
+  videoThumbnails: ["/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp"],
   priceTag: "Valor",
   price: "SOB CONSULTA",
   installments: "Consulte condições",
