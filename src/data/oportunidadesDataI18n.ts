@@ -479,7 +479,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
         ]
       },
       mapImage: '/mapa.avif',
-      mapUrl: 'https://maps.google.com/maps?q=Preá,+Cruz,+Ceará&hl=pt-BR&z=14&output=embed',
+      mapUrl: 'https://maps.google.com/maps?q=-2.842463,-40.407266&hl=pt-BR&z=16&output=embed',
       videoSources: [],
       documents: [
         {
