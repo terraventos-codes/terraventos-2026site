@@ -3,6 +3,16 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/propriedade/terreno-50x50-matricula-prea(/?)",
+      "destination": "/propriedades",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(en|es)/propriedade/terreno-50x50-matricula-prea(/?)",
+      "destination": "/:lang/propriedades",
+      "permanent": false
+    },
+    {
       "source": "/propriedade/casa-beira-mar-tatajuba",
       "destination": "/propriedades",
       "permanent": false

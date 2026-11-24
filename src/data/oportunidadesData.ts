@@ -3779,6 +3779,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
 {
   id: "terreno-50x50-matricula-prea",
   slug: "terreno-50x50-matricula-prea",
+  unlisted: true, // fora do ar a pedido (24/11/2026) — não excluir
   title: "VENDA",
   searchTitle: "Terreno 50x50 com Matrícula — 2.500 m² — Praia do Preá",
   image: "/imoveis/terreno-50x50-matricula-prea-01-lote-destacado-com-matricula.webp",
