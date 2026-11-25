@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import type { OportunidadeDetalhe } from '../data/oportunidadesData';
+import { CRECI } from '../data/creci';
 
 interface PropertyCardProps {
   item: OportunidadeDetalhe;
@@ -79,6 +80,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ item, onSelect }) => {
             </svg>
           </button>
         </div>
+        <p className="creci-tag">{CRECI}</p>
       </div>
     </a>
   );

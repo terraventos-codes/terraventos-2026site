@@ -3,6 +3,7 @@ import "./ProjetosDestaque.css";
 import { useTranslation } from "react-i18next";
 import { type OportunidadeDetalhe } from "../data/oportunidadesData";
 import { getOportunidadesData } from "../data/oportunidadesDataI18n";
+import { CRECI } from "../data/creci";
 import LazyImage from "./LazyImage";
 import { useTransitionNavigate } from "../router/useTransitionNavigate";
 
@@ -489,6 +490,7 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
             )}
           </div>
           <div className="pd-price">{itemFromData.price || projeto.price}</div>
+          <span className="creci-tag">{CRECI}</span>
         </div>
       </a>
     );
@@ -628,6 +630,7 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
                   <div className="pd-price">
                     {itemFromData.priceTag ? `${itemFromData.priceTag} ${itemFromData.price}` : itemFromData.price}
                   </div>
+                  <span className="creci-tag">{CRECI}</span>
                 </div>
               </a>
             ))}
@@ -671,6 +674,7 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
                   </span>
                   R$ 110.000,00
                 </div>
+                <span className="creci-tag">{CRECI}</span>
               </div>
             </a>
             )}
@@ -833,6 +837,7 @@ export default function ProjetosDestaque({ onSelect }: ProjetosDestaqueProps) {
                         return fullPrice;
                       })()}
                     </div>
+                    <span className="creci-tag">{CRECI}</span>
                     <button
                       className="pd-share-btn"
                       title={t("common.share") || "Compartilhar"}

@@ -3,6 +3,7 @@ import "./VillaCondudu.css";
 import { useTranslation } from "react-i18next";
 import type { OportunidadeDetalhe } from "../data/oportunidadesData";
 import { getOportunidadesData } from "../data/oportunidadesDataI18n";
+import { CRECI } from "../data/creci";
 import LazyImage from "./LazyImage";
 import { photoAlt } from "../utils/seoImages";
 
@@ -140,6 +141,8 @@ export default function VillaCondudu({ onSelect }: VillaConduduProps) {
           >
             {t("condudu.cta")}
           </a>
+
+          <p className="creci-tag">{CRECI}</p>
         </div>
       </div>
     </section>

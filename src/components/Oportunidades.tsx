@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import './Oportunidades.css';
 import { oportunidadesData, type OportunidadeDetalhe } from '../data/oportunidadesData';
 import { getOportunidadesData } from '../data/oportunidadesDataI18n';
+import { CRECI } from '../data/creci';
 import { useTransitionNavigate } from '../router/useTransitionNavigate';
 
 type OportunidadesProps = {
@@ -138,6 +139,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
                               <span className="ops-card-label">{localItem.badge}</span>
                               <span className="ops-card-property-name">{localItem.propertyTitle}</span>
                               <span className="ops-card-price">{localItem.priceTag} {localItem.price}</span>
+                              <span className="creci-tag">{CRECI}</span>
                             </div>
                             <a
                               href={`/propriedade/${localItem.slug}`}
@@ -203,6 +205,7 @@ export default function Oportunidades({ onSelect }: OportunidadesProps) {
                     <div className="ops-card-mobile-info">
                       <span className="ops-card-mobile-title">{item.title}</span>
                       <span className="ops-card-mobile-property">{item.propertyTitle}</span>
+                      <span className="creci-tag">{CRECI}</span>
                     </div>
                   </div>
                 </a>

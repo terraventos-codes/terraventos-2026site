@@ -8,6 +8,7 @@ import { parsePrice } from '../utils/parsePrice';
 import { normalizeString } from '../utils/normalizeString';
 import { readSearchParams, syncSearchParams } from '../utils/urlFilterSync';
 import PropertyCard from './PropertyCard';
+import { CRECI } from '../data/creci';
 
 interface ListagemPropriedadesProps {
   items: OportunidadeDetalhe[];
@@ -241,6 +242,7 @@ const ListagemPropriedades: React.FC<ListagemPropriedadesProps> = ({ items, onSe
                   </svg>
                 </div>
               </div>
+              <p className="creci-tag">{CRECI}</p>
             </div>
           </a>
         )}
