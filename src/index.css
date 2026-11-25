@@ -51,3 +51,34 @@ h5 {
 #root {
   width: 100%;
 }
+
+/* Registro CRECI nos anúncios de imóvel (src/data/creci.ts) */
+.creci-tag {
+  display: block;
+  margin: 12px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.creci-tag--center {
+  text-align: center;
+}
+
+.ops-card-cutout-inner .creci-tag {
+  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ops-card-mobile-info .creci-tag,
+.pd-content .creci-tag {
+  margin-top: 0;
+}
+
+.condudu-content .creci-tag {
+  margin-top: 28px;
+}

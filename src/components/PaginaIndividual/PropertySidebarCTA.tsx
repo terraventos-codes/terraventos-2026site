@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import type { LoteOverride, OportunidadeDetalhe } from '../../data/oportunidadesData';
 import LoteSelector from './LoteSelector';
+import { CRECI } from '../../data/creci';
 
 type Props = {
   item: OportunidadeDetalhe;
@@ -74,6 +75,8 @@ export default function PropertySidebarCTA({ item, lotes, selectedLoteId, onSele
             </a>
           </>
         )}
+
+        <p className="creci-tag creci-tag--center">{CRECI}</p>
       </div>
     </aside>
   );

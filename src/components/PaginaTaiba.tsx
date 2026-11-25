@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import './PaginaIndividual/PaginaIndividual.css';
 import { getFacilityIcon } from '../utils/facilityIcons';
 import LocalizedLink from '../router/LocalizedLink';
+import { CRECI } from '../data/creci';
 import { PAGE_KEYWORDS, type SeoLang } from '../utils/seoKeywords';
 import { toOgImage } from '../utils/seoImages';
 
@@ -478,6 +479,8 @@ export default function PaginaTaiba() {
                 </svg>
                 {t('pagina.cta') || 'Tenho Interesse'}
               </button>
+
+              <p className="creci-tag creci-tag--center">{CRECI}</p>
             </div>
           </aside>
         </div>

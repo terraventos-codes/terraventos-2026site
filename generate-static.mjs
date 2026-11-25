@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { getOportunidadesData } from './src/data/oportunidadesDataI18n.ts';
 import { derivePropertyKeywords, PAGE_KEYWORDS } from './src/utils/seoKeywords.ts';
 import { toOgImage } from './src/utils/seoImages.ts';
+import { CRECI } from './src/data/creci.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -150,6 +151,7 @@ function generatePage(targetPath, title, desc, img, url, langCode, langId, imgAl
           <h2>${labels.details}</h2>
           ${property.location ? `<p>${property.location}</p>` : ''}
           ${property.price ? `<p><strong>${property.priceTag ? `${property.priceTag} ` : ''}${property.price}</strong></p>` : ''}
+          <p>${CRECI}</p>
           ${(property.about || []).map((paragraph) => `<p>${paragraph}</p>`).join('\n          ')}
         </section>
         ${(property.infra || []).length ? `
