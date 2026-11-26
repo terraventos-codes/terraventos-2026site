@@ -3068,6 +3068,60 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   unlisted: true
 },
 {
+  id: "terreno-frente-mar-velha-tatajuba-1158m",
+  slug: "terreno-frente-mar-velha-tatajuba-1158m",
+  title: "VENDA",
+  searchTitle: "Terreno Frente Mar na Velha Tatajuba — 1.158 m² — 15 m de Frente para a Praia",
+  image: "/imoveis/terreno-frente-mar-velha-tatajuba-1158m-01-drone-lote-frente-mar.webp",
+  badge: "Frente Mar",
+  propertyTitle: "TERRENO FRENTE MAR NA VELHA TATAJUBA — 1.158 m²",
+  location: "Velha Tatajuba, Camocim - CE",
+  rating: 5,
+  exclusiveText: "FRENTE MAR | 1.158 m² | 15 m de frente para a praia | 65 m de profundidade | Com cabana",
+  summaryDescription: "À venda: terreno frente mar de 1.158 m² na Velha Tatajuba, com 15 metros de frente para a praia e cerca de 65 metros de profundidade, com uma cabana de cobertura de palha já construída. Planta georreferenciada disponível.",
+  about: [
+    "Pé na areia na Velha Tatajuba: a frente do terreno é voltada direto para a praia, no litoral de Camocim, no oeste do Ceará.",
+    "São 1.158 m², com 15 metros de frente para a praia e cerca de 65 metros de profundidade, com acesso pela rua de servidão na lateral. No terreno já existe uma cabana de alvenaria com cobertura de palha.",
+    "Tatajuba é conhecida pelas dunas, pela lagoa e pelo vento constante, perto de Jericoacoara e dos melhores spots de kitesurf da região. O terreno serve para uma casa de praia, um refúgio para kitesurfistas ou um projeto de hospedagem pequeno.",
+    "O terreno tem planta georreferenciada com responsável técnico. Fale com a Terra Ventos para receber a planta, os documentos e a localização exata."
+  ],
+  infra: [
+    "Frente mar (frente voltada para a praia)",
+    "Área total: 1.158 m²",
+    "15 m de frente para a praia",
+    "Cerca de 65 m de profundidade",
+    "Cabana de alvenaria com cobertura de palha",
+    "Acesso por rua de servidão",
+    "Planta georreferenciada com responsável técnico",
+    "Velha Tatajuba, Camocim - CE"
+  ],
+  facilities: [
+    "Frente Mar",
+    "1.158 m²",
+    "15 m de Frente",
+    "Com Cabana",
+    "Georreferenciado"
+  ],
+  gallery: {
+    main: "/imoveis/terreno-frente-mar-velha-tatajuba-1158m-01-drone-lote-frente-mar.webp",
+    sideTop: "/imoveis/terreno-frente-mar-velha-tatajuba-1158m-04-cabana-vista-mar.webp",
+    sideBottom: "/imoveis/terreno-frente-mar-velha-tatajuba-1158m-06-praia-em-frente.webp",
+    extra: [
+      "/imoveis/terreno-frente-mar-velha-tatajuba-1158m-02-cabana-e-vila.webp",
+      "/imoveis/terreno-frente-mar-velha-tatajuba-1158m-03-cabana-cobertura-palha.webp",
+      "/imoveis/terreno-frente-mar-velha-tatajuba-1158m-05-terreno-ate-a-praia.webp",
+      "/imoveis/terreno-frente-mar-velha-tatajuba-1158m-07-orla-vizinhanca.webp",
+      "/imoveis/terreno-frente-mar-velha-tatajuba-1158m-08-cabana-interior.webp"
+    ]
+  },
+  mapImage: "/mapa.avif",
+  mapUrl: "https://maps.google.com/maps?q=-2.847718,-40.676158&hl=pt-BR&z=18&output=embed",
+  priceTag: "Valor",
+  price: "R$ 700.000,00",
+  installments: "Consulte condições",
+  category: "venda"
+},
+{
   id: "casa-beira-mar-tatajuba",
   slug: "casa-beira-mar-tatajuba",
   title: "VENDA",
