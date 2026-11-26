@@ -2855,7 +2855,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     "Uma oportunidade rara na badalada Vila de Tatajuba: terreno de 5.405 m² encravado entre as dunas e a foz do rio, no Distrito de Guriú, em Camocim (CE) — um dos points mais procurados do litoral cearense por kitesurfistas e amantes de natureza preservada.",
     "A área é dividida em três glebas complementares (1.064,46 m², 4.086,84 m² e 254,44 m²), o que permite planejar desde uma grande propriedade única até um projeto fracionado, como pousada boutique, vila de casas ou refúgio particular de alto padrão.",
     "Vegetação de coqueiros e mata nativa emolduram o terreno, que fica a poucos passos da faixa de areia e da paisagem única formada pelo encontro do rio com o mar — cenário que consagrou Tatajuba como um dos 'paraísos escondidos do kitesurf' no litoral do Ceará.",
-    "Documentação em dia: Levantamento Planialtimétrico Georreferenciado (ART CE20241475260), com memorial descritivo detalhado das três glebas, disponível para download nesta página."
+    "Documentação em dia: Levantamento Planialtimétrico Georreferenciado, com memorial descritivo detalhado das três glebas, disponível para download nesta página."
   ],
   infra: [
     "Área Total: 5.405 m² (3 glebas)",
@@ -2863,7 +2863,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     "Gleba B: 4.086,84 m²",
     "Gleba C: 254,44 m²",
     "Localização: Vila de Tatajuba, Distrito de Guriú, Camocim - CE",
-    "Documentação: Levantamento Planialtimétrico Georreferenciado (ART CE20241475260)"
+    "Documentação: Levantamento Planialtimétrico Georreferenciado"
   ],
   facilities: ["5.405 m²", "3 Glebas", "Pé na Duna", "Perto do Mar", "Foz do Rio"],
   gallery: {
@@ -2882,9 +2882,9 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   ],
   documents: [
     {
-      label: "Planta Topográfica Georreferenciada",
-      url: "/documentos/terreno-tatajuba-5405m2-planta-topografica-georreferenciada.pdf",
-      legend: "Levantamento planialtimétrico georreferenciado com a divisão das 3 glebas (ART CE20241475260)."
+      label: "Mapa das Glebas",
+      url: "/documentos/terreno-tatajuba-5405m2-mapa-das-glebas.pdf",
+      legend: "Mapa das 3 glebas com áreas e coordenadas, extraído do levantamento georreferenciado. Documentação completa com a Terra Ventos."
     }
   ],
   priceTag: "Valor",

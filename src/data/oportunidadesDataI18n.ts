@@ -3569,7 +3569,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       "A rare opportunity in the buzzing Vila de Tatajuba: a 5,405 sqm plot nestled between the dunes and the river mouth, in the Guriú District of Camocim (CE) — one of the most sought-after spots on the Ceará coast for kitesurfers and lovers of unspoiled nature.",
       "The area is divided into three complementary plots (1,064.46 sqm, 4,086.84 sqm and 254.44 sqm), allowing for anything from a single large property to a fractional project such as a boutique inn, a cluster of villas, or a private high-end retreat.",
       "Coconut palms and native vegetation frame the land, just steps from the sand and the unique landscape formed where the river meets the sea — the setting that made Tatajuba one of the 'hidden kitesurf paradises' of the Ceará coast.",
-      "Documentation in order: Georeferenced Topographic Survey (ART CE20241475260), with a detailed descriptive report of the three plots, available for download on this page."
+      "Documentation in order: Georeferenced Topographic Survey, with a detailed descriptive report of the three plots, available for download on this page."
     ],
     infra: [
       "Total Area: 5,405 sqm (3 plots)",
@@ -3577,14 +3577,14 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       "Plot B: 4,086.84 sqm",
       "Plot C: 254.44 sqm",
       "Location: Vila de Tatajuba, Guriú District, Camocim - CE",
-      "Documentation: Georeferenced Topographic Survey (ART CE20241475260)"
+      "Documentation: Georeferenced Topographic Survey"
     ],
     facilities: ["5,405 sqm", "3 Plots", "On the Dunes", "Close to the Sea", "River Mouth"],
     documents: [
       {
-        label: "Georeferenced Topographic Survey",
-        url: "/documentos/terreno-tatajuba-5405m2-planta-topografica-georreferenciada.pdf",
-        legend: "Georeferenced topographic survey with the division of the 3 plots (ART CE20241475260)."
+        label: "Plot Map",
+        url: "/documentos/terreno-tatajuba-5405m2-mapa-das-glebas.pdf",
+        legend: "Map of the 3 plots with areas and coordinates, from the georeferenced survey. Full documentation available from Terra Ventos."
       }
     ],
     priceTag: "Price",
@@ -5690,7 +5690,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       "Una oportunidad poco común en la animada Vila de Tatajuba: terreno de 5.405 m² ubicado entre las dunas y la desembocadura del río, en el Distrito de Guriú, Camocim (CE) — uno de los puntos más buscados del litoral cearense por los kitesurfistas y los amantes de la naturaleza preservada.",
       "El área está dividida en tres parcelas complementarias (1.064,46 m², 4.086,84 m² y 254,44 m²), lo que permite planificar desde una gran propiedad única hasta un proyecto fraccionado, como una posada boutique, un conjunto de villas o un refugio privado de alto standing.",
       "Cocoteros y vegetación nativa enmarcan el terreno, ubicado a pocos pasos de la franja de arena y del paisaje único formado por el encuentro del río con el mar — escenario que consagró a Tatajuba como uno de los 'paraísos escondidos del kitesurf' del litoral cearense.",
-      "Documentación en regla: Levantamiento Planialtimétrico Georreferenciado (ART CE20241475260), con memoria descriptiva detallada de las tres parcelas, disponible para descargar en esta página."
+      "Documentación en regla: Levantamiento Planialtimétrico Georreferenciado, con memoria descriptiva detallada de las tres parcelas, disponible para descargar en esta página."
     ],
     infra: [
       "Área Total: 5.405 m² (3 parcelas)",
@@ -5698,14 +5698,14 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       "Parcela B: 4.086,84 m²",
       "Parcela C: 254,44 m²",
       "Ubicación: Vila de Tatajuba, Distrito de Guriú, Camocim - CE",
-      "Documentación: Levantamiento Planialtimétrico Georreferenciado (ART CE20241475260)"
+      "Documentación: Levantamiento Planialtimétrico Georreferenciado"
     ],
     facilities: ["5.405 m²", "3 Parcelas", "Sobre las Dunas", "Cerca del Mar", "Desembocadura del Río"],
     documents: [
       {
-        label: "Levantamiento Planialtimétrico Georreferenciado",
-        url: "/documentos/terreno-tatajuba-5405m2-planta-topografica-georreferenciada.pdf",
-        legend: "Levantamiento planialtimétrico georreferenciado con la división de las 3 parcelas (ART CE20241475260)."
+        label: "Mapa de las Parcelas",
+        url: "/documentos/terreno-tatajuba-5405m2-mapa-das-glebas.pdf",
+        legend: "Mapa de las 3 parcelas con áreas y coordenadas, del levantamiento georreferenciado. Documentación completa con Terra Ventos."
       }
     ],
     priceTag: "Valor",
