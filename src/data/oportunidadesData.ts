@@ -2956,6 +2956,118 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   referralCode: "RICAMOT"
 },
 {
+  id: "casa-amarela-tatajuba",
+  slug: "casa-amarela-tatajuba",
+  title: "VENDA",
+  searchTitle: "Casa Amarela em Tatajuba — Camocim, CE",
+  image: "/imoveis/casa-amarela-tatajuba-01-sala-de-estar.webp",
+  badge: "Oportunidade Exclusiva",
+  propertyTitle: "CASA AMARELA EM TATAJUBA — CAMOCIM, CE",
+  location: "Vila de Tatajuba, Camocim - CE",
+  rating: 5,
+  exclusiveText: "Casa Pronta para Morar | Acabamento em Madeira | Vizinha de La Ventana e Avra",
+  summaryDescription: "À venda: casa pronta para morar na Vila de Tatajuba, com sala de estar, sala de jantar e cozinha integradas sob teto alto de madeira, quarto com ar-condicionado e varanda com deck. Fica ao lado dos lotes à venda da Terra Ventos, perto das vilas La Ventana e Avra.",
+  about: [
+    "Casa pronta para morar na Vila de Tatajuba (Camocim-CE), uma das vilas mais charmosas do litoral oeste do Ceará, entre o mar, a lagoa e as dunas.",
+    "Por dentro, a sala de estar, a sala de jantar e a cozinha se integram sob um teto alto de madeira, com mesa de jantar ampla, ilha na cozinha e mobiliário em madeira e fibras naturais.",
+    "Os quartos têm ar-condicionado, e a varanda com deck é o lugar para o fim de tarde.",
+    "É a maior das duas casas do mesmo terreno; a outra é o Bangalô, também à venda em anúncio separado. Fale com a Terra Ventos para receber medidas, planta e mais fotos."
+  ],
+  infra: [
+    "Casa pronta para morar",
+    "Sala de estar, jantar e cozinha integradas",
+    "Teto alto de madeira",
+    "Cozinha com ilha",
+    "Quarto com ar-condicionado",
+    "Varanda com deck",
+    "Vila de Tatajuba, perto de La Ventana e Avra"
+  ],
+  facilities: [
+    "Pronta para Morar",
+    "Acabamento em Madeira",
+    "Varanda com Deck",
+    "Vila de Tatajuba"
+  ],
+  gallery: {
+    main: "/imoveis/casa-amarela-tatajuba-01-sala-de-estar.webp",
+    sideTop: "/imoveis/casa-amarela-tatajuba-02-sala-de-jantar-teto-madeira.webp",
+    sideBottom: "/imoveis/casa-amarela-tatajuba-03-cozinha-integrada.webp",
+    extra: [
+      "/imoveis/casa-amarela-tatajuba-04-varanda-deck.webp",
+      "/imoveis/casa-amarela-tatajuba-05-quarto-ar-condicionado.webp",
+      "/imoveis/casa-amarela-tatajuba-06-sala-tv.webp",
+      "/imoveis/casa-amarela-tatajuba-07-banheiro.webp",
+      "/imoveis/casa-amarela-tatajuba-08-corredor-vista.webp",
+      "/imoveis/casa-amarela-tatajuba-09-cozinha-ilha.webp",
+      "/imoveis/casa-amarela-tatajuba-10-vista-aerea-casas.webp"
+    ]
+  },
+  mapImage: "/mapa.avif",
+  mapUrl: "https://maps.google.com/maps?q=-2.855043,-40.694569&hl=pt-BR&z=16&output=embed",
+  priceTag: "Valor",
+  price: "R$ 2.300.000,00",
+  installments: "Consulte condições",
+  category: "venda",
+  // Oculto até chegarem medidas/fotos (Bernardo, 26/11)
+  unlisted: true
+},
+{
+  id: "bangalo-tatajuba",
+  slug: "bangalo-tatajuba",
+  title: "VENDA",
+  searchTitle: "Bangalô em Tatajuba — Camocim, CE",
+  image: "/imoveis/bangalo-tatajuba-01-deck-por-do-sol.webp",
+  badge: "Oportunidade Exclusiva",
+  propertyTitle: "BANGALÔ EM TATAJUBA — CAMOCIM, CE",
+  location: "Vila de Tatajuba, Camocim - CE",
+  rating: 5,
+  exclusiveText: "Bangalô de Madeira | Deck com Redes | Pôr do Sol | Vila de Tatajuba",
+  summaryDescription: "À venda: bangalô de madeira na Vila de Tatajuba, com deck com redes de frente para o pôr do sol, cozinha, quarto, banheiro e chuveiro externo. Fica ao lado dos lotes à venda da Terra Ventos, perto das vilas La Ventana e Avra.",
+  about: [
+    "Bangalô de madeira com cobertura de palha na Vila de Tatajuba (Camocim-CE), entre o mar, a lagoa e as dunas.",
+    "O deck com redes é o coração da casa: de frente para o pôr do sol e com vista para a vila.",
+    "Por dentro, cozinha, quarto e banheiro em madeira, e um chuveiro externo para voltar da praia.",
+    "É a menor das duas casas do mesmo terreno; a outra é a Casa Amarela, também à venda em anúncio separado. Fale com a Terra Ventos para receber medidas, planta e mais fotos."
+  ],
+  infra: [
+    "Bangalô de madeira com cobertura de palha",
+    "Deck com redes",
+    "Vista para o pôr do sol",
+    "Cozinha",
+    "Quarto",
+    "Banheiro",
+    "Chuveiro externo",
+    "Vila de Tatajuba, perto de La Ventana e Avra"
+  ],
+  facilities: [
+    "Bangalô de Madeira",
+    "Deck com Redes",
+    "Pôr do Sol",
+    "Vila de Tatajuba"
+  ],
+  gallery: {
+    main: "/imoveis/bangalo-tatajuba-01-deck-por-do-sol.webp",
+    sideTop: "/imoveis/bangalo-tatajuba-02-deck-varanda.webp",
+    sideBottom: "/imoveis/bangalo-tatajuba-03-deck-redes.webp",
+    extra: [
+      "/imoveis/bangalo-tatajuba-04-deck-vista-vila.webp",
+      "/imoveis/bangalo-tatajuba-05-cozinha.webp",
+      "/imoveis/bangalo-tatajuba-06-quarto.webp",
+      "/imoveis/bangalo-tatajuba-07-banheiro.webp",
+      "/imoveis/bangalo-tatajuba-08-chuveiro-externo.webp",
+      "/imoveis/bangalo-tatajuba-09-vista-aerea-casas.webp"
+    ]
+  },
+  mapImage: "/mapa.avif",
+  mapUrl: "https://maps.google.com/maps?q=-2.855043,-40.694569&hl=pt-BR&z=16&output=embed",
+  priceTag: "Valor",
+  price: "R$ 1.800.000,00",
+  installments: "Consulte condições",
+  category: "venda",
+  // Oculto até chegarem medidas/fotos (Bernardo, 26/11)
+  unlisted: true
+},
+{
   id: "casa-beira-mar-tatajuba",
   slug: "casa-beira-mar-tatajuba",
   title: "VENDA",

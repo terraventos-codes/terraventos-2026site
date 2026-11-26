@@ -3639,6 +3639,87 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     ]
   },
   {
+    id: "casa-amarela-tatajuba",
+    slug: "casa-amarela-tatajuba",
+    title: "FOR SALE",
+    searchTitle: "Yellow House in Tatajuba — Camocim, CE",
+    image: "/imoveis/casa-amarela-tatajuba-01-sala-de-estar.webp",
+    badge: "Exclusive Opportunity",
+    propertyTitle: "YELLOW HOUSE IN TATAJUBA — CAMOCIM, CE",
+    location: "Vila de Tatajuba, Camocim - CE",
+    rating: 5,
+    exclusiveText: "Move-in Ready | Wood Finishes | Next to La Ventana and Avra",
+    summaryDescription: "For sale: a move-in ready house in Vila de Tatajuba, with living room, dining room and kitchen integrated under a high wooden ceiling, an air-conditioned bedroom and a veranda with deck. It sits next to the Terra Ventos lots for sale, close to the La Ventana and Avra villas.",
+    about: [
+      "Move-in ready house in Vila de Tatajuba (Camocim, CE), one of the most charming villages on the west coast of Ceará, between the sea, the lagoon and the dunes.",
+      "Inside, the living room, dining room and kitchen blend together under a high wooden ceiling, with a large dining table, a kitchen island and furniture in wood and natural fibers.",
+      "The bedrooms have air conditioning, and the veranda with deck is the place for late afternoons.",
+      "It is the larger of the two houses on the same plot; the other is the Bungalow, also for sale in a separate listing. Contact Terra Ventos for measurements, floor plan and more photos."
+    ],
+    infra: [
+      "Move-in ready",
+      "Integrated living, dining and kitchen",
+      "High wooden ceiling",
+      "Kitchen with island",
+      "Air-conditioned bedroom",
+      "Veranda with deck",
+      "Vila de Tatajuba, near La Ventana and Avra"
+    ],
+    facilities: [
+      "Move-in Ready",
+      "Wood Finishes",
+      "Veranda with Deck",
+      "Vila de Tatajuba"
+    ],
+    priceTag: "Price",
+    price: "R$ 2,300,000.00",
+    installments: "Contact us for terms",
+    category: "venda",
+    // Oculto até chegarem medidas/fotos (Bernardo, 26/11)
+    unlisted: true
+  },
+  {
+    id: "bangalo-tatajuba",
+    slug: "bangalo-tatajuba",
+    title: "FOR SALE",
+    searchTitle: "Bungalow in Tatajuba — Camocim, CE",
+    image: "/imoveis/bangalo-tatajuba-01-deck-por-do-sol.webp",
+    badge: "Exclusive Opportunity",
+    propertyTitle: "BUNGALOW IN TATAJUBA — CAMOCIM, CE",
+    location: "Vila de Tatajuba, Camocim - CE",
+    rating: 5,
+    exclusiveText: "Wooden Bungalow | Deck with Hammocks | Sunset | Vila de Tatajuba",
+    summaryDescription: "For sale: a wooden bungalow in Vila de Tatajuba, with a deck with hammocks facing the sunset, kitchen, bedroom, bathroom and outdoor shower. It sits next to the Terra Ventos lots for sale, close to the La Ventana and Avra villas.",
+    about: [
+      "Wooden bungalow with a thatched roof in Vila de Tatajuba (Camocim, CE), between the sea, the lagoon and the dunes.",
+      "The deck with hammocks is the heart of the house: facing the sunset, with views over the village.",
+      "Inside, a wooden kitchen, bedroom and bathroom, plus an outdoor shower for coming back from the beach.",
+      "It is the smaller of the two houses on the same plot; the other is the Yellow House, also for sale in a separate listing. Contact Terra Ventos for measurements, floor plan and more photos."
+    ],
+    infra: [
+      "Wooden bungalow with thatched roof",
+      "Deck with hammocks",
+      "Sunset views",
+      "Kitchen",
+      "Bedroom",
+      "Bathroom",
+      "Outdoor shower",
+      "Vila de Tatajuba, near La Ventana and Avra"
+    ],
+    facilities: [
+      "Wooden Bungalow",
+      "Deck with Hammocks",
+      "Sunset",
+      "Vila de Tatajuba"
+    ],
+    priceTag: "Price",
+    price: "R$ 1,800,000.00",
+    installments: "Contact us for terms",
+    category: "venda",
+    // Oculto até chegarem medidas/fotos (Bernardo, 26/11)
+    unlisted: true
+  },
+  {
     id: "casa-beira-mar-tatajuba",
     slug: "casa-beira-mar-tatajuba",
     title: "FOR SALE",
@@ -5637,6 +5718,87 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       { id: "lote-04", label: "Lote 04 (501,71 m²)", priceTag: "Valor", price: "R$ 330.000,00" },
       { id: "lote-05", label: "Lote 05 (501,53 m²)", priceTag: "Valor", price: "R$ 330.000,00" }
     ]
+  },
+  {
+    id: "casa-amarela-tatajuba",
+    slug: "casa-amarela-tatajuba",
+    title: "VENTA",
+    searchTitle: "Casa Amarilla en Tatajuba — Camocim, CE",
+    image: "/imoveis/casa-amarela-tatajuba-01-sala-de-estar.webp",
+    badge: "Oportunidad Exclusiva",
+    propertyTitle: "CASA AMARILLA EN TATAJUBA — CAMOCIM, CE",
+    location: "Vila de Tatajuba, Camocim - CE",
+    rating: 5,
+    exclusiveText: "Lista para Vivir | Acabados en Madera | Junto a La Ventana y Avra",
+    summaryDescription: "En venta: casa lista para vivir en la Vila de Tatajuba, con sala de estar, comedor y cocina integrados bajo un techo alto de madera, dormitorio con aire acondicionado y terraza con deck. Está junto a los lotes en venta de Terra Ventos, cerca de las villas La Ventana y Avra.",
+    about: [
+      "Casa lista para vivir en la Vila de Tatajuba (Camocim, CE), uno de los pueblos más encantadores de la costa oeste de Ceará, entre el mar, la laguna y las dunas.",
+      "Por dentro, la sala de estar, el comedor y la cocina se integran bajo un techo alto de madera, con una amplia mesa de comedor, isla en la cocina y muebles de madera y fibras naturales.",
+      "Los dormitorios tienen aire acondicionado, y la terraza con deck es el lugar para el final de la tarde.",
+      "Es la mayor de las dos casas del mismo terreno; la otra es el Bungalow, también en venta en un anuncio aparte. Contacte a Terra Ventos para recibir medidas, plano y más fotos."
+    ],
+    infra: [
+      "Lista para vivir",
+      "Sala, comedor y cocina integrados",
+      "Techo alto de madera",
+      "Cocina con isla",
+      "Dormitorio con aire acondicionado",
+      "Terraza con deck",
+      "Vila de Tatajuba, cerca de La Ventana y Avra"
+    ],
+    facilities: [
+      "Lista para Vivir",
+      "Acabados en Madera",
+      "Terraza con Deck",
+      "Vila de Tatajuba"
+    ],
+    priceTag: "Precio",
+    price: "R$ 2.300.000,00",
+    installments: "Consulte condiciones",
+    category: "venda",
+    // Oculto até chegarem medidas/fotos (Bernardo, 26/11)
+    unlisted: true
+  },
+  {
+    id: "bangalo-tatajuba",
+    slug: "bangalo-tatajuba",
+    title: "VENTA",
+    searchTitle: "Bungalow en Tatajuba — Camocim, CE",
+    image: "/imoveis/bangalo-tatajuba-01-deck-por-do-sol.webp",
+    badge: "Oportunidad Exclusiva",
+    propertyTitle: "BUNGALOW EN TATAJUBA — CAMOCIM, CE",
+    location: "Vila de Tatajuba, Camocim - CE",
+    rating: 5,
+    exclusiveText: "Bungalow de Madera | Deck con Hamacas | Atardecer | Vila de Tatajuba",
+    summaryDescription: "En venta: bungalow de madera en la Vila de Tatajuba, con deck con hamacas frente al atardecer, cocina, dormitorio, baño y ducha exterior. Está junto a los lotes en venta de Terra Ventos, cerca de las villas La Ventana y Avra.",
+    about: [
+      "Bungalow de madera con techo de paja en la Vila de Tatajuba (Camocim, CE), entre el mar, la laguna y las dunas.",
+      "El deck con hamacas es el corazón de la casa: frente al atardecer y con vista al pueblo.",
+      "Por dentro, cocina, dormitorio y baño de madera, y una ducha exterior para volver de la playa.",
+      "Es la menor de las dos casas del mismo terreno; la otra es la Casa Amarilla, también en venta en un anuncio aparte. Contacte a Terra Ventos para recibir medidas, plano y más fotos."
+    ],
+    infra: [
+      "Bungalow de madera con techo de paja",
+      "Deck con hamacas",
+      "Vista al atardecer",
+      "Cocina",
+      "Dormitorio",
+      "Baño",
+      "Ducha exterior",
+      "Vila de Tatajuba, cerca de La Ventana y Avra"
+    ],
+    facilities: [
+      "Bungalow de Madera",
+      "Deck con Hamacas",
+      "Atardecer",
+      "Vila de Tatajuba"
+    ],
+    priceTag: "Precio",
+    price: "R$ 1.800.000,00",
+    installments: "Consulte condiciones",
+    category: "venda",
+    // Oculto até chegarem medidas/fotos (Bernardo, 26/11)
+    unlisted: true
   },
   {
     id: "casa-beira-mar-tatajuba",
