@@ -53,7 +53,7 @@ const projetos = [
   },
   {
     id: "terreno-frente-mar-barrinha-415m-ckc",
-    image: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp",
+    image: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-05-drone-vista-mar-horizonte.webp",
     tag: "VENDA",
     location: "Praia da Barrinha, Acaraú - CE",
     title: "TERRENO FRENTE MAR NA BARRINHA, VIZINHO AO CKC — 415 m²",

@@ -3915,7 +3915,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   slug: "terreno-frente-mar-barrinha-415m-ckc",
   title: "VENDA",
   searchTitle: "Terreno Frente Mar na Barrinha — 415 m² — Vizinho ao CKC",
-  image: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp",
+  image: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-05-drone-vista-mar-horizonte.webp",
   badge: "Frente Mar",
   propertyTitle: "TERRENO FRENTE MAR NA BARRINHA, VIZINHO AO CKC — 415 m²",
   location: "Praia da Barrinha, Acaraú - CE",
@@ -3938,10 +3938,10 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   ],
   facilities: ["Frente Mar", "415 m²", "12 m de Frente", "Vizinho ao CKC", "Georreferenciado"],
   gallery: {
-    main: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp",
-    sideTop: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-02-satelite-lote-destacado.webp",
-    sideBottom: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-03-drone-vista-aerea-praia-dunas.webp",
-    extra: ["/imoveis/terreno-frente-mar-barrinha-415m-ckc-04-drone-vista-de-cima-orla.webp", "/imoveis/terreno-frente-mar-barrinha-415m-ckc-05-drone-vista-mar-horizonte.webp"]
+    main: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-05-drone-vista-mar-horizonte.webp",
+    sideTop: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-03-drone-vista-aerea-praia-dunas.webp",
+    sideBottom: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-02-satelite-lote-destacado.webp",
+    extra: ["/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp", "/imoveis/terreno-frente-mar-barrinha-415m-ckc-04-drone-vista-de-cima-orla.webp"]
   },
   mapImage: "/mapa.avif",
   mapUrl: "https://maps.google.com/maps?q=-2.808341,-40.349926&hl=pt-BR&z=18&output=embed",
