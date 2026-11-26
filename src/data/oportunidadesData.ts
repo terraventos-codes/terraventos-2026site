@@ -3475,20 +3475,10 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   mapUrl: "https://maps.google.com/maps?q=-2.8497674,-40.6838496&hl=pt-BR&z=16&output=embed",
   documents: [
     {
-      label: "Memorial Descritivo",
-      url: "/documentos/terreno-vila-sao-francisco-tatajuba-memorial-descritivo.pdf",
-      legend: "Memorial descritivo do terreno, com área total de 8.015,003 m² e perímetro de 381,302 m."
-    },
-    {
       label: "Planta Topográfica — Poligonal Completa",
       url: "/documentos/terreno-vila-sao-francisco-tatajuba-planta-topografica.pdf",
       legend: "Planta topográfica com a poligonal completa da área."
     },
-    {
-      label: "Resultado de Demarcação — IDACE",
-      url: "/documentos/terreno-vila-sao-francisco-tatajuba-resultado-demarcacao-idace.pdf",
-      legend: "Protocolo de medição e resultado de demarcação emitido pelo IDACE."
-    }
   ],
   priceTag: "Valor (2.000 m²)",
   price: "R$ 1.100.000,00",
@@ -4321,11 +4311,6 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
     "/imoveis/sitio-espinho-14.webp"
   ],
   documents: [
-    {
-      label: "Memorial Descritivo",
-      url: "/documentos/sitio-espinho-memorial-descritivo.pdf",
-      legend: "Memorial descritivo georreferenciado do Sítio Espinho, matrícula 783, com área de 549,0392 ha e perímetro de 11.248,10 m."
-    },
     {
       label: "Planta SIGEF — INCRA",
       url: "/documentos/sitio-espinho-planta-sigef.pdf",
