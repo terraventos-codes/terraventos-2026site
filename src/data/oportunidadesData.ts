@@ -2922,13 +2922,19 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   facilities: ["4 Lotes Disponíveis", "400 a 504 m²", "Ao Lado de La Ventana e Avra", "Perto da Orla"],
   gallery: {
     main: "/imoveis/lotes-tatajuba-camocim-01.webp",
-    sideTop: "/imoveis/lotes-tatajuba-camocim-02.webp",
-    sideBottom: "/imoveis/lotes-tatajuba-camocim-03.webp",
-    extra: []
+    sideTop: "/imoveis/lotes-tatajuba-camocim-04-drone-vista-obliqua-lotes.webp",
+    sideBottom: "/imoveis/lotes-tatajuba-camocim-05-drone-vista-de-cima-lotes.webp",
+    extra: ["/imoveis/lotes-tatajuba-camocim-06-drone-vista-alta-vila-e-mar.webp", "/imoveis/lotes-tatajuba-camocim-07-drone-panoramica-tatajuba.webp"]
   },
   mapImage: "/mapa.avif",
   mapUrl: "https://maps.google.com/maps?q=-2.855043,-40.694569&hl=pt-BR&z=15&output=embed",
-  videoSources: [],
+  // Vídeos de drone do Jaime (Drive info@, pasta JimmyRubioFilms, "qualquer pessoa com o link")
+  videoSources: [
+    "https://drive.google.com/file/d/1Y0rcn7joDhP4tbGhpNwwWbM7YZ1szQjW/preview",
+    "https://drive.google.com/file/d/1uBPEuigeRlXjOlX5LFCXDtj5nX9-pLVz/preview",
+    "https://drive.google.com/file/d/1smosAyP7XCnXmaou9lme9vv8_491eMqE/preview"
+  ],
+  videoThumbnails: ["/imoveis/lotes-tatajuba-camocim-06-drone-vista-alta-vila-e-mar.webp", "/imoveis/lotes-tatajuba-camocim-04-drone-vista-obliqua-lotes.webp", "/imoveis/lotes-tatajuba-camocim-05-drone-vista-de-cima-lotes.webp"],
   documents: [
     {
       label: "Planta com Divisão dos Lotes",
@@ -3720,14 +3726,18 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   gallery: {
     main: "/imoveis/terreno-frente-mar-barrinha-5684m-01-satelite-lote-frente-mar.webp",
     sideTop: "/imoveis/terreno-frente-mar-barrinha-5684m-02-vista-aerea-lote-destacado.webp",
-    sideBottom: null,
-    extra: []
+    sideBottom: "/imoveis/terreno-frente-mar-barrinha-5684m-03-drone-vista-aerea-praia-dunas.webp",
+    extra: ["/imoveis/terreno-frente-mar-barrinha-5684m-04-drone-vista-de-cima-orla.webp", "/imoveis/terreno-frente-mar-barrinha-5684m-05-drone-vista-mar-horizonte.webp"]
   },
   mapImage: "/mapa.avif",
   mapUrl: "https://maps.google.com/maps?q=-2.808333,-40.348479&hl=pt-BR&z=18&output=embed",
   // Vídeo hospedado no Drive (info@, "qualquer pessoa com o link")
-  videoSources: ["https://drive.google.com/file/d/16a7WoLDRu7VwpgtnCirXvN4TOhC6quSE/preview"],
-  videoThumbnails: ["/imoveis/terreno-frente-mar-barrinha-5684m-02-vista-aerea-lote-destacado.webp"],
+  videoSources: [
+    "https://drive.google.com/file/d/1Q7otXUWhzlInKJDdfhNWVL0BEbY_Nbm3/preview",
+    "https://drive.google.com/file/d/12tpBwyIj1lSzbZPIYlSNdSZFQCY4Nt5E/preview",
+    "https://drive.google.com/file/d/16a7WoLDRu7VwpgtnCirXvN4TOhC6quSE/preview"
+  ],
+  videoThumbnails: ["/imoveis/terreno-frente-mar-barrinha-5684m-03-drone-vista-aerea-praia-dunas.webp", "/imoveis/terreno-frente-mar-barrinha-5684m-05-drone-vista-mar-horizonte.webp", "/imoveis/terreno-frente-mar-barrinha-5684m-02-vista-aerea-lote-destacado.webp"],
   priceTag: "Valor",
   price: "SOB CONSULTA",
   installments: "Consulte condições",
@@ -3763,14 +3773,18 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   gallery: {
     main: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp",
     sideTop: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-02-satelite-lote-destacado.webp",
-    sideBottom: null,
-    extra: []
+    sideBottom: "/imoveis/terreno-frente-mar-barrinha-415m-ckc-03-drone-vista-aerea-praia-dunas.webp",
+    extra: ["/imoveis/terreno-frente-mar-barrinha-415m-ckc-04-drone-vista-de-cima-orla.webp", "/imoveis/terreno-frente-mar-barrinha-415m-ckc-05-drone-vista-mar-horizonte.webp"]
   },
   mapImage: "/mapa.avif",
   mapUrl: "https://maps.google.com/maps?q=-2.808341,-40.349926&hl=pt-BR&z=18&output=embed",
   // Vídeo hospedado no Drive (info@, "qualquer pessoa com o link")
-  videoSources: ["https://drive.google.com/file/d/1FSvzURHTaQVjFMCAUohzVl4w6GinljAD/preview"],
-  videoThumbnails: ["/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp"],
+  videoSources: [
+    "https://drive.google.com/file/d/1zWI1O9zFTXA-L9l-8VvqDWD2gD92ZYn3/preview",
+    "https://drive.google.com/file/d/1iMj4Ry0lFVq1rkh4fQ_169AucHbeTJgB/preview",
+    "https://drive.google.com/file/d/1FSvzURHTaQVjFMCAUohzVl4w6GinljAD/preview"
+  ],
+  videoThumbnails: ["/imoveis/terreno-frente-mar-barrinha-415m-ckc-03-drone-vista-aerea-praia-dunas.webp", "/imoveis/terreno-frente-mar-barrinha-415m-ckc-05-drone-vista-mar-horizonte.webp", "/imoveis/terreno-frente-mar-barrinha-415m-ckc-01-vista-aerea-drone-pe-na-areia.webp"],
   priceTag: "Valor",
   price: "SOB CONSULTA",
   installments: "Consulte condições",
