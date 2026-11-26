@@ -4260,11 +4260,6 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     facilities: ["549 Hectares", "2.7 km Beachfront", "Kitesurfing", "Dunes & Lagoon"],
     documents: [
       {
-        label: "Descriptive Survey Report",
-        url: "/documentos/sitio-espinho-memorial-descritivo.pdf",
-        legend: "Georeferenced descriptive survey report for Sítio Espinho, registration No. 783, with an area of 549.0392 ha and a perimeter of 11,248.10 m."
-      },
-      {
         label: "SIGEF Plan — INCRA",
         url: "/documentos/sitio-espinho-planta-sigef.pdf",
         legend: "SIGEF/INCRA certification plan of the property's boundary."
@@ -6380,11 +6375,6 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     ],
     facilities: ["549 Hectáreas", "2,7 km Frente al Mar", "Kitesurf", "Dunas y Laguna"],
     documents: [
-      {
-        label: "Memoria Descriptiva",
-        url: "/documentos/sitio-espinho-memorial-descritivo.pdf",
-        legend: "Memoria descriptiva georreferenciada del Sítio Espinho, matrícula 783, con área de 549,0392 ha y perímetro de 11.248,10 m."
-      },
       {
         label: "Plano SIGEF — INCRA",
         url: "/documentos/sitio-espinho-planta-sigef.pdf",
