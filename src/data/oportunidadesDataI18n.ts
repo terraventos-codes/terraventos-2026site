@@ -3786,7 +3786,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     title: "FOR SALE",
     searchTitle: "Chalé Divino in Tatajuba",
     image: "/imoveis/chale-divino-tatajuba-01.webp",
-    badge: "Exclusive Opportunity",
+    badge: "Price Reduced",
     propertyTitle: "CHALÉ DIVINO — TATAJUBA",
     location: "Vila Tatajuba, Camocim - CE",
     rating: 5,
@@ -3810,8 +3810,8 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       "Documentation: possessory, with 7 years of occupancy; registered (plot TT316) in IDACE's Special Land Regularization Project — Traditional Community of Tatajuba"
     ],
     facilities: ["Vila Tatajuba", "431.63 sqm", "Wood & Thatch", "2 Floors", "Near the Sea"],
-    priceTag: "Price",
-    price: "R$ 1,800,000.00",
+    priceTag: "Was R$ 1.8M, now",
+    price: "R$ 1,300,000.00",
     installments: "Contact us for terms",
     category: "venda"
   },
@@ -5907,7 +5907,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     title: "VENTA",
     searchTitle: "Chalé Divino en Tatajuba",
     image: "/imoveis/chale-divino-tatajuba-01.webp",
-    badge: "Oportunidad Exclusiva",
+    badge: "Precio Reducido",
     propertyTitle: "CHALÉ DIVINO — TATAJUBA",
     location: "Vila Tatajuba, Camocim - CE",
     rating: 5,
@@ -5931,8 +5931,8 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       "Documentación: posesión, con 7 años de ocupación; registrado (lote TT316) en el Proyecto de Regularización Territorial Especial del IDACE — Comunidad Tradicional de Tatajuba"
     ],
     facilities: ["Vila Tatajuba", "431,63 m²", "Madera y Palma", "2 Plantas", "Cerca del Mar"],
-    priceTag: "Valor",
-    price: "R$ 1.800.000,00",
+    priceTag: "Antes R$ 1,8 mi, ahora",
+    price: "R$ 1.300.000,00",
     installments: "Consulte las condiciones",
     category: "venda"
   },
