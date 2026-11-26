@@ -3597,7 +3597,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     slug: "lotes-tatajuba-camocim",
     title: "FOR SALE",
     searchTitle: "Tatajuba Lots – starting at 400 sqm",
-    image: "/imoveis/lotes-tatajuba-camocim-01.webp",
+    image: "/imoveis/lotes-tatajuba-camocim-00-planta-lotes-disponiveis.webp",
     badge: "New Release",
     propertyTitle: "TATAJUBA LOTS — CAMOCIM, CE",
     location: "Vila de Tatajuba, Camocim - CE",
@@ -3612,6 +3612,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     ],
     infra: [
       "Available lots: 02, 03, 04 and 05",
+      "Lot 01: not available (not for sale)",
       "Lot 02: 400.86 sqm",
       "Lot 03: 503.69 sqm",
       "Lot 04: 501.71 sqm",
@@ -5596,7 +5597,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     slug: "lotes-tatajuba-camocim",
     title: "VENTA",
     searchTitle: "Lotes en Tatajuba – desde 400 m²",
-    image: "/imoveis/lotes-tatajuba-camocim-01.webp",
+    image: "/imoveis/lotes-tatajuba-camocim-00-planta-lotes-disponiveis.webp",
     badge: "Lanzamiento",
     propertyTitle: "LOTES EN TATAJUBA — CAMOCIM, CE",
     location: "Vila de Tatajuba, Camocim - CE",
@@ -5611,6 +5612,7 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     ],
     infra: [
       "Lotes disponibles: 02, 03, 04 y 05",
+      "Lote 01: no disponible (no está a la venta)",
       "Lote 02: 400,86 m²",
       "Lote 03: 503,69 m²",
       "Lote 04: 501,71 m²",

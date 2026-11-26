@@ -201,7 +201,7 @@ const projetos = [
   },
   {
     id: "lotes-tatajuba-5-lotes",
-    image: "/imoveis/lotes-tatajuba-camocim-01.webp",
+    image: "/imoveis/lotes-tatajuba-camocim-00-planta-lotes-disponiveis.webp",
     tag: "VENDA",
     location: "Vila de Tatajuba, Camocim - CE",
     title: "LOTES EM TATAJUBA — CAMOCIM, CE",

@@ -2898,7 +2898,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   slug: "lotes-tatajuba-camocim",
   title: "VENDA",
   searchTitle: "Lotes em Tatajuba – a partir de 400 m²",
-  image: "/imoveis/lotes-tatajuba-camocim-01.webp",
+  image: "/imoveis/lotes-tatajuba-camocim-00-planta-lotes-disponiveis.webp",
   badge: "Lançamento",
   propertyTitle: "LOTES EM TATAJUBA — CAMOCIM, CE",
   location: "Vila de Tatajuba, Camocim - CE",
@@ -2913,6 +2913,7 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   ],
   infra: [
     "Lotes disponíveis: 02, 03, 04 e 05",
+    "Lote 01: indisponível (não está à venda)",
     "Lote 02: 400,86 m²",
     "Lote 03: 503,69 m²",
     "Lote 04: 501,71 m²",
@@ -2921,10 +2922,10 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   ],
   facilities: ["4 Lotes Disponíveis", "400 a 504 m²", "Ao Lado de La Ventana e Avra", "Perto da Orla"],
   gallery: {
-    main: "/imoveis/lotes-tatajuba-camocim-01.webp",
+    main: "/imoveis/lotes-tatajuba-camocim-00-planta-lotes-disponiveis.webp",
     sideTop: "/imoveis/lotes-tatajuba-camocim-04-drone-vista-obliqua-lotes.webp",
     sideBottom: "/imoveis/lotes-tatajuba-camocim-05-drone-vista-de-cima-lotes.webp",
-    extra: ["/imoveis/lotes-tatajuba-camocim-06-drone-vista-alta-vila-e-mar.webp", "/imoveis/lotes-tatajuba-camocim-07-drone-panoramica-tatajuba.webp"]
+    extra: ["/imoveis/lotes-tatajuba-camocim-01.webp", "/imoveis/lotes-tatajuba-camocim-06-drone-vista-alta-vila-e-mar.webp", "/imoveis/lotes-tatajuba-camocim-07-drone-panoramica-tatajuba.webp"]
   },
   mapImage: "/mapa.avif",
   mapUrl: "https://maps.google.com/maps?q=-2.855043,-40.694569&hl=pt-BR&z=15&output=embed",
