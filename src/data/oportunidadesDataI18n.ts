@@ -3720,6 +3720,46 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     unlisted: true
   },
   {
+    id: "terreno-frente-mar-velha-tatajuba-1158m",
+    slug: "terreno-frente-mar-velha-tatajuba-1158m",
+    title: "FOR SALE",
+    searchTitle: "Beachfront Plot in Velha Tatajuba — 1,158 sqm — 15 m Facing the Beach",
+    image: "/imoveis/terreno-frente-mar-velha-tatajuba-1158m-01-drone-lote-frente-mar.webp",
+    badge: "Beachfront",
+    propertyTitle: "BEACHFRONT PLOT IN VELHA TATAJUBA — 1,158 SQM",
+    location: "Velha Tatajuba, Camocim - CE",
+    rating: 5,
+    exclusiveText: "BEACHFRONT | 1,158 sqm | 15 m facing the beach | 65 m deep | With cabin",
+    summaryDescription: "For sale: a 1,158 sqm beachfront plot in Velha Tatajuba, with 15 meters facing the beach and about 65 meters deep, with a thatched-roof cabin already built. Georeferenced survey available.",
+    about: [
+      "Feet in the sand in Velha Tatajuba: the front of the plot faces the beach directly, on the coast of Camocim, in western Ceará.",
+      "It covers 1,158 sqm, with 15 meters facing the beach and about 65 meters deep, accessed by the service road on the side. A masonry cabin with a thatched roof already stands on the plot.",
+      "Tatajuba is known for its dunes, lagoon and steady wind, close to Jericoacoara and the best kitesurfing spots in the region. The plot suits a beach house, a kitesurfer's retreat or a small hospitality project.",
+      "The plot has a georeferenced survey signed by a licensed professional. Contact Terra Ventos for the survey, documents and exact location."
+    ],
+    infra: [
+      "Beachfront (front facing the beach)",
+      "Total area: 1,158 sqm",
+      "15 m facing the beach",
+      "About 65 m deep",
+      "Masonry cabin with thatched roof",
+      "Access by service road",
+      "Georeferenced survey by a licensed professional",
+      "Velha Tatajuba, Camocim - CE"
+    ],
+    facilities: [
+      "Beachfront",
+      "1,158 sqm",
+      "15 m Frontage",
+      "With Cabin",
+      "Georeferenced"
+    ],
+    priceTag: "Price",
+    price: "R$ 700,000.00",
+    installments: "Contact us for terms",
+    category: "venda"
+  },
+  {
     id: "casa-beira-mar-tatajuba",
     slug: "casa-beira-mar-tatajuba",
     title: "FOR SALE",
@@ -5799,6 +5839,46 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     category: "venda",
     // Oculto até chegarem medidas/fotos (Bernardo, 26/11)
     unlisted: true
+  },
+  {
+    id: "terreno-frente-mar-velha-tatajuba-1158m",
+    slug: "terreno-frente-mar-velha-tatajuba-1158m",
+    title: "VENTA",
+    searchTitle: "Terreno Frente al Mar en Velha Tatajuba — 1.158 m² — 15 m de Frente a la Playa",
+    image: "/imoveis/terreno-frente-mar-velha-tatajuba-1158m-01-drone-lote-frente-mar.webp",
+    badge: "Frente al Mar",
+    propertyTitle: "TERRENO FRENTE AL MAR EN VELHA TATAJUBA — 1.158 m²",
+    location: "Velha Tatajuba, Camocim - CE",
+    rating: 5,
+    exclusiveText: "FRENTE AL MAR | 1.158 m² | 15 m de frente a la playa | 65 m de fondo | Con cabaña",
+    summaryDescription: "En venta: terreno frente al mar de 1.158 m² en Velha Tatajuba, con 15 metros de frente a la playa y unos 65 metros de fondo, con una cabaña con techo de paja ya construida. Plano georreferenciado disponible.",
+    about: [
+      "Pies en la arena en Velha Tatajuba: el frente del terreno da directamente a la playa, en la costa de Camocim, al oeste de Ceará.",
+      "Son 1.158 m², con 15 metros de frente a la playa y unos 65 metros de fondo, con acceso por la calle de servidumbre lateral. En el terreno ya hay una cabaña de mampostería con techo de paja.",
+      "Tatajuba es conocida por sus dunas, su laguna y su viento constante, cerca de Jericoacoara y de los mejores spots de kitesurf de la región. El terreno sirve para una casa de playa, un refugio para kitesurfistas o un pequeño proyecto de hospedaje.",
+      "El terreno cuenta con plano georreferenciado firmado por un profesional responsable. Contacte a Terra Ventos para recibir el plano, los documentos y la ubicación exacta."
+    ],
+    infra: [
+      "Frente al mar (frente hacia la playa)",
+      "Área total: 1.158 m²",
+      "15 m de frente a la playa",
+      "Unos 65 m de fondo",
+      "Cabaña de mampostería con techo de paja",
+      "Acceso por calle de servidumbre",
+      "Plano georreferenciado con profesional responsable",
+      "Velha Tatajuba, Camocim - CE"
+    ],
+    facilities: [
+      "Frente al Mar",
+      "1.158 m²",
+      "15 m de Frente",
+      "Con Cabaña",
+      "Georreferenciado"
+    ],
+    priceTag: "Precio",
+    price: "R$ 700.000,00",
+    installments: "Consulte condiciones",
+    category: "venda"
   },
   {
     id: "casa-beira-mar-tatajuba",

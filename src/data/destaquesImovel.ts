@@ -42,6 +42,7 @@ export const destaquesImovel: Record<string, DestaquesImovel> = {
 
   // Terrenos
   'terreno-frente-mar-barrinha-5684m': { areaTerreno: '5.684 m²' },
+  'terreno-frente-mar-velha-tatajuba-1158m': { areaTerreno: '1.158 m²' },
   'terreno-frente-mar-barrinha-415m-ckc': { areaTerreno: '415 m²' },
   'terreno-50x50-matricula-prea': { areaTerreno: '2.500 m²' },
   'terreno-praia-do-farol': { areaTerreno: '8.600 m²' },

@@ -13,6 +13,19 @@ type ProjetosDestaqueProps = {
 
 const projetos = [
   {
+    id: "terreno-frente-mar-velha-tatajuba-1158m",
+    image: "/imoveis/terreno-frente-mar-velha-tatajuba-1158m-01-drone-lote-frente-mar.webp",
+    tag: "VENDA",
+    location: "Velha Tatajuba, Camocim - CE",
+    title: "TERRENO FRENTE MAR NA VELHA TATAJUBA — 1.158 m²",
+    area: "1.158 m²",
+    beds: null,
+    baths: null,
+    price: "R$ 700.000,00",
+    detailIndex: 0,
+    pinned: true,
+  },
+  {
     id: "piticcaia-lodge-pe-na-areia-prea",
     image: "/imoveis/piticcaia-lodge-pe-na-areia-prea-01-sala-jantar-vista-mar.webp",
     tag: "VENDA",
