@@ -2956,6 +2956,46 @@ export const oportunidadesData: OportunidadeDetalhe[] = [
   referralCode: "RICAMOT"
 },
 {
+  id: "lote-6-tatajuba-camocim",
+  slug: "lote-6-tatajuba-camocim",
+  title: "VENDA",
+  searchTitle: "Lote 6 em Tatajuba — Vila de Tatajuba, Camocim",
+  image: "/imoveis/lote-6-tatajuba-camocim-01-drone-lote-vila-e-mar.webp",
+  badge: "Oportunidade",
+  propertyTitle: "LOTE 6 EM TATAJUBA — CAMOCIM, CE",
+  location: "Vila de Tatajuba, Camocim - CE",
+  rating: 5,
+  exclusiveText: "Lote na Vila de Tatajuba | Perto do Mar, da Lagoa e da Foz do Rio | R$ 550.000,00",
+  summaryDescription: "À venda: o Lote 6 na Vila de Tatajuba (Camocim-CE), entre a vila, o mar e a foz do rio, perto dos lotes da Terra Ventos vizinhos a La Ventana e Avra. Fotos e vídeos de drone disponíveis.",
+  about: [
+    "O Lote 6 fica na Vila de Tatajuba (Camocim-CE), uma das vilas mais charmosas do litoral oeste do Ceará, entre o mar, a lagoa, a foz do rio e as dunas.",
+    "O terreno está numa área já ocupada por casas e pousadas, com acesso por rua de areia, a poucos minutos a pé da orla. Serve para uma casa de praia, um refúgio para kitesurfistas ou um projeto de hospedagem pequeno.",
+    "Tatajuba é conhecida pelo vento constante e fica perto de Jericoacoara e dos melhores spots de kitesurf da região.",
+    "Fale com a Terra Ventos para receber a metragem, a planta, os documentos e os vídeos de drone do lote."
+  ],
+  infra: [
+    "Lote 6 na Vila de Tatajuba",
+    "Perto do mar, da lagoa e da foz do rio",
+    "Acesso por rua de areia",
+    "Fotos e vídeos de drone disponíveis",
+    "Metragem e planta: sob consulta",
+    "Vila de Tatajuba, Camocim - CE"
+  ],
+  facilities: ["Vila de Tatajuba", "Perto do Mar", "Drone Disponível", "Para Construir"],
+  gallery: {
+    main: "/imoveis/lote-6-tatajuba-camocim-01-drone-lote-vila-e-mar.webp",
+    sideTop: "/imoveis/lote-6-tatajuba-camocim-02-drone-vista-de-cima-lote.webp",
+    sideBottom: "/imoveis/lote-6-tatajuba-camocim-03-drone-vila-e-foz-do-rio.webp",
+    extra: ["/imoveis/lote-6-tatajuba-camocim-04-drone-vista-alta-vila-e-dunas.webp", "/imoveis/lote-6-tatajuba-camocim-05-drone-panoramica-tatajuba.webp", "/imoveis/lote-6-tatajuba-camocim-06-drone-vista-alta-vila-e-rio.webp"]
+  },
+  mapImage: "/mapa.avif",
+  mapUrl: "https://maps.google.com/maps?q=-2.855321,-40.692684&hl=pt-BR&z=17&output=embed",
+  priceTag: "Valor",
+  price: "R$ 550.000,00",
+  installments: "Consulte condições",
+  category: "venda"
+},
+{
   id: "casa-amarela-tatajuba",
   slug: "casa-amarela-tatajuba",
   title: "VENDA",
