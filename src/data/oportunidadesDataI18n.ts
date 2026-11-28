@@ -3639,6 +3639,38 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
     ]
   },
   {
+    id: "lote-6-tatajuba-camocim",
+    slug: "lote-6-tatajuba-camocim",
+    title: "FOR SALE",
+    searchTitle: "Lot 6 in Tatajuba — Tatajuba Village, Camocim",
+    image: "/imoveis/lote-6-tatajuba-camocim-01-drone-lote-vila-e-mar.webp",
+    badge: "Opportunity",
+    propertyTitle: "LOT 6 IN TATAJUBA — CAMOCIM, CE",
+    location: "Tatajuba Village, Camocim - CE",
+    rating: 5,
+    exclusiveText: "Lot in Tatajuba Village | Near the Sea, the Lagoon and the River Mouth | R$ 550,000.00",
+    summaryDescription: "For sale: Lot 6 in Tatajuba Village (Camocim, Ceará), between the village, the sea and the river mouth, close to Terra Ventos' lots next to La Ventana and Avra. Drone photos and videos available.",
+    about: [
+      "Lot 6 is in Tatajuba Village (Camocim, Ceará), one of the most charming villages on Ceará's western coast, between the sea, the lagoon, the river mouth and the dunes.",
+      "The plot sits in an area already built up with houses and guesthouses, reached by a sand road, a few minutes' walk from the shore. It suits a beach house, a kitesurfer's retreat or a small hospitality project.",
+      "Tatajuba is known for its steady wind and is close to Jericoacoara and the best kitesurfing spots in the region.",
+      "Contact Terra Ventos for the plot size, survey, documents and drone videos."
+    ],
+    infra: [
+      "Lot 6 in Tatajuba Village",
+      "Near the sea, the lagoon and the river mouth",
+      "Access by sand road",
+      "Drone photos and videos available",
+      "Size and survey: on request",
+      "Tatajuba Village, Camocim - CE"
+    ],
+    facilities: ["Tatajuba Village", "Near the Sea", "Drone Footage", "Ready to Build"],
+    priceTag: "Price",
+    price: "R$ 550,000.00",
+    installments: "Contact us for terms",
+    category: "venda"
+  },
+  {
     id: "casa-amarela-tatajuba",
     slug: "casa-amarela-tatajuba",
     title: "FOR SALE",
@@ -5753,6 +5785,38 @@ export const oportunidadesDataByLang: Record<string, Partial<OportunidadeDetalhe
       { id: "lote-04", label: "Lote 04 (501,71 m²)", priceTag: "Valor", price: "R$ 330.000,00" },
       { id: "lote-05", label: "Lote 05 (501,53 m²)", priceTag: "Valor", price: "R$ 330.000,00" }
     ]
+  },
+  {
+    id: "lote-6-tatajuba-camocim",
+    slug: "lote-6-tatajuba-camocim",
+    title: "VENTA",
+    searchTitle: "Lote 6 en Tatajuba — Villa de Tatajuba, Camocim",
+    image: "/imoveis/lote-6-tatajuba-camocim-01-drone-lote-vila-e-mar.webp",
+    badge: "Oportunidad",
+    propertyTitle: "LOTE 6 EN TATAJUBA — CAMOCIM, CE",
+    location: "Villa de Tatajuba, Camocim - CE",
+    rating: 5,
+    exclusiveText: "Lote en la Villa de Tatajuba | Cerca del Mar, la Laguna y la Desembocadura del Río | R$ 550.000,00",
+    summaryDescription: "En venta: el Lote 6 en la Villa de Tatajuba (Camocim, Ceará), entre la villa, el mar y la desembocadura del río, cerca de los lotes de Terra Ventos vecinos a La Ventana y Avra. Fotos y videos de dron disponibles.",
+    about: [
+      "El Lote 6 está en la Villa de Tatajuba (Camocim, Ceará), una de las villas más encantadoras de la costa oeste de Ceará, entre el mar, la laguna, la desembocadura del río y las dunas.",
+      "El terreno está en una zona ya ocupada por casas y posadas, con acceso por calle de arena, a pocos minutos a pie de la orilla. Sirve para una casa de playa, un refugio para kitesurfistas o un pequeño proyecto de hospedaje.",
+      "Tatajuba es conocida por su viento constante y está cerca de Jericoacoara y de los mejores spots de kitesurf de la región.",
+      "Contacte a Terra Ventos para recibir el tamaño, el plano, los documentos y los videos de dron del lote."
+    ],
+    infra: [
+      "Lote 6 en la Villa de Tatajuba",
+      "Cerca del mar, la laguna y la desembocadura del río",
+      "Acceso por calle de arena",
+      "Fotos y videos de dron disponibles",
+      "Tamaño y plano: a consultar",
+      "Villa de Tatajuba, Camocim - CE"
+    ],
+    facilities: ["Villa de Tatajuba", "Cerca del Mar", "Video de Dron", "Para Construir"],
+    priceTag: "Precio",
+    price: "R$ 550.000,00",
+    installments: "Consulte condiciones",
+    category: "venda"
   },
   {
     id: "casa-amarela-tatajuba",
